@@ -19,10 +19,7 @@ class Page extends CI_Controller {
 	 */
 	public function index()
 	{
-		
-		$data = array();
-		$data['keyword'] = "";
-		$data['description'] = "";
+		$data = $this->general_model->getDataContent();
 		$this->load->view('/includes/template', $data);
 	}
 }

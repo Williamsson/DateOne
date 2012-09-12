@@ -13,24 +13,28 @@
 <body>
 	<?php require_once("analyticstracking.php");?>
 	
+	<div id="floatingMenu">
+		
+	</div>
+	
 	<div id="contentWrapper">
 		
 		<div id="languageBar">
-		
+			
 		</div>
 		
 		<div id="logo"></div>
 		
 		<div id="horizontalMenu">
-		
+			
 		</div>
 		
 		<div id="content">
-		
+			
 		</div>
 		
 		<div id="footer">
-		
+			
 		</div>
 		
 	</div>
