@@ -19,6 +19,9 @@ class Page extends CI_Controller {
 	 */
 	public function index()
 	{
+		
+		$this->lang->load('swe', 'swedish'); // ('filename', 'directory')
+		
 		$data = $this->general_model->getDataContent();
 		$this->load->view('/includes/template', $data);
 	}

@@ -14,7 +14,10 @@
 	<?php require_once("analyticstracking.php");?>
 	
 	<div id="floatingMenu">
-		
+		<?php 
+		//HOW TO: Get text. Username references to the $lang['username'] in /language/english/en_lang, although it goes through the /helpers/lang_translate_helper/ function
+		label('username', $this); 
+		?>
 	</div>
 	
 	<div id="contentWrapper">

@@ -1,0 +1,23 @@
+<?php
+
+
+$lang['username'] = "Användarnamn";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
