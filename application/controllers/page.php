@@ -17,13 +17,18 @@ class Page extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
-	{
+	
+	public function index(){
 		
 		$this->lang->load('swe', 'swedish'); // ('filename', 'directory')
 		
 		$data = $this->general_model->getDataContent();
 		$this->load->view('/includes/template', $data);
+	}
+	
+	public function register(){
+		
+		
 	}
 }
 
