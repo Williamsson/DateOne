@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>DateOne</title>
+	<title><?php echo $title?></title>
 	<link rel="stylesheet" href="<?php echo base_url();?>css/template.css" type="text/css" media="screen"/>
 	<script type="text/javascript" src="<?php echo base_url();?>jquery/jquery-1.8.1.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>jquery/floating-1.12.js"></script>
@@ -14,23 +14,9 @@
 	
 </head>
 <body>
-	<?php require_once("analyticstracking.php");?>
+	<?php require_once("/../analyticstracking.php");?>
 	
-	<div id="mainMenu">
-		<ul>
-			<li><a href="http://www.google.se">Profil</a>
-				<ul>
-					<li><a href="http://www.google.se">Mitt galleri</a></li>
-					<li><a href="http://www.google.se">Vänner</a></li>
-				</ul>
-			</li>
-			<li><a href="http://www.google.se">Träffar</a></li>
-			<li><a href="http://www.google.se">Flörtar</a></li>
-			<li><a href="http://www.google.se">Meddelanden</a></li>
-			<li><a href="http://www.google.se">Chat</a></li>
-			<li><a href="http://www.google.se">Logga ut</a></li>
-		</ul>
-	</div>
+	<?php //if(logged_in){$this->load->view('includes/template/mainMenu');};?>
 	
 	<div id="pageWrapper">
 		
@@ -65,7 +51,7 @@
 		
 		
 		<div id="content" class="roundCorners">
-			<?php //$this->load->view($main_content);?>
+			<?php $this->load->view($main_content);?>
 		</div>
 		
 		<div id="footer">

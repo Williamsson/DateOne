@@ -22,8 +22,8 @@ class Page extends CI_Controller {
 		
 		$this->lang->load('swe', 'swedish'); // ('filename', 'directory')
 		
-		$data = $this->general_model->getDataContent();
-		$this->load->view('/includes/template', $data);
+		$data = $this->general_model->getDataContent('DateOne', 'page/index');
+		$this->load->view('/includes/template/template', $data);
 	}
 	
 	public function register(){

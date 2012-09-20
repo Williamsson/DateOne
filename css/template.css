@@ -2,9 +2,6 @@ html{
 	background-color: ;
 }
 
-
-
-
 .roundCorners{
 	-moz-border-radius: 25px;
 	border-radius: 25px;
@@ -14,6 +11,7 @@ html{
 	width: 960px;
 	min-height: 800px;
 	margin: 40px auto;
+	padding: 1em;
 }
 
 #header{
@@ -21,6 +19,7 @@ html{
 	height: 150px;
 	background-color: #ccf;
 	margin-bottom: 1em;
+	padding: 1em;
 }
 
 	#logo{
@@ -31,6 +30,7 @@ html{
 		background-repeat: no-repeat;
 		margin: 1em;
 		position: absolute;
+		padding: 1em;
 	}
 
 	#languageBar{
@@ -56,6 +56,7 @@ html{
 	margin: 0 auto;
 	clear: both;
 	background-color: #ccf;
+	padding: 1em;
 }
 
 	#vertMenu{
@@ -96,6 +97,7 @@ html{
 	min-height: 600px;
 	background-color: #eee;
 	margin-top: 1em;
+	padding: 1em;
 }
 
 #mainMenu{
