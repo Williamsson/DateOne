@@ -5,10 +5,10 @@ function label($label, $obj){
 	
 	$return = $obj->lang->line($label);
 	if($return){
-		echo $return;
+		return  $return;
 	}
 	else{
-		echo $label;
+		return $label;
 	}
 }
 ?>
