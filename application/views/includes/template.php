@@ -13,24 +13,44 @@
 <body>
 	<?php require_once("analyticstracking.php");?>
 	
-	<div id="floatingMenu">
+	<div id="mainMenu">
 		<?php 
 		//HOW TO: Get text. Username references to the $lang['username'] in /language/english/en_lang, although it goes through the /helpers/lang_translate_helper/ function
-		label('username', $this); 
+		//label('username', $this); 
 		?>
 	</div>
 	
-	<div id="contentWrapper">
+	<div id="pageWrapper">
 		
-		<div id="languageBar">
+		<div id="header">
+
+			<div id="languageBar">
+				
+			</div>
+			
+			<div id="login">
+			
+			</div>
+			
+			<div id="logo"></div>
+		
 			
 		</div>
-		
-		<div id="logo"></div>
-		
-		<div id="horizontalMenu">
+
+			<div id="vertMenuWrapper">
+
+				<div id="vertMenu">
+					<ul>
+						<li><a href="http://google.se">Test</a></li>
+						<li><a href="http://google.se">Test</a></li>
+						<li><a href="http://google.se">Test</a></li>
+						<li><a href="http://google.se">Test</a></li>
+						<li><a href="http://google.se">Test</a></li>
+					</ul>
+				</div>
 			
-		</div>
+			</div>
+		
 		
 		<div id="content">
 			
