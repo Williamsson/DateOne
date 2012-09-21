@@ -35,21 +35,42 @@ html{
 
 	#languageBar{
 		float: right;
-		width: 140px;
+		width: 90px;
 		height: 20px;
-		margin: 1em;
-		border: 1px solid black;
+		font-size: 14px;
+		background-color: #D9D9FF;
+		text-align: center;
+		padding: 5px;
 	}
 	
+		#languagePicker{
+			margin-top: 3px;
+		}
+		
+		#languagePicker p{
+			margin-top: 0;
+			padding: 0;
+			display: inline-block;
+		}
+	
 	#login{
+		margin-top: 10px;
 		height: 30px;
-		width: 300px;
+		width: 400px;
 		float: right;
-		margin-right: 1em;
 		clear: right;
-		border: 1px solid black;
 	}
-
+	
+		#login ul{
+			padding: 0;
+			margin: 0 auto;
+			list-style-type: none;
+		}
+		
+			#login ul li, input{
+				display: inline-block;
+				float: left;
+			}
 
 #vertMenuWrapper{
 	width: 100%;

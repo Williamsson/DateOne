@@ -1,6 +1,6 @@
 <?php
 
-//Gets and echoes the correct language if possible, otherwise echoes what was given
+//Gets and returns the correct language if possible, otherwise returns what was given
 function label($label, $obj){
 	
 	$return = $obj->lang->line($label);
