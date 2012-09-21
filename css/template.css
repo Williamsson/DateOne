@@ -1,5 +1,6 @@
 html{
-	background-color: ;
+	background-image:url('../img/bg.png');
+	background-repeat: repeat-x;
 }
 
 .roundCorners{
@@ -10,27 +11,28 @@ html{
 #pageWrapper{
 	width: 960px;
 	min-height: 800px;
-	margin: 40px auto;
+	margin: 5px auto;
 	padding: 1em;
 }
 
 #header{
 	width: 100%;
 	height: 150px;
-	background-color: #ccf;
+	background-image:url('../img/header-bg.png');
+	background-repeat: no-repeat;
 	margin-bottom: 1em;
 	padding: 1em;
 }
 
 	#logo{
-		height: 110px;
-		width: 320px;
+		width: 221px;
+		height: 58px;
 		float: left;
 		background-image: url('../img/logo.png');
 		background-repeat: no-repeat;
-		margin: 1em;
 		position: absolute;
 		padding: 1em;
+		y-index: 999999;
 	}
 
 	#languageBar{
@@ -38,13 +40,12 @@ html{
 		width: 90px;
 		height: 20px;
 		font-size: 14px;
-		background-color: #D9D9FF;
 		text-align: center;
 		padding: 5px;
 	}
 	
 		#languagePicker{
-			margin-top: 3px;
+			margin-top: 2px;
 		}
 		
 		#languagePicker p{
@@ -72,12 +73,18 @@ html{
 				float: left;
 			}
 
+#headerTop{
+	height: 50%;
+	width: 100%;
+}
+
+#headerBottom{
+	margin-top: 40px;
+}
+
 #vertMenuWrapper{
 	width: 100%;
-	margin: 0 auto;
 	clear: both;
-	background-color: #ccf;
-	padding: 1em;
 }
 
 	#vertMenu{
@@ -116,7 +123,7 @@ html{
 #content{
 	width: 100%;
 	min-height: 600px;
-	background-color: #eee;
+	background-color: #ffffff;
 	margin-top: 1em;
 	padding: 1em;
 }
