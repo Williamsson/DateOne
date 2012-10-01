@@ -15,25 +15,34 @@ class General_model extends CI_Model{
 		return $data;
 	}
 
-	function loadLanguage($lang){
-		
-		switch($lang){
-			case 'se':
-				$this->lang->load('se', 'swedish');
-			break;
-
-			case 'en':
-				$this->lang->load('en', 'english');
-			break;
+	function loadLanguage(){
 			
-			default:
-				$this->lang->load('se', 'swedish'); // ('filename', 'directory')
-			break;	
+		$lang = $this->uri->segment(1);
+		
+		if(!empty($lang)){
+
+			switch($lang){
+				case "se":
+					$this->lang->load('se', 'swedish');
+				break;
+				
+				case "en":
+					$this->lang->load('en', 'english');
+				break;
+				
+				default:
+					$this->lang->load('eb', 'english');
+				break;
+			}
+			
+		}else{
+			header("location:" . base_url() . "en");
 		}
 		
-		
-	}
 	
+	}
+		
+		
 	
 	
 	

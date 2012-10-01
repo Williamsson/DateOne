@@ -20,18 +20,10 @@ class Page extends CI_Controller {
 	
 	public function index(){
 		
-		
-		
-		
-		$lang = 'en';
-		
-		$this->general_model->loadLanguage($lang);
+		$this->general_model->loadLanguage();
 		
 		$data = $this->general_model->getDataContent('DateOne', 'page/index');
 		$this->load->view('/includes/template/template', $data);
 	}
 	
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
