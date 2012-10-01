@@ -71,13 +71,16 @@ class Language_model extends CI_Model{
 		$replace   = array("", "", "");
 		$initials = str_replace($find, $replace, $initials);
 		
-		//Ensure that we ONLY get the two first chars
+		//Ensure that we ONLY get the two first chars, eg "se" or "en"
 		$initials = substr($initials, 0, 2);
 		
 		return $initials;
 	}
 	
 	function getLanguageList(){
+		/*
+		 * This is an array containing all (initals) of the languages that are avalible on the site
+		 */
 		$languages = array('se', 'en');
 		return $languages;
 	}
