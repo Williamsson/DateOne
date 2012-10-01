@@ -20,7 +20,7 @@ class Page extends CI_Controller {
 	
 	public function index(){
 		
-		$this->general_model->loadLanguage();
+		$this->language_model->loadLanguage();
 		
 		$data = $this->general_model->getDataContent('DateOne', 'page/index');
 		$this->load->view('/includes/template/template', $data);
