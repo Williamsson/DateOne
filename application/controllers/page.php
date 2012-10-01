@@ -20,16 +20,17 @@ class Page extends CI_Controller {
 	
 	public function index(){
 		
-		$this->lang->load('swe', 'swedish'); // ('filename', 'directory')
+		
+		
+		
+		$lang = 'en';
+		
+		$this->general_model->loadLanguage($lang);
 		
 		$data = $this->general_model->getDataContent('DateOne', 'page/index');
 		$this->load->view('/includes/template/template', $data);
 	}
 	
-	public function register(){
-		
-		
-	}
 }
 
 /* End of file welcome.php */
