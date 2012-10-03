@@ -15,6 +15,9 @@ class Language_model extends CI_Model{
 			$dir = "swedish";
 		}elseif($lang == "en"){
 			$dir = "english";
+		}elseif($this->uri->segment(1) == "en"){
+			$dir = "english";
+			$lang = "en";
 		}
 		
 		$this->lang->load($lang, $dir);
@@ -40,19 +43,22 @@ class Language_model extends CI_Model{
 			$languageAvalible = false;
 			
 			foreach($allLangs as $language){
-				if($language == $lang){
-					$languageAvalible = true;
-					$lang = $language;
+
+				if($language != $lang){
+					$languageAvalible = false;
 				}else{
+					$languageAvalible = true;
+					break;
 				}
 			}
 			
 			if(!$languageAvalible){
-				$lang = "en";
+				redirect('en', 'refresh');
+			}else{
+				return $lang;
 			}
 		}
 		
-		return $lang;
 	}
 	
 	function getUserCountry(){
