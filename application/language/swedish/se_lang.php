@@ -24,7 +24,16 @@ $lang['english'] = "Engelska";
  * First page
  */
 $lang['login'] = "Logga in";
+$lang['what_is_dateone_header'] = "Vad är DateOne?";
+$lang['who_uses_dateone_header'] = "Vem använder DateOne?";
 
+$lang['what_is_dateone'] = "DateOne är en socialt nätverkande och dejtingsida som erbjuder dig att matchas med en potentiell partner, eller att skapa en träff i t.ex. Göteborg för att ta en öl med någon i det området, om du t.ex. är där på affärsresa.";
+$lang['who_uses_dateone'] = "Personer i alla åldrar som vill träffa en partner, eller gå ut och ta en öl med någon likasinnad!";
+
+/*
+ * Registration form
+ */
+$lang['i_am_a'] = "Jag är en..";
 
 
 /*
