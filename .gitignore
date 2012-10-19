@@ -4,3 +4,7 @@
 */config/database.php
 */cache/*
 */cache/!index.html
+
+application/.DS_Store
+
+.DS_Store
