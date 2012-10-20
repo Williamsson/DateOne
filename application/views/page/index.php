@@ -123,6 +123,7 @@
 		<img src="<?php echo base_url();?>img/armani.jpg"/>
 	</div>
 	<hr />
+	<hr class="noborder" />
 </div>
 	<!-- End Body -->
 	
