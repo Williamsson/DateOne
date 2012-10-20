@@ -50,7 +50,7 @@
 		</div>
 		
 		<div id="footer">
-			<p>&copy; Simon Williamsson | Sasa Ristic |2012</p>
+			<p>&copy; Simon Williamsson | Sasa Ristic | 2012</p>
 			<p>Sim.Williamsson@gmail.com</p><p>sasa@lychee.se</p>
 		</div>
 		

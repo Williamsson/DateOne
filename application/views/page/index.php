@@ -49,7 +49,7 @@
 		<!-- Start Header -->
 				<hr />
 					<div class="eight columns alpha">
-						<img src="images/Skeleton_logo.png">
+						<img src="<?php echo base_url();?>img/logo2.png"/>
 					</div>
 					<div class="row">
 						<div class="six columns clearfix">
@@ -89,7 +89,7 @@
 <div class="container">
 	<div class="eleven columns aplha">
 		<div class="row">
-			<img src="images/couple.jpg" alt="couple" width="570" height="280">
+			<img src="<?php echo base_url();?>img/couple.png"/>
 		</div>
 	</div>
 	<div class="five columns omega">
@@ -133,7 +133,7 @@
 
 			<div class="clearfix section" id="footer">
 				<a href="#top">
-					<img src="images/up.png" alt="Back To Top" />
+					<img src="<?php echo base_url();?>img/up.png" alt="Back To Top"/>
 				</a>
 
 			</div>
@@ -142,8 +142,7 @@
 </div>
 	<!-- End Footer -->
 <!-- </div> --> <!-- container -->
-
-<script src="script/script.js" type="text/javascript"></script>
+<script type="text/javascript" src="<?php echo base_url();?>scripts/script.js"></script>
 
 <!-- End Document
 ================================================== -->
