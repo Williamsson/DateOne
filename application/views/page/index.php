@@ -29,10 +29,10 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.js"></script>
 	<!-- Favicons
 	================================================== -->
-	<link rel="shortcut icon" href="images/favicon.ico">
+	<!-- <link rel="shortcut icon" href="images/favicon.ico">
 	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"> -->
 
 </head>
 <body>
@@ -89,7 +89,7 @@
 <div class="container">
 	<div class="eleven columns aplha">
 		<div class="row">
-			<img src="<?php echo base_url();?>img/couple.png"/>
+			<img src="<?php echo base_url();?>img/couple.jpg"/>
 		</div>
 	</div>
 	<div class="five columns omega">
@@ -120,7 +120,7 @@
 		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
 	</div>
 	<div class="one-third column">
-		<img src="images/armani.jpg" alt="armani" width="280" height="240">
+		<img src="<?php echo base_url();?>img/armani.jpg"/>
 	</div>
 	<hr />
 </div>
