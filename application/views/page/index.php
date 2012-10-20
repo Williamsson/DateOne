@@ -44,47 +44,6 @@
 
 	<!-- Delete everything in this .container and get started on your own site! -->
 
-<div class="container">
-	<div class="sixteen columns">
-		<!-- Start Header -->
-				<hr />
-					<div class="eight columns alpha">
-						<img src="<?php echo base_url();?>img/logo2.png"/>
-					</div>
-					<div class="row">
-						<div class="six columns clearfix">
-							<form action="#" id="loginForm" method="post">
-								<div class="three columns alpha">
-									<input type="text" id="user" placeholder="Användarnamn" name="user" class="required requiredField" />
-								</div>
-								<div class="three columns omega">
-									<input type="password" placeholder="Lösenord" name="password" id="password" value="" class="required requiredField" />
-								</div>
-							</form>
-						</div>
-						<div class="row">
-							<div class="two columns omega">
-								<button type="submit">Logga in</button>
-							</div>
-						</div>
-					</div>
-		<!-- End Header -->
-	</div>
-	<!-- Start Nav  -->
-				<div class="sixteen columns">
-						<div id="nav">
-							<ul>
-								<li class="first"><a href="#">Start</a></li>
-								<li class=""><a href="#">Kom Igång</a></li>
-								<li class=""><a href="#">Uppgradera</a></li>
-								<li class=""><a href="#">Om Oss</a></li>
-								<li class="last"><a href="#">Kontakt</a></li>
-							</ul>
-						</div>
-					<hr/>
-				</div>
-	<!-- End Nav -->
-</div>
 	<!-- Start Body -->
 <div class="container">
 	<div class="eleven columns aplha">
@@ -112,12 +71,12 @@
 		<hr class="noborder" />
 <div class="container">
 	<div class="one-third column">
-		<h3>Vad är DateOne.se?</h3>
-		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+		<h3><?php echo label('what_is_dateone_header',$this)?></h3>
+		<p><?php echo label('what_is_dateone',$this)?></p>
 	</div>
 	<div class="one-third column">
-		<h3>Vem använder DateOne.se?</h3>
-		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+		<h3><?php echo label('who_uses_dateone_header',$this)?></h3>
+		<p><?php echo label('who_uses_dateone',$this)?></p>
 	</div>
 	<div class="one-third column">
 		<img src="<?php echo base_url();?>img/armani.jpg"/>
