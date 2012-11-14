@@ -240,20 +240,3 @@
       width: 0;
       height: 0;
     }
-    
-/*Other*/
-.infoColumn{
-	float: left;
-	margin-left: 50px;
-	margin-top: 40px;
-	height: 260px;
-	width: 220px;
-}
-
-	.infoColumn h2{
-		text-align: center;
-		font-size: 18px;
-	}
-	
-	.infoColumn p{
-	}

@@ -1,0 +1,163 @@
+html{
+	background-image:url('../img/bg.png');
+	background-repeat: repeat-x;
+}
+
+.roundCorners{
+	-moz-border-radius: 25px;
+	border-radius: 25px;
+}
+
+#pageWrapper{
+	width: 960px;
+	min-height: 800px;
+	margin: 5px auto;
+	padding: 1em;
+}
+
+	#languageBar{
+		float: right;
+		width: 90px;
+		height: 20px;
+		font-size: 14px;
+		text-align: center;
+		padding: 5px;
+	}
+	
+		#languagePicker{
+			margin-top: 2px;
+		}
+		
+		#languagePicker p{
+			margin-top: 0;
+			padding: 0;
+			display: inline-block;
+		}
+	
+	#login{
+		margin-top: 10px;
+		height: 30px;
+		width: 400px;
+		float: right;
+		clear: right;
+	}
+	
+		#login ul{
+			padding: 0;
+			margin: 0 auto;
+			list-style-type: none;
+		}
+		
+			#login ul li, input{
+				display: inline-block;
+				float: left;
+			}
+
+#headerTop{
+	height: 50%;
+	width: 100%;
+}
+
+#headerBottom{
+	margin-top: 40px;
+}
+
+#vertMenuWrapper{
+	width: 100%;
+	clear: both;
+}
+
+	#vertMenu{
+		width: 100%;
+		font-family: 'Marck Script', cursive;
+		font-size: 17px;
+		
+	}
+		#vertMenu ul{
+			padding:0;
+			margin:0 auto;
+			list-style-type:none;
+			text-align: center;
+		}
+		
+			#vertMenu li{
+				display:inline-block;
+			}
+		
+		#vertMenu a{
+			color: black;
+			font-weight: 600;
+			float: left;
+			min-width: 6em;
+			text-decoration: none;
+	/* 		background-image:url('../img/buttons/button.png'); */
+			background-repeat: no-repeat;
+			width: 60px;
+			height: 22px;
+			padding: 0.2em;
+			margin-left: 5px;
+			text-align: center;
+		}
+	
+
+#content{
+	width: 100%;
+	min-height: 600px;
+	background-color: #ffffff;
+	margin-top: 1em;
+	padding: 1em;
+}
+
+#mainMenu{
+	width: 180px;
+	min-height: 320px;
+	float: left;
+	margin-left: 3em;
+	margin-top: 200px;
+	position: absolute;
+	border: 1px solid black;
+}
+
+	#mainMenu ul{
+		padding:0;
+		margin: 0;
+		list-style-type:none;
+	}
+	
+	#mainMenu li{
+		padding: 10px;
+		width: 160px;
+	}
+	
+	#mainMenu a{
+		background-color: #ccf;
+		display: block;
+		padding: 10px;
+	}
+	
+	#mainMenu ul li ul{
+		display: none;
+	}
+	
+	#mainMenu ul li:hover > ul{
+		display: block;
+	}
+
+#footer{
+	width: 100%;
+	height: 60px;
+	margin-top: 20px;
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+

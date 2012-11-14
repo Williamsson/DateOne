@@ -1,163 +1,308 @@
-html{
-	background-image:url('../img/bg.png');
-	background-repeat: repeat-x;
+body{
+	margin:0;
+	padding:0;
+	line-height: 1.5em;
 }
 
-.roundCorners{
-	-moz-border-radius: 25px;
-	border-radius: 25px;
+b{font-size: 110%;}
+em{color: red;}
+
+#maincontainer{
+	width: 960px; /*Width of main container*/
+	margin: 0 auto; /*Center container on page*/
 }
 
-#pageWrapper{
-	width: 960px;
-	min-height: 800px;
-	margin: 5px auto;
-	padding: 1em;
+#topsection{
+	height: 270px; /*Height of top section*/
+	border-bottom: 1px solid black;
+	margin-bottom: 20px;
+	margin-top: 20px;
 }
 
-	#languageBar{
-		float: right;
-		width: 90px;
-		height: 20px;
-		font-size: 14px;
-		text-align: center;
-		padding: 5px;
-	}
-	
-		#languagePicker{
-			margin-top: 2px;
-		}
-		
-		#languagePicker p{
-			margin-top: 0;
-			padding: 0;
-			display: inline-block;
-		}
-	
-	#login{
-		margin-top: 10px;
-		height: 30px;
-		width: 400px;
-		float: right;
-		clear: right;
-	}
-	
-		#login ul{
-			padding: 0;
-			margin: 0 auto;
-			list-style-type: none;
-		}
-		
-			#login ul li, input{
-				display: inline-block;
-				float: left;
-			}
-
-#headerTop{
-	height: 50%;
-	width: 100%;
-}
-
-#headerBottom{
-	margin-top: 40px;
-}
-
-#vertMenuWrapper{
-	width: 100%;
-	clear: both;
-}
-
-	#vertMenu{
-		width: 100%;
-		font-family: 'Marck Script', cursive;
-		font-size: 17px;
-		
-	}
-		#vertMenu ul{
-			padding:0;
-			margin:0 auto;
-			list-style-type:none;
-			text-align: center;
-		}
-		
-			#vertMenu li{
-				display:inline-block;
-			}
-		
-		#vertMenu a{
-			color: black;
-			font-weight: 600;
-			float: left;
-			min-width: 6em;
-			text-decoration: none;
-	/* 		background-image:url('../img/buttons/button.png'); */
-			background-repeat: no-repeat;
-			width: 60px;
-			height: 22px;
-			padding: 0.2em;
-			margin-left: 5px;
-			text-align: center;
-		}
-	
-
-#content{
-	width: 100%;
-	min-height: 600px;
-	background-color: #ffffff;
-	margin-top: 1em;
-	padding: 1em;
-}
-
-#mainMenu{
-	width: 180px;
-	min-height: 320px;
+#contentwrapper{
 	float: left;
-	margin-left: 3em;
-	margin-top: 200px;
-	position: absolute;
-	border: 1px solid black;
+	width: 100%;
 }
 
-	#mainMenu ul{
-		padding:0;
-		margin: 0;
-		list-style-type:none;
-	}
-	
-	#mainMenu li{
-		padding: 10px;
-		width: 160px;
-	}
-	
-	#mainMenu a{
-		background-color: #ccf;
-		display: block;
-		padding: 10px;
-	}
-	
-	#mainMenu ul li ul{
-		display: none;
-	}
-	
-	#mainMenu ul li:hover > ul{
-		display: block;
-	}
+#contentcolumn{
+	margin: 0 0 0 0; /* Margins for content column. Should be "0 RightColumnWidth 0 LeftColumnWidth */
+}
 
 #footer{
+	clear: left;
 	width: 100%;
-	height: 60px;
-	margin-top: 20px;
 	text-align: center;
+	padding: 4px 0;
+	border-top: 1px solid black;
+}
+
+#footer a{
+	color: #FFFF80;
+}
+
+.innertube{
+	margin: 10px; /*Margins for inner DIV inside each column (to provide padding)*/
+	margin-top: 0;
+}
+
+/*Floating menu part*/
+
+#floatMenu {
+	position:absolute;
+	top:300px;
+	left:10px;
+	width:135px;
+	background-color:#FFF;
+	margin:0;
+	padding:0;
+	font-size:11px;
+	border-left:1px solid #ddd;
+	border-right:1px solid #ddd;
+}
+ 
+#floatMenu h3 {
+	color:white;
+	font-weight:bold;
+	padding:3px;
+	margin:0;
+	background-color:#006;
+	border-bottom:1px solid #ddd;
+	border-top:1px solid #ddd;
+	font-size:13px;
+	text-align:center;
+}
+ 
+#floatMenu ul {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+ 
+#floatMenu ul li {
+	padding-left:10px;
+	background-color:#f5f5f5;
+	border-bottom:1px solid #ddd;
+	border-top:1px solid #ddd;
+}
+
+#floatMenu ul li ul{
+	display: none;
+}
+
+#floatMenu ul li:hover > ul{
+	display: block;
+}
+ 
+#floatMenu ul li a {
+	text-decoration:none;
+}
+	
+/*The static navigation*/
+
+#nav {
+    display: block;
+    text-align: center;
+    margin: -30px auto 0;
+    min-height: 20px;
+    /* padding: 12px 0 0; */
+
+}
+#nav ul {
+    display: block;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    /* margin: 0 auto; */
+    text-align: left;
+    list-style:none
+}
+
+#nav ul li {
+    display: inline;
+    border-color: #d3d3d3;
+    /* border-right: 1px solid #d3d3d3; */
+    padding: 0 10px 0;
+}
+#nav ul li a, nav ul li a:visited, nav ul li a:active {
+    border-radius: 2px 2px 2px 2px;
+    color: #555555;
+    font-size: 16px;
+    position: relative;
+    text-decoration: none;
+}
+
+#nav ul li.first {
+    padding-left: 0;
+}
+
+#nav ul li.last {
+    border-right: none;
+    padding-right: 0;
+}
+
+#nav ul li a:hover, nav ul li a:focus {
+    color: #1FB4DD;
+}
+
+#nav ul li.current_page_item a {
+    color: #1FB4DD;
+}
+#nav ul li.current_page_ancestor a {
+    color: #1FB4DD;
 }
 
 
+	
+#languageBar{
+	float: right;
+	width: 90px;
+	height: 20px;
+	font-size: 14px;
+	text-align: center;
+	padding: 5px;
+}
+
+	#languagePicker{
+		margin-top: 2px;
+	}
+	
+	#languagePicker p{
+		margin-top: 0;
+		padding: 0;
+		display: inline-block;
+	}
+	
+#loginArea{
+	width: 200px;
+	height: 60px;
+	float: right;
+}
+	
+/* #Buttons
+================================================== */
+
+	.button, button, input[type="submit"], input[type="reset"], input[type="button"] {
+		background: #13a7d0;
+		background: -moz-linear-gradient(#1FB4DD, #13a7d0) repeat scroll 0 0 #13a7d0;
+		background: -webkit-linear-gradient(#1FB4DD, #13a7d0) repeat scroll 0 0 #13a7d0;
+		background: -o-linear-gradient(#1FB4DD, #13a7d0) repeat scroll 0 0 #13a7d0;
+		background: linear-gradient(#1FB4DD, #13a7d0) repeat scroll 0 0 #13a7d0;
+		box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+		-moz-box-orient: vertical;
+		border: 1px solid #0c9bc2;
+		border-top: 1px solid #ccc;
+		border-left: 1px solid #ccc;
+		-moz-border-radius: 3px;
+		-webkit-border-radius: 3px;
+		border-radius: 3px;
+		color: #FFFFFF !important;
+		display: inline-block;
+		font-size: 11px;
+		font-weight: bold;
+		text-decoration: none;
+		cursor: pointer;
+		margin-bottom: 20px;
+		line-height: normal;
+		padding: 8px 10px;
+		font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+	}
+
+	.button:hover, button:hover, input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover {
+		color: #222;
+		background: -moz-linear-gradient(#38cbf3, #14a8d1) repeat scroll 0 0 #14a8d1;
+		background: -webkit-linear-gradient(#38cbf3, #14a8d1) repeat scroll 0 0 #14a8d1;
+		background: -o-linear-gradient(#38cbf3, #14a8d1) repeat scroll 0 0 #14a8d1;
+		background: linear-gradient(#38cbf3, #14a8d1) repeat scroll 0 0 #14a8d1;
+		border: 1px solid #888;
+		border-top: 1px solid #aaa;
+		border-left: 1px solid #aaa; 
+	}
+
+	.button:hover, button:hover, input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover {
+ 
+	}
+
+	.button:active,
+	button:active,
+	input[type="submit"]:active,
+	input[type="reset"]:active,
+	input[type="button"]:active {
+		background: #14a8d1; }
+
+	.button.full-width,
+	button.full-width,
+	input[type="submit"].full-width,
+	input[type="reset"].full-width,
+	input[type="button"].full-width {
+		width: 100%;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		text-align: center; }
+
+	/* Fix for odd Mozilla border & padding issues */
+	button::-moz-focus-inner,
+	input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+	}
 
 
+/* #Forms
+================================================== */
 
+	form {
+		margin-bottom: 20px;
+	 }
+	fieldset {
+		margin-bottom: 20px;
+	 }
+	 input[type="text"], input[type="password"], input[type="email"], textarea, select {
+		border: 1px solid #d3d4d5;
+		padding: 6px 4px;
+		outline: none;
+		-moz-border-radius: 2px;
+		-webkit-border-radius: 2px;
+		border-radius: 2px;
+		font: 13px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		color: #3a444f;
+		margin: 0;
+		width: 210px;
+		max-width: 100%;
+		display: block;
+		margin-bottom: 20px;
+		background: #fffeff;
+		border-top: 1px solid #a7aaad;
+		border-right-color: #c2c7ca;
+		border-left-color: #c2c7ca;
+	 }
+	input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus {
+		border: 1px solid #aaa;
+ 		color: #444;
+ 		-moz-box-shadow: 0px 0px 2px #1FB4DD;
+		-webkit-box-shadow: 0px 0px 2px #1FB4DD;
+		box-shadow:  0px 0px 2px #1FB4DD;
+		border: 1px solid #1FB4DD; 
+		 -webkit-transition: all 0.10s ease-in-out;
+		 -moz-transition: all 0.10s ease-in-out;
+	}
+	select {
+		padding: 0;
+	}
 
-
-
-
-
-
-
+	textarea {
+		min-height: 60px; 
+	}
+	label, legend {
+		display: block;
+		font-weight: bold;
+		font-size: 13px;  
+	}
+	select {
+		width: 220px; 
+	}
+	input[type="checkbox"] {
+		display: inline;
+	}
+	label span, legend span {
+		font-weight: normal;
+		font-size: 13px;
+		color: #444; }
