@@ -7,6 +7,7 @@
 	
 	<link rel="stylesheet" href="<?php echo base_url();?>css/template.css" type="text/css" media="screen"/>
 	<link rel="stylesheet" href="<?php echo base_url();?>css/skeleton.css" type="text/css" media="screen"/>
+	<link rel="stylesheet" href="<?php echo base_url();?>css/pages.css" type="text/css" media="screen"/>
 	
 	<script type="text/javascript" src="<?php echo base_url();?>jquery/jquery-1.8.1.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>jquery/floating-1.12.js"></script>

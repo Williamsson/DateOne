@@ -1,0 +1,9 @@
+#indexBottomImage{
+	float: right;
+	margin-right: 10px;
+}
+
+.registrationForm{
+	height: 414px;
+	overflow-y:scroll;
+}
