@@ -25,7 +25,8 @@ em{color: red;}
 }
 
 #contentcolumn{
-	margin: 0 0 0 0; /* Margins for content column. Should be "0 RightColumnWidth 0 LeftColumnWidth */
+	margin: 0;
+	padding: 0;
 }
 
 #footer{

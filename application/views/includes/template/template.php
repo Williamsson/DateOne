@@ -56,9 +56,7 @@
 		
 		<div id="contentwrapper">
 			<div id="contentcolumn">
-				<div class="innertube">
-					<?php $this->load->view($main_content);?>
-				</div>
+				<?php $this->load->view($main_content);?>
 			</div>
 		</div>
 		

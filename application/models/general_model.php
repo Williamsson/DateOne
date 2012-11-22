@@ -14,8 +14,15 @@ class General_model extends CI_Model{
 		return $data;
 	}
 	
-
 	
+	
+	function redirect($location){
+		if($location != 'nolanguage'){
+			header("Location: " . base_url() . $this->language_model->getLanguage() . "/" . $location);
+		}else{
+			header("Location: " . base_url() . $this->language_model->getLanguage() . "/");
+		}
+	}
 	
 	
 	

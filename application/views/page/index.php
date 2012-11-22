@@ -4,21 +4,27 @@
 			<img src="<?php echo base_url()?>img/couple.jpg" alt="couple" width="570" height="280">
  		</div>
  	</div>
-	
+ 	
 	<div class="five columns omega">
-			<form action="#" id="registerMember" method="post">
+			<?php echo form_open('email/send');?>
 				<select id="selectList">
-					<option value="Option 1">Simon som söker kvinna</option>
-					<option value="Option 2">Simon som söker djur</option>
-					<option value="Option 3">Simon som söker barn</option>
+					<?php
+						$i = 1;
+						$options = $this->getFromDB_model->fetch('searching_for','relationship_type');
+						foreach($options as $option){
+							echo "<option value='$i'>" . label($option, $this) . "</option>";
+							++$i;
+						}
+					?>
 				</select>
-				<input type="text" id="user" placeholder="Användarnamn" name="user" class="required requiredField" />
-				<input type="text" id="email"  placeholder="email" name="email" class="required requiredField" value="" />
-				<input type="text" id="remail" placeholder="Upprepa email" name="remail" class="required requiredField" value="" />
-				<input type="password" placeholder="Lösenord" name="password" id="password" value="" class="required requiredField" />
-				<input type="password" placeholder="Upprepa Lösenord" name="rpassword" id="password" value="" class="required requiredField" />
-				<button type="submit">Registrera</button>
-			</form>
+				<input type="text" id="postalNumber" placeholder="<?php echo label('postal_number', $this);?>" name="postal_number" class="required requiredField" />
+				<input type="text" id="user" placeholder="<?php echo label('username', $this);?>" name="username" class="required requiredField" />
+				<input type="text" id="email"  placeholder="<?php echo label('email', $this);?>" name="email" class="required requiredField" value="" />
+				<input type="text" id="remail" placeholder="<?php echo label('repeat_email', $this);?>" name="remail" class="required requiredField" value="" />
+				<input type="password" placeholder="<?php echo label('password', $this);?>" name="password" id="password" value="" class="required requiredField" />
+				<input type="password" placeholder="<?php echo label('repeat_password', $this);?>" name="rpassword" id="password" value="" class="required requiredField" />
+				<button type="submit"><?php echo label('register', $this);?></button>
+			<?php echo form_close();?>
 	</div>		
 </div>
 

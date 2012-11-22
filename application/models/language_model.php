@@ -18,6 +18,9 @@ class Language_model extends CI_Model{
 		}elseif($this->uri->segment(1) == "en"){
 			$dir = "english";
 			$lang = "en";
+		}else{
+			$dir = "english";
+			$lang = "en";
 		}
 		
 		$this->lang->load($lang, $dir);
@@ -29,12 +32,14 @@ class Language_model extends CI_Model{
 		 * language in the URL, if not, locate what country the user is in
 		 * and see if that language exists
 		 */
-		$lang = $this->uri->segment(1);
 		
-		if($this->uri->segment(1) === "se"){
+		
+		if($this->uri->segment(1) == "se"){
 			$lang = "se";
-		}elseif($this->uri->segment(1) === "en"){
+			return $lang;
+		}elseif($this->uri->segment(1) == "en"){
 			$lang = "en";
+			return $lang;
 		}else{
 			$lang = $this->getUserCountry();
 			
@@ -52,8 +57,8 @@ class Language_model extends CI_Model{
 				}
 			}
 			
-			if(!$languageAvalible){
-				redirect('en', 'refresh');
+			if($languageAvalible == false){
+				$this->general_model->redirect('nolanguage');
 			}else{
 				return $lang;
 			}
@@ -68,7 +73,7 @@ class Language_model extends CI_Model{
 		//Connect to the api to find what country that IP is located in
 		$response = file('http://api.hostip.info/get_html.php?ip=' . $userIP . '&position=true');
 	
-		//Do a lot of cleaning to only get the initials of the country, eg "en" or "se"
+		//Do a lot of cleaning to only get the initials of the country, eg "en" or "se" for example
 	
 		$array = explode(" ",$response[0]);
 		$initials = strtolower($array[2]);

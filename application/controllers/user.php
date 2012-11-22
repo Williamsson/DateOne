@@ -7,6 +7,11 @@ class User extends CI_Controller {
 		$this->load->view('/includes/template/template', $data);
 	}
 	
+	public function _register(){
+		
+	}
+	
+	
 }
 
 ?>

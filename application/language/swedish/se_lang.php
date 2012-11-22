@@ -14,6 +14,7 @@
 
 $lang['username'] = "Användarnamn";
 $lang['password'] = "Lösenord";
+$lang['repeat_password'] = "Upprepa lösenord";
 
 $lang['language'] = "Språk";
 
@@ -34,6 +35,16 @@ $lang['who_uses_dateone'] = "Personer i alla åldrar som vill träffa en partner
  * Registration form
  */
 $lang['i_am_a'] = "Jag är en..";
+$lang['male_want_female'] = "Man som söker en kvinna";
+$lang['male_want_male'] = "Man som söker en man";
+$lang['female_want_male'] = "Kvinna som söker en man";
+$lang['female_want_female'] = "Kvinna som söker en kvinna";
+$lang['male_want_friendship'] = "Man som söker vänskap";
+$lang['female_want_friendship'] = "Kvinna som söker vänskap";
+$lang['postal_number'] = "Postnummer";
+$lang['email'] = "Epost";
+$lang['repeat_email'] = "Upprepa epost";
+$lang['register'] = "Registrera";
 
 
 /*

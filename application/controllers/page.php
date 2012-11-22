@@ -20,10 +20,15 @@ class Page extends CI_Controller {
 	
 	public function index(){
 		
-		$this->language_model->loadLanguage();
+		if(!$this->uri->segment(1)){
+			$this->general_model->redirect('nolanguage');
+		}else{
+			$this->language_model->loadLanguage();
+			$data = $this->general_model->getDataContent('DateOne', 'page/index');
+			$this->load->view('/includes/template/template', $data);
+		}
 		
-		$data = $this->general_model->getDataContent('DateOne', 'page/index');
-		$this->load->view('/includes/template/template', $data);
+		
 	}
 	
 }
