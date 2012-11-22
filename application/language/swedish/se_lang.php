@@ -4,6 +4,8 @@
  * AUTHOR: Simon Williamsson
  * DATE: 2012-09-21
  * DESCRIPTION: A swedish language file
+ * USAGE: Do NOT edit the $lang['whatever'] part, that's crucial for the system to find. Simply edit the text inside the quotes, and the system will find the text and use it.
+ * New files must be registered in the language model, see documentation
  */
 
 
@@ -41,7 +43,7 @@ $lang['female_want_male'] = "Kvinna som söker en man";
 $lang['female_want_female'] = "Kvinna som söker en kvinna";
 $lang['male_want_friendship'] = "Man som söker vänskap";
 $lang['female_want_friendship'] = "Kvinna som söker vänskap";
-$lang['postal_number'] = "Postnummer";
+$lang['postal_number'] = "Postnummer (ex: 12345)";
 $lang['email'] = "Epost";
 $lang['repeat_email'] = "Upprepa epost";
 $lang['register'] = "Registrera";
