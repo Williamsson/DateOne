@@ -1,16 +1,17 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+﻿<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class User extends CI_Controller {
 	
 	public function index(){
-		parent::__construct();
-		$data = $this->general_model->getDataContent('DateOne', 'page/index');
-		$this->load->view('/includes/template/template', $data);
+		
+		if(!$this->uri->segment(3)){
+			$this->general_model->redirect('gotohomepage');
+		}
 	}
 	
 	
 	/*
-	 * Handles the initial registration process. If we're not getting any values, redirect to startpage
+	 * Handles the initial registration process. If we're not getting any post data, redirect to startpage
 	 */
 	public function register(){
 		if($_POST){
@@ -64,19 +65,26 @@ class User extends CI_Controller {
 				$this->user_model->register($this->input->post());
 			}
 			
-			
-			
-			
-			
-			
-			
-			
 		}else{
-			redirect('', 'refresh');
+			$this->general_model->redirect('gotohomepage');
 		}
 	}
 	
-	
+
+	public function registerdone(){
+		echo "Här ska det egentligen vara en fin sida som låter en fylla i mer information, men det är inte klart än :)";
+	}
+	/*
+	 * Takes care of the login part, if we're not getting any post data, redirect to start page
+	 */
+	public function login(){
+		if($_POST){
+			
+			
+			
+			
+		}
+	}
 }
 
 ?>

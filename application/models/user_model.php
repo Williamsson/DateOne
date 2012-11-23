@@ -46,13 +46,15 @@ class User_model extends CI_Model{
 		
 		$stateData = array(
 			'user_id' => $userId,
-			'date_joined' => now(),
+			'date_joined' => "now()",
 			'active' => 1,
 			'is_premium' => '0',
 			'role' => 1,
 		);
 		
-		$query = $this->db->insert('user_state', $stateData);
+		
+		$query = $this->db->query("INSERT INTO user_state (user_id, date_joined, active, is_premium, role)
+								VALUES ('$userId', now(), '1', '0', '1')");
 		
 		$settingsData = array(
 			'user_id' => $userId,
@@ -62,6 +64,8 @@ class User_model extends CI_Model{
 		);
 		
 		$query = $this->db->insert('user_settings', $settingsData);
+		
+		$this->general_model->redirect('newlyregistered');
 		
 	}
 	

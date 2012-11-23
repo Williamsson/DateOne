@@ -23,9 +23,7 @@ class Page extends CI_Controller {
 		if(!$this->uri->segment(1)){
 			$this->general_model->redirect('nolanguage');
 		}else{
-			$this->language_model->loadLanguage();
-			$data = $this->general_model->getDataContent('DateOne', 'page/index');
-			$this->load->view('/includes/template/template', $data);
+			$this->general_model->changeView('DateOne', 'page/index');
 		}
 		
 		

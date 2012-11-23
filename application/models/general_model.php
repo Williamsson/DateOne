@@ -2,7 +2,6 @@
 
 class General_model extends CI_Model{
 	
-
 	//Returns an array with all the basic information that a page on the site should have in common, such as keywords
 	function getDataContent($title, $mainContent){
 		$data = array();
@@ -14,15 +13,18 @@ class General_model extends CI_Model{
 		return $data;
 	}
 	
-	
 	function redirect($location){
-		if($location != 'nolanguage'){
-			header("Location: " . base_url() . $this->language_model->getLanguage() . "/" . $location);
-		}else{
+		if($location == 'nolanguage'){
 			header("Location: " . base_url() . $this->language_model->getLanguage() . "/");
+		}elseif($location == 'gotohomepage'){
+			header("Location: " . base_url() . $this->language_model->getLanguage() . "/");
+		}elseif($location == "newlyregistered"){
+			header("Location: " . base_url() . $this->language_model->getLanguage() . "/user/registerdone");
+		}
+		else{
+			header("Location: " . base_url() . $this->language_model->getLanguage() . "/" . $location);
 		}
 	}
-	
 	
 	function makePostalNumberCoords($postalNumber){
 		$postalNumber = str_replace (" ", "+", urlencode($postalNumber));
@@ -54,7 +56,11 @@ class General_model extends CI_Model{
 		
 	}
 	
-	
+	function changeView($title, $view){
+		$this->language_model->loadLanguage();
+		$data = $this->general_model->getDataContent($title, $view);
+		$this->load->view('/includes/template/template', $data);
+	}
 	
 	
 	
