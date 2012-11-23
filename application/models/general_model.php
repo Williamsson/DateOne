@@ -13,19 +13,6 @@ class General_model extends CI_Model{
 		return $data;
 	}
 	
-	function redirect($location){
-		if($location == 'nolanguage'){
-			header("Location: " . base_url() . $this->language_model->getLanguage() . "/");
-		}elseif($location == 'gotohomepage'){
-			header("Location: " . base_url() . $this->language_model->getLanguage() . "/");
-		}elseif($location == "newlyregistered"){
-			header("Location: " . base_url() . $this->language_model->getLanguage() . "/user/registerdone");
-		}
-		else{
-			header("Location: " . base_url() . $this->language_model->getLanguage() . "/" . $location);
-		}
-	}
-	
 	function makePostalNumberCoords($postalNumber){
 		$postalNumber = str_replace (" ", "+", urlencode($postalNumber));
 		$postalNumber = json_encode($postalNumber);

@@ -1,0 +1,1 @@
+<h2>Här finns det information om varför man bör uppgradera, och vad man får för fördelar</h2>

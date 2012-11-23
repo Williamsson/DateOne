@@ -75,7 +75,7 @@ class Language_model extends CI_Model{
 			}
 			
 			if($languageAvalible == false){
-				$this->general_model->redirect('nolanguage');
+				$this->redirect_model->redirect('nolanguage');
 			}else{
 				return $lang;
 			}

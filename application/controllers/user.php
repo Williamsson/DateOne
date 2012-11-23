@@ -5,7 +5,7 @@ class User extends CI_Controller {
 	public function index(){
 		
 		if(!$this->uri->segment(3)){
-			$this->general_model->redirect('gotohomepage');
+			$this->redirect_model->redirect('gotohomepage');
 		}
 	}
 	
@@ -66,13 +66,12 @@ class User extends CI_Controller {
 			}
 			
 		}else{
-			$this->general_model->redirect('gotohomepage');
+			$this->redirect_model->redirect('gotohomepage');
 		}
 	}
 	
-
 	public function registerdone(){
-		echo "Här ska det egentligen vara en fin sida som låter en fylla i mer information, men det är inte klart än :)";
+		$this->general_model->changeView('DateOne', 'page/registration_done_view');
 	}
 	/*
 	 * Takes care of the login part, if we're not getting any post data, redirect to start page

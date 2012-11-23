@@ -41,14 +41,13 @@
 					</form>
 				</div>
 				
-				
 				<div id="nav">
 					<ul>
-						<li class="first"><a href="#"><?php echo label('home',$this)?></a></li>
-						<li class=""><a href="#"><?php echo label('get_started',$this)?></a></li>
-						<li class=""><a href="#"><?php echo label('upgrade',$this)?></a></li>
-						<li class=""><a href="#"><?php echo label('about',$this)?></a></li>
-						<li class="last"><a href="#"><?php echo label('contact',$this)?></a></li>
+						<li class="first"><a href="<?php echo base_url() . $this->language_model->getLanguage();?>"><?php echo label('home',$this)?></a></li>
+						<li class=""><a href="<?php echo base_url() . $this->language_model->getLanguage() . "/page/getstarted";?>"><?php echo label('get_started',$this)?></a></li>
+						<li class=""><a href="<?php echo base_url() . $this->language_model->getLanguage() . "/page/upgrade";?>"><?php echo label('upgrade',$this)?></a></li>
+						<li class=""><a href="<?php echo base_url() . $this->language_model->getLanguage() . "/page/about";?>"><?php echo label('about',$this)?></a></li>
+						<li class="last"><a href="<?php echo base_url() . $this->language_model->getLanguage() . "/page/contact";?>"><?php echo label('contact',$this)?></a></li>
 					</ul>
 				</div>
 			</div>

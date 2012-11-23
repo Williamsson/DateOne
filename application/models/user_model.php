@@ -65,7 +65,7 @@ class User_model extends CI_Model{
 		
 		$query = $this->db->insert('user_settings', $settingsData);
 		
-		$this->general_model->redirect('newlyregistered');
+		$this->redirect_model->redirect('newlyregistered');
 		
 	}
 	

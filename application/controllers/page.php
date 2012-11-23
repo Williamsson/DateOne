@@ -21,12 +21,28 @@ class Page extends CI_Controller {
 	public function index(){
 		
 		if(!$this->uri->segment(1)){
-			$this->general_model->redirect('nolanguage');
+			$this->redirect_model->redirect('nolanguage');
 		}else{
-			$this->general_model->changeView('DateOne', 'page/index');
+			$this->general_model->changeView('DateOne', 'page/index_view');
 		}
 		
 		
+	}
+	
+	public function getstarted(){
+		$this->general_model->changeView('DateOne', 'page/staticMenu/get_started_view');
+	}
+	
+	public function upgrade(){
+		$this->general_model->changeView('DateOne', 'page/staticMenu/upgrade_view');
+	}
+	
+	public function about(){
+		$this->general_model->changeView('DateOne', 'page/staticMenu/about_view');
+	}
+	
+	public function contact(){
+		$this->general_model->changeView('DateOne', 'page/staticMenu/contact_view');
 	}
 	
 }
