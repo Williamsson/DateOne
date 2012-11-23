@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: localhost
--- Skapad: 19 okt 2012 kl 19:58
+-- Skapad: 23 nov 2012 kl 09:09
 -- Serverversion: 5.5.20
 -- PHP-version: 5.3.10
 
@@ -557,7 +557,15 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `description` varchar(65) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
+
+--
+-- Dumpning av Data i tabell `roles`
+--
+
+INSERT INTO `roles` (`id`, `description`) VALUES
+(1, 'Default user'),
+(2, 'Administrator');
 
 -- --------------------------------------------------------
 
@@ -582,6 +590,18 @@ CREATE TABLE IF NOT EXISTS `searching_for` (
   `relationship_type` varchar(65) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`value`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumpning av Data i tabell `searching_for`
+--
+
+INSERT INTO `searching_for` (`value`, `relationship_type`) VALUES
+(1, 'male_want_female'),
+(2, 'male_want_male'),
+(3, 'female_want_male'),
+(4, 'female_want_female'),
+(5, 'male_want_friendship'),
+(6, 'female_want_friendship');
 
 -- --------------------------------------------------------
 
