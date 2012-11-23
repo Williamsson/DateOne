@@ -14,45 +14,49 @@ class User extends CI_Controller {
 	 */
 	public function register(){
 		if($_POST){
+			$this->language_model->loadLanguage();
 			
-			$a = label('postal_number',$this);
 			$config = array(
 						array(
 		                     'field'   => 'postal_number', 
-		                     'label'   => $a, 
-		                     'rules'   => 'required|numeric|xss_clean'
+		                     'label'   => 'lang:postal_number', 
+		                     'rules'   => 'required|numeric|xss_clean|exact_length[5]'
 						),
 						array(
 		                     'field'   => 'username', 
-		                     'label'   => label('username',$this),  
+		                     'label'   => 'lang:username',  
 		                     'rules'   => 'required|xss_clean'
 						),
 						array(
 		                     'field'   => 'email', 
-		                     'label'   => label('email',$this),  
+		                     'label'   => 'lang:email',  
 		                     'rules'   => 'required|valid_email|is_uniqe[users.email]|xss_clean'
 						),
 						array(
 		                     'field'   => 'remail', 
-		                     'label'   => label('repeat_email',$this), 
+		                     'label'   => 'lang:repeat_email', 
 		                     'rules'   => 'required|matches[email]|xss_clean'
 						),
 						array(
 		                     'field'   => 'password', 
-		                     'label'   => label('password',$this), 
+		                     'label'   => 'lang:password', 
 		                     'rules'   => 'required|min_length[8]|xss_clean'
 						),
 						array(
 		                     'field'   => 'rpassword', 
-		                     'label'   => label('repeat_password',$this), 
+		                     'label'   => 'lang:repeat_password', 
 		                     'rules'   => 'required|matches[password]|xss_clean'
 						)
 			);
 				
 			$this->form_validation->set_rules($config);
+			$this->form_validation->set_message('required', '%s ' . label('required_field',$this));
+			$this->form_validation->set_message('min_length', label('min_password_length',$this));
+			$this->form_validation->set_message('exact_length', '%s ' . label('postal_number_length',$this));
+			$this->form_validation->set_message('valid_email', label('not_valid_email',$this));
+			$this->form_validation->set_message('matches', '%s' . label('repeat_field_not_match',$this) . '%s');
 			
 			if($this->form_validation->run() == FALSE){
-				$this->language_model->loadLanguage();
 				$data = $this->general_model->getDataContent('DateOne', 'page/index');
 				$this->load->view('/includes/template/template', $data);
 			}else{

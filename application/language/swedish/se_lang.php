@@ -43,10 +43,18 @@ $lang['female_want_male'] = "Kvinna som söker en man";
 $lang['female_want_female'] = "Kvinna som söker en kvinna";
 $lang['male_want_friendship'] = "Man som söker vänskap";
 $lang['female_want_friendship'] = "Kvinna som söker vänskap";
-$lang['postal_number'] = "Postnummer (ex: 12345)";
+$lang['postal_number'] = "Postnummer";
 $lang['email'] = "Epost";
 $lang['repeat_email'] = "Upprepa epost";
 $lang['register'] = "Registrera";
+
+/*
+ * Registration Error messages
+ */
+$lang['required_field'] = " måste fyllas i.";
+$lang['min_password_length'] = "Ditt lösenord måste vara minst åtta tecken.";
+$lang['postal_number_length'] = " måste vara exakt fem siffror, utan mellanslag.";
+$lang['repeat_field_not_match'] = " matchar inte ";
 
 
 /*
@@ -58,10 +66,11 @@ $lang['upgrade'] = "Uppgradera";
 $lang['about'] = "Om oss";
 $lang['contact'] = "Kontakt";
 
+/*
+ * Generic error messages
+ */
 
-
-
-
+$lang['not_valid_email'] = "Du har inte fyllt i en giltig email.";
 
 
 ?>

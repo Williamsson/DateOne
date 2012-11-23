@@ -6,9 +6,6 @@
  	</div>
  	
 	<div class="five columns omega registrationForm">
-		<div class="errorMessage">
-			<?php echo validation_errors();?>
-		</div>
 		<?php 
 		$lang = $this->language_model->getLanguage();
 		echo form_open($lang . '/user/register');?>
@@ -22,11 +19,17 @@
 					}
 				?>
 			</select>
+			<?php echo form_error('postal_number');?>
 			<input type="text" id="postalNumber" value="<?php echo set_value('postal_number'); ?>" placeholder="<?php echo label('postal_number', $this);?>" name="postal_number" class="required requiredField" />
+			<?php echo form_error('username');?>
 			<input type="text" id="user" value="<?php echo set_value('username'); ?>" placeholder="<?php echo label('username', $this);?>" name="username" class="required requiredField" />
+			<?php echo form_error('email');?>
 			<input type="text" id="email" value="<?php echo set_value('email'); ?>"  placeholder="<?php echo label('email', $this);?>" name="email" class="required requiredField" value="" />
+			<?php echo form_error('remail');?>
 			<input type="text" id="remail" value="<?php echo set_value('remail'); ?>" placeholder="<?php echo label('repeat_email', $this);?>" name="remail" class="required requiredField" value="" />
+			<?php echo form_error('password');?>
 			<input type="password" placeholder="<?php echo label('password', $this);?>" name="password" id="password" value="" class="required requiredField" />
+			<?php echo form_error('rpassword');?>
 			<input type="password" placeholder="<?php echo label('repeat_password', $this);?>" name="rpassword" id="password" value="" class="required requiredField" />
 			<button type="submit"><?php echo label('register', $this);?></button>
 		<?php echo form_close();?>
