@@ -9,7 +9,12 @@ class Language_model extends CI_Model{
 		 * @TODO: Cache the result so we don't have to look everything up all the time
 		 */
 		
-		$lang = $this->getLanguage();
+		if($this->session->userdata('user_country')){
+			$lang = $this->session->userdata('user_country_initials');
+		}else{
+			$lang = $this->getLanguage();
+		}
+		
 		
 		if($lang == "se"){
 			$dir = "swedish";
@@ -36,12 +41,24 @@ class Language_model extends CI_Model{
 		
 		if($this->uri->segment(1) == "se"){
 			$lang = "se";
+			
+			$this->session->set_userdata('user_country', "sweden");
+			$this->session->set_userdata('user_country_initials', $lang);
+			
 			return $lang;
 		}elseif($this->uri->segment(1) == "en"){
 			$lang = "en";
+			
+			$this->session->set_userdata('user_country', "england");
+			$this->session->set_userdata('user_country_initials', $lang);
+			
 			return $lang;
 		}else{
 			$lang = $this->getUserCountry();
+			
+			$this->session->set_userdata('user_country', strtolower($lang['country']));
+			$lang = $lang['initials'];
+			$this->session->set_userdata('user_country_initials', $lang);
 			
 			$allLangs = $this->getLanguageList();
 			
@@ -74,8 +91,9 @@ class Language_model extends CI_Model{
 		$response = file('http://api.hostip.info/get_html.php?ip=' . $userIP . '&position=true');
 	
 		//Do a lot of cleaning to only get the initials of the country, eg "en" or "se" for example
-	
+		
 		$array = explode(" ",$response[0]);
+		$country = $array[1];
 		$initials = strtolower($array[2]);
 		
 		$find = array("(", ")", " ");
@@ -85,7 +103,9 @@ class Language_model extends CI_Model{
 		//Ensure that we ONLY get the two first chars, eg "se" or "en"
 		$initials = substr($initials, 0, 2);
 		
-		return $initials;
+		$return = array('initials' => $initials, 'country' => $country);
+		
+		return $return;
 	}
 	
 	function getLanguageList(){

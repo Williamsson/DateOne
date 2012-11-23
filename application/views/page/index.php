@@ -6,6 +6,7 @@
  	</div>
  	
 	<div class="five columns omega registrationForm">
+	
 		<?php 
 		$lang = $this->language_model->getLanguage();
 		echo form_open($lang . '/user/register');?>

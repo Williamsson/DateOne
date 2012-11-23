@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: localhost
--- Skapad: 23 nov 2012 kl 09:09
+-- Skapad: 23 nov 2012 kl 11:04
 -- Serverversion: 5.5.20
 -- PHP-version: 5.3.10
 
@@ -637,7 +637,40 @@ CREATE TABLE IF NOT EXISTS `traits` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(65) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='"name" is responding to the table of the item, eg. "eye_colo' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='"name" is responding to the table of the item, eg. "eye_colo' AUTO_INCREMENT=28 ;
+
+--
+-- Dumpning av Data i tabell `traits`
+--
+
+INSERT INTO `traits` (`id`, `name`) VALUES
+(1, 'ancestry'),
+(2, 'appearance'),
+(3, 'bodytype'),
+(4, 'civil_status'),
+(5, 'clothing'),
+(6, 'drinking_habits'),
+(7, 'education'),
+(8, 'exercising_habits'),
+(9, 'eye_color'),
+(10, 'favorite_music_genre'),
+(11, 'friday_night_activity'),
+(12, 'hair_color'),
+(13, 'hobby'),
+(14, 'housing_type'),
+(15, 'length'),
+(16, 'messages'),
+(17, 'num_childs'),
+(18, 'occupation'),
+(19, 'personality_type'),
+(20, 'pets'),
+(21, 'religion'),
+(22, 'romance'),
+(23, 'searching_for'),
+(24, 'spoken_languages'),
+(25, 'tobacco_habits'),
+(26, 'wanted_num_childs'),
+(27, 'weight');
 
 -- --------------------------------------------------------
 
@@ -646,7 +679,8 @@ CREATE TABLE IF NOT EXISTS `traits` (
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `id` int(4) NOT NULL AUTO_INCREMENT,
+  `username` varchar(65) COLLATE utf8_bin NOT NULL,
   `hashed_password` varchar(65) COLLATE utf8_bin DEFAULT NULL,
   `salt` varchar(65) COLLATE utf8_bin DEFAULT NULL,
   `email` varchar(65) COLLATE utf8_bin DEFAULT NULL,
@@ -654,8 +688,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `sur_name` varchar(65) COLLATE utf8_bin DEFAULT NULL,
   `country` varchar(65) COLLATE utf8_bin DEFAULT NULL,
   `description` mediumtext COLLATE utf8_bin,
-  `latitude` int(11) DEFAULT NULL,
-  `longitude` int(11) DEFAULT NULL,
+  `latitude` varchar(11) COLLATE utf8_bin DEFAULT NULL,
+  `longitude` varchar(11) COLLATE utf8_bin DEFAULT NULL,
   `year_of_birth` int(4) DEFAULT NULL,
   `favorite_movie` varchar(140) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -717,7 +751,7 @@ CREATE TABLE IF NOT EXISTS `user_gender_block` (
 --
 
 CREATE TABLE IF NOT EXISTS `user_looking_for_traits` (
-  `id` tinyint(4) DEFAULT NULL,
+  `id` int(4) DEFAULT NULL,
   `trait_id` int(11) DEFAULT NULL,
   `value` int(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -732,18 +766,6 @@ CREATE TABLE IF NOT EXISTS `user_matches` (
   `user_id` int(11) DEFAULT NULL,
   `matching_user_id` int(11) DEFAULT NULL,
   `match_level` int(3) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Tabellstruktur `user_role`
---
-
-CREATE TABLE IF NOT EXISTS `user_role` (
-  `user_id` int(11) NOT NULL DEFAULT '0',
-  `role_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
@@ -787,6 +809,7 @@ CREATE TABLE IF NOT EXISTS `user_state` (
   `date_joined` datetime DEFAULT NULL,
   `active` tinyint(1) DEFAULT NULL,
   `is_premium` tinyint(1) DEFAULT NULL,
+  `role` int(1) NOT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -797,10 +820,10 @@ CREATE TABLE IF NOT EXISTS `user_state` (
 --
 
 CREATE TABLE IF NOT EXISTS `user_traits` (
-  `id` tinyint(4) NOT NULL DEFAULT '0',
+  `user_id` int(4) NOT NULL DEFAULT '0',
   `trait_id` int(11) DEFAULT NULL,
   `value` int(3) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------

@@ -54,7 +54,8 @@ $lang['register'] = "Registrera";
 $lang['required_field'] = " måste fyllas i.";
 $lang['min_password_length'] = "Ditt lösenord måste vara minst åtta tecken.";
 $lang['postal_number_length'] = " måste vara exakt fem siffror, utan mellanslag.";
-$lang['repeat_field_not_match'] = " matchar inte ";
+$lang['repeat_field_not_match'] = " matchar inte "; //fieldnames are added in code, so it's FIELDNAME [this_translation] FIELDNAME
+$lang['field_exists'] = " finns redan i vår databas.";
 
 
 /*
