@@ -151,32 +151,50 @@ em{color: red;}
     color: #1FB4DD;
 }
 
+#topBar{
+	width: 650px;
+	height: 40px;
+	float: right;
+}
 
-	
+#topBar > p,img{
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
 #languageBar{
 	float: right;
+	position: relative;
 	width: 90px;
-	height: 20px;
-	font-size: 14px;
-	text-align: center;
-	padding: 5px;
 }
 
-	#languagePicker{
-		margin-top: 2px;
-	}
-	
-	#languagePicker p{
-		margin-top: 0;
-		padding: 0;
-		display: inline-block;
-	}
-	
 #loginArea{
-	width: 200px;
-	height: 60px;
-	float: right;
+	height: 40px;
 }
+
+	#loginArea form{
+		float: right;
+		margin-right: 5px;
+		height: 10px;
+	}
+	
+	#loginArea form input{
+		float: left;
+		margin-right: 5px;
+		margin-top: 3px;
+	}
+	
+#loginErrors{
+	width: 500px;
+	float: left;
+}
+
+	#loginErrors p{
+		margin-left: 30px;
+	}
+	
+	
 	
 /* #Buttons
 ================================================== */

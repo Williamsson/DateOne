@@ -13,6 +13,11 @@ class General_model extends CI_Model{
 		return $data;
 	}
 	
+	/*
+	 * Recieves a postal number, eg 12345 and adds the user's country to it as a url friendly variable, so it could be 12345+sweden
+	 * And then makes use of Google's API to find the longitude and latitude of that postal number's region
+	 */
+	
 	function makePostalNumberCoords($postalNumber){
 		$postalNumber = str_replace (" ", "+", urlencode($postalNumber));
 		$postalNumber = json_encode($postalNumber);
@@ -42,6 +47,11 @@ class General_model extends CI_Model{
 		return $array;
 		
 	}
+	
+	/*
+	 * Simply changes the current view, also takes Title as a parameter, which should be DateOne since it does not
+	 * translate it to the correct language.
+	 */
 	
 	function changeView($title, $view){
 		$this->language_model->loadLanguage();

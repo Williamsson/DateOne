@@ -1,0 +1,1 @@
+<p>Grattis <?php echo $this->session->userdata('username')?>! Du är inloggad!</p>

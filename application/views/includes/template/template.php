@@ -26,20 +26,32 @@
 			<div class="innertube">
 				<img src="<?php echo base_url();?>img/logo2.png"/>
 				
-				<div id="languageBar">
-					<div id="languagePicker">
-						<p><?php echo label('language',$this) . ": ";?></p>
-						<img src="<?php echo base_url();?>img/lang/se.png"/>
+				
+				<div id="topBar">
+					
+					<div id="languageBar">
+						<form>
+							<button><?php echo label('language',$this)?></button>
+						</form>
+						
 					</div>
+					
+					<div id="loginArea">
+						<?php echo form_open('user/login');?>
+							<input type="text" id="user" placeholder="<?php echo label('username',$this);?>" name="loginusername" class="required requiredField" />
+							<input type="password" placeholder="<?php echo label('password',$this);?>" name="loginpassword" id="password" value="" class="required requiredField" />
+							<button type="submit"><?php echo label('login',$this)?></button>
+						<?php echo form_close();?>
+						
+						<div id="loginErrors">
+							<?php echo form_error('loginusername');?>
+							<?php echo form_error('loginpassword');?>
+						</div>
+					</div>
+					
+					
 				</div>
 				
-				<div id="loginArea">
-					<form action="#" id="loginForm" method="post">
-						<input type="text" id="user" placeholder="Användarnamn" name="user" class="required requiredField" />
-						<input type="password" placeholder="Lösenord" name="password" id="password" value="" class="required requiredField" />
-						<button type="submit"><?php echo label('login',$this)?></button>
-					</form>
-				</div>
 				
 				<div id="nav">
 					<ul>

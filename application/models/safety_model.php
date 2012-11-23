@@ -33,8 +33,40 @@ class Safety_model extends CI_Model{
 	}
 
 
+	function getUserSalt($userId){
+		$this->db->select('salt');
+		$this->db->where('id', $userId);
+		$query = $this->db->get('users');
+		
+		if($query->num_rows() > 0){
+			$userId = $query->row()->salt;
+			return $userId;
+		}else{
+			return false;
+		}
+	}
 	
-
+	/*
+	 * Takes the password and adds the salt, then hashes it with sha1 
+	 */
+	
+	function protectPassword($password, $salt){
+		$password = $password . $salt;
+		$password = sha1($password);
+		return $password;
+	}
+	
+	function getUserPassword($userId, $userPassword){
+		$this->db->select('hashed_password');
+		$this->db->where('id', $userId);
+		$query = $this->db->get('users');
+		
+		if($query->num_rows() > 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
 
 
 

@@ -51,7 +51,6 @@ $lang['register'] = "Registrera";
 /*
  * Registration Error messages
  */
-$lang['required_field'] = " måste fyllas i.";
 $lang['min_password_length'] = "Ditt lösenord måste vara minst åtta tecken.";
 $lang['postal_number_length'] = " måste vara exakt fem siffror, utan mellanslag.";
 $lang['repeat_field_not_match'] = " matchar inte "; //fieldnames are added in code, so it's FIELDNAME [this_translation] FIELDNAME
@@ -71,6 +70,7 @@ $lang['contact'] = "Kontakt";
  * Generic error messages
  */
 
+$lang['required_field'] = " måste fyllas i.";
 $lang['not_valid_email'] = "Du har inte fyllt i en giltig email.";
 
 

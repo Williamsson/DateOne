@@ -9,7 +9,7 @@ class Language_model extends CI_Model{
 		 * @TODO: Cache the result so we don't have to look everything up all the time
 		 */
 		
-		if($this->session->userdata('user_country')){
+		if($this->session->userdata('user_country') && !$this->uri->segment(1)){
 			$lang = $this->session->userdata('user_country_initials');
 		}else{
 			$lang = $this->getLanguage();

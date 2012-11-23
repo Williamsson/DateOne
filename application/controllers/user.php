@@ -59,7 +59,7 @@ class User extends CI_Controller {
 			$this->form_validation->set_message('is_unique', '%s' . label('field_exists',$this));
 			
 			if($this->form_validation->run() == FALSE){
-				$data = $this->general_model->getDataContent('DateOne', 'page/index');
+				$data = $this->general_model->getDataContent('DateOne', 'page/index_view');
 				$this->load->view('/includes/template/template', $data);
 			}else{
 				$this->user_model->register($this->input->post());
@@ -78,10 +78,32 @@ class User extends CI_Controller {
 	 */
 	public function login(){
 		if($_POST){
+			$this->language_model->loadLanguage();
+			$config = array(
+				array(
+                     'field'   => 'loginpassword', 
+                     'label'   => 'lang:password', 
+                     'rules'   => 'required|min_length[8]|xss_clean'
+					),
+				array(
+                     'field'   => 'loginusername', 
+                     'label'   => 'lang:username',  
+                     'rules'   => 'required|xss_clean'
+					),
+			);
+			$this->form_validation->set_message('required', '%s ' . label('required_field',$this));
+			$this->form_validation->set_rules($config);
+			
+			if($this->form_validation->run() == FALSE){
+				$data = $this->general_model->getDataContent('DateOne', 'page/index_view');
+				$this->load->view('/includes/template/template', $data);
+			}else{
+				$this->user_model->login($_POST);
+			}
 			
 			
-			
-			
+		}else{
+			$this->redirect_model->redirect('gotohomepage');
 		}
 	}
 }
