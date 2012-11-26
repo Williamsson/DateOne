@@ -5,7 +5,8 @@ $databaseHost = "localhost";
 //The user to your database
 $user = "root";
 //The password to your database
-$password = "xerxes";
+//$password = "xerxes";
+$password = "root";
 //The desired name of your database
 $database = "pahlm";
 
