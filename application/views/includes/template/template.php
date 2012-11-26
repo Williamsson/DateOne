@@ -76,7 +76,11 @@
 			</div>
 		</div>
 		
-			<?php $this->load->view('includes/template/mainMenu');?>
+		<?php 
+			if($this->user_model->isLoggedIn()){
+				$this->load->view('includes/template/mainMenu');
+			}
+		?>
 		
 	<div id="footer">
 		<p>&copy; Simon Williamsson | Sasa Ristic | 2012 </p>

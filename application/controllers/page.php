@@ -23,7 +23,13 @@ class Page extends CI_Controller {
 		if(!$this->uri->segment(1)){
 			$this->redirect_model->redirect('nolanguage');
 		}else{
-			$this->general_model->changeView('DateOne', 'page/index_view');
+			
+			if(!$this->user_model->isLoggedIn()){
+				$this->general_model->changeView('DateOne', 'page/index_view');
+			}else{
+				$this->general_model->changeView('DateOne', 'page/loggedin_view');
+			}
+			
 		}
 		
 		

@@ -60,13 +60,23 @@ $lang['field_exists'] = " finns redan i vår databas.";
 
 
 /*
- * Main menu
+ * Menu stuff
  */
+//Static top bar menu
 $lang['home'] = "Start";
 $lang['get_started'] = "Kom igång";
 $lang['upgrade'] = "Uppgradera";
 $lang['about'] = "Om oss";
 $lang['contact'] = "Kontakt";
+//User control panel menu
+$lang['menu_title'] = "Kontrollpanel";
+$lang['profile'] = "Profil";
+$lang['gallery'] = "Galleri";
+$lang['events'] = "Evenemang";
+$lang['friends'] = "Vänner";
+$lang['flirts'] = "Flörtar";
+$lang['messages'] = "Meddelanden";
+$lang['chat'] = "Chatt";
 
 /*
  * Generic error messages

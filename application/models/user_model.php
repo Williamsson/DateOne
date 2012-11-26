@@ -90,13 +90,9 @@ class User_model extends CI_Model{
 			
 			if($passwordCorrect){
 				
-				$done = $this->setLoginData($username, $userId);
+				$this->setLoginData($username, $userId);
 				
-				if($done){
-					$this->redirect_model->redirect("login");
-				}else{
-					$this->redirect_model->redirect("gotohomepage");
-				}
+				$this->redirect_model->redirect("gotohomepage");
 				
 				
 			}else{
@@ -123,9 +119,6 @@ class User_model extends CI_Model{
 		$this->session->set_userdata('userId', $userId);
 		
 		$query = $this->db->query("UPDATE user_state SET last_login = now(), logged_in = '1' WHERE user_id = '$userId'");
-		
-		return true;
-		
 	}
 	
 	public function getUserId($username){

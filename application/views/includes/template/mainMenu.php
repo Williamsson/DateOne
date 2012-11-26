@@ -1,16 +1,15 @@
 <div id="floatMenu">
-<h3>Navigering</h3>
+<h3><?php echo label('menu_title',$this)?></h3>
 <ul>
-		<li><a href="http://www.google.se">Profil</a>
+		<li><?php echo anchor('user/profile', label('profile',$this));?>
 			<ul>
-				<li><a href="http://www.google.se">Mitt galleri</a></li>
-				<li><a href="http://www.google.se">Vänner</a></li>
+				<li><?php echo anchor('user/gallery', label('gallery',$this));?></li>
+				<li><?php echo anchor('user/friends', label('friends',$this));?></li>
 			</ul>
 		</li>
-		<li><a href="http://www.google.se">Träffar</a></li>
-		<li><a href="http://www.google.se">Flörtar</a></li>
-		<li><a href="http://www.google.se">Meddelanden</a></li>
-		<li><a href="http://www.google.se">Chat</a></li>
-		<li><a href="http://www.google.se">Logga ut</a></li>
+		<li><?php echo anchor('page/events', label('events',$this));?></li>
+		<li><?php echo anchor('user/flirts', label('flirts',$this));?></li>
+		<li><?php echo anchor('user/messages', label('messages',$this));?></li>
+		<li><?php echo anchor('page/chat', label('chat',$this));?></li>
 </ul>
 </div>

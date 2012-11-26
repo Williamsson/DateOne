@@ -6,7 +6,7 @@ class Language_model extends CI_Model{
 		/*
 		 * Calls the getLanguage function, gets a language, finds what directory
 		 * that file is located in and loads the language
-		 * @TODO: Cache the result so we don't have to look everything up all the time
+		 * @TODO: Change so that it saves language in cookie instead. NOTE: Remember to inform users of the cookie usage, since the law says so. Which is silly.
 		 */
 		
 		if($this->session->userdata('user_country') && !$this->uri->segment(1)){
