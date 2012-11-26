@@ -52,7 +52,16 @@ class GetFromDB_model extends CI_Model{
 		}
 	}
 	
-	
+	function getTraitName($id){
+		$query = $this->db->query("SELECT name FROM traits WHERE id = '$id'");
+		
+		if($query->num_rows() > 0){
+			$row = $query->row();
+			return $row->name;
+		}else{
+			return false;
+		}
+	}
 	
 	
 	
