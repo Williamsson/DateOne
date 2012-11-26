@@ -69,7 +69,6 @@ class User_model extends CI_Model{
 		
 	}
 	
-	
 	/*
 	 * Handles the login calls
 	 */
@@ -161,13 +160,75 @@ class User_model extends CI_Model{
 		}
 	}
 	
+	public function fetchUserData($userId){
+		
+		$userInfo = $this->getUserInformation($userId);
+		
+		$userSettings = $this->getUserSettings($userId);
+	}
+	
+	private function getUserInformation($userId){
+		$this->db->select('email, first_name, sur_name, description, year_of_birth');
+		$this->db->where('id', $userId);
+		$userQuery = $this->db->get('users');
+		
+		if($userQuery->num_rows() > 0){
+			$result = array();
+			foreach ($userQuery->result() as $row){
+				$result['email'] = $row->email;
+				$result['first_name'] = $row->first_name;
+				$result['sur_name'] = $row->sur_name;
+				$result['description'] = $row->description;
+				$result['age'] = $row->year_of_birth;
+			}
+			
+			return $result;
+		}
+	}
+	
+	private function getUserSettings($userId){
+		$this->db->select('email_new_event, email_new_message, email_new_friend_request');
+		$this->db->where('id', $userId);
+		$userQuery = $this->db->get('users');
+		
+		if($userQuery->num_rows() > 0){
+			$result = array();
+			foreach ($userQuery->result() as $row){
+				$result['emailOnNewEvent'] = $row->email_new_event;
+				$result['emailOnNewEvent'] = $row->email_new_message;
+				$result['emailOnNewFriendRequest'] = $row->email_new_friend_request;
+			}
+		
+			return $result;
+		}
+	}
 
-
-
-
-
-
-
+	function getUserTraits($userId){
+		
+		$query = $this->db->get_where('user_traits', array('user_id' => $userId));
+		
+		if($query->num_rows() > 0){
+			
+			$result = array();
+			
+			foreach($query->result() as $row){
+				$traitId = intval($row->trait_id);
+				$traitValue = intval($row->value);
+				$traitName = $this->getFromDB_model->getTraitName($traitId);
+				
+				$results[] = array(
+					"id" => $traitId,
+					"name" => $traitName,
+					"value" => $traitValue
+				);
+			}
+			
+			return $results;
+			
+		}
+		
+	}
+	
 
 
 

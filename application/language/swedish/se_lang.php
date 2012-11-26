@@ -5,7 +5,7 @@
  * DATE: 2012-09-21
  * DESCRIPTION: A swedish language file
  * USAGE: Do NOT edit the $lang['whatever'] part, that's crucial for the system to find. Simply edit the text inside the quotes, and the system will find the text and use it.
- * New files must be registered in the language model, see documentation
+ * New files must be registered in the language model, see further documentation for that
  */
 
 
@@ -17,6 +17,10 @@
 $lang['username'] = "Användarnamn";
 $lang['password'] = "Lösenord";
 $lang['repeat_password'] = "Upprepa lösenord";
+$lang['description'] = "Beskrivning";
+$lang['update'] = "Uppdatera";
+$lang['first_name'] = "Förnamn";
+$lang['sur_name'] = "Efternamn";
 
 $lang['language'] = "Språk";
 
@@ -68,15 +72,18 @@ $lang['get_started'] = "Kom igång";
 $lang['upgrade'] = "Uppgradera";
 $lang['about'] = "Om oss";
 $lang['contact'] = "Kontakt";
+
 //User control panel menu
-$lang['menu_title'] = "Kontrollpanel";
+$lang['menu_title'] = "Navigering";
 $lang['profile'] = "Profil";
 $lang['gallery'] = "Galleri";
+$lang['control_panel'] = "Kontrollpanel";
 $lang['events'] = "Evenemang";
 $lang['friends'] = "Vänner";
 $lang['flirts'] = "Flörtar";
 $lang['messages'] = "Meddelanden";
 $lang['chat'] = "Chatt";
+$lang['matches'] = "Matchningar";
 
 /*
  * Generic error messages

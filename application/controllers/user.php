@@ -113,7 +113,15 @@ class User extends CI_Controller {
 		$this->user_model->logout($username);
 	}
 
-
+	public function controlpanel(){
+		$this->general_model->changeView('DateOne', 'page/controlpanel_view');
+	}
+	
+	
+	
+	
+	
+	
 
 }
 
