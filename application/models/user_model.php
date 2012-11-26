@@ -34,7 +34,6 @@ class User_model extends CI_Model{
 		
 		$userId = $this->db->insert_id();
 		
-		
 		$traitData = array(
 			'user_id' => $userId,
 			'trait_id' => $searchingForTraitID,
@@ -64,6 +63,8 @@ class User_model extends CI_Model{
 		
 		$query = $this->db->insert('user_settings', $settingsData);
 		
+		$this->setLoginData($username, $userId);
+		
 		$this->redirect_model->redirect('newlyregistered');
 		
 	}
@@ -89,7 +90,7 @@ class User_model extends CI_Model{
 			
 			if($passwordCorrect){
 				
-				$done = $this->_setLoginData($username, $userId);
+				$done = $this->setLoginData($username, $userId);
 				
 				if($done){
 					$this->redirect_model->redirect("login");
@@ -104,10 +105,19 @@ class User_model extends CI_Model{
 		}else{
 			$this->redirect_model->redirect("gotohomepage");
 		}
-		
 	}
 	
-	function _setLoginData($username, $userId){
+	public function logout($username){
+		$userId = $this->user_model->getUserId($username);
+		$this->session->unset_userdata('logged_in');
+		$this->session->unset_userdata('username');
+		$this->session->unset_userdata('userId');
+		
+		$query = $this->db->query("UPDATE user_state SET last_login = now(), logged_in = '0' WHERE user_id = '$userId'");
+		$this->redirect_model->redirect('gotohomepage');
+	}
+	
+	function setLoginData($username, $userId){
 		$this->session->set_userdata('logged_in', true);
 		$this->session->set_userdata('username', $username);
 		$this->session->set_userdata('userId', $userId);
@@ -147,16 +157,13 @@ class User_model extends CI_Model{
 			    if($row->logged_in == 1){
 					return true;
 			    }else{
-			    	echo "trejde stoppet";
 			    	return false;
 			    }
 			    
 			}else{
-				echo "andra stoppet";
 				return false;
 			}
 		}else{
-			echo "första stoppet";
 			return false;
 		}
 	}

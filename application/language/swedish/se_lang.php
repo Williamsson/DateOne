@@ -23,10 +23,12 @@ $lang['language'] = "Språk";
 $lang['swedish'] = "Svenska";
 $lang['english'] = "Engelska";
 
+$lang['login'] = "Logga in";
+$lang['logout'] = "Logga ut";
+
 /*
  * First page
  */
-$lang['login'] = "Logga in";
 $lang['what_is_dateone_header'] = "Vad är DateOne?";
 $lang['who_uses_dateone_header'] = "Vem använder DateOne?";
 

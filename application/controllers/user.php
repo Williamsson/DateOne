@@ -73,6 +73,7 @@ class User extends CI_Controller {
 	public function registerdone(){
 		$this->general_model->changeView('DateOne', 'page/registration_done_view');
 	}
+	
 	/*
 	 * Takes care of the login part, if we're not getting any post data, redirect to start page
 	 */
@@ -106,6 +107,15 @@ class User extends CI_Controller {
 			$this->redirect_model->redirect('gotohomepage');
 		}
 	}
+
+	public function logout(){
+		$username = $this->session->userdata('username');
+		$this->user_model->logout($username);
+	}
+
+
+
 }
+
 
 ?>

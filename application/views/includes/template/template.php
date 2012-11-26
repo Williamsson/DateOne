@@ -33,23 +33,27 @@
 						<form>
 							<button><?php echo label('language',$this)?></button>
 						</form>
-						
 					</div>
 					
 					<div id="loginArea">
-						<?php echo form_open('user/login');?>
-							<input type="text" id="user" placeholder="<?php echo label('username',$this);?>" name="loginusername" class="required requiredField" />
-							<input type="password" placeholder="<?php echo label('password',$this);?>" name="loginpassword" id="password" value="" class="required requiredField" />
-							<button type="submit"><?php echo label('login',$this)?></button>
-						<?php echo form_close();?>
+						<?php
+							if(!$this->user_model->isLoggedIn()){ ?>
+								<?php echo form_open('user/login');?>
+									<input type="text" id="user" placeholder="<?php echo label('username',$this);?>" name="loginusername" class="required requiredField" />
+									<input type="password" placeholder="<?php echo label('password',$this);?>" name="loginpassword" id="password" value="" class="required requiredField" />
+									<button type="submit"><?php echo label('login',$this)?></button>
+								<?php echo form_close();?>
+							<?php }else{
+									echo form_open('user/logout');?>
+									<button type="submit"><?php echo label('logout',$this)?></button>
+							<?php	echo form_close();
+								 }?>
 						
 						<div id="loginErrors">
 							<?php echo form_error('loginusername');?>
 							<?php echo form_error('loginpassword');?>
 						</div>
 					</div>
-					
-					
 				</div>
 				
 				
