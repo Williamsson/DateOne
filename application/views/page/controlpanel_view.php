@@ -1,44 +1,59 @@
 <div class="infoColumn">
 	<?php 
 		echo form_open('user/controlpanel');
-			
+		
+		echo form_error('email');
 		echo form_label(label('email',$this, 'email'));
 		$data = array(
               'name'        => 'email',
               'id'          => 'email',
-              'value'       => 'johndoe@live.se',
+              'value'       => '',
             );
 		echo form_input($data);
 		
+		echo form_error('remail');
+		echo form_label(label('repeat_email',$this, 'remail'));
+		$data = array(
+		              'name'        => 'remail',
+		              'id'          => 'remail',
+		              'value'       => '',
+		);
+		echo form_input($data);
+		
+		
+		echo form_error('first_name');
 		echo form_label(label('first_name',$this, 'first_name'));
 		$data = array(
 		              'name'        => 'first_name',
 		              'id'          => 'first_name',
-		              'value'       => 'John',
+		              'value'       => '',
 		);
 		echo form_input($data);
 		
+		echo form_error('sur_name');
 		echo form_label(label('sur_name',$this, 'sur_name'));
 		$data = array(
 		              'name'        => 'sur_name',
 		              'id'          => 'sur_name',
-		              'value'       => 'Doe',
+		              'value'       => '',
 		);
 		echo form_input($data);
 		
+		echo form_error('postal_number');
 		echo form_label(label('postal_number',$this, 'postal_number'));
 		$data = array(
 				              'name'        => 'postal_number',
 				              'id'          => 'postal_number',
-				              'value'       => '12345',
+				              'value'       => '',
 		);
 		echo form_input($data);
 		
+		echo form_error('description');
 		echo form_label(label('description',$this, 'description'));
 		$data = array(
 		              'name'        => 'description',
 		              'id'          => 'description',
-		              'value'       => 'En beskrivning om John Doe',
+		              'value'       => '',
 		);
 		echo form_textarea($data);
 		
@@ -57,8 +72,6 @@
 		$val = 0;
 		
 		echo form_dropdown('ancestry', $options, $val);
-		
-		
 		
 		
 		echo form_label(label('appearance',$this, 'appearance'));
@@ -89,7 +102,7 @@
 		
 		echo form_dropdown('bodytype', $options, $val);
 		
-		
+		echo form_submit('submit',label('update',$this));
 		
 	
 	?>
@@ -251,7 +264,18 @@
 		
 		echo form_dropdown('housing_type', $options, $val);
 		
+		echo form_label(label('weight',$this, 'weight'));
+		$options = array();
+		$options[] = label('no_answer',$this);
+		$traits = $this->getFromDB_model->fetch('weight', 'weight');
 		
+		foreach($traits as $trait){
+			$options[] = label($trait,$this);
+		}
+		
+		$val = 0;
+		
+		echo form_dropdown('weight', $options, $val);
 		
 		
 	?>
@@ -351,10 +375,10 @@
 		
 		echo form_dropdown('romance', $options, $val);
 		
-		echo form_label(label('clothing',$this, 'clothing'));
+		echo form_label(label('wanted_childs',$this, 'wanted_childs'));
 		$options = array();
 		$options[] = label('no_answer',$this);
-		$traits = $this->getFromDB_model->fetch('clothing', 'clothing');
+		$traits = $this->getFromDB_model->fetch('wanted_num_childs', 'childs');
 		
 		foreach($traits as $trait){
 			$options[] = label($trait,$this);
@@ -362,33 +386,7 @@
 		
 		$val = 0;
 		
-		echo form_dropdown('romance', $options, $val);
-		
-		echo form_label(label('spoken_languages',$this, 'spoken_languages'));
-		$options = array();
-		$options[] = label('no_answer',$this);
-		$traits = $this->getFromDB_model->fetch('spoken_languages', 'language');
-		
-		foreach($traits as $trait){
-			$options[] = label($trait,$this);
-		}
-		
-		$val = 0;
-		
-		echo form_multiselect('spoken_languages', $options, $val);
-
-		echo form_label(label('clothing',$this, 'clothing'));
-		$options = array();
-		$options[] = label('no_answer',$this);
-		$traits = $this->getFromDB_model->fetch('clothing', 'clothing');
-		
-		foreach($traits as $trait){
-			$options[] = label($trait,$this);
-		}
-		
-		$val = 0;
-		
-		echo form_dropdown('tobacco_habits', $options, $val);
+		echo form_dropdown('wanted_childs', $options, $val);
 		
 		echo form_label(label('tobacco_habits',$this, 'tobacco_habits'));
 		$options = array();
@@ -403,8 +401,19 @@
 		
 		echo form_dropdown('tobacco_habits', $options, $val);
 		
+		echo form_label(label('spoken_languages',$this, 'spoken_languages'));
+		$options = array();
+		$options[] = label('no_answer',$this);
+		$traits = $this->getFromDB_model->fetch('spoken_languages', 'language');
 		
-		echo form_submit('submit',label('update',$this));
+		foreach($traits as $trait){
+			$options[] = label($trait,$this);
+		}
+		
+		$val = 0;
+		
+		echo form_multiselect('spoken_languages', $options, $val);
+		
 		echo form_close();
 	
 	?>

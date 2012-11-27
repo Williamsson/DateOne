@@ -63,7 +63,9 @@ class GetFromDB_model extends CI_Model{
 		}
 	}
 	
-	
+	function countSumTraits(){
+		return $this->db->count_all('traits');
+	}
 	
 }
 

@@ -40,13 +40,21 @@ class User_model extends CI_Model{
 		
 		$userId = $this->db->insert_id();
 		
-		$traitData = array(
-			'user_id' => $userId,
-			'trait_id' => $searchingForTraitID,
-			'value' => $searchingFor,
-		);
+		$sumTraits = $this->getFromDB_model->countSumTraits();
+	
+		$query = "INSERT INTO user_traits (user_id, trait_id, value) VALUES ";
 		
-		$query = $this->db->insert('user_traits', $traitData);
+		for($i = 1; $i <= $sumTraits; $i++){
+			$query .= "('$userId', '$i', 0),";
+		}
+		
+		$query = substr_replace($query ,"",-1);
+		
+		$this->db->query($query);
+		
+		$this->db->query("UPDATE user_traits SET value = '$searchingFor' WHERE user_id = '$userId' AND trait_id = '$searchingForTraitID'");
+		
+		$this->db->query("UPDATE user_state SET last_login = now(), logged_in = '1' WHERE user_id = '$userId'");
 		
 		$stateData = array(
 			'user_id' => $userId,
@@ -208,7 +216,10 @@ class User_model extends CI_Model{
 			return $result;
 		}
 	}
-
+	
+	/*
+	 * Gets all the traits a user has filled out
+	 */
 	function getUserTraits($userId){
 		
 		$query = $this->db->get_where('user_traits', array('user_id' => $userId));
@@ -222,11 +233,14 @@ class User_model extends CI_Model{
 				$traitValue = intval($row->value);
 				$traitName = $this->getFromDB_model->getTraitName($traitId);
 				
-				$results[] = array(
-					"id" => $traitId,
-					"name" => $traitName,
-					"value" => $traitValue
-				);
+				if($traitValue != 0){
+					$results[] = array(
+						"id" => $traitId,
+						"name" => $traitName,
+						"value" => $traitValue
+					);
+				}
+				
 			}
 			
 			return $results;
@@ -235,7 +249,9 @@ class User_model extends CI_Model{
 		
 	}
 	
-
+	function updateProfile($postData){
+		
+	}
 
 
 

@@ -75,6 +75,11 @@ class User extends CI_Controller {
 	}
 	
 	public function registerdone(){
+		
+		if(!$this->user_model->isLoggedIn()){
+			$this->redirect_model->redirect('gotohomepage');
+		}
+		
 		$this->general_model->changeView('DateOne', 'page/registration_done_view');
 	}
 	
@@ -123,10 +128,57 @@ class User extends CI_Controller {
 			$this->redirect_model->redirect('gotohomepage');
 		}
 		
-		if(!$_POST){
+		if(!$this->input->post()){
 			$this->general_model->changeView('DateOne', 'page/controlpanel_view');
 		}else{
+			$this->language_model->loadLanguage();
+			$config = array(
+			array(
+					                     'field'   => 'postal_number', 
+					                     'label'   => 'lang:postal_number', 
+					                     'rules'   => 'required|numeric|xss_clean|exact_length[5]'
+			),
+			array(
+					                     'field'   => 'email', 
+					                     'label'   => 'lang:email',  
+					                     'rules'   => 'required|valid_email|is_unique[users.email]|xss_clean'
+			),
+			array(
+					                     'field'   => 'remail', 
+					                     'label'   => 'lang:repeat_email', 
+					                     'rules'   => 'required|matches[email]|xss_clean'
+			),
+			array(
+					                     'field'   => 'first_name', 
+					                     'label'   => 'lang:first_name', 
+					                     'rules'   => 'xss_clean'
+			),
+			array(
+					                     'field'   => 'sur_name', 
+					                     'label'   => 'lang:sur_name', 
+					                     'rules'   => 'xss_clean'
+			),
+			array(
+					                     'field'   => 'description', 
+					                     'label'   => 'lang:description', 
+					                     'rules'   => 'xss_clean'
+			),
+			);
 			
+			$this->form_validation->set_rules($config);
+			$this->form_validation->set_message('required', '%s ' . label('required_field',$this));
+			$this->form_validation->set_message('exact_length', '%s ' . label('postal_number_length',$this));
+			$this->form_validation->set_message('valid_email', label('not_valid_email',$this));
+			$this->form_validation->set_message('matches', '%s' . label('repeat_field_not_match',$this) . '%s');
+			$this->form_validation->set_message('is_unique', '%s' . label('field_exists',$this));
+				
+			if($this->form_validation->run() == FALSE){
+				$data = $this->general_model->getDataContent('DateOne', 'page/controlpanel_view');
+				$this->load->view('/includes/template/template', $data);
+			}else{
+// 				$this->user_model->updateProfile($this->input->post());
+				echo "Hej";
+			}
 		}
 		
 	}

@@ -13,7 +13,7 @@
  * General words
  * 
  */
-
+$lang['other'] = "Annat";
 $lang['username'] = "Användarnamn";
 $lang['password'] = "Lösenord";
 $lang['repeat_password'] = "Upprepa lösenord";
@@ -26,6 +26,14 @@ $lang['language'] = "Språk";
 
 $lang['swedish'] = "Svenska";
 $lang['english'] = "Engelska";
+$lang['spanish'] = "Spanska";
+$lang['german'] = "Tyska";
+$lang['chinese'] = "Kinesiska";
+$lang['norweigan'] = "Norska";
+$lang['danish'] = "Danska";
+$lang['finish'] = "Finska";
+$lang['french'] = "Franska";
+$lang['turkish'] = "Turkiska";
 
 $lang['login'] = "Logga in";
 $lang['logout'] = "Logga ut";
@@ -97,6 +105,31 @@ $lang['not_valid_email'] = "Du har inte fyllt i en giltig email.";
 /*
  * User traits
  */
+$lang['ancestry'] = "Ursprung";
+$lang['appearance'] = "Utseende";
+$lang['bodytype'] = "Kroppsbyggnad";
+$lang['civil_status'] = "Civilstånd";
+$lang['clothing'] = "Klädstil";
+$lang['drinking_habits'] = "Alkoholvanor";
+$lang['education'] = "Utbildning";
+$lang['exercising_habits'] = "Träningsvanor";
+$lang['eye_color'] = "Ögonfärg";
+$lang['favorite_music_genre'] = "Vad är din favoritgenre i musik?";
+$lang['friday_night_activity'] = "Vad gör du helst en fredagskväll?";
+$lang['hair_color'] = "Hårfärg";
+$lang['hobby'] = "Hobby";
+$lang['housing_type'] = "Bostad";
+$lang['length'] = "Längd";
+$lang['num_childs'] = "Hur många barn har du?";
+$lang['occupation'] = "Yrke";
+$lang['personality_type'] = "Personlighetstyp";
+$lang['pets'] = "Husdjur";
+$lang['religion'] = "Religion";
+$lang['romance'] = "Romantik";
+$lang['wanted_childs'] = "Hur många barn vill du ha?";
+$lang['spoken_languages'] = "Vilka språk kan du?";
+$lang['tobacco_habits'] = "Tobaksvanor";
+
 $lang['europe'] = "Europa";
 $lang['no_answer'] = "Vill inte svara";
 

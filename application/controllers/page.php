@@ -51,16 +51,6 @@ class Page extends CI_Controller {
 		$this->general_model->changeView('DateOne', 'page/staticMenu/contact_view');
 	}
 	
-	public function loggedin(){
-		
-		if($this->user_model->isLoggedIn()){
-			$this->general_model->changeView('DateOne', 'page/loggedin');
-		}else{
-// 			$this->redirect_model->redirect('gotohomepage');
-		}
-		
-	}
-	
 	
 	
 	
