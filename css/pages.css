@@ -9,7 +9,7 @@
 	overflow-y:scroll;
 }
 
-	.registrationForm select{
+	.registrationForm .littleBox select{
 		float: left;
 		margin-right: 10px;
 	}

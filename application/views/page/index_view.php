@@ -32,33 +32,36 @@
 			<input type="password" placeholder="<?php echo label('password', $this);?>" name="password" id="password" value="" class="required requiredField" />
 			<?php echo form_error('rpassword');?>
 			<input type="password" placeholder="<?php echo label('repeat_password', $this);?>" name="rpassword" id="password" value="" class="required requiredField" />
-			<?php 
-				$minAge = date('Y');
-				$maxAge = $minAge - 100;
-			?>
-			<select name="yearofbirth" style="width:80px;">
+			<div class="littleBox">
 				<?php 
-					for($i = $minAge; $i >= $maxAge; $i--){?>
-						<option value="<?php echo $i;?>"><?php echo $i;?></option>
-				<?php 
-						++$years;
-					}
+					$minAge = date('Y');
+					$maxAge = $minAge - 100;
 				?>
-			</select>
-
-			<select name="monthofbirth" style="width:40px;">
-				<?php 
-					for($i = 1; $i <= 12; $i++){?>
-						<option value="<?php echo $i;?>"><?php echo $i;?></option>
-					<?php }?>
-			</select>
+				<select name="yearofbirth" style="width:80px;">
+					<?php 
+						for($i = $minAge; $i >= $maxAge; $i--){?>
+							<option value="<?php echo $i;?>"><?php echo $i;?></option>
+					<?php 
+							++$years;
+						}
+					?>
+				</select>
+	
+				<select name="monthofbirth" style="width:40px;">
+					<?php 
+						for($i = 1; $i <= 12; $i++){?>
+							<option value="<?php echo $i;?>"><?php echo $i;?></option>
+						<?php }?>
+				</select>
+				
+				<select name="dayofbirth" style="width:40px;">
+					<?php 
+						for($i = 1; $i <= 31; $i++){?>
+							<option value="<?php echo $i;?>"><?php echo $i;?></option>
+						<?php }?>
+				</select>
 			
-			<select name="dayofbirth" style="width:40px;">
-				<?php 
-					for($i = 1; $i <= 31; $i++){?>
-						<option value="<?php echo $i;?>"><?php echo $i;?></option>
-					<?php }?>
-			</select>
+			</div>
 			<button type="submit"><?php echo label('register', $this);?></button>
 		<?php echo form_close();?>
 	</div>

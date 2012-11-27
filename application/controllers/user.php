@@ -7,6 +7,10 @@ class User extends CI_Controller {
 		if(!$this->uri->segment(3)){
 			$this->redirect_model->redirect('gotohomepage');
 		}
+		
+		if(!$this->user_model->isLoggedIn()){
+			$this->redirect_model->redirect('gotohomepage');
+		}
 	}
 	
 	
@@ -114,7 +118,17 @@ class User extends CI_Controller {
 	}
 
 	public function controlpanel(){
-		$this->general_model->changeView('DateOne', 'page/controlpanel_view');
+		
+		if(!$this->user_model->isLoggedIn()){
+			$this->redirect_model->redirect('gotohomepage');
+		}
+		
+		if(!$_POST){
+			$this->general_model->changeView('DateOne', 'page/controlpanel_view');
+		}else{
+			
+		}
+		
 	}
 	
 	

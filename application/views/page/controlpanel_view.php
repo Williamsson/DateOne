@@ -1,6 +1,6 @@
 <div class="infoColumn">
 	<?php 
-		echo form_open('user/updatesettings');
+		echo form_open('user/controlpanel');
 			
 		echo form_label(label('email',$this, 'email'));
 		$data = array(
@@ -375,8 +375,8 @@
 		
 		$val = 0;
 		
-		echo form_dropdown('spoken_languages', $options, $val);
-		
+		echo form_multiselect('spoken_languages', $options, $val);
+
 		echo form_label(label('clothing',$this, 'clothing'));
 		$options = array();
 		$options[] = label('no_answer',$this);
