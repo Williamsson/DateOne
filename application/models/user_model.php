@@ -9,6 +9,9 @@ class User_model extends CI_Model{
 		$postalNumber = $this->input->post('postal_number');
 		$email = $this->input->post('email');
 		$searchingFor = $this->input->post('relationshiptype');
+		$yearOfBirth = $this->input->post('yearofbirth');
+		$monthOfBirth = $this->input->post('monthofbirth');
+		$dayOfBirth = $this->input->post('dayofbirth');
 		
 		$salt = $this->safety_model->generateRandomString(30);
 		$password = $this->safety_model->protectPassword($this->input->post('password'),$salt);
@@ -28,6 +31,9 @@ class User_model extends CI_Model{
 			'email' => $email,
 			'salt' => $salt,
 			'country' => $country,
+			'year_of_birth' => $yearOfBirth,
+			'month_of_birth' => $monthOfBirth,
+			'day_of_birth' => $dayOfBirth,
 		);
 		
 		$query = $this->db->insert('users', $userData);

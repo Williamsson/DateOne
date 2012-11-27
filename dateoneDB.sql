@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: localhost
--- Skapad: 23 nov 2012 kl 11:04
+-- Skapad: 27 nov 2012 kl 09:53
 -- Serverversion: 5.5.20
 -- PHP-version: 5.3.10
 
@@ -37,13 +37,13 @@ CREATE TABLE IF NOT EXISTS `ancestry` (
 --
 
 INSERT INTO `ancestry` (`value`, `ancestry`) VALUES
-(1, 'Europe'),
-(2, 'Scandinavia'),
-(3, 'Asia'),
-(4, 'Middle East'),
-(5, 'Africa'),
-(6, 'Latin America'),
-(7, 'Northern America');
+(1, 'europe'),
+(2, 'scandinavia'),
+(3, 'asia'),
+(4, 'middle_east'),
+(5, 'africa'),
+(6, 'latin_america'),
+(7, 'northern_america');
 
 -- --------------------------------------------------------
 
@@ -62,10 +62,10 @@ CREATE TABLE IF NOT EXISTS `appearance` (
 --
 
 INSERT INTO `appearance` (`value`, `appearance`) VALUES
-(1, 'Very good looking'),
-(2, 'Good looking'),
-(3, 'Average'),
-(4, 'Bad looking');
+(1, 'very_good_looking'),
+(2, 'good_looking'),
+(3, 'average'),
+(4, 'bad_looking');
 
 -- --------------------------------------------------------
 
@@ -84,11 +84,11 @@ CREATE TABLE IF NOT EXISTS `bodytype` (
 --
 
 INSERT INTO `bodytype` (`value`, `bodytype`) VALUES
-(1, 'Muscular'),
-(2, 'Well built'),
-(3, 'Regular'),
-(4, 'A bit fat'),
-(5, 'Fat');
+(1, 'muscular'),
+(2, 'well_built'),
+(3, 'regular_body'),
+(4, 'bit_fat'),
+(5, 'fat');
 
 -- --------------------------------------------------------
 
@@ -107,11 +107,11 @@ CREATE TABLE IF NOT EXISTS `civil_status` (
 --
 
 INSERT INTO `civil_status` (`value`, `status`) VALUES
-(1, 'Married'),
-(2, 'Engaged'),
-(3, 'Relationship'),
-(4, 'Divorced'),
-(5, 'Single');
+(1, 'married'),
+(2, 'engaged'),
+(3, 'relationship'),
+(4, 'divorced'),
+(5, 'single');
 
 -- --------------------------------------------------------
 
@@ -130,13 +130,13 @@ CREATE TABLE IF NOT EXISTS `clothing` (
 --
 
 INSERT INTO `clothing` (`value`, `clothing`) VALUES
-(1, 'Buissiness'),
-(2, 'Classy'),
-(3, 'Ordinary'),
-(4, 'My own style'),
-(5, 'Trendy'),
-(6, 'Rock'),
-(7, 'Other');
+(1, 'buissiness'),
+(2, 'classy'),
+(3, 'ordinary'),
+(4, 'my_own_style'),
+(5, 'trendy'),
+(6, 'rock'),
+(7, 'other');
 
 -- --------------------------------------------------------
 
@@ -155,11 +155,11 @@ CREATE TABLE IF NOT EXISTS `drinking_habits` (
 --
 
 INSERT INTO `drinking_habits` (`value`, `habit`) VALUES
-(1, 'Very often'),
-(2, 'Often'),
-(3, 'With company'),
-(4, 'Almost never'),
-(5, 'Never');
+(1, 'very_often'),
+(2, 'often'),
+(3, 'with_company'),
+(4, 'almost_never'),
+(5, 'never');
 
 -- --------------------------------------------------------
 
@@ -178,13 +178,13 @@ CREATE TABLE IF NOT EXISTS `education` (
 --
 
 INSERT INTO `education` (`value`, `education`) VALUES
-(1, 'Elementary school'),
-(2, 'College'),
-(3, 'University'),
-(4, 'Bacherlor'),
-(5, 'Masters'),
-(6, 'Doctoral'),
-(7, 'Other');
+(1, 'elementary_school'),
+(2, 'college'),
+(3, 'university'),
+(4, 'bacherlor'),
+(5, 'masters'),
+(6, 'doctoral'),
+(7, 'other');
 
 -- --------------------------------------------------------
 
@@ -232,11 +232,11 @@ CREATE TABLE IF NOT EXISTS `exercising_habits` (
 --
 
 INSERT INTO `exercising_habits` (`value`, `habit`) VALUES
-(1, 'Very often'),
-(2, 'Often'),
-(3, 'Regular'),
-(4, 'Seldom'),
-(5, 'Never');
+(1, 'very_often'),
+(2, 'often'),
+(3, 'regular'),
+(4, 'seldom'),
+(5, 'never');
 
 -- --------------------------------------------------------
 
@@ -255,11 +255,11 @@ CREATE TABLE IF NOT EXISTS `eye_color` (
 --
 
 INSERT INTO `eye_color` (`value`, `eye_color`) VALUES
-(1, 'Green'),
-(2, 'Blue'),
-(3, 'Brown'),
-(4, 'Grå'),
-(5, 'Other');
+(1, 'green'),
+(2, 'blue'),
+(3, 'brown'),
+(4, 'grey'),
+(5, 'other');
 
 -- --------------------------------------------------------
 
@@ -278,21 +278,20 @@ CREATE TABLE IF NOT EXISTS `favorite_music_genre` (
 --
 
 INSERT INTO `favorite_music_genre` (`value`, `genre`) VALUES
-(1, 'Rock'),
-(2, 'Classical'),
-(3, 'Electronic'),
-(4, 'Pop'),
-(5, 'Blues'),
-(6, 'Dance'),
-(7, 'Disco'),
-(8, 'Hip-Hop'),
-(9, 'Country'),
-(10, 'Hardrock'),
-(11, 'Folk'),
-(12, 'Opera'),
-(13, 'Musical'),
-(14, 'Reagge'),
-(15, 'Other');
+(1, 'rock'),
+(2, 'classical'),
+(3, 'electronic'),
+(4, 'pop'),
+(5, 'blues'),
+(6, 'dance'),
+(7, 'disco'),
+(8, 'hip_hop'),
+(9, 'country'),
+(10, 'hard_rock'),
+(11, 'folk'),
+(12, 'opera'),
+(13, 'reagge'),
+(14, 'other');
 
 -- --------------------------------------------------------
 
@@ -311,18 +310,18 @@ CREATE TABLE IF NOT EXISTS `friday_night_activity` (
 --
 
 INSERT INTO `friday_night_activity` (`value`, `activity`) VALUES
-(1, 'Party'),
-(2, 'After work'),
-(3, 'Cinema'),
-(4, 'Theatre'),
-(5, 'Meet friends'),
-(6, 'Restaurant'),
-(7, 'Concert'),
-(8, 'Book'),
-(9, 'Movie'),
-(10, 'Cuddle'),
-(11, 'Game'),
-(12, 'Other');
+(1, 'party'),
+(2, 'after_work'),
+(3, 'cinema'),
+(4, 'theatre'),
+(5, 'meet_friends'),
+(6, 'restaurant'),
+(7, 'concert'),
+(8, 'read_book'),
+(9, 'watch_movie'),
+(10, 'cuddle'),
+(11, 'play_game'),
+(12, 'other');
 
 -- --------------------------------------------------------
 
@@ -353,13 +352,13 @@ CREATE TABLE IF NOT EXISTS `hair_color` (
 --
 
 INSERT INTO `hair_color` (`value`, `color`) VALUES
-(1, 'Blonde'),
-(2, 'Brunette'),
-(3, 'Bald'),
-(4, 'Red'),
-(5, 'White/Grey'),
-(6, 'Black'),
-(7, 'Other');
+(1, 'blonde'),
+(2, 'brunette'),
+(3, 'bald'),
+(4, 'red'),
+(5, 'white_grey'),
+(6, 'black'),
+(7, 'other');
 
 -- --------------------------------------------------------
 
@@ -378,33 +377,32 @@ CREATE TABLE IF NOT EXISTS `hobby` (
 --
 
 INSERT INTO `hobby` (`value`, `hobby`) VALUES
-(1, 'Books'),
-(2, 'Art'),
-(3, 'Music'),
-(4, 'Meet friends'),
-(5, 'Dancing'),
-(6, 'Animals'),
-(7, 'Photography'),
-(8, 'History'),
-(9, 'Religion'),
-(10, 'Writing'),
-(11, 'Games'),
-(12, 'Drawing'),
-(13, 'Walking'),
-(14, 'Movies'),
-(15, 'Hiking'),
-(16, 'Cooking'),
-(17, 'Travel'),
-(18, 'Exercising'),
-(19, 'Cars/Motorcycles'),
-(20, 'Computers'),
-(21, 'Fishing/Hunting'),
-(22, 'Painting'),
-(23, 'Politics'),
-(24, 'Roleplaying'),
-(25, 'Theatre'),
-(26, 'Gaming'),
-(27, 'Other');
+(1, 'books'),
+(2, 'art'),
+(3, 'music'),
+(4, 'meet_friends'),
+(5, 'dancing'),
+(6, 'animals'),
+(7, 'photography'),
+(8, 'history'),
+(9, 'religion'),
+(10, 'writing'),
+(11, 'games'),
+(12, 'drawing'),
+(13, 'walking'),
+(14, 'movies'),
+(15, 'hiking'),
+(16, 'cooking'),
+(17, 'travel'),
+(18, 'exercising'),
+(19, 'cars_motorcykles'),
+(20, 'computers'),
+(21, 'fishing_hunting'),
+(22, 'painting'),
+(23, 'politics'),
+(24, 'roleplaying'),
+(25, 'theatre'),
+(26, 'other');
 
 -- --------------------------------------------------------
 
@@ -423,11 +421,13 @@ CREATE TABLE IF NOT EXISTS `housing_type` (
 --
 
 INSERT INTO `housing_type` (`value`, `housing`) VALUES
-(1, 'Alone'),
-(2, 'With parents'),
-(3, 'With roommate'),
-(4, 'With children'),
-(5, 'Other');
+(1, 'alone'),
+(2, 'with_parents'),
+(3, 'with_roommate'),
+(4, 'with_children'),
+(5, 'with_partner'),
+(6, 'with_family'),
+(7, 'other');
 
 -- --------------------------------------------------------
 
@@ -511,6 +511,29 @@ CREATE TABLE IF NOT EXISTS `occupation` (
   PRIMARY KEY (`value`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Dumpning av Data i tabell `occupation`
+--
+
+INSERT INTO `occupation` (`value`, `occupation`) VALUES
+(1, 'administration'),
+(2, 'artist'),
+(3, 'chef'),
+(4, 'construction'),
+(5, 'architect'),
+(6, 'economy'),
+(7, 'retail'),
+(8, 'health_care'),
+(9, 'hotel_restaurant'),
+(10, 'engineer'),
+(11, 'IT'),
+(12, 'jurisprudence'),
+(13, 'entertainment'),
+(14, 'student'),
+(15, 'teaching'),
+(16, 'retired'),
+(17, 'other');
+
 -- --------------------------------------------------------
 
 --
@@ -522,6 +545,32 @@ CREATE TABLE IF NOT EXISTS `personality_type` (
   `personality` varchar(65) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`value`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumpning av Data i tabell `personality_type`
+--
+
+INSERT INTO `personality_type` (`value`, `personality`) VALUES
+(1, 'ambitious'),
+(2, 'generous'),
+(3, 'happy'),
+(4, 'sensible'),
+(5, 'calm'),
+(6, 'caring'),
+(7, 'social'),
+(8, 'spontaneous'),
+(9, 'proud'),
+(10, 'adventurous'),
+(11, 'carefree'),
+(12, 'shy'),
+(13, 'dominating'),
+(14, 'alone'),
+(15, 'sad'),
+(16, 'stubborn'),
+(17, 'emotional'),
+(18, 'carefull'),
+(19, 'self_contained'),
+(20, 'other');
 
 -- --------------------------------------------------------
 
@@ -535,6 +584,21 @@ CREATE TABLE IF NOT EXISTS `pets` (
   PRIMARY KEY (`value`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Dumpning av Data i tabell `pets`
+--
+
+INSERT INTO `pets` (`value`, `pet`) VALUES
+(1, 'dog'),
+(2, 'cat'),
+(3, 'bird'),
+(4, 'fish'),
+(5, 'horse'),
+(6, 'reptiles'),
+(7, 'rabbit_hamster'),
+(8, 'other'),
+(9, 'no_animal');
+
 -- --------------------------------------------------------
 
 --
@@ -547,6 +611,19 @@ CREATE TABLE IF NOT EXISTS `religion` (
   PRIMARY KEY (`value`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Dumpning av Data i tabell `religion`
+--
+
+INSERT INTO `religion` (`value`, `religion`) VALUES
+(1, 'christian'),
+(2, 'jewish'),
+(3, 'islam'),
+(4, 'buddhism'),
+(5, 'hinduism'),
+(6, 'atheist'),
+(7, 'other');
+
 -- --------------------------------------------------------
 
 --
@@ -557,7 +634,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `description` varchar(65) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
 
 --
 -- Dumpning av Data i tabell `roles`
@@ -565,7 +642,8 @@ CREATE TABLE IF NOT EXISTS `roles` (
 
 INSERT INTO `roles` (`id`, `description`) VALUES
 (1, 'Default user'),
-(2, 'Administrator');
+(2, 'Premium user'),
+(3, 'Administrator');
 
 -- --------------------------------------------------------
 
@@ -578,6 +656,16 @@ CREATE TABLE IF NOT EXISTS `romance` (
   `romance` varchar(65) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`value`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumpning av Data i tabell `romance`
+--
+
+INSERT INTO `romance` (`value`, `romance`) VALUES
+(1, 'very_romantic'),
+(2, 'romantic'),
+(3, 'little_romantic'),
+(4, 'not_romantic');
 
 -- --------------------------------------------------------
 
@@ -615,6 +703,23 @@ CREATE TABLE IF NOT EXISTS `spoken_languages` (
   PRIMARY KEY (`value`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Dumpning av Data i tabell `spoken_languages`
+--
+
+INSERT INTO `spoken_languages` (`value`, `language`) VALUES
+(1, 'english'),
+(2, 'swedish'),
+(3, 'spanish'),
+(4, 'german'),
+(5, 'chinese'),
+(6, 'bengali'),
+(7, 'japanese'),
+(8, 'korean'),
+(9, 'french'),
+(10, 'turkish'),
+(11, 'other');
+
 -- --------------------------------------------------------
 
 --
@@ -626,6 +731,17 @@ CREATE TABLE IF NOT EXISTS `tobacco_habits` (
   `habit` varchar(65) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`value`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumpning av Data i tabell `tobacco_habits`
+--
+
+INSERT INTO `tobacco_habits` (`value`, `habit`) VALUES
+(1, 'very_often'),
+(2, 'often'),
+(3, 'with_company'),
+(4, 'almost_never'),
+(5, 'never');
 
 -- --------------------------------------------------------
 
@@ -691,9 +807,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   `latitude` varchar(11) COLLATE utf8_bin DEFAULT NULL,
   `longitude` varchar(11) COLLATE utf8_bin DEFAULT NULL,
   `year_of_birth` int(4) DEFAULT NULL,
-  `favorite_movie` varchar(140) COLLATE utf8_bin DEFAULT NULL,
+  `month_of_birth` int(2) NOT NULL,
+  `day_of_birth` int(2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
+
+--
+-- Dumpning av Data i tabell `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `hashed_password`, `salt`, `email`, `first_name`, `sur_name`, `country`, `description`, `latitude`, `longitude`, `year_of_birth`, `month_of_birth`, `day_of_birth`) VALUES
+(1, 'Administrator', '987098adc3068d4d0152c5119cc95c3f5122fc89', 'fT/R?Pr3f7f4@Y!z^nJ=CYRh/H*ktML', 'DenialOfFate@live.se', NULL, NULL, 'sweden', NULL, '18.6649446', '59.7503028', NULL, 0, 0),
+(2, 'Williamsson', '10995ff6bdac014864fe9daca434492b22a8ed11', 'KyQZfyPmZHGJvPqkxAN3_/c/3#qmvB_', 'Sim.Williamsson@gmail.com', NULL, NULL, 'sweden', NULL, '18.6649446', '59.7503028', NULL, 0, 0),
+(3, 'Testificate', 'addfc25f29bfed528a30e46056686ba545792190', 'tGJX@W0z0gP*/kvX6vRzn&C_ZTCNMQ4', 'denialoffate@hotmail.com', NULL, NULL, 'sweden', NULL, '18.6649446', '59.7503028', NULL, 0, 0),
+(4, 'garga123', 'f86cb8bbc5350bd308a4be80638db8a3f999a3b4', 'N))3VTfzaAx3j8BW)fBFLJC!Ta/?NV_', 'ordforande@kbkompaniet.org', NULL, NULL, 'sweden', NULL, '18.6649446', '59.7503028', 1992, 9, 26);
 
 -- --------------------------------------------------------
 
@@ -782,6 +909,16 @@ CREATE TABLE IF NOT EXISTS `user_settings` (
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Dumpning av Data i tabell `user_settings`
+--
+
+INSERT INTO `user_settings` (`user_id`, `email_new_event`, `email_new_message`, `email_new_friend_request`) VALUES
+(1, 0, 0, 0),
+(2, 0, 0, 0),
+(3, 0, 0, 0),
+(4, 0, 0, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -806,12 +943,23 @@ CREATE TABLE IF NOT EXISTS `user_sex_block` (
 CREATE TABLE IF NOT EXISTS `user_state` (
   `user_id` int(11) NOT NULL DEFAULT '0',
   `last_login` date DEFAULT NULL,
+  `logged_in` tinyint(1) NOT NULL,
   `date_joined` datetime DEFAULT NULL,
   `active` tinyint(1) DEFAULT NULL,
   `is_premium` tinyint(1) DEFAULT NULL,
   `role` int(1) NOT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumpning av Data i tabell `user_state`
+--
+
+INSERT INTO `user_state` (`user_id`, `last_login`, `logged_in`, `date_joined`, `active`, `is_premium`, `role`) VALUES
+(1, NULL, 0, '2012-11-23 16:05:30', 1, 0, 1),
+(2, '2012-11-27', 1, '2012-11-23 16:31:42', 1, 0, 1),
+(3, '2012-11-26', 0, '2012-11-26 08:39:58', 1, 0, 1),
+(4, '2012-11-26', 1, '2012-11-26 17:23:00', 1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -822,9 +970,20 @@ CREATE TABLE IF NOT EXISTS `user_state` (
 CREATE TABLE IF NOT EXISTS `user_traits` (
   `user_id` int(4) NOT NULL DEFAULT '0',
   `trait_id` int(11) DEFAULT NULL,
-  `value` int(3) DEFAULT NULL,
-  PRIMARY KEY (`user_id`)
+  `value` int(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumpning av Data i tabell `user_traits`
+--
+
+INSERT INTO `user_traits` (`user_id`, `trait_id`, `value`) VALUES
+(1, 23, 1),
+(2, 23, 1),
+(3, 23, 1),
+(1, 24, 3),
+(1, 25, 6),
+(4, 23, 1);
 
 -- --------------------------------------------------------
 

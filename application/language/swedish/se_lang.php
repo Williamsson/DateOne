@@ -59,7 +59,7 @@ $lang['register'] = "Registrera";
  */
 $lang['min_password_length'] = "Ditt lösenord måste vara minst åtta tecken.";
 $lang['postal_number_length'] = " måste vara exakt fem siffror, utan mellanslag.";
-$lang['repeat_field_not_match'] = " matchar inte "; //fieldnames are added in code, so it's FIELDNAME [this_translation] FIELDNAME
+$lang['repeat_field_not_match'] = " matchar inte "; //fieldnames are added in code, so the user is shown FIELDNAME [this_translation] FIELDNAME
 $lang['field_exists'] = " finns redan i vår databas.";
 
 
@@ -91,6 +91,15 @@ $lang['matches'] = "Matchningar";
 
 $lang['required_field'] = " måste fyllas i.";
 $lang['not_valid_email'] = "Du har inte fyllt i en giltig email.";
+
+
+
+/*
+ * User traits
+ */
+$lang['europe'] = "Europa";
+$lang['no_answer'] = "Vill inte svara";
+
 
 
 ?>
