@@ -20,42 +20,30 @@
 		$tableName = $test['table'];
 		$tableValues = $test['arrayholder']['values'];
 		
+		$options = array();
+		$options[] = label('no_answer',$this);
+		
+		foreach($tableValues as $value){
+			$options[] = label($value,$this);
+		}
+		
+		$val = $userTraits[$tableName]['value'];
+		
 		if($counter <= 3){
+			
 			$firstColumn .= form_label(label($tableName,$this), $tableName);
-			$options = array();
-			$options[] = label('no_answer',$this);
-			
-			foreach($tableValues as $value){
-				$options[] = label($value,$this);
-			}
-			
-			$val = $userTraits[$tableName]['value'];
-			
 			$firstColumn .= form_dropdown($tableName,$options, $val);
-		}elseif($counter > 3 && $counter <= 15){
-			$secondColumn .= form_label(label($tableName,$this), $tableName);
-			$options = array();
-			$options[] = label('no_answer',$this);
-				
-			foreach($tableValues as $value){
-				$options[] = label($value,$this);
-			}
-				
-			$val = $userTraits[$tableName]['value'];
-				
-			$secondColumn .= form_dropdown($tableName,$options, $val);
-		}else{
-			$thirdColumn .= form_label(label($tableName,$this), $tableName);
-			$options = array();
-			$options[] = label('no_answer',$this);
 			
-			foreach($tableValues as $value){
-				$options[] = label($value,$this);
-			}
-				
-			$val = $userTraits[$tableName]['value'];
-				
+		}elseif($counter > 3 && $counter <= 15){
+			
+			$secondColumn .= form_label(label($tableName,$this), $tableName);
+			$secondColumn .= form_dropdown($tableName,$options, $val);
+			
+		}else{
+			
+			$thirdColumn .= form_label(label($tableName,$this), $tableName);
 			$thirdColumn .= form_dropdown($tableName,$options, $val);
+			
 		}
 						
 		
@@ -90,7 +78,6 @@
 					              'value'       => '',
 			);
 			echo form_input($data);
-			
 			
 			echo form_error('first_name');
 			echo form_label(label('first_name',$this, 'first_name'));
