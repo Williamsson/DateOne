@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: localhost
--- Skapad: 27 nov 2012 kl 09:53
+-- Skapad: 28 nov 2012 kl 15:13
 -- Serverversion: 5.5.20
 -- PHP-version: 5.3.10
 
@@ -27,16 +27,16 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `ancestry` (
-  `value` int(3) NOT NULL DEFAULT '0',
-  `ancestry` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(3) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `ancestry`
 --
 
-INSERT INTO `ancestry` (`value`, `ancestry`) VALUES
+INSERT INTO `ancestry` (`key`, `value`) VALUES
 (1, 'europe'),
 (2, 'scandinavia'),
 (3, 'asia'),
@@ -52,16 +52,16 @@ INSERT INTO `ancestry` (`value`, `ancestry`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `appearance` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `appearance` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `appearance`
 --
 
-INSERT INTO `appearance` (`value`, `appearance`) VALUES
+INSERT INTO `appearance` (`key`, `value`) VALUES
 (1, 'very_good_looking'),
 (2, 'good_looking'),
 (3, 'average'),
@@ -74,16 +74,16 @@ INSERT INTO `appearance` (`value`, `appearance`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `bodytype` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `bodytype` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `bodytype`
 --
 
-INSERT INTO `bodytype` (`value`, `bodytype`) VALUES
+INSERT INTO `bodytype` (`key`, `value`) VALUES
 (1, 'muscular'),
 (2, 'well_built'),
 (3, 'regular_body'),
@@ -97,16 +97,16 @@ INSERT INTO `bodytype` (`value`, `bodytype`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `civil_status` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `status` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `civil_status`
 --
 
-INSERT INTO `civil_status` (`value`, `status`) VALUES
+INSERT INTO `civil_status` (`key`, `value`) VALUES
 (1, 'married'),
 (2, 'engaged'),
 (3, 'relationship'),
@@ -120,16 +120,16 @@ INSERT INTO `civil_status` (`value`, `status`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `clothing` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `clothing` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `clothing`
 --
 
-INSERT INTO `clothing` (`value`, `clothing`) VALUES
+INSERT INTO `clothing` (`key`, `value`) VALUES
 (1, 'buissiness'),
 (2, 'classy'),
 (3, 'ordinary'),
@@ -145,16 +145,16 @@ INSERT INTO `clothing` (`value`, `clothing`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `drinking_habits` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `habit` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `drinking_habits`
 --
 
-INSERT INTO `drinking_habits` (`value`, `habit`) VALUES
+INSERT INTO `drinking_habits` (`key`, `value`) VALUES
 (1, 'very_often'),
 (2, 'often'),
 (3, 'with_company'),
@@ -168,16 +168,16 @@ INSERT INTO `drinking_habits` (`value`, `habit`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `education` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `education` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `education`
 --
 
-INSERT INTO `education` (`value`, `education`) VALUES
+INSERT INTO `education` (`key`, `value`) VALUES
 (1, 'elementary_school'),
 (2, 'college'),
 (3, 'university'),
@@ -222,16 +222,16 @@ CREATE TABLE IF NOT EXISTS `event_participants` (
 --
 
 CREATE TABLE IF NOT EXISTS `exercising_habits` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `habit` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `exercising_habits`
 --
 
-INSERT INTO `exercising_habits` (`value`, `habit`) VALUES
+INSERT INTO `exercising_habits` (`key`, `value`) VALUES
 (1, 'very_often'),
 (2, 'often'),
 (3, 'regular'),
@@ -245,16 +245,16 @@ INSERT INTO `exercising_habits` (`value`, `habit`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `eye_color` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `eye_color` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `eye_color`
 --
 
-INSERT INTO `eye_color` (`value`, `eye_color`) VALUES
+INSERT INTO `eye_color` (`key`, `value`) VALUES
 (1, 'green'),
 (2, 'blue'),
 (3, 'brown'),
@@ -268,16 +268,16 @@ INSERT INTO `eye_color` (`value`, `eye_color`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `favorite_music_genre` (
-  `value` int(3) NOT NULL DEFAULT '0',
-  `genre` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(3) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `favorite_music_genre`
 --
 
-INSERT INTO `favorite_music_genre` (`value`, `genre`) VALUES
+INSERT INTO `favorite_music_genre` (`key`, `value`) VALUES
 (1, 'rock'),
 (2, 'classical'),
 (3, 'electronic'),
@@ -300,16 +300,16 @@ INSERT INTO `favorite_music_genre` (`value`, `genre`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `friday_night_activity` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `activity` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `friday_night_activity`
 --
 
-INSERT INTO `friday_night_activity` (`value`, `activity`) VALUES
+INSERT INTO `friday_night_activity` (`key`, `value`) VALUES
 (1, 'party'),
 (2, 'after_work'),
 (3, 'cinema'),
@@ -342,16 +342,16 @@ CREATE TABLE IF NOT EXISTS `friend_requests` (
 --
 
 CREATE TABLE IF NOT EXISTS `hair_color` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `color` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `hair_color`
 --
 
-INSERT INTO `hair_color` (`value`, `color`) VALUES
+INSERT INTO `hair_color` (`key`, `value`) VALUES
 (1, 'blonde'),
 (2, 'brunette'),
 (3, 'bald'),
@@ -367,16 +367,16 @@ INSERT INTO `hair_color` (`value`, `color`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `hobby` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `hobby` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `hobby`
 --
 
-INSERT INTO `hobby` (`value`, `hobby`) VALUES
+INSERT INTO `hobby` (`key`, `value`) VALUES
 (1, 'books'),
 (2, 'art'),
 (3, 'music'),
@@ -411,16 +411,16 @@ INSERT INTO `hobby` (`value`, `hobby`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `housing_type` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `housing` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `housing_type`
 --
 
-INSERT INTO `housing_type` (`value`, `housing`) VALUES
+INSERT INTO `housing_type` (`key`, `value`) VALUES
 (1, 'alone'),
 (2, 'with_parents'),
 (3, 'with_roommate'),
@@ -436,16 +436,16 @@ INSERT INTO `housing_type` (`value`, `housing`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `length` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `length` varchar(10) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` varchar(10) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `length`
 --
 
-INSERT INTO `length` (`value`, `length`) VALUES
+INSERT INTO `length` (`key`, `value`) VALUES
 (1, '0 - 50'),
 (2, '50 - 100'),
 (3, '100  - 150'),
@@ -480,16 +480,16 @@ CREATE TABLE IF NOT EXISTS `messages` (
 --
 
 CREATE TABLE IF NOT EXISTS `num_childs` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `childs` int(2) DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` int(2) DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `num_childs`
 --
 
-INSERT INTO `num_childs` (`value`, `childs`) VALUES
+INSERT INTO `num_childs` (`key`, `value`) VALUES
 (1, 0),
 (2, 1),
 (3, 2),
@@ -506,16 +506,16 @@ INSERT INTO `num_childs` (`value`, `childs`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `occupation` (
-  `value` int(3) NOT NULL DEFAULT '0',
-  `occupation` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(3) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `occupation`
 --
 
-INSERT INTO `occupation` (`value`, `occupation`) VALUES
+INSERT INTO `occupation` (`key`, `value`) VALUES
 (1, 'administration'),
 (2, 'artist'),
 (3, 'chef'),
@@ -541,16 +541,16 @@ INSERT INTO `occupation` (`value`, `occupation`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `personality_type` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `personality` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `personality_type`
 --
 
-INSERT INTO `personality_type` (`value`, `personality`) VALUES
+INSERT INTO `personality_type` (`key`, `value`) VALUES
 (1, 'ambitious'),
 (2, 'generous'),
 (3, 'happy'),
@@ -579,16 +579,16 @@ INSERT INTO `personality_type` (`value`, `personality`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `pets` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `pet` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `pets`
 --
 
-INSERT INTO `pets` (`value`, `pet`) VALUES
+INSERT INTO `pets` (`key`, `value`) VALUES
 (1, 'dog'),
 (2, 'cat'),
 (3, 'bird'),
@@ -606,16 +606,16 @@ INSERT INTO `pets` (`value`, `pet`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `religion` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `religion` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `religion`
 --
 
-INSERT INTO `religion` (`value`, `religion`) VALUES
+INSERT INTO `religion` (`key`, `value`) VALUES
 (1, 'christian'),
 (2, 'jewish'),
 (3, 'islam'),
@@ -652,16 +652,16 @@ INSERT INTO `roles` (`id`, `description`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `romance` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `romance` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `romance`
 --
 
-INSERT INTO `romance` (`value`, `romance`) VALUES
+INSERT INTO `romance` (`key`, `value`) VALUES
 (1, 'very_romantic'),
 (2, 'romantic'),
 (3, 'little_romantic'),
@@ -674,16 +674,16 @@ INSERT INTO `romance` (`value`, `romance`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `searching_for` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `relationship_type` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `searching_for`
 --
 
-INSERT INTO `searching_for` (`value`, `relationship_type`) VALUES
+INSERT INTO `searching_for` (`key`, `value`) VALUES
 (1, 'male_want_female'),
 (2, 'male_want_male'),
 (3, 'female_want_male'),
@@ -698,24 +698,24 @@ INSERT INTO `searching_for` (`value`, `relationship_type`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `spoken_languages` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `language` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `spoken_languages`
 --
 
-INSERT INTO `spoken_languages` (`value`, `language`) VALUES
+INSERT INTO `spoken_languages` (`key`, `value`) VALUES
 (1, 'english'),
 (2, 'swedish'),
 (3, 'spanish'),
 (4, 'german'),
 (5, 'chinese'),
-(6, 'bengali'),
-(7, 'japanese'),
-(8, 'korean'),
+(6, 'norweigan'),
+(7, 'finish'),
+(8, 'danish'),
 (9, 'french'),
 (10, 'turkish'),
 (11, 'other');
@@ -727,16 +727,16 @@ INSERT INTO `spoken_languages` (`value`, `language`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `tobacco_habits` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `habit` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumpning av Data i tabell `tobacco_habits`
 --
 
-INSERT INTO `tobacco_habits` (`value`, `habit`) VALUES
+INSERT INTO `tobacco_habits` (`key`, `value`) VALUES
 (1, 'very_often'),
 (2, 'often'),
 (3, 'with_company'),
@@ -751,7 +751,7 @@ INSERT INTO `tobacco_habits` (`value`, `habit`) VALUES
 
 CREATE TABLE IF NOT EXISTS `traits` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='"name" is responding to the table of the item, eg. "eye_colo' AUTO_INCREMENT=28 ;
 
@@ -759,7 +759,7 @@ CREATE TABLE IF NOT EXISTS `traits` (
 -- Dumpning av Data i tabell `traits`
 --
 
-INSERT INTO `traits` (`id`, `name`) VALUES
+INSERT INTO `traits` (`id`, `value`) VALUES
 (1, 'ancestry'),
 (2, 'appearance'),
 (3, 'bodytype'),
@@ -775,7 +775,6 @@ INSERT INTO `traits` (`id`, `name`) VALUES
 (13, 'hobby'),
 (14, 'housing_type'),
 (15, 'length'),
-(16, 'messages'),
 (17, 'num_childs'),
 (18, 'occupation'),
 (19, 'personality_type'),
@@ -810,17 +809,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `month_of_birth` int(2) NOT NULL,
   `day_of_birth` int(2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
 
 --
 -- Dumpning av Data i tabell `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `hashed_password`, `salt`, `email`, `first_name`, `sur_name`, `country`, `description`, `latitude`, `longitude`, `year_of_birth`, `month_of_birth`, `day_of_birth`) VALUES
-(1, 'Administrator', '987098adc3068d4d0152c5119cc95c3f5122fc89', 'fT/R?Pr3f7f4@Y!z^nJ=CYRh/H*ktML', 'DenialOfFate@live.se', NULL, NULL, 'sweden', NULL, '18.6649446', '59.7503028', NULL, 0, 0),
-(2, 'Williamsson', '10995ff6bdac014864fe9daca434492b22a8ed11', 'KyQZfyPmZHGJvPqkxAN3_/c/3#qmvB_', 'Sim.Williamsson@gmail.com', NULL, NULL, 'sweden', NULL, '18.6649446', '59.7503028', NULL, 0, 0),
-(3, 'Testificate', 'addfc25f29bfed528a30e46056686ba545792190', 'tGJX@W0z0gP*/kvX6vRzn&C_ZTCNMQ4', 'denialoffate@hotmail.com', NULL, NULL, 'sweden', NULL, '18.6649446', '59.7503028', NULL, 0, 0),
-(4, 'garga123', 'f86cb8bbc5350bd308a4be80638db8a3f999a3b4', 'N))3VTfzaAx3j8BW)fBFLJC!Ta/?NV_', 'ordforande@kbkompaniet.org', NULL, NULL, 'sweden', NULL, '18.6649446', '59.7503028', 1992, 9, 26);
+(1, 'Williamsson', 'ba4cd4a86a4696e6b9471ea6169ee79693eca7f8', 'XT4HvH0t6vA%P3_g?T_CQ4=b9^Z9C)J', 'DenialOfFate@live.se', NULL, NULL, 'sweden', NULL, '18.6649446', '59.7503028', 2012, 1, 1),
+(2, 'Administrator', '8065479b4e29e44067e27f4b956b7d0b9a97b99e', '=%?/49!r)8!*Vx&t8-Vh61m1F)@dC/8', 'DenialOfFate2@live.se', NULL, NULL, 'sweden', NULL, '18.6649446', '59.7503028', 2012, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -915,9 +912,7 @@ CREATE TABLE IF NOT EXISTS `user_settings` (
 
 INSERT INTO `user_settings` (`user_id`, `email_new_event`, `email_new_message`, `email_new_friend_request`) VALUES
 (1, 0, 0, 0),
-(2, 0, 0, 0),
-(3, 0, 0, 0),
-(4, 0, 0, 0);
+(2, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -956,10 +951,8 @@ CREATE TABLE IF NOT EXISTS `user_state` (
 --
 
 INSERT INTO `user_state` (`user_id`, `last_login`, `logged_in`, `date_joined`, `active`, `is_premium`, `role`) VALUES
-(1, NULL, 0, '2012-11-23 16:05:30', 1, 0, 1),
-(2, '2012-11-27', 1, '2012-11-23 16:31:42', 1, 0, 1),
-(3, '2012-11-26', 0, '2012-11-26 08:39:58', 1, 0, 1),
-(4, '2012-11-26', 1, '2012-11-26 17:23:00', 1, 0, 1);
+(1, '2012-11-28', 1, '2012-11-27 14:46:25', 1, 0, 1),
+(2, '2012-11-27', 0, '2012-11-27 14:49:30', 1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -978,12 +971,60 @@ CREATE TABLE IF NOT EXISTS `user_traits` (
 --
 
 INSERT INTO `user_traits` (`user_id`, `trait_id`, `value`) VALUES
+(1, 1, 0),
+(1, 2, 0),
+(1, 3, 0),
+(1, 4, 0),
+(1, 5, 0),
+(1, 6, 0),
+(1, 7, 0),
+(1, 8, 0),
+(1, 9, 0),
+(1, 10, 0),
+(1, 11, 0),
+(1, 12, 0),
+(1, 13, 0),
+(1, 14, 0),
+(1, 15, 0),
+(1, 16, 0),
+(1, 17, 0),
+(1, 18, 0),
+(1, 19, 0),
+(1, 20, 0),
+(1, 21, 0),
+(1, 22, 0),
 (1, 23, 1),
+(1, 24, 0),
+(1, 25, 0),
+(1, 26, 0),
+(2, 1, 0),
+(2, 2, 0),
+(2, 3, 0),
+(2, 4, 0),
+(2, 5, 0),
+(2, 6, 0),
+(2, 7, 0),
+(2, 8, 0),
+(2, 9, 0),
+(2, 10, 0),
+(2, 11, 0),
+(2, 12, 0),
+(2, 13, 0),
+(2, 14, 0),
+(2, 15, 0),
+(2, 16, 0),
+(2, 17, 0),
+(2, 18, 0),
+(2, 19, 0),
+(2, 20, 0),
+(2, 21, 0),
+(2, 22, 0),
 (2, 23, 1),
-(3, 23, 1),
-(1, 24, 3),
-(1, 25, 6),
-(4, 23, 1);
+(2, 24, 0),
+(2, 25, 0),
+(2, 26, 0),
+(2, 27, 0),
+(1, 27, 2);
 
 -- --------------------------------------------------------
 
@@ -992,10 +1033,23 @@ INSERT INTO `user_traits` (`user_id`, `trait_id`, `value`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `wanted_num_childs` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `childs` int(2) DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` int(2) DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumpning av Data i tabell `wanted_num_childs`
+--
+
+INSERT INTO `wanted_num_childs` (`key`, `value`) VALUES
+(1, 0),
+(2, 1),
+(3, 2),
+(4, 3),
+(5, 4),
+(6, 5),
+(7, 6);
 
 -- --------------------------------------------------------
 
@@ -1004,10 +1058,29 @@ CREATE TABLE IF NOT EXISTS `wanted_num_childs` (
 --
 
 CREATE TABLE IF NOT EXISTS `weight` (
-  `value` int(2) NOT NULL DEFAULT '0',
-  `weight` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`value`)
+  `key` int(2) NOT NULL DEFAULT '0',
+  `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumpning av Data i tabell `weight`
+--
+
+INSERT INTO `weight` (`key`, `value`) VALUES
+(1, '10-20'),
+(2, '20-30'),
+(3, '30-40'),
+(4, '40-50'),
+(5, '50-60'),
+(6, '60-70'),
+(7, '70-80'),
+(8, '80-90'),
+(9, '90-100'),
+(10, '100-110'),
+(11, '110-120'),
+(12, '120-130'),
+(13, '130-150');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
