@@ -1,14 +1,3 @@
-<?php 
-	$a = $this->getFromDB_model->getTraitsAndNames();
-	
-	for($i=0;$i<count($a);$i++){
-		var_dump($a[$i]);
-	}	
-	
-
-?>
-
-
 <div class="container">
 	<div class="eleven columns aplha">
 		<div class="row">
@@ -17,10 +6,11 @@
  	</div>
  	
 	<div class="five columns omega registrationForm">
-	
+		
 		<?php 
 		$lang = $this->language_model->getLanguage();
 		echo form_open($lang . '/user/register');?>
+			<label for="relationshiptype"><?php echo label('searching_for',$this)?></label>
 			<select id="selectList" name="relationshiptype">
 				<?php
 					$i = 1;

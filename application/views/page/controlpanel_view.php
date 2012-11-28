@@ -1,11 +1,78 @@
+<?php 
+	
+/*
+ * Creates all form fields and assigns them to three different variables, and then places the variables in the responding column
+ */
+
+
+	$counter = 1;
+	$firstColumn = "";
+	$secondColumn = "";
+	$thirdColumn = "";
+	
+	$traits = $this->getFromDB_model->getTraitsAndNames();
+	$userTraits = $this->user_model->getUserTraits($this->session->userdata('userId'));
+	
+	
+	for($i=0;$i<count($traits);$i++){
+		
+		$test = $traits[$i];
+		$tableName = $test['table'];
+		$tableValues = $test['arrayholder']['values'];
+		
+		if($counter <= 3){
+			$firstColumn .= form_label(label($tableName,$this), $tableName);
+			$options = array();
+			$options[] = label('no_answer',$this);
+			
+			foreach($tableValues as $value){
+				$options[] = label($value,$this);
+			}
+			
+			$val = $userTraits[$tableName]['value'];
+			
+			$firstColumn .= form_dropdown($tableName,$options, $val);
+		}elseif($counter > 3 && $counter <= 15){
+			$secondColumn .= form_label(label($tableName,$this), $tableName);
+			$options = array();
+			$options[] = label('no_answer',$this);
+				
+			foreach($tableValues as $value){
+				$options[] = label($value,$this);
+			}
+				
+			$val = $userTraits[$tableName]['value'];
+				
+			$secondColumn .= form_dropdown($tableName,$options, $val);
+		}else{
+			$thirdColumn .= form_label(label($tableName,$this), $tableName);
+			$options = array();
+			$options[] = label('no_answer',$this);
+			
+			foreach($tableValues as $value){
+				$options[] = label($value,$this);
+			}
+				
+			$val = $userTraits[$tableName]['value'];
+				
+			$thirdColumn .= form_dropdown($tableName,$options, $val);
+		}
+						
+		
+		
+		
+		$counter++;
+	}
+		
+	?>
+
+
+
 <div class="infoColumn">
 	<?php 
 		echo form_open('user/controlpanel');
 		
 		
-			$traits = $this->getFromDB_model->getTraitsAndNames();
-			$userTraits = $this->user_model->getUserTraits($this->session->userdata('userId'));
-			
 			echo form_error('email');
 			echo form_label(label('email',$this, 'email'));
 			$data = array(
@@ -60,35 +127,22 @@
 					              'value'       => '',
 			);
 			echo form_textarea($data);
+			
+			echo $firstColumn;
  	?>
 </div>
 
 <div class="infoColumn">
  	<?php 
-	
-			for($i=0;$i<count($traits);$i++){
-				$test = $traits[$i];
-				$tableName = $test['table'];
-				$tableValues = $test['arrayholder']['values'];
-								
-				echo form_label(label($tableName,$this), $tableName);
-				$options = array();
-				$options[] = label('no_answer',$this);
-				
-				foreach($tableValues as $value){
-					$options[] = label($value,$this);
-				}
-				
-				$val = $userTraits[$tableName]['value'];
-				
-				echo form_dropdown($tableName,$options, $val);
-			}
-		
-	?>
+ 		echo $secondColumn;
+ 	?>
 </div>
 
 <div class="infoColumn">
 	<?php 
+		
+		echo $thirdColumn;
+		
 		echo form_submit('submit',label('update',$this));
 		echo form_close();
 	

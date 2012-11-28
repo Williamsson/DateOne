@@ -50,7 +50,6 @@ $lang['who_uses_dateone'] = "Personer i alla åldrar som vill träffa en partner
 /*
  * Registration form
  */
-$lang['i_am_a'] = "Jag är en..";
 $lang['male_want_female'] = "Man som söker en kvinna";
 $lang['male_want_male'] = "Man som söker en man";
 $lang['female_want_male'] = "Kvinna som söker en man";
@@ -125,10 +124,11 @@ $lang['personality_type'] = "Personlighetstyp";
 $lang['pets'] = "Husdjur";
 $lang['religion'] = "Religion";
 $lang['romance'] = "Romantik";
-$lang['wanted_childs'] = "Hur många barn vill du ha?";
+$lang['wanted_num_childs'] = "Hur många barn vill du ha?";
 $lang['spoken_languages'] = "Vilka språk kan du?";
 $lang['tobacco_habits'] = "Tobaksvanor";
 $lang['weight'] = "Vikt";
+$lang['searching_for'] = "Jag är en.."; //Is used when entering what they're looking for, eg "man looking for woman"
 
 $lang['europe'] = "Europa";
 $lang['no_answer'] = "Vill inte svara";
