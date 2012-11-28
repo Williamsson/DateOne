@@ -10,7 +10,7 @@
 		</li>
 		<li><?php echo anchor($this->language_model->getLanguage() . 'page/events', label('events',$this));?></li>
 		<li><?php echo anchor($this->language_model->getLanguage() . '/user/flirts', label('flirts',$this));?></li>
-		<li><?php echo anchor($this->language_model->getLanguage() . '/page/matches', label('matches',$this));?></li>
+		<li><?php echo anchor($this->language_model->getLanguage() . '/page/matches', label('user_matches',$this));?></li>
 		<li><?php echo anchor($this->language_model->getLanguage() . '/user/messages', label('messages',$this));?></li>
 		<li><?php echo anchor($this->language_model->getLanguage() . '/page/chat', label('chat',$this));?></li>
 </ul>

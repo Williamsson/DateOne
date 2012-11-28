@@ -91,7 +91,7 @@ $lang['friends'] = "Vänner";
 $lang['flirts'] = "Flörtar";
 $lang['messages'] = "Meddelanden";
 $lang['chat'] = "Chatt";
-$lang['matches'] = "Matchningar";
+$lang['user_matches'] = "Matchningar";
 
 /*
  * Generic error messages
@@ -99,7 +99,6 @@ $lang['matches'] = "Matchningar";
 
 $lang['required_field'] = " måste fyllas i.";
 $lang['not_valid_email'] = "Du har inte fyllt i en giltig email.";
-
 
 
 /*
@@ -129,6 +128,7 @@ $lang['romance'] = "Romantik";
 $lang['wanted_childs'] = "Hur många barn vill du ha?";
 $lang['spoken_languages'] = "Vilka språk kan du?";
 $lang['tobacco_habits'] = "Tobaksvanor";
+$lang['weight'] = "Vikt";
 
 $lang['europe'] = "Europa";
 $lang['no_answer'] = "Vill inte svara";

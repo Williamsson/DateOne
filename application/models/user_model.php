@@ -233,10 +233,9 @@ class User_model extends CI_Model{
 				$traitValue = intval($row->value);
 				$traitName = $this->getFromDB_model->getTraitName($traitId);
 				
-				if($traitValue != 0){
-					$results[] = array(
+				if($traitName){
+					$results[$traitName] = array(
 						"id" => $traitId,
-						"name" => $traitName,
 						"value" => $traitValue
 					);
 				}

@@ -53,11 +53,11 @@ class GetFromDB_model extends CI_Model{
 	}
 	
 	function getTraitName($id){
-		$query = $this->db->query("SELECT name FROM traits WHERE id = '$id'");
+		$query = $this->db->query("SELECT value FROM traits WHERE id = '$id'");
 		
 		if($query->num_rows() > 0){
 			$row = $query->row();
-			return $row->name;
+			return $row->value;
 		}else{
 			return false;
 		}
@@ -66,6 +66,46 @@ class GetFromDB_model extends CI_Model{
 	function countSumTraits(){
 		return $this->db->count_all('traits');
 	}
+	
+	function getTraitsAndNames(){
+		
+		$this->db->select('value');
+		$query = $this->db->get('traits');
+		$return = array();
+		
+		
+		foreach ($query->result_array() as $row){
+			
+			$this->db->select('value');
+			$query = $this->db->get($row['value']);
+			$table = $row['value'];
+			
+			$this->db->select('value');
+			$currentValues = array();
+			$query2 = $this->db->get($table);
+			
+			foreach($query2->result() as $row){
+				$currentValues[] = $row->value;
+			}
+			
+		   $return[] = array(
+		   		'table' => $table,
+				'arrayholder' => array(
+					'values' => $currentValues
+				),
+				
+		   );
+		}
+		
+		
+		
+		return $return;
+	}
+	
+	
+	
+	
+	
 	
 }
 

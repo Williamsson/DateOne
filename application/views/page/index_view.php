@@ -1,3 +1,14 @@
+<?php 
+	$a = $this->getFromDB_model->getTraitsAndNames();
+	
+	for($i=0;$i<count($a);$i++){
+		var_dump($a[$i]);
+	}	
+	
+
+?>
+
+
 <div class="container">
 	<div class="eleven columns aplha">
 		<div class="row">
@@ -13,7 +24,7 @@
 			<select id="selectList" name="relationshiptype">
 				<?php
 					$i = 1;
-					$options = $this->getFromDB_model->fetch('searching_for','relationship_type');
+					$options = $this->getFromDB_model->fetch('searching_for','value');
 					foreach($options as $option){
 						echo "<option value='$i'>" . label($option, $this) . "</option>";
 						++$i;
