@@ -5,7 +5,7 @@
 }
 
 .registrationForm{
-	height: 455px;
+	max-height: 480px;
 	overflow-y:scroll;
 }
 
@@ -17,3 +17,4 @@
 	.registrationForm button{
 		clear: both;
 	}
+	

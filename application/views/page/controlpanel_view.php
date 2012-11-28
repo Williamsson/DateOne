@@ -4,7 +4,6 @@
  * Creates all form fields and assigns them to three different variables, and then places the variables in the responding column
  */
 
-
 	$counter = 1;
 	$firstColumn = "";
 	$secondColumn = "";
@@ -12,7 +11,6 @@
 	
 	$traits = $this->getFromDB_model->getTraitsAndNames();
 	$userTraits = $this->user_model->getUserTraits($this->session->userdata('userId'));
-	
 	
 	for($i=0;$i<count($traits);$i++){
 		
@@ -32,17 +30,32 @@
 		if($counter <= 3){
 			
 			$firstColumn .= form_label(label($tableName,$this), $tableName);
-			$firstColumn .= form_dropdown($tableName,$options, $val);
 			
-		}elseif($counter > 3 && $counter <= 15){
+			if($tableName == "searching_for" || $tableName == "spoken_languages" || $tableName == "favorite_music_genre" || $tableName == "friday_night_activity"){
+				$firstColumn .= form_multiselect($tableName,$options, $val);
+			}else{
+				$firstColumn .= form_dropdown($tableName,$options, $val);
+			}
+			
+		}elseif($counter > 3 && $counter <= 14){
 			
 			$secondColumn .= form_label(label($tableName,$this), $tableName);
-			$secondColumn .= form_dropdown($tableName,$options, $val);
+			
+			if($tableName == "searching_for" || $tableName == "spoken_languages" || $tableName == "favorite_music_genre" || $tableName == "friday_night_activity"){
+				$secondColumn .= form_multiselect($tableName,$options, $val);
+			}else{
+				$secondColumn .= form_dropdown($tableName,$options, $val);
+			}
 			
 		}else{
 			
 			$thirdColumn .= form_label(label($tableName,$this), $tableName);
-			$thirdColumn .= form_dropdown($tableName,$options, $val);
+			
+			if($tableName == "searching_for" || $tableName == "spoken_languages" || $tableName == "favorite_music_genre" || $tableName == "friday_night_activity"){
+				$thirdColumn .= form_multiselect($tableName,$options, $val);
+			}else{
+				$thirdColumn .= form_dropdown($tableName,$options, $val);
+			}
 			
 		}
 						
@@ -56,7 +69,7 @@
 
 
 
-<div class="infoColumn">
+<div class="infoColumn controlpanel">
 	<?php 
 		echo form_open('user/controlpanel');
 		
@@ -116,6 +129,7 @@
 			echo form_textarea($data);
 			
 			echo $firstColumn;
+			echo form_submit('submit',label('update',$this));
  	?>
 </div>
 
@@ -130,7 +144,6 @@
 		
 		echo $thirdColumn;
 		
-		echo form_submit('submit',label('update',$this));
 		echo form_close();
 	
 	?>

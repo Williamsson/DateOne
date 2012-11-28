@@ -76,8 +76,10 @@ class GetFromDB_model extends CI_Model{
 		
 		foreach ($query->result_array() as $row){
 			
+			$this->db->from($row['value']);
 			$this->db->select('value');
-			$query = $this->db->get($row['value']);
+			$query = $this->db->get();
+			
 			$table = $row['value'];
 			
 			$this->db->select('value');

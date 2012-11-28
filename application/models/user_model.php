@@ -245,7 +245,6 @@ class User_model extends CI_Model{
 			return $results;
 			
 		}
-		
 	}
 	
 	function updateProfile($postData){
