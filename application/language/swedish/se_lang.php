@@ -68,7 +68,7 @@ $lang['min_password_length'] = "Ditt lösenord måste vara minst åtta tecken.";
 $lang['postal_number_length'] = " måste vara exakt fem siffror, utan mellanslag.";
 $lang['repeat_field_not_match'] = " matchar inte "; //fieldnames are added in code, so the user is shown FIELDNAME [this_translation] FIELDNAME
 $lang['field_exists'] = " finns redan i vår databas.";
-
+$lang['email_exists'] = "Den eposten finns redan i vår databas.";
 
 /*
  * Menu stuff

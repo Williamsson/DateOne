@@ -114,6 +114,27 @@ class User extends CI_Controller {
 				$data = $this->general_model->getDataContent('DateOne', 'page/controlpanel_view');
 				$this->load->view('/includes/template/template', $data);
 			}else{
+				$email = $this->input->post('email');
+				$username = $this->session->userdata('username');
+				$query = $this->db->query("SELECT username,email FROM users WHERE email='$email'");
+				
+				//Check if the email already exists, and if it does, if it's already this users email
+				
+				if($query->num_rows() > 0){
+					foreach($query->result() as $row){
+						$dbUsername = $row->username;
+						$dbEmail = $row->email;
+					}
+				}
+				
+				if($email == $dbEmail){
+					if($username != $dbUsername){
+						$this->session->set_flashdata('email_exists', label('email_exists',$this));
+						$this->redirect_model->redirect('gotocontrolpanel');
+					}
+				}
+				
+				
 				$this->user_model->updateProfile($this->input->post());
 			}
 		}

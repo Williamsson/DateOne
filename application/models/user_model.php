@@ -34,6 +34,7 @@ class User_model extends CI_Model{
 			'year_of_birth' => $yearOfBirth,
 			'month_of_birth' => $monthOfBirth,
 			'day_of_birth' => $dayOfBirth,
+			'postal_number' => $postalNumber,
 		);
 		
 		$query = $this->db->insert('users', $userData);
@@ -249,149 +250,214 @@ class User_model extends CI_Model{
 	
 	function updateProfile($postData){
 		
+		$email = $this->input->post('email');
+		$firstName = $this->input->post('first_name');
+		$surName = $this->input->post('sur_name');
+		$postalNumber = $this->input->post('postal_number');
+		$description = $this->input->post('description');
+		
+		$ancestry = $this->input->post('ancestry');
+		$appearance = $this->input->post('appearance');
+		$bodytype = $this->input->post('bodytype');
+		$civilStatus = $this->input->post('civil_status');
+		$clothing = $this->input->post('clothing');
+		$drinkingHabits = $this->input->post('drinking_habits');
+		$education = $this->input->post('education');
+		$exercisingHabits = $this->input->post('exercising_habits');
+		$eyeColor = $this->input->post('eye_color');
+		$favMusicGenre = $this->input->post('favorite_music_genre');
+		$fridayNightActivity = $this->input->post('friday_night_activity');
+		$hairColor = $this->input->post('hair_color');
+		$hobby = $this->input->post('hobby');
+		$housingType = $this->input->post('housing_type');
+		$length = $this->input->post('length');
+		$numChilds = $this->input->post('num_childs');
+		$occupation = $this->input->post('occupation');
+		$personalityType = $this->input->post('personality_type');
+		$pets = $this->input->post('pets');
+		$religion = $this->input->post('religion');
+		$romance = $this->input->post('romance');
+		$searching_for = $this->input->post('searching_for');
+		$spokenLanguages = $this->input->post('spoken_languages');
+		$tobaccoHabits = $this->input->post('tobacco_habits');
+		$wantedNumchilds = $this->input->post('wanted_num_childs');
+		$weight = $this->input->post('weight');
+		
+		$userId = $this->session->userdata('userId');
+		
+		$query = $this->db->query("SELECT postal_number FROM users WHERE user_id = '$userId'");
+		
+		foreach($query->result() as $row){
+			$dbPostalNumber = $row->postal_number;
+		}
+		
+		if($postalNumber != $dbPostalNumber){
+			$userData = array(
+               	'email' => $title,
+               	'first_name' => $name,
+               	'sur_name' => $date,
+				'longitude' => $date,
+				'latitude' => $date,
+				'description' => $date,
+			);
+		}else{
+			$userData = array(
+               	'email' => $title,
+               	'first_name' => $name,
+               	'sur_name' => $date,
+				'longitude' => $date,
+				'latitude' => $date,
+				'description' => $date,
+			);
+		}
+		
+		
+		
+		$this->db->where('id', $id);
+		$this->db->update('mytable', $data);
 	}
 
 	function getControlpanelConfig(){
 		$config = array(
 		array(
-			                     'field'   => 'postal_number', 
-			                     'label'   => 'lang:postal_number', 
-			                     'rules'   => 'required|numeric|xss_clean|exact_length[5]'
+                     'field'   => 'postal_number', 
+                     'label'   => 'lang:postal_number', 
+                     'rules'   => 'required|numeric|xss_clean|exact_length[5]'
 		),
 		array(
-			                     'field'   => 'email', 
-			                     'label'   => 'lang:email',  
-			                     'rules'   => 'required|valid_email|is_unique[users.email]|xss_clean'
+                     'field'   => 'email', 
+                     'label'   => 'lang:email',  
+                     'rules'   => 'required|valid_email|xss_clean'
 		),
 		array(
-			                     'field'   => 'remail', 
-			                     'label'   => 'lang:repeat_email', 
-			                     'rules'   => 'required|matches[email]|xss_clean'
+                     'field'   => 'remail', 
+                     'label'   => 'lang:repeat_email', 
+                     'rules'   => 'required|matches[email]|xss_clean'
 		),
 		array(
-			                     'field'   => 'first_name', 
-			                     'label'   => 'lang:first_name', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'first_name', 
+                     'label'   => 'lang:first_name', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'sur_name', 
-			                     'label'   => 'lang:sur_name', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'sur_name', 
+                     'label'   => 'lang:sur_name', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'description', 
-			                     'label'   => 'lang:description', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'description', 
+                     'label'   => 'lang:description', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'ancestry', 
-			                     'label'   => 'lang:ancestry', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'ancestry', 
+                     'label'   => 'lang:ancestry', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'appearance', 
-			                     'label'   => 'lang:appearance', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'appearance', 
+                     'label'   => 'lang:appearance', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'bodytype', 
-			                     'label'   => 'lang:bodytype', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'bodytype', 
+                     'label'   => 'lang:bodytype', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'civil_status', 
-			                     'label'   => 'lang:civil_status', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'civil_status', 
+                     'label'   => 'lang:civil_status', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'clothing', 
-			                     'label'   => 'lang:clothing', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'clothing', 
+                     'label'   => 'lang:clothing', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'drinking_habits', 
-			                     'label'   => 'lang:drinking_habits', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'drinking_habits', 
+                     'label'   => 'lang:drinking_habits', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'education', 
-			                     'label'   => 'lang:education', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'education', 
+                     'label'   => 'lang:education', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'eye_color', 
-			                     'label'   => 'lang:eye_color', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'eye_color', 
+                     'label'   => 'lang:eye_color', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'hobby', 
-			                     'label'   => 'lang:hobby', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'hobby', 
+                     'label'   => 'lang:hobby', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'housing_type', 
-			                     'label'   => 'lang:housing_type', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'housing_type', 
+                     'label'   => 'lang:housing_type', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'length', 
-			                     'label'   => 'lang:length', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'length', 
+                     'label'   => 'lang:length', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'num_childs', 
-			                     'label'   => 'lang:num_childs', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'num_childs', 
+                     'label'   => 'lang:num_childs', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'occupation', 
-			                     'label'   => 'lang:occupation', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'occupation', 
+                     'label'   => 'lang:occupation', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'personality_type', 
-			                     'label'   => 'lang:personality_type', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'personality_type', 
+                     'label'   => 'lang:personality_type', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'pets', 
-			                     'label'   => 'lang:pets', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'pets', 
+                     'label'   => 'lang:pets', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'religion', 
-			                     'label'   => 'lang:religion', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'religion', 
+                     'label'   => 'lang:religion', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'romance', 
-			                     'label'   => 'lang:romance', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'romance', 
+                     'label'   => 'lang:romance', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'searching_for', 
-			                     'label'   => 'lang:searching_for', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'searching_for', 
+                     'label'   => 'lang:searching_for', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'spoken_languages', 
-			                     'label'   => 'lang:spoken_languages', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'spoken_languages', 
+                     'label'   => 'lang:spoken_languages', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'tobacco_habits', 
-			                     'label'   => 'lang:tobacco_habits', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'tobacco_habits', 
+                     'label'   => 'lang:tobacco_habits', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'wanted_num_childs', 
-			                     'label'   => 'lang:wanted_num_childs', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'wanted_num_childs', 
+                     'label'   => 'lang:wanted_num_childs', 
+                     'rules'   => 'xss_clean'
 		),
 		array(
-			                     'field'   => 'weight', 
-			                     'label'   => 'lang:weight', 
-			                     'rules'   => 'xss_clean'
+                     'field'   => 'weight', 
+                     'label'   => 'lang:weight', 
+                     'rules'   => 'xss_clean'
 		),
 		);
 		

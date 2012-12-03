@@ -31,8 +31,8 @@
 			
 			$firstColumn .= form_label(label($tableName,$this), $tableName);
 			
-			if($tableName == "searching_for" || $tableName == "spoken_languages" || $tableName == "favorite_music_genre" || $tableName == "friday_night_activity"){
-				$firstColumn .= form_multiselect($tableName,$options, $val);
+			if($tableName == "searching_for" || $tableName == "spoken_languages" || $tableName == "favorite_music_genre" || $tableName == "friday_night_activity" || $tableName == "hobby"){
+				$firstColumn .= form_multiselect($tableName . "[]",$options, $val);
 			}else{
 				$firstColumn .= form_dropdown($tableName,$options, $val);
 			}
@@ -41,8 +41,8 @@
 			
 			$secondColumn .= form_label(label($tableName,$this), $tableName);
 			
-			if($tableName == "searching_for" || $tableName == "spoken_languages" || $tableName == "favorite_music_genre" || $tableName == "friday_night_activity"){
-				$secondColumn .= form_multiselect($tableName,$options, $val);
+			if($tableName == "searching_for" || $tableName == "spoken_languages" || $tableName == "favorite_music_genre" || $tableName == "friday_night_activity" || $tableName == "hobby"){
+				$secondColumn .= form_multiselect($tableName . "[]",$options, $val);
 			}else{
 				$secondColumn .= form_dropdown($tableName,$options, $val);
 			}
@@ -51,8 +51,8 @@
 			
 			$thirdColumn .= form_label(label($tableName,$this), $tableName);
 			
-			if($tableName == "searching_for" || $tableName == "spoken_languages" || $tableName == "favorite_music_genre" || $tableName == "friday_night_activity"){
-				$thirdColumn .= form_multiselect($tableName,$options, $val);
+			if($tableName == "searching_for" || $tableName == "spoken_languages" || $tableName == "favorite_music_genre" || $tableName == "friday_night_activity" || $tableName == "hobby"){
+				$thirdColumn .= form_multiselect($tableName . "[]",$options, $val);
 			}else{
 				$thirdColumn .= form_dropdown($tableName,$options, $val);
 			}
@@ -71,6 +71,10 @@
 
 <div class="infoColumn controlpanel">
 	<?php 
+		if($this->session->flashdata('email_exists')){
+			echo $this->session->flashdata('email_exists');
+		}
+	
 		echo form_open('user/controlpanel');
 		
 		
