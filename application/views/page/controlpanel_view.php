@@ -1,5 +1,4 @@
 <?php 
-	
 /*
  * Creates all form fields and assigns them to three different variables, and then places the variables in the responding column
  */
