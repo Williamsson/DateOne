@@ -80,7 +80,7 @@ class User_model extends CI_Model{
 		
 		$this->setLoginData($username, $userId);
 		
-		$this->session->set_flashdata('newlyregistered',label('new_member',$this));
+		$this->session->set_flashdata('new_member', label('new_member',$this));
 		$this->redirect_model->redirect('gotocontrolpanel');
 		
 	}
@@ -286,7 +286,7 @@ class User_model extends CI_Model{
 		
 		$userId = $this->session->userdata('userId');
 		
-		$query = $this->db->query("SELECT postal_number FROM users WHERE user_id = '$userId'");
+		$query = $this->db->query("SELECT postal_number FROM users WHERE id = '$userId'");
 		
 		foreach($query->result() as $row){
 			$dbPostalNumber = $row->postal_number;
