@@ -67,16 +67,23 @@
 	?>
 
 
+<div class="messageBox">
+	<?php 
+	if($this->session->flashdata('email_exists')){
+		echo $this->session->flashdata('email_exists');
+	}
+	
+	if($this->session->flashdata('new_member')){
+		echo $this->session->flashdata('new_member');
+	}
+	?>
+</div>
 
 <div class="infoColumn controlpanel">
+	
+
 	<?php 
-		if($this->session->flashdata('email_exists')){
-			echo $this->session->flashdata('email_exists');
-		}
 		
-		if($this->session->flashdata('new_member')){
-			echo $this->session->flashdata('new_member');
-		}
 	
 		echo form_open('user/controlpanel');
 		

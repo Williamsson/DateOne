@@ -21,3 +21,9 @@
 	.registrationForm input,select{
 		margin-bottom: 10px;
 	}
+
+.messageBox{
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+}
