@@ -42,15 +42,6 @@ class User extends CI_Controller {
 		}
 	}
 	
-	public function registerdone(){
-		
-		if(!$this->user_model->isLoggedIn()){
-			$this->redirect_model->redirect('gotohomepage');
-		}
-		
-		$this->general_model->changeView('DateOne', 'page/registration_done_view');
-	}
-	
 	/*
 	 * Takes care of the login part, if we're not getting any post data, redirect to start page
 	 */

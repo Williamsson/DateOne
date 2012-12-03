@@ -42,7 +42,7 @@ class GetFromDB_model extends CI_Model{
 	 */
 	
 	function getTraitID($trait){
-		$query = $this->db->query("SELECT id FROM traits WHERE name = '$trait'");
+		$query = $this->db->query("SELECT id FROM traits WHERE value = '$trait'");
 		
 		if($query->num_rows() > 0){
 			$row = $query->row();

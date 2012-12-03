@@ -12,11 +12,11 @@ class User_model extends CI_Model{
 		$yearOfBirth = $this->input->post('yearofbirth');
 		$monthOfBirth = $this->input->post('monthofbirth');
 		$dayOfBirth = $this->input->post('dayofbirth');
+		$country = $this->input->post('country');
 		
 		$salt = $this->safety_model->generateRandomString(30);
 		$password = $this->safety_model->protectPassword($this->input->post('password'),$salt);
 		
-		$country = $this->session->userdata('user_country');
 		$searchingForTraitID = $this->getFromDB_model->getTraitID('searching_for');
 		
 		$coords = $this->general_model->makePostalNumberCoords($postalNumber . " " . $country);
@@ -80,7 +80,8 @@ class User_model extends CI_Model{
 		
 		$this->setLoginData($username, $userId);
 		
-		$this->redirect_model->redirect('newlyregistered');
+		$this->session->set_flashdata('newlyregistered',label('new_member',$this));
+		$this->redirect_model->redirect('gotocontrolpanel');
 		
 	}
 	
@@ -500,6 +501,11 @@ class User_model extends CI_Model{
 				                     'field'   => 'relationshiptype', 
 				                     'label'   => 'lang:searching_for', 
 				                     'rules'   => 'xss_clean'
+		),
+		array(
+									'field'   => 'country',
+									'label'   => 'lang:choose_country',
+									'rules'   => 'xss_clean'
 		)
 		);
 		

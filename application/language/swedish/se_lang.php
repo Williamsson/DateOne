@@ -23,11 +23,16 @@ $lang['first_name'] = "Förnamn";
 $lang['sur_name'] = "Efternamn";
 
 $lang['language'] = "Språk";
+$lang['choose_country'] = "Välj land..";
 
 $lang['swedish'] = "Svenska";
+$lang['sweden'] = "Sverige";
 $lang['english'] = "Engelska";
+$lang['england'] = "England";
 $lang['spanish'] = "Spanska";
+$lang['spain'] = "Spanien";
 $lang['german'] = "Tyska";
+$lang['germany'] = "Tyskland";
 $lang['chinese'] = "Kinesiska";
 $lang['norweigan'] = "Norska";
 $lang['danish'] = "Danska";
@@ -98,6 +103,11 @@ $lang['user_matches'] = "Matchningar";
 
 $lang['required_field'] = " måste fyllas i.";
 $lang['not_valid_email'] = "Du har inte fyllt i en giltig email.";
+
+/*
+ * Messages
+ */
+$lang['new_member'] = "Välkommen till DateOne! Var vänlig fyll i följande fält med korrekt information, ju mer du fyller i, desto bättre kan vi matcha dig mot andra användare.";
 
 
 /*
