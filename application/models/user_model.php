@@ -262,6 +262,7 @@ class User_model extends CI_Model{
 		$bodytype = $this->input->post('bodytype');
 		$civilStatus = $this->input->post('civil_status');
 		$clothing = $this->input->post('clothing');
+		$country = $this->input->post('country');
 		$drinkingHabits = $this->input->post('drinking_habits');
 		$education = $this->input->post('education');
 		$exercisingHabits = $this->input->post('exercising_habits');
@@ -293,22 +294,27 @@ class User_model extends CI_Model{
 		}
 		
 		if($postalNumber != $dbPostalNumber){
+			
+			$country = $this->db->query("SELECT country FROM users WHERE id = '$userId'");
+			
+			$coords = $this->general_model->makePostalNumberCoords($postalNumber . " " . $country);
+			$longitude = $coords['longitude'];
+			$latitude = $coords['latitude'];
+			
 			$userData = array(
-               	'email' => $title,
-               	'first_name' => $name,
-               	'sur_name' => $date,
-				'longitude' => $date,
-				'latitude' => $date,
-				'description' => $date,
+               	'email' => $email,
+               	'first_name' => $firstName,
+               	'sur_name' => $surName,
+				'longitude' => $longitude,
+				'latitude' => $latitude,
+				'description' => $description,
 			);
 		}else{
 			$userData = array(
-               	'email' => $title,
-               	'first_name' => $name,
-               	'sur_name' => $date,
-				'longitude' => $date,
-				'latitude' => $date,
-				'description' => $date,
+               	'email' => $email,
+               	'first_name' => $firstName,
+               	'sur_name' => $surName,
+				'description' => $description,
 			);
 		}
 		
