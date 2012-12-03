@@ -54,10 +54,8 @@ class Language_model extends CI_Model{
 			
 			return $lang;
 		}else{
-			$lang = $this->getUserCountry();
+			$lang = $this->getUserBrowserLanguage();
 			
-			$this->session->set_userdata('user_country', strtolower($lang['country']));
-			$lang = $lang['initials'];
 			$this->session->set_userdata('user_country_initials', $lang);
 			
 			$allLangs = $this->getLanguageList();
@@ -83,29 +81,10 @@ class Language_model extends CI_Model{
 		
 	}
 	
-	function getUserCountry(){
-		//Find what IP the user has
-		$userIP = $_SERVER['REMOTE_ADDR'];
-	
-		//Connect to the api to find what country that IP is located in
-		$response = file('http://api.hostip.info/get_html.php?ip=' . $userIP . '&position=true');
-	
-		//Do a lot of cleaning to only get the initials of the country, eg "en" or "se" for example
+	function getUserBrowserLanguage(){
+		$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 3,2);
 		
-		$array = explode(" ",$response[0]);
-		$country = $array[1];
-		$initials = strtolower($array[2]);
-		
-		$find = array("(", ")", " ");
-		$replace   = array("", "", "");
-		$initials = str_replace($find, $replace, $initials);
-		
-		//Ensure that we ONLY get the two first chars, eg "se" or "en"
-		$initials = substr($initials, 0, 2);
-		
-		$return = array('initials' => $initials, 'country' => $country);
-		
-		return $return;
+		return strtolower($lang);
 	}
 	
 	function getLanguageList(){
