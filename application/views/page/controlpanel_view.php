@@ -26,31 +26,31 @@
 		
 		$val = $userTraits[$tableName]['value'];
 		
-		if($counter <= 3){
+		if($counter <= 0){
 			$firstColumn .= form_label(label($tableName,$this), $tableName);
 			
-			if($tableName == "searching_for" || $tableName == "spoken_languages" || $tableName == "favorite_music_genre" || $tableName == "friday_night_activity" || $tableName == "hobby"){
-				$firstColumn .= form_multiselect($tableName . "[]",$options, $val);
-			}else{
+// 			if($tableName == "searching_for" || $tableName == "spoken_languages" || $tableName == "favorite_music_genre" || $tableName == "friday_night_activity" || $tableName == "hobby"){
+// 				$firstColumn .= form_multiselect($tableName . "[]",$options, $val);
+// 			}else{
 				$firstColumn .= form_dropdown($tableName,$options, $val);
-			}
-		}elseif($counter > 3 && $counter <= 14){
+// 			}
+		}elseif($counter > 0 && $counter <= 13){
 			
 			$secondColumn .= form_label(label($tableName,$this), $tableName);
 			
-			if($tableName == "searching_for" || $tableName == "spoken_languages" || $tableName == "favorite_music_genre" || $tableName == "friday_night_activity" || $tableName == "hobby"){
-				$secondColumn .= form_multiselect($tableName . "[]",$options, $val);
-			}else{
+// 			if($tableName == "searching_for" || $tableName == "spoken_languages" || $tableName == "favorite_music_genre" || $tableName == "friday_night_activity" || $tableName == "hobby"){
+// 				$secondColumn .= form_multiselect($tableName . "[]",$options, $val);
+// 			}else{
 				$secondColumn .= form_dropdown($tableName,$options, $val);
-			}
+// 			}
 		}else{
 			$thirdColumn .= form_label(label($tableName,$this), $tableName);
 			
-			if($tableName == "searching_for" || $tableName == "spoken_languages" || $tableName == "favorite_music_genre" || $tableName == "friday_night_activity" || $tableName == "hobby"){
-				$thirdColumn .= form_multiselect($tableName . "[]",$options, $val);
-			}else{
+// 			if($tableName == "searching_for" || $tableName == "spoken_languages" || $tableName == "favorite_music_genre" || $tableName == "friday_night_activity" || $tableName == "hobby"){
+// 				$thirdColumn .= form_multiselect($tableName . "[]",$options, $val);
+// 			}else{
 				$thirdColumn .= form_dropdown($tableName,$options, $val);
-			}
+// 			}
 		}
 						
 		
