@@ -56,13 +56,16 @@ class Safety_model extends CI_Model{
 		return $password;
 	}
 	
-	function getUserPassword($userId, $userPassword){
+	function getUserPassword($userId){
 		$this->db->select('hashed_password');
 		$this->db->where('id', $userId);
 		$query = $this->db->get('users');
 		
-		if($query->num_rows() > 0){
-			return true;
+		if($query->num_rows() > 0 && $query->num_rows() < 2){
+			foreach($query->result() as $row){
+				$password = $row->hashed_password;
+			}
+			return $password;
 		}else{
 			return false;
 		}

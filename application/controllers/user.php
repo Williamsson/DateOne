@@ -61,6 +61,7 @@ class User extends CI_Controller {
 					),
 			);
 			$this->form_validation->set_message('required', '%s ' . label('required_field',$this));
+			$this->form_validation->set_message('min_length', '%s ' . label('min_password_length',$this));
 			$this->form_validation->set_rules($config);
 			
 			if($this->form_validation->run() == FALSE){
@@ -116,17 +117,17 @@ class User extends CI_Controller {
 						$dbUsername = $row->username;
 						$dbEmail = $row->email;
 					}
-				}
-				
-				if($email == $dbEmail){
-					if($username != $dbUsername){
-						$this->session->set_flashdata('email_exists', label('email_exists',$this));
-						$this->redirect_model->redirect('gotocontrolpanel');
+					
+					if($email == $dbEmail){
+						if($username != $dbUsername){
+							$this->session->set_flashdata('email_exists', label('email_exists',$this));
+							$this->redirect_model->redirect('gotocontrolpanel');
+						}
 					}
 				}
 				
 				
-				$this->user_model->updateProfile($this->input->post());
+				$this->user_model->updateProfile($this->input->post(), $username);
 			}
 		}
 		

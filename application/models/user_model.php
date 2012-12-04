@@ -101,9 +101,13 @@ class User_model extends CI_Model{
 			$salt = $this->safety_model->getUserSalt($userId);
 			$password = $this->safety_model->protectPassword($password, $salt);
 			
-			$passwordCorrect = $this->safety_model->getUserPassword($userId, $password);
+			$dbPassword = $this->safety_model->getUserPassword($userId);
 			
-			if($passwordCorrect){
+			if($password == $dbPassword){
+				
+				echo $password;
+				echo "<br/>";
+				echo $dbPassword;
 				
 				$this->setLoginData($username, $userId);
 				
@@ -111,7 +115,8 @@ class User_model extends CI_Model{
 				
 				
 			}else{
-				
+				$this->session->set_flashdata('faulty_login', label('faulty_login',$this));
+				$this->redirect_model->redirect('gotohomepage');
 			}
 		}else{
 			$this->redirect_model->redirect("gotohomepage");
@@ -183,8 +188,8 @@ class User_model extends CI_Model{
 		$userSettings = $this->getUserSettings($userId);
 	}
 	
-	private function getUserInformation($userId){
-		$this->db->select('email, first_name, sur_name, description, year_of_birth');
+	function getUserInformation($userId){
+		$this->db->select('email, first_name, sur_name, postal_number, description, year_of_birth,month_of_birth, day_of_birth');
 		$this->db->where('id', $userId);
 		$userQuery = $this->db->get('users');
 		
@@ -195,7 +200,10 @@ class User_model extends CI_Model{
 				$result['first_name'] = $row->first_name;
 				$result['sur_name'] = $row->sur_name;
 				$result['description'] = $row->description;
-				$result['age'] = $row->year_of_birth;
+				$result['postal_number'] = $row->postal_number;
+				$result['year_of_birth'] = $row->year_of_birth;
+				$result['month_of_birth'] = $row->month_of_birth;
+				$result['day_of_birth'] = $row->day_of_birth;
 			}
 			
 			return $result;
@@ -249,7 +257,9 @@ class User_model extends CI_Model{
 		}
 	}
 	
-	function updateProfile($postData){
+	function updateProfile($postData, $username){
+		
+		$traits = $this->getFromDB_model->getTraitIds();
 		
 		$email = $this->input->post('email');
 		$firstName = $this->input->post('first_name');
@@ -257,37 +267,115 @@ class User_model extends CI_Model{
 		$postalNumber = $this->input->post('postal_number');
 		$description = $this->input->post('description');
 		
+		$traitUpdates = array();
+		
 		$ancestry = $this->input->post('ancestry');
+		$ancestryId = $traits['ancestry'];
+		$traitUpdates[] = array($ancestry,$ancestryId);
+		
+		
 		$appearance = $this->input->post('appearance');
+		$appearanceId = $traits['appearance'];
+		$traitUpdates[] = array($appearance,$appearanceId);
+		
 		$bodytype = $this->input->post('bodytype');
+		$bodytypeId = $traits['bodytype'];
+		$traitUpdates[] = array($bodytype,$bodytypeId);
+		
 		$civilStatus = $this->input->post('civil_status');
+		$civilStatusId = $traits['civil_status'];
+		$traitUpdates[] = array($civilStatus,$civilStatusId);
+		
 		$clothing = $this->input->post('clothing');
-		$country = $this->input->post('country');
+		$clothingId = $traits['clothing'];
+		$traitUpdates[] = array($clothing,$clothingId);
+		
 		$drinkingHabits = $this->input->post('drinking_habits');
+		$drinkingHabitsId = $traits['drinking_habits'];
+		
+		$traitUpdates[] = array($drinkingHabits,$drinkingHabitsId);
+		
 		$education = $this->input->post('education');
+		$educationId = $traits['education'];
+		$traitUpdates[] = array($education,$educationId);
+		
 		$exercisingHabits = $this->input->post('exercising_habits');
+		$exercisingHabitsId = $traits['exercising_habits'];
+		$traitUpdates[] = array($exercisingHabits,$exercisingHabitsId);
+		
 		$eyeColor = $this->input->post('eye_color');
+		$eyeColorId = $traits['eye_color'];
+		$traitUpdates[] = array($eyeColor,$eyeColorId);
+		
 		$favMusicGenre = $this->input->post('favorite_music_genre');
+		$favMusicGenreId = $traits['favorite_music_genre'];
+		$traitUpdates[] = array($favMusicGenre,$favMusicGenreId);
+		
 		$fridayNightActivity = $this->input->post('friday_night_activity');
+		$fridayNightActivityId = $traits['friday_night_activity'];
+		$traitUpdates[] = array($fridayNightActivity,$fridayNightActivityId);
+		
 		$hairColor = $this->input->post('hair_color');
+		$hairColorId = $traits['hair_color'];
+		$traitUpdates[] = array($hairColor,$hairColorId);
+		
 		$hobby = $this->input->post('hobby');
+		$hobbyId = $traits['hobby'];
+		$traitUpdates[] = array($hobby,$hobbyId);
+		
 		$housingType = $this->input->post('housing_type');
+		$housingTypeId = $traits['housing_type'];
+		$traitUpdates[] = array($housingType,$housingTypeId);
+		
 		$length = $this->input->post('length');
+		$lengthId = $traits['length'];
+		$traitUpdates[] = array($length,$lengthId);
+		
 		$numChilds = $this->input->post('num_childs');
+		$numChildsId = $traits['num_childs'];
+		$traitUpdates[] = array($numChilds,$numChildsId);
+		
 		$occupation = $this->input->post('occupation');
+		$occupationId = $traits['occupation'];
+		$traitUpdates[] = array($occupation,$occupationId);
+		
 		$personalityType = $this->input->post('personality_type');
+		$personalityTypeId = $traits['personality_type'];
+		$traitUpdates[] = array($personalityType,$personalityTypeId);
+		
 		$pets = $this->input->post('pets');
+		$petsId = $traits['pets'];
+		$traitUpdates[] = array($pets,$petsId);
+		
 		$religion = $this->input->post('religion');
+		$religionId = $traits['religion'];
+		$traitUpdates[] = array($religion,$religionId);
+		
 		$romance = $this->input->post('romance');
+		$romanceId = $traits['romance'];
+		$traitUpdates[] = array($romance,$romanceId);
+		
 		$searching_for = $this->input->post('searching_for');
+		$searching_forId = $traits['searching_for'];
+		$traitUpdates[] = array($searching_for,$searching_forId);
+		
 		$spokenLanguages = $this->input->post('spoken_languages');
+		$spokenLanguagesId = $traits['spoken_languages'];
+		$traitUpdates[] = array($spokenLanguages,$spokenLanguagesId);
+		
 		$tobaccoHabits = $this->input->post('tobacco_habits');
+		$tobaccoHabitsId = $traits['tobacco_habits'];
+		$traitUpdates[] = array($tobaccoHabits,$tobaccoHabitsId);
+		
 		$wantedNumchilds = $this->input->post('wanted_num_childs');
+		$wantedNumchildsId = $traits['wanted_num_childs'];
+		$traitUpdates[] = array($wantedNumchilds,$wantedNumchildsId);
+		
 		$weight = $this->input->post('weight');
+		$weightId = $traits['weight'];
+		$traitUpdates[] = array($weight,$weightId);
 		
-		$userId = $this->session->userdata('userId');
-		
-		$query = $this->db->query("SELECT postal_number FROM users WHERE id = '$userId'");
+		$query = $this->db->query("SELECT postal_number FROM users WHERE username = '$username'");
 		
 		foreach($query->result() as $row){
 			$dbPostalNumber = $row->postal_number;
@@ -295,7 +383,7 @@ class User_model extends CI_Model{
 		
 		if($postalNumber != $dbPostalNumber){
 			
-			$country = $this->db->query("SELECT country FROM users WHERE id = '$userId'");
+			$country = $this->db->query("SELECT country FROM users WHERE username = '$username'");
 			
 			$coords = $this->general_model->makePostalNumberCoords($postalNumber . " " . $country);
 			$longitude = $coords['longitude'];
@@ -318,10 +406,33 @@ class User_model extends CI_Model{
 			);
 		}
 		
+		$this->db->where('username', $username);
+		$this->db->update('users', $userData);
+		$userId = $this->user_model->getUserId($username);
+		
+		$this->db->where('user_id',$userId);
+		$this->db->delete('user_traits');
+		
+		$query = "INSERT INTO user_traits (user_id, trait_id, value) VALUES ";
+		
+		for($z=0;$z<count($traits);$z++){
+			$q = $traitUpdates[$z];
+			
+			if(is_array($q[0])){
+				for($w=0;$w<count($q[0]);$w++){
+					$test = $q[0][$w];
+					$query .= "('$userId', '$q[1]', '$test'),";
+				}
+			}else{
+				$query .= "('$userId', '$q[1]', '$q[0]'),";
+			}
+			
+		}
+		$query = substr_replace($query ,"",-1);
 		
 		
-		$this->db->where('id', $id);
-		$this->db->update('mytable', $data);
+		$this->db->query($query);
+		$this->redirect_model->redirect('gotocontrolpanel');
 	}
 
 	function getControlpanelConfig(){

@@ -54,6 +54,15 @@
 							<?php echo form_error('loginpassword');?>
 						</div>
 					</div>
+					
+					<div class="errorMessage">
+						<?php 
+							if($this->session->flashdata('faulty_login')){
+								echo $this->session->flashdata('faulty_login');
+							}
+						?>
+					</div>
+					
 				</div>
 				
 				

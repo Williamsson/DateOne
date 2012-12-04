@@ -27,7 +27,6 @@
 		$val = $userTraits[$tableName]['value'];
 		
 		if($counter <= 3){
-			
 			$firstColumn .= form_label(label($tableName,$this), $tableName);
 			
 			if($tableName == "searching_for" || $tableName == "spoken_languages" || $tableName == "favorite_music_genre" || $tableName == "friday_night_activity" || $tableName == "hobby"){
@@ -35,7 +34,6 @@
 			}else{
 				$firstColumn .= form_dropdown($tableName,$options, $val);
 			}
-			
 		}elseif($counter > 3 && $counter <= 14){
 			
 			$secondColumn .= form_label(label($tableName,$this), $tableName);
@@ -45,9 +43,7 @@
 			}else{
 				$secondColumn .= form_dropdown($tableName,$options, $val);
 			}
-			
 		}else{
-			
 			$thirdColumn .= form_label(label($tableName,$this), $tableName);
 			
 			if($tableName == "searching_for" || $tableName == "spoken_languages" || $tableName == "favorite_music_genre" || $tableName == "friday_night_activity" || $tableName == "hobby"){
@@ -55,7 +51,6 @@
 			}else{
 				$thirdColumn .= form_dropdown($tableName,$options, $val);
 			}
-			
 		}
 						
 		
@@ -84,6 +79,7 @@
 
 	<?php 
 		
+		$userData = $this->user_model->getUserInformation($this->session->userdata('userId'));
 	
 		echo form_open('user/controlpanel');
 		
@@ -93,7 +89,7 @@
 			$data = array(
 			              'name'        => 'email',
 			              'id'          => 'email',
-			              'value'       => '',
+			              'value'       =>  $userData['email'],
 			);
 			echo form_input($data);
 			
@@ -102,7 +98,7 @@
 			$data = array(
 					              'name'        => 'remail',
 					              'id'          => 'remail',
-					              'value'       => '',
+					              'value'       =>  $userData['email'],
 			);
 			echo form_input($data);
 			
@@ -111,7 +107,7 @@
 			$data = array(
 					              'name'        => 'first_name',
 					              'id'          => 'first_name',
-					              'value'       => '',
+					              'value'       => $userData['first_name'],
 			);
 			echo form_input($data);
 			
@@ -120,7 +116,7 @@
 			$data = array(
 					              'name'        => 'sur_name',
 					              'id'          => 'sur_name',
-					              'value'       => '',
+					              'value'       =>  $userData['sur_name'],
 			);
 			echo form_input($data);
 			
@@ -129,7 +125,7 @@
 			$data = array(
 							              'name'        => 'postal_number',
 							              'id'          => 'postal_number',
-							              'value'       => '',
+							              'value'       =>  $userData['postal_number'],
 			);
 			echo form_input($data);
 			
@@ -138,7 +134,7 @@
 			$data = array(
 					              'name'        => 'description',
 					              'id'          => 'description',
-					              'value'       => '',
+					              'value'       =>  $userData['description'],
 			);
 			echo form_textarea($data);
 			

@@ -104,6 +104,20 @@ class GetFromDB_model extends CI_Model{
 		return $return;
 	}
 	
+	function getTraitIds(){
+		
+		$this->db->select('id, value');
+		$query = $this->db->get('traits');
+		
+		$result = array();
+		
+		foreach($query->result() as $row){
+			$result[$row->value] = intval($row->id);
+		}
+	
+		return $result;
+	}
+	
 	
 	
 	
