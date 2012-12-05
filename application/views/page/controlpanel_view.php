@@ -12,7 +12,6 @@
 	$userId = $this->session->userdata('userId');
 	$traits = $this->getFromDB_model->getTraits();
 	
-	
 	foreach($traits as $trait){
 		$traitName = $trait['traitName'];
 		$traitId = $trait['traitId'];
@@ -20,7 +19,7 @@
 		$traitOptions = $this->getFromDB_model->getTraitOptions($traitName);
 		$options = array();
 		foreach($traitOptions as $option){
-			$options[] = $option['value'];
+			$options[] = label($option['value'],$this);
 		}
 		
 		//everything i need to display the forms are done. Now to get the user information
@@ -64,25 +63,13 @@
 		$counter++;
 	}
 	
-// 	for($i=0;$i<count($traits);$i++){
-// 		$traitName = $traits[$i]['traitName'];
-// 		$traitId = $traits[$i]['traitId'];
-		
-// 		$traitOptions = $this->getFromDB_model->getTraitOptions($traitName);
-
-// 		$userValues = $this->user_model->getUserTraitValues($userId,$traitName);
-		
-		
-// 		var_dump($traitOptions);
-		
-// 		$counter++;
-// 	}
-
-		
 	?>
 
 
 <div class="messageBox">
+	
+	<h3><?php echo label('enter_your_traits',$this)?></h3>
+	
 	<?php 
 	if($this->session->flashdata('email_exists')){
 		echo $this->session->flashdata('email_exists');
@@ -173,8 +160,27 @@
 	<?php 
 		
 		echo $thirdColumn;
-		
 		echo form_close();
-	
 	?>
 </div>
+
+<div class="controlpanelBreak"></div>
+
+<div class="messageBox">
+	
+	<h3><?php echo label('user_searching_for_traits',$this)?></h3>
+	
+</div>
+
+<div class="infoColumn">
+
+</div>
+
+<div class="infoColumn">
+
+</div>
+
+<div class="infoColumn">
+
+</div>
+

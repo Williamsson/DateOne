@@ -100,6 +100,13 @@ $lang['chat'] = "Chatt";
 $lang['user_matches'] = "Matchningar";
 
 /*
+ * Controlpanel
+ */
+$lang['enter_your_traits'] = "Berätta om dig själv.";
+$lang['user_searching_for_traits'] = "Vad söker du?";
+
+
+/*
  * Generic error messages
  */
 
