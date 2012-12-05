@@ -2,7 +2,6 @@
 /*
  * Creates all form fields and assigns them to three different variables, and then places the input fields in the responding column
  */
-	
 	//Counter is used when giving columns input fields
 	$counter = 1;
 	$firstColumn = "";
@@ -172,15 +171,67 @@
 	
 </div>
 
-<div class="infoColumn">
+<?php 
+$counter = 1;
+$firstColumn = "";
+$secondColumn = "";
+$thirdColumn = "";
 
+$userId = $this->session->userdata('userId');
+$traits = $this->getFromDB_model->getTraits();
+
+foreach($traits as $trait){
+	$traitName = $trait['traitName'];
+	$traitId = $trait['traitId'];
+
+	$traitOptions = $this->getFromDB_model->getTraitOptions($traitName);
+	$options = array();
+	foreach($traitOptions as $option){
+		$options[] = label($option['value'],$this);
+	}
+
+	//everything i need to display the forms are done. Now to get the user information
+	$userTraitValues = $this->user_model->getUserTraitValues($userId, $traitId);
+	$val = array();
+	foreach($userTraitValues as $userTrait){
+		$val[] = $userTrait;
+	}
+	
+	if(count($val) === 1) {
+		$val = $val[0];
+	}
+
+	if($counter <= 3){
+		$firstColumn .= form_label(label($traitName,$this), $traitName);
+
+		$firstColumn .= form_multiselect($traitName . "[]",$options, $val);
+	}elseif($counter > 3 && $counter <= 14){
+
+		$secondColumn .= form_label(label($traitName,$this), $traitName);
+
+		$secondColumn .= form_multiselect($traitName . "[]",$options, $val);
+	}else{
+		$thirdColumn .= form_label(label($traitName,$this), $traitName);
+
+		$thirdColumn .= form_multiselect($traitName . "[]",$options, $val);
+	}
+
+	$counter++;
+}
+?>
+
+
+<div class="infoColumn">
+	<?php 
+	
+	?>
 </div>
 
 <div class="infoColumn">
-
+	
 </div>
 
 <div class="infoColumn">
-
+	
 </div>
 

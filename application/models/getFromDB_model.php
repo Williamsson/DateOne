@@ -116,9 +116,26 @@ class GetFromDB_model extends CI_Model{
 		return $result;
 	}
 	
-	
-	
-	
+	function test(){
+		$traits = $this->getTraits();
+		
+		foreach($traits as $trait){
+			$a = $trait['traitName'];
+			
+			$query = $this->db->get($a);
+			
+			$count = $query->num_rows();
+			
+			$data = array(
+			   'key' => 1 ,
+			   'value' => 'no_answer'
+			);
+
+			$this->db->insert($a, $data); 
+			
+		}
+		
+	}
 	
 	
 }
