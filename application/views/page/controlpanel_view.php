@@ -1,63 +1,38 @@
 <?php 
 /*
- * Creates all form fields and assigns them to three different variables, and then places the variables in the responding column
+ * Creates all form fields and assigns them to three different variables, and then places the input fields in the responding column
  */
-
+	
+	//Counter is used when giving columns input fields
 	$counter = 1;
 	$firstColumn = "";
 	$secondColumn = "";
 	$thirdColumn = "";
 	
-	$traits = $this->getFromDB_model->getTraitsAndNames();
+	$traits = $this->getFromDB_model->getTraitsAndOptions();
 	$userTraits = $this->user_model->getUserTraits($this->session->userdata('userId'));
 	
-	for($i=0;$i<count($traits);$i++){
+	$oneTrait = array();
+	for($i=0;$i<count($userTraits);$i++){
+		$tableName = $userTraits[$i][0]['tablename'];
+		$traitId = $userTraits[$i][0]['traitId'];
+		$traitValues = $userTraits[$i][0]['values'];
 		
-		$test = $traits[$i];
-		$tableName = $test['table'];
-		$tableValues = $test['arrayholder']['values'];
-		
-		$options = array();
-		$options[] = label('no_answer',$this);
-		
-		foreach($tableValues as $value){
-			$options[] = label($value,$this);
+		$values = array();
+		foreach($traitValues as $traitValue){
+			$values[] = $traitValue;
 		}
 		
-		$val = $userTraits[$tableName]['value'];
-		
-		if($counter <= 0){
-			$firstColumn .= form_label(label($tableName,$this), $tableName);
-			
-// 			if($tableName == "searching_for" || $tableName == "spoken_languages" || $tableName == "favorite_music_genre" || $tableName == "friday_night_activity" || $tableName == "hobby"){
-// 				$firstColumn .= form_multiselect($tableName . "[]",$options, $val);
-// 			}else{
-				$firstColumn .= form_dropdown($tableName,$options, $val);
-// 			}
-		}elseif($counter > 0 && $counter <= 13){
-			
-			$secondColumn .= form_label(label($tableName,$this), $tableName);
-			
-// 			if($tableName == "searching_for" || $tableName == "spoken_languages" || $tableName == "favorite_music_genre" || $tableName == "friday_night_activity" || $tableName == "hobby"){
-// 				$secondColumn .= form_multiselect($tableName . "[]",$options, $val);
-// 			}else{
-				$secondColumn .= form_dropdown($tableName,$options, $val);
-// 			}
-		}else{
-			$thirdColumn .= form_label(label($tableName,$this), $tableName);
-			
-// 			if($tableName == "searching_for" || $tableName == "spoken_languages" || $tableName == "favorite_music_genre" || $tableName == "friday_night_activity" || $tableName == "hobby"){
-// 				$thirdColumn .= form_multiselect($tableName . "[]",$options, $val);
-// 			}else{
-				$thirdColumn .= form_dropdown($tableName,$options, $val);
-// 			}
-		}
-						
-		
-		
+		$oneTrait[] = array(
+					'tableName' => $tableName,
+					'id' => $traitId,
+					'values' => $values
+		);
 		
 		$counter++;
 	}
+
+	var_dump($oneTrait);
 		
 	?>
 

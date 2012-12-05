@@ -232,29 +232,34 @@ class User_model extends CI_Model{
 	 */
 	function getUserTraits($userId){
 		
-		$query = $this->db->get_where('user_traits', array('user_id' => $userId));
+		//Gets all posts from user_traits where the user_id is X
+		$userTraitsQuery = $this->db->get_where('user_traits', array('user_id' => $userId));
+		$result = array();
 		
-		if($query->num_rows() > 0){
+		foreach($userTraitsQuery->result() as $row){
+			$traitId = intval($row->trait_id);
+			$traitValue = intval($row->value);
+			$traitName = $this->getFromDB_model->getTraitName($traitId);
 			
-			$result = array();
+			$query = $this->db->query("SELECT value FROM user_traits WHERE user_id = '$userId' AND trait_id = '$traitId'");
+			$valuesArray = array();
 			
 			foreach($query->result() as $row){
-				$traitId = intval($row->trait_id);
-				$traitValue = intval($row->value);
-				$traitName = $this->getFromDB_model->getTraitName($traitId);
-				
-				if($traitName){
-					$results[$traitName] = array(
-						"id" => $traitId,
-						"value" => $traitValue
-					);
-				}
-				
+				$valuesArray[] = $row->value;
 			}
 			
-			return $results;
+			$result[] = array(
+				array(
+					'tablename' => $traitName,
+					'traitId' => $traitId,
+					'values' => $valuesArray,
+				),
+			);
 			
 		}
+		
+		return $result;
+			
 	}
 	
 	function updateProfile($postData, $username){
@@ -410,8 +415,8 @@ class User_model extends CI_Model{
 		$this->db->update('users', $userData);
 		$userId = $this->user_model->getUserId($username);
 		
-		$this->db->where('user_id',$userId);
-		$this->db->delete('user_traits');
+// 		$this->db->where('user_id',$userId);
+// 		$this->db->delete('user_traits');
 		
 		$query = "INSERT INTO user_traits (user_id, trait_id, value) VALUES ";
 		
@@ -419,9 +424,8 @@ class User_model extends CI_Model{
 			$q = $traitUpdates[$z];
 			
 			if(is_array($q[0])){
-				for($w=0;$w<count($q[0]);$w++){
-					$test = $q[0][$w];
-					$query .= "('$userId', '$q[1]', '$test'),";
+				foreach($q[0] as $value){
+					$query .= "('$userId', '$q[1]', '$value'),";
 				}
 			}else{
 				$query .= "('$userId', '$q[1]', '$q[0]'),";
@@ -430,6 +434,7 @@ class User_model extends CI_Model{
 		}
 		$query = substr_replace($query ,"",-1);
 		
+		var_dump($query);
 		
 		$this->db->query($query);
 		$this->redirect_model->redirect('gotocontrolpanel');

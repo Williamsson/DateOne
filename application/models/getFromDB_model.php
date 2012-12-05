@@ -67,7 +67,7 @@ class GetFromDB_model extends CI_Model{
 		return $this->db->count_all('traits');
 	}
 	
-	function getTraitsAndNames(){
+	function getTraitsAndOptions(){
 		
 		$this->db->select('value');
 		$query = $this->db->get('traits');
@@ -90,13 +90,7 @@ class GetFromDB_model extends CI_Model{
 				$currentValues[] = $row->value;
 			}
 			
-		   $return[] = array(
-		   		'table' => $table,
-				'arrayholder' => array(
-					'values' => $currentValues
-				),
-				
-		   );
+		   $return[$table] = $currentValues;
 		}
 		
 		
