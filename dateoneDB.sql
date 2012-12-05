@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: localhost
--- Skapad: 28 nov 2012 kl 15:13
+-- Skapad: 05 dec 2012 kl 23:02
 -- Serverversion: 5.5.20
 -- PHP-version: 5.3.10
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `ancestry` (
   `key` int(3) NOT NULL DEFAULT '0',
   `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`key`)
+  UNIQUE KEY `key` (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
@@ -37,13 +37,14 @@ CREATE TABLE IF NOT EXISTS `ancestry` (
 --
 
 INSERT INTO `ancestry` (`key`, `value`) VALUES
-(1, 'europe'),
-(2, 'scandinavia'),
-(3, 'asia'),
-(4, 'middle_east'),
-(5, 'africa'),
-(6, 'latin_america'),
-(7, 'northern_america');
+(1, 'no_answer'),
+(2, 'europe'),
+(3, 'scandinavia'),
+(4, 'asia'),
+(5, 'middle_east'),
+(6, 'africa'),
+(7, 'latin_america'),
+(8, 'northern_america');
 
 -- --------------------------------------------------------
 
@@ -62,10 +63,11 @@ CREATE TABLE IF NOT EXISTS `appearance` (
 --
 
 INSERT INTO `appearance` (`key`, `value`) VALUES
-(1, 'very_good_looking'),
-(2, 'good_looking'),
-(3, 'average'),
-(4, 'bad_looking');
+(1, 'no_answer'),
+(2, 'very_good_looking'),
+(3, 'good_looking'),
+(4, 'average'),
+(5, 'bad_looking');
 
 -- --------------------------------------------------------
 
@@ -84,11 +86,12 @@ CREATE TABLE IF NOT EXISTS `bodytype` (
 --
 
 INSERT INTO `bodytype` (`key`, `value`) VALUES
-(1, 'muscular'),
-(2, 'well_built'),
-(3, 'regular_body'),
-(4, 'bit_fat'),
-(5, 'fat');
+(1, 'no_answer'),
+(2, 'muscular'),
+(3, 'well_built'),
+(4, 'regular_body'),
+(5, 'bit_fat'),
+(6, 'fat');
 
 -- --------------------------------------------------------
 
@@ -107,11 +110,12 @@ CREATE TABLE IF NOT EXISTS `civil_status` (
 --
 
 INSERT INTO `civil_status` (`key`, `value`) VALUES
-(1, 'married'),
-(2, 'engaged'),
-(3, 'relationship'),
-(4, 'divorced'),
-(5, 'single');
+(1, 'no_answer'),
+(2, 'married'),
+(3, 'engaged'),
+(4, 'relationship'),
+(5, 'divorced'),
+(6, 'single');
 
 -- --------------------------------------------------------
 
@@ -130,13 +134,14 @@ CREATE TABLE IF NOT EXISTS `clothing` (
 --
 
 INSERT INTO `clothing` (`key`, `value`) VALUES
-(1, 'buissiness'),
-(2, 'classy'),
-(3, 'ordinary'),
-(4, 'my_own_style'),
-(5, 'trendy'),
-(6, 'rock'),
-(7, 'other');
+(1, 'no_answer'),
+(2, 'buissiness'),
+(3, 'classy'),
+(4, 'ordinary'),
+(5, 'my_own_style'),
+(6, 'trendy'),
+(7, 'rock'),
+(8, 'other');
 
 -- --------------------------------------------------------
 
@@ -155,11 +160,12 @@ CREATE TABLE IF NOT EXISTS `drinking_habits` (
 --
 
 INSERT INTO `drinking_habits` (`key`, `value`) VALUES
-(1, 'very_often'),
-(2, 'often'),
-(3, 'with_company'),
-(4, 'almost_never'),
-(5, 'never');
+(1, 'no_answer'),
+(2, 'very_often'),
+(3, 'often'),
+(4, 'with_company'),
+(5, 'almost_never'),
+(6, 'never');
 
 -- --------------------------------------------------------
 
@@ -178,13 +184,14 @@ CREATE TABLE IF NOT EXISTS `education` (
 --
 
 INSERT INTO `education` (`key`, `value`) VALUES
-(1, 'elementary_school'),
-(2, 'college'),
-(3, 'university'),
-(4, 'bacherlor'),
-(5, 'masters'),
-(6, 'doctoral'),
-(7, 'other');
+(1, 'no_answer'),
+(2, 'elementary_school'),
+(3, 'college'),
+(4, 'university'),
+(5, 'bacherlor'),
+(6, 'masters'),
+(7, 'doctoral'),
+(8, 'other');
 
 -- --------------------------------------------------------
 
@@ -232,11 +239,12 @@ CREATE TABLE IF NOT EXISTS `exercising_habits` (
 --
 
 INSERT INTO `exercising_habits` (`key`, `value`) VALUES
-(1, 'very_often'),
-(2, 'often'),
-(3, 'regular'),
-(4, 'seldom'),
-(5, 'never');
+(1, 'no_answer'),
+(2, 'very_often'),
+(3, 'often'),
+(4, 'regular'),
+(5, 'seldom'),
+(6, 'never');
 
 -- --------------------------------------------------------
 
@@ -255,11 +263,12 @@ CREATE TABLE IF NOT EXISTS `eye_color` (
 --
 
 INSERT INTO `eye_color` (`key`, `value`) VALUES
-(1, 'green'),
-(2, 'blue'),
-(3, 'brown'),
-(4, 'grey'),
-(5, 'other');
+(1, 'no_answer'),
+(2, 'green'),
+(3, 'blue'),
+(4, 'brown'),
+(5, 'grey'),
+(6, 'other');
 
 -- --------------------------------------------------------
 
@@ -278,20 +287,21 @@ CREATE TABLE IF NOT EXISTS `favorite_music_genre` (
 --
 
 INSERT INTO `favorite_music_genre` (`key`, `value`) VALUES
-(1, 'rock'),
-(2, 'classical'),
-(3, 'electronic'),
-(4, 'pop'),
-(5, 'blues'),
-(6, 'dance'),
-(7, 'disco'),
-(8, 'hip_hop'),
-(9, 'country'),
-(10, 'hard_rock'),
-(11, 'folk'),
-(12, 'opera'),
-(13, 'reagge'),
-(14, 'other');
+(1, 'no_answer'),
+(2, 'rock'),
+(3, 'classical'),
+(4, 'electronic'),
+(5, 'pop'),
+(6, 'blues'),
+(7, 'dance'),
+(8, 'disco'),
+(9, 'hip_hop'),
+(10, 'country'),
+(11, 'hard_rock'),
+(12, 'folk'),
+(13, 'opera'),
+(14, 'reagge'),
+(15, 'other');
 
 -- --------------------------------------------------------
 
@@ -310,18 +320,19 @@ CREATE TABLE IF NOT EXISTS `friday_night_activity` (
 --
 
 INSERT INTO `friday_night_activity` (`key`, `value`) VALUES
-(1, 'party'),
-(2, 'after_work'),
-(3, 'cinema'),
-(4, 'theatre'),
-(5, 'meet_friends'),
-(6, 'restaurant'),
-(7, 'concert'),
-(8, 'read_book'),
-(9, 'watch_movie'),
-(10, 'cuddle'),
-(11, 'play_game'),
-(12, 'other');
+(1, 'no_answer'),
+(2, 'party'),
+(3, 'after_work'),
+(4, 'cinema'),
+(5, 'theatre'),
+(6, 'meet_friends'),
+(7, 'restaurant'),
+(8, 'concert'),
+(9, 'read_book'),
+(10, 'watch_movie'),
+(11, 'cuddle'),
+(12, 'play_game'),
+(13, 'other');
 
 -- --------------------------------------------------------
 
@@ -352,13 +363,14 @@ CREATE TABLE IF NOT EXISTS `hair_color` (
 --
 
 INSERT INTO `hair_color` (`key`, `value`) VALUES
-(1, 'blonde'),
-(2, 'brunette'),
-(3, 'bald'),
-(4, 'red'),
-(5, 'white_grey'),
-(6, 'black'),
-(7, 'other');
+(1, 'no_answer'),
+(2, 'blonde'),
+(3, 'brunette'),
+(4, 'bald'),
+(5, 'red'),
+(6, 'white_grey'),
+(7, 'black'),
+(8, 'other');
 
 -- --------------------------------------------------------
 
@@ -377,32 +389,33 @@ CREATE TABLE IF NOT EXISTS `hobby` (
 --
 
 INSERT INTO `hobby` (`key`, `value`) VALUES
-(1, 'books'),
-(2, 'art'),
-(3, 'music'),
-(4, 'meet_friends'),
-(5, 'dancing'),
-(6, 'animals'),
-(7, 'photography'),
-(8, 'history'),
-(9, 'religion'),
-(10, 'writing'),
-(11, 'games'),
-(12, 'drawing'),
-(13, 'walking'),
-(14, 'movies'),
-(15, 'hiking'),
-(16, 'cooking'),
-(17, 'travel'),
-(18, 'exercising'),
-(19, 'cars_motorcykles'),
-(20, 'computers'),
-(21, 'fishing_hunting'),
-(22, 'painting'),
-(23, 'politics'),
-(24, 'roleplaying'),
-(25, 'theatre'),
-(26, 'other');
+(1, 'no_answer'),
+(2, 'books'),
+(3, 'art'),
+(4, 'music'),
+(5, 'meet_friends'),
+(6, 'dancing'),
+(7, 'animals'),
+(8, 'photography'),
+(9, 'history'),
+(10, 'religion'),
+(11, 'writing'),
+(12, 'games'),
+(13, 'drawing'),
+(14, 'walking'),
+(15, 'movies'),
+(16, 'hiking'),
+(17, 'cooking'),
+(18, 'travel'),
+(19, 'exercising'),
+(20, 'cars_motorcykles'),
+(21, 'computers'),
+(22, 'fishing_hunting'),
+(23, 'painting'),
+(24, 'politics'),
+(25, 'roleplaying'),
+(26, 'theatre'),
+(27, 'other');
 
 -- --------------------------------------------------------
 
@@ -421,13 +434,14 @@ CREATE TABLE IF NOT EXISTS `housing_type` (
 --
 
 INSERT INTO `housing_type` (`key`, `value`) VALUES
-(1, 'alone'),
-(2, 'with_parents'),
-(3, 'with_roommate'),
-(4, 'with_children'),
-(5, 'with_partner'),
-(6, 'with_family'),
-(7, 'other');
+(1, 'no_answer'),
+(2, 'alone'),
+(3, 'with_parents'),
+(4, 'with_roommate'),
+(5, 'with_children'),
+(6, 'with_partner'),
+(7, 'with_family'),
+(8, 'other');
 
 -- --------------------------------------------------------
 
@@ -446,15 +460,16 @@ CREATE TABLE IF NOT EXISTS `length` (
 --
 
 INSERT INTO `length` (`key`, `value`) VALUES
-(1, '0 - 50'),
-(2, '50 - 100'),
-(3, '100  - 150'),
-(4, '150  - 160'),
-(5, '160  - 170'),
-(6, '170  - 180'),
-(7, '180  - 190'),
-(8, '190  - 200'),
-(9, '200  - 220');
+(1, 'no_answer'),
+(2, '0 - 50'),
+(3, '50 - 100'),
+(4, '100  - 150'),
+(5, '150  - 160'),
+(6, '160  - 170'),
+(7, '170  - 180'),
+(8, '180  - 190'),
+(9, '190  - 200'),
+(10, '200  - 220');
 
 -- --------------------------------------------------------
 
@@ -490,14 +505,14 @@ CREATE TABLE IF NOT EXISTS `num_childs` (
 --
 
 INSERT INTO `num_childs` (`key`, `value`) VALUES
-(1, 0),
-(2, 1),
-(3, 2),
-(4, 3),
-(5, 4),
-(6, 5),
-(7, 6),
-(8, 7);
+(2, 0),
+(3, 1),
+(4, 2),
+(5, 3),
+(6, 4),
+(7, 5),
+(8, 6),
+(9, 7);
 
 -- --------------------------------------------------------
 
@@ -516,23 +531,24 @@ CREATE TABLE IF NOT EXISTS `occupation` (
 --
 
 INSERT INTO `occupation` (`key`, `value`) VALUES
-(1, 'administration'),
-(2, 'artist'),
-(3, 'chef'),
-(4, 'construction'),
-(5, 'architect'),
-(6, 'economy'),
-(7, 'retail'),
-(8, 'health_care'),
-(9, 'hotel_restaurant'),
-(10, 'engineer'),
-(11, 'IT'),
-(12, 'jurisprudence'),
-(13, 'entertainment'),
-(14, 'student'),
-(15, 'teaching'),
-(16, 'retired'),
-(17, 'other');
+(1, 'no_answer'),
+(2, 'administration'),
+(3, 'artist'),
+(4, 'chef'),
+(5, 'construction'),
+(6, 'architect'),
+(7, 'economy'),
+(8, 'retail'),
+(9, 'health_care'),
+(10, 'hotel_restaurant'),
+(11, 'engineer'),
+(12, 'IT'),
+(13, 'jurisprudence'),
+(14, 'entertainment'),
+(15, 'student'),
+(16, 'teaching'),
+(17, 'retired'),
+(18, 'other');
 
 -- --------------------------------------------------------
 
@@ -551,26 +567,27 @@ CREATE TABLE IF NOT EXISTS `personality_type` (
 --
 
 INSERT INTO `personality_type` (`key`, `value`) VALUES
-(1, 'ambitious'),
-(2, 'generous'),
-(3, 'happy'),
-(4, 'sensible'),
-(5, 'calm'),
-(6, 'caring'),
-(7, 'social'),
-(8, 'spontaneous'),
-(9, 'proud'),
-(10, 'adventurous'),
-(11, 'carefree'),
-(12, 'shy'),
-(13, 'dominating'),
-(14, 'alone'),
-(15, 'sad'),
-(16, 'stubborn'),
-(17, 'emotional'),
-(18, 'carefull'),
-(19, 'self_contained'),
-(20, 'other');
+(1, 'no_answer'),
+(2, 'ambitious'),
+(3, 'generous'),
+(4, 'happy'),
+(5, 'sensible'),
+(6, 'calm'),
+(7, 'caring'),
+(8, 'social'),
+(9, 'spontaneous'),
+(10, 'proud'),
+(11, 'adventurous'),
+(12, 'carefree'),
+(13, 'shy'),
+(14, 'dominating'),
+(15, 'alone'),
+(16, 'sad'),
+(17, 'stubborn'),
+(18, 'emotional'),
+(19, 'carefull'),
+(20, 'self_contained'),
+(21, 'other');
 
 -- --------------------------------------------------------
 
@@ -589,15 +606,16 @@ CREATE TABLE IF NOT EXISTS `pets` (
 --
 
 INSERT INTO `pets` (`key`, `value`) VALUES
-(1, 'dog'),
-(2, 'cat'),
-(3, 'bird'),
-(4, 'fish'),
-(5, 'horse'),
-(6, 'reptiles'),
-(7, 'rabbit_hamster'),
-(8, 'other'),
-(9, 'no_animal');
+(1, 'no_answer'),
+(2, 'dog'),
+(3, 'cat'),
+(4, 'bird'),
+(5, 'fish'),
+(6, 'horse'),
+(7, 'reptiles'),
+(8, 'rabbit_hamster'),
+(9, 'other'),
+(10, 'no_animal');
 
 -- --------------------------------------------------------
 
@@ -616,13 +634,14 @@ CREATE TABLE IF NOT EXISTS `religion` (
 --
 
 INSERT INTO `religion` (`key`, `value`) VALUES
-(1, 'christian'),
-(2, 'jewish'),
-(3, 'islam'),
-(4, 'buddhism'),
-(5, 'hinduism'),
-(6, 'atheist'),
-(7, 'other');
+(1, 'no_answer'),
+(2, 'christian'),
+(3, 'jewish'),
+(4, 'islam'),
+(5, 'buddhism'),
+(6, 'hinduism'),
+(7, 'atheist'),
+(8, 'other');
 
 -- --------------------------------------------------------
 
@@ -662,10 +681,11 @@ CREATE TABLE IF NOT EXISTS `romance` (
 --
 
 INSERT INTO `romance` (`key`, `value`) VALUES
-(1, 'very_romantic'),
-(2, 'romantic'),
-(3, 'little_romantic'),
-(4, 'not_romantic');
+(1, 'no_answer'),
+(2, 'very_romantic'),
+(3, 'romantic'),
+(4, 'little_romantic'),
+(5, 'not_romantic');
 
 -- --------------------------------------------------------
 
@@ -684,12 +704,13 @@ CREATE TABLE IF NOT EXISTS `searching_for` (
 --
 
 INSERT INTO `searching_for` (`key`, `value`) VALUES
-(1, 'male_want_female'),
-(2, 'male_want_male'),
-(3, 'female_want_male'),
-(4, 'female_want_female'),
-(5, 'male_want_friendship'),
-(6, 'female_want_friendship');
+(1, 'no_answer'),
+(2, 'male_want_female'),
+(3, 'male_want_male'),
+(4, 'female_want_male'),
+(5, 'female_want_female'),
+(6, 'male_want_friendship'),
+(7, 'female_want_friendship');
 
 -- --------------------------------------------------------
 
@@ -708,17 +729,18 @@ CREATE TABLE IF NOT EXISTS `spoken_languages` (
 --
 
 INSERT INTO `spoken_languages` (`key`, `value`) VALUES
-(1, 'english'),
-(2, 'swedish'),
-(3, 'spanish'),
-(4, 'german'),
-(5, 'chinese'),
-(6, 'norweigan'),
-(7, 'finish'),
-(8, 'danish'),
-(9, 'french'),
-(10, 'turkish'),
-(11, 'other');
+(1, 'no_answer'),
+(2, 'english'),
+(3, 'swedish'),
+(4, 'spanish'),
+(5, 'german'),
+(6, 'chinese'),
+(7, 'norweigan'),
+(8, 'finish'),
+(9, 'danish'),
+(10, 'french'),
+(11, 'turkish'),
+(12, 'other');
 
 -- --------------------------------------------------------
 
@@ -737,11 +759,12 @@ CREATE TABLE IF NOT EXISTS `tobacco_habits` (
 --
 
 INSERT INTO `tobacco_habits` (`key`, `value`) VALUES
-(1, 'very_often'),
-(2, 'often'),
-(3, 'with_company'),
-(4, 'almost_never'),
-(5, 'never');
+(1, 'no_answer'),
+(2, 'very_often'),
+(3, 'often'),
+(4, 'with_company'),
+(5, 'almost_never'),
+(6, 'never');
 
 -- --------------------------------------------------------
 
@@ -775,17 +798,17 @@ INSERT INTO `traits` (`id`, `value`) VALUES
 (13, 'hobby'),
 (14, 'housing_type'),
 (15, 'length'),
-(17, 'num_childs'),
-(18, 'occupation'),
-(19, 'personality_type'),
-(20, 'pets'),
-(21, 'religion'),
-(22, 'romance'),
-(23, 'searching_for'),
-(24, 'spoken_languages'),
-(25, 'tobacco_habits'),
-(26, 'wanted_num_childs'),
-(27, 'weight');
+(16, 'num_childs'),
+(17, 'occupation'),
+(18, 'personality_type'),
+(19, 'pets'),
+(20, 'religion'),
+(21, 'romance'),
+(22, 'searching_for'),
+(23, 'spoken_languages'),
+(24, 'tobacco_habits'),
+(25, 'wanted_num_childs'),
+(26, 'weight');
 
 -- --------------------------------------------------------
 
@@ -808,16 +831,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `year_of_birth` int(4) DEFAULT NULL,
   `month_of_birth` int(2) NOT NULL,
   `day_of_birth` int(2) NOT NULL,
+  `postal_number` int(5) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
 
 --
 -- Dumpning av Data i tabell `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `hashed_password`, `salt`, `email`, `first_name`, `sur_name`, `country`, `description`, `latitude`, `longitude`, `year_of_birth`, `month_of_birth`, `day_of_birth`) VALUES
-(1, 'Williamsson', 'ba4cd4a86a4696e6b9471ea6169ee79693eca7f8', 'XT4HvH0t6vA%P3_g?T_CQ4=b9^Z9C)J', 'DenialOfFate@live.se', NULL, NULL, 'sweden', NULL, '18.6649446', '59.7503028', 2012, 1, 1),
-(2, 'Administrator', '8065479b4e29e44067e27f4b956b7d0b9a97b99e', '=%?/49!r)8!*Vx&t8-Vh61m1F)@dC/8', 'DenialOfFate2@live.se', NULL, NULL, 'sweden', NULL, '18.6649446', '59.7503028', 2012, 1, 1);
+INSERT INTO `users` (`id`, `username`, `hashed_password`, `salt`, `email`, `first_name`, `sur_name`, `country`, `description`, `latitude`, `longitude`, `year_of_birth`, `month_of_birth`, `day_of_birth`, `postal_number`) VALUES
+(1, 'Williamsson', 'ab22c8ee4ab2f5ea4b39bdf25122a3e1bd211885', '1j!*Z4M/qC//ByAcmf6(p(7?4P#(T/h', 'DenialOfFate@live.se', '', '', 'Sweden', '', '18.6649446', '59.7503028', 2012, 1, 1, 76146);
 
 -- --------------------------------------------------------
 
@@ -911,8 +934,7 @@ CREATE TABLE IF NOT EXISTS `user_settings` (
 --
 
 INSERT INTO `user_settings` (`user_id`, `email_new_event`, `email_new_message`, `email_new_friend_request`) VALUES
-(1, 0, 0, 0),
-(2, 0, 0, 0);
+(1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -951,8 +973,7 @@ CREATE TABLE IF NOT EXISTS `user_state` (
 --
 
 INSERT INTO `user_state` (`user_id`, `last_login`, `logged_in`, `date_joined`, `active`, `is_premium`, `role`) VALUES
-(1, '2012-11-28', 1, '2012-11-27 14:46:25', 1, 0, 1),
-(2, '2012-11-27', 0, '2012-11-27 14:49:30', 1, 0, 1);
+(1, '2012-12-05', 1, '2012-12-05 23:57:24', 1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -971,60 +992,47 @@ CREATE TABLE IF NOT EXISTS `user_traits` (
 --
 
 INSERT INTO `user_traits` (`user_id`, `trait_id`, `value`) VALUES
-(1, 1, 0),
-(1, 2, 0),
-(1, 3, 0),
-(1, 4, 0),
-(1, 5, 0),
-(1, 6, 0),
-(1, 7, 0),
-(1, 8, 0),
-(1, 9, 0),
-(1, 10, 0),
-(1, 11, 0),
-(1, 12, 0),
-(1, 13, 0),
-(1, 14, 0),
-(1, 15, 0),
+(1, 1, 2),
+(1, 2, 2),
+(1, 3, 4),
+(1, 4, 5),
+(1, 5, 4),
+(1, 6, 3),
+(1, 7, 2),
+(1, 8, 5),
+(1, 9, 3),
+(1, 10, 1),
+(1, 10, 10),
+(1, 10, 14),
+(1, 11, 5),
+(1, 11, 8),
+(1, 11, 10),
+(1, 11, 11),
+(1, 12, 1),
+(1, 13, 1),
+(1, 13, 3),
+(1, 13, 4),
+(1, 13, 8),
+(1, 13, 10),
+(1, 13, 11),
+(1, 13, 15),
+(1, 13, 20),
+(1, 13, 21),
+(1, 13, 24),
+(1, 14, 1),
+(1, 15, 7),
 (1, 16, 0),
-(1, 17, 0),
-(1, 18, 0),
-(1, 19, 0),
-(1, 20, 0),
-(1, 21, 0),
-(1, 22, 0),
+(1, 17, 11),
+(1, 18, 11),
+(1, 19, 9),
+(1, 20, 1),
+(1, 21, 3),
+(1, 22, 1),
 (1, 23, 1),
-(1, 24, 0),
+(1, 23, 2),
+(1, 24, 5),
 (1, 25, 0),
-(1, 26, 0),
-(2, 1, 0),
-(2, 2, 0),
-(2, 3, 0),
-(2, 4, 0),
-(2, 5, 0),
-(2, 6, 0),
-(2, 7, 0),
-(2, 8, 0),
-(2, 9, 0),
-(2, 10, 0),
-(2, 11, 0),
-(2, 12, 0),
-(2, 13, 0),
-(2, 14, 0),
-(2, 15, 0),
-(2, 16, 0),
-(2, 17, 0),
-(2, 18, 0),
-(2, 19, 0),
-(2, 20, 0),
-(2, 21, 0),
-(2, 22, 0),
-(2, 23, 1),
-(2, 24, 0),
-(2, 25, 0),
-(2, 26, 0),
-(2, 27, 0),
-(1, 27, 2);
+(1, 26, 11);
 
 -- --------------------------------------------------------
 
@@ -1043,13 +1051,13 @@ CREATE TABLE IF NOT EXISTS `wanted_num_childs` (
 --
 
 INSERT INTO `wanted_num_childs` (`key`, `value`) VALUES
-(1, 0),
-(2, 1),
-(3, 2),
-(4, 3),
-(5, 4),
-(6, 5),
-(7, 6);
+(2, 0),
+(3, 1),
+(4, 2),
+(5, 3),
+(6, 4),
+(7, 5),
+(8, 6);
 
 -- --------------------------------------------------------
 
@@ -1068,19 +1076,20 @@ CREATE TABLE IF NOT EXISTS `weight` (
 --
 
 INSERT INTO `weight` (`key`, `value`) VALUES
-(1, '10-20'),
-(2, '20-30'),
-(3, '30-40'),
-(4, '40-50'),
-(5, '50-60'),
-(6, '60-70'),
-(7, '70-80'),
-(8, '80-90'),
-(9, '90-100'),
-(10, '100-110'),
-(11, '110-120'),
-(12, '120-130'),
-(13, '130-150');
+(1, 'no_answer'),
+(2, '10-20'),
+(3, '20-30'),
+(4, '30-40'),
+(5, '40-50'),
+(6, '50-60'),
+(7, '60-70'),
+(8, '70-80'),
+(9, '80-90'),
+(10, '90-100'),
+(11, '100-110'),
+(12, '110-120'),
+(13, '120-130'),
+(14, '130-150');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
