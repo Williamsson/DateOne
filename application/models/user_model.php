@@ -228,37 +228,19 @@ class User_model extends CI_Model{
 	}
 	
 	/*
-	 * Gets all the traits a user has filled out
+	 * Returns the value of a specific trait, as an array
 	 */
-	function getUserTraits($userId){
+	function getUserTraitValues($userId,$traitId){
 		
-		//Gets all posts from user_traits where the user_id is X
-		$userTraitsQuery = $this->db->get_where('user_traits', array('user_id' => $userId));
-		$result = array();
 		
-		foreach($userTraitsQuery->result() as $row){
-			$traitId = intval($row->trait_id);
-			$traitValue = intval($row->value);
-			$traitName = $this->getFromDB_model->getTraitName($traitId);
-			
-			$query = $this->db->query("SELECT value FROM user_traits WHERE user_id = '$userId' AND trait_id = '$traitId'");
-			$valuesArray = array();
-			
-			foreach($query->result() as $row){
-				$valuesArray[] = $row->value;
-			}
-			
-			$result[] = array(
-				array(
-					'tablename' => $traitName,
-					'traitId' => $traitId,
-					'values' => $valuesArray,
-				),
-			);
-			
+		$userTraitQuery = $this->db->query("SELECT value FROM user_traits WHERE user_id = '$userId' AND trait_id = '$traitId'");
+		
+		$traitValues = array();
+		foreach($userTraitQuery->result() as $row){
+			$traitValues[] = intval($row->value);
 		}
 		
-		return $result;
+		return $traitValues;
 			
 	}
 	
@@ -415,8 +397,8 @@ class User_model extends CI_Model{
 		$this->db->update('users', $userData);
 		$userId = $this->user_model->getUserId($username);
 		
-// 		$this->db->where('user_id',$userId);
-// 		$this->db->delete('user_traits');
+		$this->db->where('user_id',$userId);
+		$this->db->delete('user_traits');
 		
 		$query = "INSERT INTO user_traits (user_id, trait_id, value) VALUES ";
 		

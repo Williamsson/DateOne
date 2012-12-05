@@ -9,30 +9,75 @@
 	$secondColumn = "";
 	$thirdColumn = "";
 	
-	$traits = $this->getFromDB_model->getTraitsAndOptions();
-	$userTraits = $this->user_model->getUserTraits($this->session->userdata('userId'));
+	$userId = $this->session->userdata('userId');
+	$traits = $this->getFromDB_model->getTraits();
 	
-	$oneTrait = array();
-	for($i=0;$i<count($userTraits);$i++){
-		$tableName = $userTraits[$i][0]['tablename'];
-		$traitId = $userTraits[$i][0]['traitId'];
-		$traitValues = $userTraits[$i][0]['values'];
+	
+	foreach($traits as $trait){
+		$traitName = $trait['traitName'];
+		$traitId = $trait['traitId'];
 		
-		$values = array();
-		foreach($traitValues as $traitValue){
-			$values[] = $traitValue;
+		$traitOptions = $this->getFromDB_model->getTraitOptions($traitName);
+		$options = array();
+		foreach($traitOptions as $option){
+			$options[] = $option['value'];
 		}
 		
-		$oneTrait[] = array(
-					'tableName' => $tableName,
-					'id' => $traitId,
-					'values' => $values
-		);
+		//everything i need to display the forms are done. Now to get the user information
+		$userTraitValues = $this->user_model->getUserTraitValues($userId, $traitId);
+		$val = array();
+		foreach($userTraitValues as $userTrait){
+			$val[] = $userTrait;
+		}
+		
+		if(count($val) === 1) {
+			$val = $val[0];
+		}
+		
+		if($counter <= 3){
+			$firstColumn .= form_label(label($traitName,$this), $traitName);
+		
+			if($traitName == "searching_for" || $traitName == "spoken_languages" || $traitName == "favorite_music_genre" || $traitName == "friday_night_activity" || $traitName == "hobby"){
+				$firstColumn .= form_multiselect($traitName . "[]",$options, $val);
+			}else{
+				$firstColumn .= form_dropdown($traitName,$options, $val);
+			}
+		}elseif($counter > 3 && $counter <= 14){
+		
+			$secondColumn .= form_label(label($traitName,$this), $traitName);
+		
+			if($traitName == "searching_for" || $traitName == "spoken_languages" || $traitName == "favorite_music_genre" || $traitName == "friday_night_activity" || $traitName == "hobby"){
+				$secondColumn .= form_multiselect($traitName . "[]",$options, $val);
+			}else{
+				$secondColumn .= form_dropdown($traitName,$options, $val);
+			}
+		}else{
+			$thirdColumn .= form_label(label($traitName,$this), $traitName);
+		
+			if($traitName == "searching_for" || $traitName == "spoken_languages" || $traitName == "favorite_music_genre" || $traitName == "friday_night_activity" || $traitName == "hobby"){
+				$thirdColumn .= form_multiselect($traitName . "[]",$options, $val);
+			}else{
+				$thirdColumn .= form_dropdown($traitName,$options, $val);
+			}
+		}
 		
 		$counter++;
 	}
+	
+// 	for($i=0;$i<count($traits);$i++){
+// 		$traitName = $traits[$i]['traitName'];
+// 		$traitId = $traits[$i]['traitId'];
+		
+// 		$traitOptions = $this->getFromDB_model->getTraitOptions($traitName);
 
-	var_dump($oneTrait);
+// 		$userValues = $this->user_model->getUserTraitValues($userId,$traitName);
+		
+		
+// 		var_dump($traitOptions);
+		
+// 		$counter++;
+// 	}
+
 		
 	?>
 

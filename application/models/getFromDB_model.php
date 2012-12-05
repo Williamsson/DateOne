@@ -67,33 +67,37 @@ class GetFromDB_model extends CI_Model{
 		return $this->db->count_all('traits');
 	}
 	
-	function getTraitsAndOptions(){
+	function getTraitOptions($traitName){
 		
-		$this->db->select('value');
-		$query = $this->db->get('traits');
 		$return = array();
+		$query = $this->db->get($traitName);
 		
-		
-		foreach ($query->result_array() as $row){
+		foreach ($query->result() as $row){
+			$name = $row->value;
+			$id = $row->key;
 			
-			$this->db->from($row['value']);
-			$this->db->select('value');
-			$query = $this->db->get();
+			$return[] = array(
+				'value' => $name,
+				'id' => $id,
+			);
 			
-			$table = $row['value'];
-			
-			$this->db->select('value');
-			$currentValues = array();
-			$query2 = $this->db->get($table);
-			
-			foreach($query2->result() as $row){
-				$currentValues[] = $row->value;
-			}
-			
-		   $return[$table] = $currentValues;
 		}
 		
+		return $return;
+	}
+	
+	function getTraits(){
+		$return = array();
+		$query = $this->db->get('traits');
 		
+		foreach ($query->result() as $row){
+			$table = $row->value;
+			$id = $row->id;
+			$return[] = array(
+				'traitName' => $table,
+				'traitId' => $id,
+			);
+		}
 		
 		return $return;
 	}
