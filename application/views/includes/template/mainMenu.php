@@ -1,7 +1,7 @@
 <div id="floatMenu">
 <h3><?php echo label('menu_title',$this)?></h3>
 <ul>
-		<li><?php echo anchor($this->language_model->getLanguage() . '/user/profile', label('profile',$this));?>
+		<li><?php echo anchor($this->language_model->getLanguage() . '/profile', label('profile',$this));?>
 			<ul>
 				<li><?php echo anchor($this->language_model->getLanguage() . '/user/gallery', label('gallery',$this));?></li>
 				<li><?php echo anchor($this->language_model->getLanguage() . '/user/friends', label('friends',$this));?></li>

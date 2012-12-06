@@ -491,8 +491,8 @@ class User_model extends CI_Model{
 		$hobbyId = $traits['hobby'];
 		$traitUpdates[] = array($hobby,$hobbyId);
 		
-		$housingType = $this->input->post('housing_type');
-		$housingTypeId = $traits['searchingfor_housing_type'];
+		$housingType = $this->input->post('searchingfor_housing_type');
+		$housingTypeId = $traits['housing_type'];
 		$traitUpdates[] = array($housingType,$housingTypeId);
 		
 		$length = $this->input->post('searchingfor_length');
@@ -572,6 +572,27 @@ class User_model extends CI_Model{
 		$this->redirect_model->redirect('gotocontrolpanel');
 	}
 
+	function getProfile($username){
+		$this->db->select('first_name,sur_name,username,country,description,year_of_birth,month_of_birth,day_of_birth');
+		$this->db->where('username',$username);
+		$query = $this->db->get('users');
+		
+		$result = array();
+		foreach($query->result() as $row){
+			$result['firstName'] = $row->first_name;
+			$result['surName'] = $row->sur_name;
+			$result['username'] = $row->username;
+			$result['country'] = $row->country;
+			$result['description'] = $row->description;
+			$result['year_of_birth'] = $row->year_of_birth;
+			$result['month_of_birth'] = $row->month_of_birth;
+			$result['day_of_birth'] = $row->day_of_birth;
+
+		}
+		
+		return $result;
+	}
+	
 	function getControlpanelConfig(){
 		$config = array(
 		array(

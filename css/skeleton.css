@@ -241,18 +241,3 @@
       height: 0;
     }
     
-/*Other*/
-.infoColumn{
-	float: left;
-	margin-right: 50px;
-	min-height: 260px;
-	width: 220px;
-}
-
-	.infoColumn h2{
-		text-align: center;
-		font-size: 18px;
-	}
-	
-	.infoColumn p{
-	}
