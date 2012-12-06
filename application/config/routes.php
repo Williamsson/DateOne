@@ -50,5 +50,7 @@ $route['^se$'] = $route['default_controller'];
 $route['^en$'] = $route['default_controller'];
 
 
+$route['se/profile/:any'] = "profile/index";
+
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

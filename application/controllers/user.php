@@ -92,7 +92,13 @@ class User extends CI_Controller {
 		
 	}
 	
-	
+	function profile(){
+		if(!$this->user_model->isLoggedIn()){
+			$this->redirect_model->redirect('gotohomepage');
+		}
+		
+		$this->general_model->changeView('DateOne', 'page/profile_view');
+	}
 	
 	
 	
