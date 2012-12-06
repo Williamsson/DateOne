@@ -16,8 +16,10 @@
 					$i = 1;
 					$options = $this->getFromDB_model->fetch('searching_for','value');
 					foreach($options as $option){
-						echo "<option value='$i'>" . label($option, $this) . "</option>";
-						++$i;
+						if($option != 666){
+							echo "<option value='$i'>" . label($option, $this) . "</option>";
+							++$i;
+						}
 					}
 				?>
 			</select>
