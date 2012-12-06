@@ -103,7 +103,7 @@ $lang['user_matches'] = "Matchningar";
  * Controlpanel
  */
 $lang['enter_your_traits'] = "Berätta om dig själv.";
-$lang['user_searching_for_traits'] = "Vad söker du?";
+$lang['user_searching_for_traits'] = "Vad söker du hos din partner?";
 
 
 /*
@@ -149,8 +149,40 @@ $lang['tobacco_habits'] = "Tobaksvanor";
 $lang['weight'] = "Vikt";
 $lang['searching_for'] = "Jag är en.."; //Is used when entering what they're looking for, eg "man looking for woman"
 
+/*
+ * User traits in the "I'm looking for" section
+ */
+
+$lang['searchingfor_ancestry'] = "Ursprung";
+$lang['searchingfor_appearance'] = "Utseende";
+$lang['searchingfor_bodytype'] = "Kroppsbyggnad";
+$lang['searchingfor_civil_status'] = "Civilstånd";
+$lang['searchingfor_clothing'] = "Klädstil";
+$lang['searchingfor_drinking_habits'] = "Alkoholvanor";
+$lang['searchingfor_education'] = "Utbildning";
+$lang['searchingfor_exercising_habits'] = "Träningsvanor";
+$lang['searchingfor_eye_color'] = "Ögonfärg";
+$lang['searchingfor_favorite_music_genre'] = "Favoritgenre?";
+$lang['searchingfor_friday_night_activity'] = "Vad gör du helst en fredagskväll?";
+$lang['searchingfor_hair_color'] = "Hårfärg";
+$lang['searchingfor_hobby'] = "Hobby";
+$lang['searchingfor_housing_type'] = "Bostad";
+$lang['searchingfor_length'] = "Längd";
+$lang['searchingfor_num_childs'] = "Hur många barn bör personen ha?";
+$lang['searchingfor_occupation'] = "Yrke";
+$lang['searchingfor_personality_type'] = "Personlighetstyp";
+$lang['searchingfor_pets'] = "Husdjur";
+$lang['searchingfor_religion'] = "Religion";
+$lang['searchingfor_romance'] = "Romantik";
+$lang['searchingfor_wanted_num_childs'] = "Hur många barn bör personen vilja ha?";
+$lang['searchingfor_spoken_languages'] = "Vilka språk bör personen kunna?";
+$lang['searchingfor_tobacco_habits'] = "Tobaksvanor";
+$lang['searchingfor_weight'] = "Vikt";
+$lang['searchingfor_searching_for'] = "Söker..";
+
 $lang['europe'] = "Europa";
 $lang['no_answer'] = "Vill inte svara";
+$lang['dosent_matter'] = "Spelar ingen roll";
 
 
 

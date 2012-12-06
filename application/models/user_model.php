@@ -244,6 +244,17 @@ class User_model extends CI_Model{
 			
 	}
 	
+	function getUserLookingForTraitValues($userId,$traitId){
+		$userTraitQuery = $this->db->query("SELECT value FROM user_looking_for_traits WHERE id = '$userId' AND trait_id = '$traitId'");
+		
+		$traitValues = array();
+		foreach($userTraitQuery->result() as $row){
+			$traitValues[] = intval($row->value);
+		}
+		
+		return $traitValues;
+	}
+	
 	function updateProfile($postData, $username){
 		
 		$traits = $this->getFromDB_model->getTraitIds();
@@ -421,6 +432,145 @@ class User_model extends CI_Model{
 		$this->db->query($query);
 		$this->redirect_model->redirect('gotocontrolpanel');
 	}
+	
+	function updateLookingFor($postData,$userId){
+		$traits = $this->getFromDB_model->getTraitIds();
+		$traitUpdates = array();
+		
+		$ancestry = $this->input->post('searchingfor_ancestry');
+		$ancestryId = $traits['ancestry'];
+		$traitUpdates[] = array($ancestry,$ancestryId);
+		
+		
+		$appearance = $this->input->post('searchingfor_appearance');
+		$appearanceId = $traits['appearance'];
+		$traitUpdates[] = array($appearance,$appearanceId);
+		
+		$bodytype = $this->input->post('searchingfor_bodytype');
+		$bodytypeId = $traits['bodytype'];
+		$traitUpdates[] = array($bodytype,$bodytypeId);
+		
+		$civilStatus = $this->input->post('searchingfor_civil_status');
+		$civilStatusId = $traits['civil_status'];
+		$traitUpdates[] = array($civilStatus,$civilStatusId);
+		
+		$clothing = $this->input->post('searchingfor_clothing');
+		$clothingId = $traits['clothing'];
+		$traitUpdates[] = array($clothing,$clothingId);
+		
+		$drinkingHabits = $this->input->post('searchingfor_drinking_habits');
+		$drinkingHabitsId = $traits['drinking_habits'];
+		
+		$traitUpdates[] = array($drinkingHabits,$drinkingHabitsId);
+		
+		$education = $this->input->post('searchingfor_education');
+		$educationId = $traits['education'];
+		$traitUpdates[] = array($education,$educationId);
+		
+		$exercisingHabits = $this->input->post('searchingfor_exercising_habits');
+		$exercisingHabitsId = $traits['exercising_habits'];
+		$traitUpdates[] = array($exercisingHabits,$exercisingHabitsId);
+		
+		$eyeColor = $this->input->post('eye_color');
+		$eyeColorId = $traits['eye_color'];
+		$traitUpdates[] = array($eyeColor,$eyeColorId);
+		
+		$favMusicGenre = $this->input->post('searchingfor_favorite_music_genre');
+		$favMusicGenreId = $traits['favorite_music_genre'];
+		$traitUpdates[] = array($favMusicGenre,$favMusicGenreId);
+		
+		$fridayNightActivity = $this->input->post('searchingfor_friday_night_activity');
+		$fridayNightActivityId = $traits['friday_night_activity'];
+		$traitUpdates[] = array($fridayNightActivity,$fridayNightActivityId);
+		
+		$hairColor = $this->input->post('searchingfor_hair_color');
+		$hairColorId = $traits['hair_color'];
+		$traitUpdates[] = array($hairColor,$hairColorId);
+		
+		$hobby = $this->input->post('searchingfor_hobby');
+		$hobbyId = $traits['hobby'];
+		$traitUpdates[] = array($hobby,$hobbyId);
+		
+		$housingType = $this->input->post('housing_type');
+		$housingTypeId = $traits['searchingfor_housing_type'];
+		$traitUpdates[] = array($housingType,$housingTypeId);
+		
+		$length = $this->input->post('searchingfor_length');
+		$lengthId = $traits['length'];
+		$traitUpdates[] = array($length,$lengthId);
+		
+		$numChilds = $this->input->post('searchingfor_num_childs');
+		$numChildsId = $traits['num_childs'];
+		$traitUpdates[] = array($numChilds,$numChildsId);
+		
+		$occupation = $this->input->post('searchingfor_occupation');
+		$occupationId = $traits['occupation'];
+		$traitUpdates[] = array($occupation,$occupationId);
+		
+		$personalityType = $this->input->post('searchingfor_personality_type');
+		$personalityTypeId = $traits['personality_type'];
+		$traitUpdates[] = array($personalityType,$personalityTypeId);
+		
+		$pets = $this->input->post('searchingfor_pets');
+		$petsId = $traits['pets'];
+		$traitUpdates[] = array($pets,$petsId);
+		
+		$religion = $this->input->post('searchingfor_religion');
+		$religionId = $traits['religion'];
+		$traitUpdates[] = array($religion,$religionId);
+		
+		$romance = $this->input->post('searchingfor_romance');
+		$romanceId = $traits['romance'];
+		$traitUpdates[] = array($romance,$romanceId);
+		
+		$searching_for = $this->input->post('searchingfor_searching_for');
+		$searching_forId = $traits['searching_for'];
+		$traitUpdates[] = array($searching_for,$searching_forId);
+		
+		$spokenLanguages = $this->input->post('searchingfor_spoken_languages');
+		$spokenLanguagesId = $traits['spoken_languages'];
+		$traitUpdates[] = array($spokenLanguages,$spokenLanguagesId);
+		
+		$tobaccoHabits = $this->input->post('searchingfor_tobacco_habits');
+		$tobaccoHabitsId = $traits['tobacco_habits'];
+		$traitUpdates[] = array($tobaccoHabits,$tobaccoHabitsId);
+		
+		$wantedNumchilds = $this->input->post('searchingfor_wanted_num_childs');
+		$wantedNumchildsId = $traits['wanted_num_childs'];
+		$traitUpdates[] = array($wantedNumchilds,$wantedNumchildsId);
+		
+		$weight = $this->input->post('searchingfor_weight');
+		$weightId = $traits['weight'];
+		$traitUpdates[] = array($weight,$weightId);
+		
+		//Delete previous information
+		
+		$this->db->where('id',$userId);
+		$this->db->delete('user_looking_for_traits');
+		
+		//Build up the query that inserts everything in one go, instead of multiple inserts
+		
+		$query = "INSERT INTO user_looking_for_traits (id, trait_id, value) VALUES ";
+		
+		for($z=0;$z<count($traits);$z++){
+			$q = $traitUpdates[$z];
+				
+			if(is_array($q[0])){
+				foreach($q[0] as $value){
+					$query .= "('$userId', '$q[1]', '$value'),";
+				}
+			}else{
+				$query .= "('$userId', '$q[1]', '$q[0]'),";
+			}
+				
+		}
+		$query = substr_replace($query ,"",-1);
+		
+		var_dump($query);
+		
+		$this->db->query($query);
+		$this->redirect_model->redirect('gotocontrolpanel');
+	}
 
 	function getControlpanelConfig(){
 		$config = array(
@@ -566,6 +716,123 @@ class User_model extends CI_Model{
 		),
 		);
 		
+		return $config;
+	}
+	
+	function getLookingForConfig(){
+		$config = array(
+		array(
+	                     'field'   => 'ancestry', 
+	                     'label'   => 'lang:ancestry', 
+	                     'rules'   => 'xss_clean'
+		),
+		array(
+	                     'field'   => 'appearance', 
+	                     'label'   => 'lang:appearance', 
+	                     'rules'   => 'xss_clean'
+		),
+		array(
+	                     'field'   => 'bodytype', 
+	                     'label'   => 'lang:bodytype', 
+	                     'rules'   => 'xss_clean'
+		),
+		array(
+	                     'field'   => 'civil_status', 
+	                     'label'   => 'lang:civil_status', 
+	                     'rules'   => 'xss_clean'
+		),
+		array(
+	                     'field'   => 'clothing', 
+	                     'label'   => 'lang:clothing', 
+	                     'rules'   => 'xss_clean'
+		),
+		array(
+	                     'field'   => 'drinking_habits', 
+	                     'label'   => 'lang:drinking_habits', 
+	                     'rules'   => 'xss_clean'
+		),
+		array(
+	                     'field'   => 'education', 
+	                     'label'   => 'lang:education', 
+	                     'rules'   => 'xss_clean'
+		),
+		array(
+	                     'field'   => 'eye_color', 
+	                     'label'   => 'lang:eye_color', 
+	                     'rules'   => 'xss_clean'
+		),
+		array(
+	                     'field'   => 'hobby', 
+	                     'label'   => 'lang:hobby', 
+	                     'rules'   => 'xss_clean'
+		),
+		array(
+	                     'field'   => 'housing_type', 
+	                     'label'   => 'lang:housing_type', 
+	                     'rules'   => 'xss_clean'
+		),
+		array(
+	                     'field'   => 'length', 
+	                     'label'   => 'lang:length', 
+	                     'rules'   => 'xss_clean'
+		),
+		array(
+	                     'field'   => 'num_childs', 
+	                     'label'   => 'lang:num_childs', 
+	                     'rules'   => 'xss_clean'
+		),
+		array(
+	                     'field'   => 'occupation', 
+	                     'label'   => 'lang:occupation', 
+	                     'rules'   => 'xss_clean'
+		),
+		array(
+	                     'field'   => 'personality_type', 
+	                     'label'   => 'lang:personality_type', 
+	                     'rules'   => 'xss_clean'
+		),
+		array(
+	                     'field'   => 'pets', 
+	                     'label'   => 'lang:pets', 
+	                     'rules'   => 'xss_clean'
+		),
+		array(
+	                     'field'   => 'religion', 
+	                     'label'   => 'lang:religion', 
+	                     'rules'   => 'xss_clean'
+		),
+		array(
+	                     'field'   => 'romance', 
+	                     'label'   => 'lang:romance', 
+	                     'rules'   => 'xss_clean'
+		),
+		array(
+	                     'field'   => 'searching_for', 
+	                     'label'   => 'lang:searching_for', 
+	                     'rules'   => 'xss_clean'
+		),
+		array(
+	                     'field'   => 'spoken_languages', 
+	                     'label'   => 'lang:spoken_languages', 
+	                     'rules'   => 'xss_clean'
+		),
+		array(
+	                     'field'   => 'tobacco_habits', 
+	                     'label'   => 'lang:tobacco_habits', 
+	                     'rules'   => 'xss_clean'
+		),
+		array(
+	                     'field'   => 'wanted_num_childs', 
+	                     'label'   => 'lang:wanted_num_childs', 
+	                     'rules'   => 'xss_clean'
+		),
+		array(
+	                     'field'   => 'weight', 
+	                     'label'   => 'lang:weight', 
+	                     'rules'   => 'xss_clean'
+		),
+		);
+	
 		return $config;
 	}
 

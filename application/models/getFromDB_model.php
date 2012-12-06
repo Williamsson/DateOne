@@ -124,15 +124,13 @@ class GetFromDB_model extends CI_Model{
 			
 			$query = $this->db->get($a);
 			
-			$count = $query->num_rows();
 			
-			$data = array(
-			   'key' => 1 ,
-			   'value' => 'no_answer'
-			);
-
-			$this->db->insert($a, $data); 
-			
+				$data = array(
+	               'value' => 666,
+	            );
+				
+				$this->db->where('key',1);
+				$this->db->update($a, $data); 
 		}
 		
 	}

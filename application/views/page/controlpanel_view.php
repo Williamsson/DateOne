@@ -1,4 +1,6 @@
 <?php 
+
+
 /*
  * Creates all form fields and assigns them to three different variables, and then places the input fields in the responding column
  */
@@ -18,7 +20,11 @@
 		$traitOptions = $this->getFromDB_model->getTraitOptions($traitName);
 		$options = array();
 		foreach($traitOptions as $option){
-			$options[] = label($option['value'],$this);
+			if($option['value'] != 666){
+				$options[] = label($option['value'],$this);
+			}else{
+				$options[] = label('no_answer',$this);
+			}
 		}
 		
 		//everything i need to display the forms are done. Now to get the user information
@@ -87,8 +93,7 @@
 		
 		$userData = $this->user_model->getUserInformation($this->session->userdata('userId'));
 	
-		echo form_open('user/controlpanel');
-		
+		echo form_open('settings/updateProfile');
 		
 			echo form_error('email');
 			echo form_label(label('email',$this, 'email'));
@@ -187,11 +192,15 @@ foreach($traits as $trait){
 	$traitOptions = $this->getFromDB_model->getTraitOptions($traitName);
 	$options = array();
 	foreach($traitOptions as $option){
-		$options[] = label($option['value'],$this);
+		if($option['value'] != 666){
+				$options[] = label($option['value'],$this);
+			}else{
+				$options[] = label('dosent_matter',$this);
+			}
 	}
 
 	//everything i need to display the forms are done. Now to get the user information
-	$userTraitValues = $this->user_model->getUserTraitValues($userId, $traitId);
+	$userTraitValues = $this->user_model->getUserLookingForTraitValues($userId, $traitId);
 	$val = array();
 	foreach($userTraitValues as $userTrait){
 		$val[] = $userTrait;
@@ -200,20 +209,20 @@ foreach($traits as $trait){
 	if(count($val) === 1) {
 		$val = $val[0];
 	}
+	
+	if($counter <= 8){
+		$firstColumn .= form_label(label('searchingfor_' . $traitName,$this), $traitName);
 
-	if($counter <= 3){
-		$firstColumn .= form_label(label($traitName,$this), $traitName);
+		$firstColumn .= form_multiselect('searchingfor_' . $traitName . "[]",$options, $val);
+	}elseif($counter > 8 && $counter <= 17){
+		
+		$secondColumn .= form_label(label('searchingfor_' . $traitName,$this), $traitName);
 
-		$firstColumn .= form_multiselect($traitName . "[]",$options, $val);
-	}elseif($counter > 3 && $counter <= 14){
-
-		$secondColumn .= form_label(label($traitName,$this), $traitName);
-
-		$secondColumn .= form_multiselect($traitName . "[]",$options, $val);
+		$secondColumn .= form_multiselect('searchingfor_' . $traitName . "[]",$options, $val);
 	}else{
-		$thirdColumn .= form_label(label($traitName,$this), $traitName);
+		$thirdColumn .= form_label(label('searchingfor_' . $traitName,$this), $traitName);
 
-		$thirdColumn .= form_multiselect($traitName . "[]",$options, $val);
+		$thirdColumn .= form_multiselect('searchingfor_' . $traitName . "[]",$options, $val);
 	}
 
 	$counter++;
@@ -223,15 +232,22 @@ foreach($traits as $trait){
 
 <div class="infoColumn">
 	<?php 
-	
+		echo form_open('settings/updateLookingFor');
+		echo $firstColumn;
+		echo form_submit('submit',label('update',$this));
 	?>
 </div>
 
 <div class="infoColumn">
-	
+	<?php 
+		echo $secondColumn;
+	?>
 </div>
 
 <div class="infoColumn">
-	
+	<?php 
+		echo $thirdColumn;
+		echo form_close();
+	?>
 </div>
 
