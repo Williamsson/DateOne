@@ -1,6 +1,3 @@
-<?php 
-	$this->match_model->matchUsers(1,2);
-?>
 <div class="container">
 	<div class="eleven columns aplha">
 		<div class="row">

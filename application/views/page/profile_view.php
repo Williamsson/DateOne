@@ -1,5 +1,5 @@
 <?php 
-	if($this->uri->segment(3)){
+	if($this->uri->segment(4)){
 		$profile = $this->uri->segment(4);
 	}else{
 		$profile = $this->session->userdata('username');
@@ -9,7 +9,6 @@
 		echo "<h3>" . label('no_such_user',$this) . "</h3>";
 	}else{
 		
-	
 	
 	$user = $this->user_model->getProfile($profile);
 	$traits = $this->getFromDB_model->getTraits();

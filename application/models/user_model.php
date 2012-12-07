@@ -125,9 +125,7 @@ class User_model extends CI_Model{
 	
 	public function logout($username){
 		$userId = $this->user_model->getUserId($username);
-		$this->session->unset_userdata('logged_in');
-		$this->session->unset_userdata('username');
-		$this->session->unset_userdata('userId');
+		$this->session->sess_destroy();
 		
 		$query = $this->db->query("UPDATE user_state SET last_login = now(), logged_in = '0' WHERE user_id = '$userId'");
 		$this->redirect_model->redirect('gotohomepage');
