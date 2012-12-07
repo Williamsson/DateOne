@@ -1,9 +1,11 @@
  <div id="container">
-  <h1>Countries</h1>
+  <h1>Test</h1>
   <div id="body">
 	<?php
-	foreach($results as $data) {
-	    echo $data->title . " - " . $data->content . "<br>";
+	if(!empty($results)){
+		foreach($results as $data) {
+		    echo $data->title . " - " . $data->content . "<br>";
+		}
 	}
 	?>
    <p><?php echo $links; ?></p>
