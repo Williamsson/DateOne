@@ -226,7 +226,8 @@ class User_model extends CI_Model{
 			return $result;
 		}
 	}
-	
+
+	//Ignores everything the user has said he/she dosen't want to tell. Otherwise returns traits as an array
 	public function getUserTraits($userId){
 		$query = $this->db->query("SELECT trait_id, value FROM user_traits WHERE user_id = '$userId'");
 		
@@ -234,13 +235,15 @@ class User_model extends CI_Model{
 		$tempStorage = array();
 		
 		foreach($query->result() as $row){
-			if(key_exists($row->trait_id, $tempStorage)){
-				$temp = $this->getUserTraitValues($userId,$row->trait_id);
-				$result[$row->trait_id] = $temp;
-			}else{
-				$result[$row->trait_id] = intval($row->value);
+			if($row->value != 0){
+				if(key_exists($row->trait_id, $tempStorage)){
+					$temp = $this->getUserTraitValues($userId,$row->trait_id);
+					$result[$row->trait_id] = $temp;
+				}else{
+					$result[$row->trait_id] = intval($row->value);
+				}
+				$tempStorage[$row->trait_id] = $row->value;
 			}
-			$tempStorage[$row->trait_id] = $row->value;
 		}
 		
 		return $result;
