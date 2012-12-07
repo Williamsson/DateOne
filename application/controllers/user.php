@@ -102,6 +102,8 @@ class User extends CI_Controller {
 	
 	public function messages(){
 		
+		$this->language_model->loadLanguage();
+		
 		if(!$this->user_model->isLoggedIn()){
 			$this->redirect_model->redirect('gotohomepage');
 		}
