@@ -63,6 +63,7 @@
 			<p>Land: <?php echo label(strtolower($user['country']),$this);?></p>
 			<p>Ålder: <?php echo $age;?></p>
 			<p>Söker: <?php echo label($userInformation['searching_for'],$this);?></p>
+			<p>Civilstatus: <?php echo label($userInformation['civil_status'],$this);?></p>
 		</div>
 		
 		<div id="profileDescription">
@@ -70,15 +71,74 @@
 		</div>
 	</div>
 		<?php 
-// 			echo label($userInformation['hobby'],$this);
 		
 		?>
 	
 	<div id="profileTraitsInformation">
 		<table>
 			  <tr>
-			    <td>January</td>
-			    <td>$100</td>
+			    <td><?php echo label('ancestry',$this);?> </td>
+			    <td><?php echo label($userInformation['ancestry'],$this);?></td>
+			    <td><?php echo label('appearance',$this);?> </td>
+			    <td><?php echo label($userInformation['appearance'],$this);?></td>
+			    <td><?php echo label('bodytype',$this);?> </td>
+			    <td><?php echo label($userInformation['bodytype'],$this);?></td>
+			  </tr>
+			  <tr>
+			    <td><?php echo label('clothing',$this);?> </td>
+			    <td><?php echo label($userInformation['clothing'],$this);?></td>
+			    <td><?php echo label('drinking_habits',$this);?> </td>
+			    <td><?php echo label($userInformation['drinking_habits'],$this);?></td>
+			    <td><?php echo label('education',$this);?> </td>
+			    <td><?php echo label($userInformation['education'],$this);?></td>
+			  </tr>
+			  <tr>
+			    <td><?php echo label('exercising_habits',$this);?> </td>
+			    <td><?php echo label($userInformation['exercising_habits'],$this);?></td>
+			    <td><?php echo label('eye_color',$this);?> </td>
+			    <td><?php echo label($userInformation['eye_color'],$this);?></td>
+			    <td><?php echo label('favorite_music_genre',$this);?> </td>
+			    <td><?php echo label($userInformation['favorite_music_genre'],$this);?></td>
+			  </tr>
+			  <tr>
+			    <td><?php echo label('friday_night_activity',$this);?> </td>
+			    <td><?php echo label($userInformation['friday_night_activity'],$this);?></td>
+			    <td><?php echo label('hair_color',$this);?> </td>
+			    <td><?php echo label($userInformation['hair_color'],$this);?></td>
+			    <td><?php echo label('hobby',$this);?> </td>
+			    <td><?php echo label($userInformation['hobby'],$this);?></td>
+			  </tr>
+			  <tr>
+			    <td><?php echo label('housing_type',$this);?> </td>
+			    <td><?php echo label($userInformation['housing_type'],$this);?></td>
+			    <td><?php echo label('length',$this);?> </td>
+			    <td><?php echo label($userInformation['length'],$this);?></td>
+			    <td><?php echo label('num_childs',$this);?> </td>
+			    <td><?php echo label($userInformation['num_childs'],$this);?></td>
+			  </tr>
+			  <tr>
+			    <td><?php echo label('occupation',$this);?> </td>
+			    <td><?php echo label($userInformation['occupation'],$this);?></td>
+			    <td><?php echo label('personality_type',$this);?> </td>
+			    <td><?php echo label($userInformation['personality_type'],$this);?></td>
+			    <td><?php echo label('pets',$this);?> </td>
+			    <td><?php echo label($userInformation['pets'],$this);?></td>
+			  </tr>
+			  <tr>
+			    <td><?php echo label('religion',$this);?> </td>
+			    <td><?php echo label($userInformation['religion'],$this);?></td>
+			    <td><?php echo label('romance',$this);?> </td>
+			    <td><?php echo label($userInformation['romance'],$this);?></td>
+			    <td><?php echo label('spoken_languages',$this);?> </td>
+			    <td><?php echo label($userInformation['spoken_languages'],$this);?></td>
+			  </tr>
+			  <tr>
+			    <td><?php echo label('tobacco_habits',$this);?> </td>
+			    <td><?php echo label($userInformation['tobacco_habits'],$this);?></td>
+			    <td><?php echo label('wanted_num_childs',$this);?> </td>
+			    <td><?php echo label($userInformation['wanted_num_childs'],$this);?></td>
+			    <td><?php echo label('weight',$this);?> </td>
+			    <td><?php echo label($userInformation['weight'],$this);?></td>
 			  </tr>
 		</table>
 	</div>
