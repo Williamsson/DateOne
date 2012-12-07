@@ -116,24 +116,24 @@ class GetFromDB_model extends CI_Model{
 		return $result;
 	}
 	
-	function test(){
-		$traits = $this->getTraits();
+// 	function test(){
+// 		$traits = $this->getTraits();
 		
-		foreach($traits as $trait){
-			$a = $trait['traitName'];
+// 		foreach($traits as $trait){
+// 			$a = $trait['traitName'];
 			
-			$query = $this->db->get($a);
+// 			$query = $this->db->get($a);
 			
 			
-				$data = array(
-	               'value' => 666,
-	            );
+// 				$data = array(
+// 	               'value' => 666,
+// 	            );
 				
-				$this->db->where('key',1);
-				$this->db->update($a, $data); 
-		}
+// 				$this->db->where('key',1);
+// 				$this->db->update($a, $data); 
+// 		}
 		
-	}
+// 	}
 	
 	
 }

@@ -125,7 +125,9 @@ class User_model extends CI_Model{
 	
 	public function logout($username){
 		$userId = $this->user_model->getUserId($username);
-		$this->session->sess_destroy();
+		$this->session->unset_userdata('logged_in');
+		$this->session->unset_userdata('username');
+		$this->session->unset_userdata('userId');
 		
 		$query = $this->db->query("UPDATE user_state SET last_login = now(), logged_in = '0' WHERE user_id = '$userId'");
 		$this->redirect_model->redirect('gotohomepage');
@@ -641,9 +643,7 @@ class User_model extends CI_Model{
 	}
 	
 	function userExists($username){
-		$this->db->select('username');
-		$this->db->where('username',$username);
-		$query = $this->db->get('users');
+		$query = $this->db->query("SELECT username FROM users WHERE username = '$username'");
 		
 		if($query->num_rows() > 0){
 			return true;

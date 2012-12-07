@@ -100,7 +100,23 @@ class User extends CI_Controller {
 		$this->general_model->changeView('DateOne', 'page/profile_view');
 	}
 	
-	
+	public function messages(){
+		$this->load->library("pagination");
+		$config = array();
+		$config["total_rows"] = $this->mailAndMessages_model->messages_count(1);
+		$config["per_page"] = 4;
+		$config['base_url'] = base_url(). $this->language_model->getLanguage() . "/user/messages/";
+		$config['uri_segment'] = 4;
+		
+		$this->pagination->initialize($config);
+		
+		$page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+		$data["results"] = $this->mailAndMessages_model->fetch_countries($config["per_page"], $page);
+		$data["links"] = $this->pagination->create_links();
+		
+		$this->load->view("test_view", $data);
+		
+	}
 	
 	
 
