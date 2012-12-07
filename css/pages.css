@@ -68,20 +68,31 @@
 .column{
 	float: left;
 	margin-left: 50px;
-	width: 170px;
+	width: 240px;
+	height: 160px;
 }
 
-.wideColumn{
+#profileShortInfo .column p{
+	margin: 0;
+}
+
+#profileDescription{
 	float: left;
-	margin-left: 50px;
-	width: 300px;
+	width: 410px;
+	border-left: 1px solid black;
+	height: 160px;
+	overflow-y: scroll;
 }
 
+#profileDescription p{
+	margin-left: 20px;
+}
 #profileTraitsInformation{
 	margin-bottom: 20px;
 	min-height: 200px;
 	clear: both;
 }
+
 
 
 
