@@ -14,15 +14,105 @@ class Match_model extends CI_Model{
 		
 		$sumTraits = $this->getFromDB_model->countSumTraits();
 		
+		$user1MatchesUser2Value = 0;
+		$user2MatchesUser1Value = 0;
+		
 		for($i=0;$i<=$sumTraits;$i++){
+			//Loop through what user1 looks for, then see if user2 has that trait
 			
-		}
+			if(key_exists($i,$user1SearchingFor)){
+				if(is_array($user1SearchingFor[$i])){
+					
+					foreach($user1SearchingFor[$i] as $a){
+						if(key_exists($i, $user2Traits)){
+							
+							if(is_array($user2Traits[$i])){
+								foreach($user2Traits[$i] as $b){
+									if($b == $a){
+										$user1MatchesUser2Value++;
+									}
+								}
+							}else{
+								if($a == $user2Traits[$i]){
+									$user1MatchesUser2Value++;
+								}
+							}
+						}
+					}
+					
+				}else{
+					if(key_exists($i,$user2Traits)){
+						if(is_array($user2Traits[$i])){
+							foreach($user2Traits as $a){
+								if($user1SearchingFor[$i] == $a){
+									$user1MatchesUser2Value++;
+								}
+							}
+						}else{
+							if($user1SearchingFor[$i] == $user2Traits[$i]){
+								$user1MatchesUser2Value++;
+							}
+						}
+					}
+				}
+			}
+			
+			//Loop through what user2 looks for, then see if user1 has that trait
+			if(key_exists($i,$user2SearchingFor)){
+				if(is_array($user2SearchingFor[$i])){
+						
+					foreach($user2SearchingFor[$i] as $a){
+						if(key_exists($i, $user1Traits)){
+								
+							if(is_array($user1Traits[$i])){
+								foreach($user1Traits[$i] as $b){
+									if($b == $a){
+										$user2MatchesUser1Value++;
+									}
+								}
+							}else{
+								if($a == $user1Traits[$i]){
+									$user2MatchesUser1Value++;
+								}
+							}
+						}
+					}
+						
+				}else{
+					if(key_exists($i,$user1Traits)){
+						if(is_array($user1Traits[$i])){
+							foreach($user1Traits as $a){
+								if($user1SearchingFor[$i] == $a){
+									$user2MatchesUser1Value++;
+								}
+							}
+						}else{
+							if($user2SearchingFor[$i] == $user1Traits[$i]){
+								$user2MatchesUser1Value++;
+							}
+						}
+					}
+				}
+			}
+			
+			
+			
+			
+		}//End for
 		
+		//Take the number of matches and divide by the number of total traits avalible
+		$user1MatchesUser2Value = ($user1MatchesUser2Value/$sumTraits);
+		$user2MatchesUser1Value = ($user2MatchesUser1Value/$sumTraits);
 		
+		//Round to nearest percentage
+		$user1MatchesUser2Value = floor($user1MatchesUser2Value*100); 
+		$user2MatchesUser1Value = floor($user2MatchesUser1Value*100);
 		
-		return $user1SearchingFor;
-		
-		
+		$result = array(
+			'user1-2Match' => $user1MatchesUser2Value,
+			'user2-1Match' => $user2MatchesUser1Value,
+		);
+		return $result;
 	}
 	
 	
