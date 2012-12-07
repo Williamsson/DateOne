@@ -67,13 +67,16 @@
 
 .column{
 	float: left;
-	margin-left: 50px;
+	margin-left: 20px;
 	width: 240px;
 	height: 160px;
 }
-
 #profileShortInfo .column p{
 	margin: 0;
+}
+
+#profileShortInfo .column h3{
+	margin: 2px;
 }
 
 #profileDescription{
@@ -91,8 +94,6 @@
 	margin-bottom: 20px;
 	min-height: 200px;
 	clear: both;
-	width: 90%;
-	margin: 0 auto;
 }
 
 

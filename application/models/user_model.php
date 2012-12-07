@@ -593,6 +593,18 @@ class User_model extends CI_Model{
 		return $result;
 	}
 	
+	function userExists($username){
+		$this->db->select('username');
+		$this->db->where('username',$username);
+		$query = $this->db->get('users');
+		
+		if($query->num_rows() > 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
 	function getControlpanelConfig(){
 		$config = array(
 		array(

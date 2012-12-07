@@ -112,6 +112,7 @@ $lang['user_searching_for_traits'] = "Vad söker du hos din partner?";
 
 $lang['required_field'] = " måste fyllas i.";
 $lang['not_valid_email'] = "Du har inte fyllt i en giltig email.";
+$lang['no_such_user'] = "Den användaren verkar inte finnas. Försök igen.";
 
 /*
  * Messages
@@ -131,20 +132,20 @@ $lang['drinking_habits'] = "Alkoholvanor";
 $lang['education'] = "Utbildning";
 $lang['exercising_habits'] = "Träningsvanor";
 $lang['eye_color'] = "Ögonfärg";
-$lang['favorite_music_genre'] = "Favoritgenre i musik?";
-$lang['friday_night_activity'] = "Gör helst en fredagskväll?";
+$lang['favorite_music_genre'] = "Favoritgenre i musik";
+$lang['friday_night_activity'] = "Gör helst en fredagskväll";
 $lang['hair_color'] = "Hårfärg";
 $lang['hobby'] = "Hobby/Hobbyer";
 $lang['housing_type'] = "Bostad";
 $lang['length'] = "Längd";
-$lang['num_childs'] = "Hur många barn har du?";
+$lang['num_childs'] = "Barn";
 $lang['occupation'] = "Yrke";
 $lang['personality_type'] = "Personlighetstyp";
 $lang['pets'] = "Husdjur";
 $lang['religion'] = "Religion";
 $lang['romance'] = "Romantik";
-$lang['wanted_num_childs'] = "Hur många barn vill du ha?";
-$lang['spoken_languages'] = "Vilka språk kan du?";
+$lang['wanted_num_childs'] = "Önskat antal barn";
+$lang['spoken_languages'] = "Talade språk";
 $lang['tobacco_habits'] = "Tobaksvanor";
 $lang['weight'] = "Vikt";
 $lang['searching_for'] = "Jag är en.."; //Is used when entering what they're looking for, eg "man looking for woman"
