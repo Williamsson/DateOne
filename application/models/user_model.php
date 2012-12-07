@@ -188,7 +188,7 @@ class User_model extends CI_Model{
 		$userSettings = $this->getUserSettings($userId);
 	}
 	
-	function getUserInformation($userId){
+	public function getUserInformation($userId){
 		$this->db->select('email, first_name, sur_name, postal_number, description, year_of_birth,month_of_birth, day_of_birth');
 		$this->db->where('id', $userId);
 		$userQuery = $this->db->get('users');
@@ -227,11 +227,57 @@ class User_model extends CI_Model{
 		}
 	}
 	
+	public function getUserTraits($userId){
+		$query = $this->db->query("SELECT trait_id, value FROM user_traits WHERE user_id = '$userId'");
+		
+		$result = array();
+		$tempStorage = array();
+		
+		foreach($query->result() as $row){
+			if(key_exists($row->trait_id, $tempStorage)){
+				$temp = $this->getUserTraitValues($userId,$row->trait_id);
+				$result[$row->trait_id] = $temp;
+			}else{
+				$result[$row->trait_id] = intval($row->value);
+			}
+			$tempStorage[$row->trait_id] = $row->value;
+		}
+		
+		return $result;
+	}
+	
+	//Ignores everything the user has said he/she dosen't care about. Otherwise returns preferences as an array
+	function getUserLookingForValues($userId){
+		$query = $this->db->query("SELECT trait_id, value FROM user_looking_for_traits WHERE id = '$userId'");
+		
+		$result = array();
+		$tempStorage = array();
+		
+		foreach($query->result() as $row){
+			
+			if($row->value != 0){
+				if(key_exists($row->trait_id, $tempStorage)){
+					$temp = $this->getUserLookingForTraitValues($userId,$row->trait_id);
+					
+					if(($key = array_search(0, $temp)) !== false) {
+						unset($temp[$key]);
+					}
+					
+					$result[$row->trait_id] = $temp;
+				}else{
+					$result[$row->trait_id] = intval($row->value);
+				}
+				$tempStorage[$row->trait_id] = $row->value;
+			}
+			
+		}
+		
+		return $result;
+	}
 	/*
 	 * Returns the value of a specific trait, as an array
 	 */
 	function getUserTraitValues($userId,$traitId){
-		
 		
 		$userTraitQuery = $this->db->query("SELECT value FROM user_traits WHERE user_id = '$userId' AND trait_id = '$traitId'");
 		
@@ -916,7 +962,7 @@ class User_model extends CI_Model{
 		return $config;
 	}
 
-
+	
 
 }
 

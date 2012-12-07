@@ -119,7 +119,6 @@ $lang['no_such_user'] = "Den användaren verkar inte finnas. Försök igen.";
  */
 $lang['new_member'] = "Välkommen till DateOne! Var vänlig fyll i följande fält med korrekt information, ju mer du fyller i, desto bättre kan vi matcha dig mot andra användare.";
 
-
 /*
  * User traits
  */
