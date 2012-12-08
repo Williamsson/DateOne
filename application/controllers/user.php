@@ -111,7 +111,7 @@ class User extends CI_Controller {
 		$this->load->library("pagination");
 		$config = array();
 		$config["total_rows"] = $this->mailAndMessages_model->messages_count(1);
-		$config["per_page"] = 2;
+		$config["per_page"] = 8;
 		$config['base_url'] = base_url(). $this->language_model->getLanguage() . "/user/messages/";
 		$config['uri_segment'] = 4;
 		$choice = $config["total_rows"] / $config["per_page"];

@@ -12,6 +12,7 @@
 	<script type="text/javascript" src="<?php echo base_url();?>jquery/jquery-1.8.1.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>jquery/floating-1.12.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>scripts/menu.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>scripts/readMessage.js"></script>
 	
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 	<meta name="description" content="<?php echo $description;?>"/>
