@@ -22,7 +22,7 @@ class MailAndMessages_model extends CI_Model{
    }
    
    public function getMessage($messageId){
-   		$this->db->select('sender,title,content,date_sent,is_read');
+   		$this->db->select('sender,title,content,date_sent,is_read,receiver');
    		$this->db->where('id',$messageId);
    		$query = $this->db->get('user_messages');
    		
@@ -33,6 +33,8 @@ class MailAndMessages_model extends CI_Model{
    			$result['content'] = $query->row()->content;
    			$result['date_sent'] = $query->row()->date_sent;
    			$result['is_read'] = $query->row()->is_read;
+   			$result['receiver'] = $query->row()->receiver;
+   			
    			return $result;
    		}else{
    			return false;
