@@ -23,11 +23,11 @@
 <div id="popup_box">
     <a id="popupBoxClose"><?php echo label('close',$this)?></a>
     <div class="messageTop">
-    	<h2>Title</h2>
-    	<p>Avsändare</p>
+    	<h2></h2>
+    	<h3></h3>
+    	<p></p>
     </div>
 	<div class="message">
-		Massa jävla text Massa jävla text Massa jävla text Massa jävla text Massa jävla text Massa jävla text Massa jävla text Massa jävla text Massa jävla text Massa jävla text
 	</div>
 </div>
 

@@ -8,7 +8,7 @@ class MailAndMessages_model extends CI_Model{
 	 
     public function fetch_messages($limit, $start) {
         $this->db->limit($limit, $start);
-        $this->db->select('id,sender,reciever,title,date_sent');
+        $this->db->select('id,sender,receiver,title,date_sent');
         $query = $this->db->get("user_messages");
  		
         if($query->num_rows() > 0) {
@@ -21,16 +21,17 @@ class MailAndMessages_model extends CI_Model{
    }
    
    public function getMessage($messageId){
-   		$this->db->select('sender,title,content,date_sent');
+   		$this->db->select('sender,title,content,date_sent,is_read');
    		$this->db->where('id',$messageId);
    		$query = $this->db->get('user_messages');
    		
    		$result = array();
    		if($query->num_rows() > 0){
    			$result['title'] = $query->row()->title;
-   			$result['sender'] = $query->row()->sender;
+   			$result['sender'] = $this->user_model->getUsername($query->row()->sender);
    			$result['content'] = $query->row()->content;
    			$result['date_sent'] = $query->row()->date_sent;
+   			$result['is_read'] = $query->row()->is_read;
    			return $result;
    		}else{
    			return false;
