@@ -127,6 +127,12 @@
 	text-decoration:none;  
 }
 
+#popup_box input,textarea{
+	width: 80%;
+	display: block;
+	margin: 10px auto;
+}
+
 #popupBoxClose {
     font-size:20px;  
     line-height:15px;  

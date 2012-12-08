@@ -21,6 +21,11 @@ $lang['description'] = "Skriv en kort beskrivning om dig själv";
 $lang['update'] = "Uppdatera";
 $lang['first_name'] = "Förnamn";
 $lang['sur_name'] = "Efternamn";
+$lang['reply'] = "Svara";
+$lang['send'] = "Skicka";
+$lang['title'] = "Rubrik";
+$lang['message'] = "Meddelande";
+$lang['close'] = "Stäng";
 
 $lang['language'] = "Språk";
 $lang['choose_country'] = "Välj land..";

@@ -9,6 +9,7 @@ class MailAndMessages_model extends CI_Model{
     public function fetch_messages($limit, $start,$userId) {
         $this->db->limit($limit, $start);
         $this->db->select('id,sender,receiver,title,date_sent');
+        $this->db->order_by('date_sent','DESC');
         $this->db->where('receiver',$userId);
         $query = $this->db->get("user_messages");
  		
@@ -40,5 +41,30 @@ class MailAndMessages_model extends CI_Model{
    			return false;
    		}
    }
+   
+   public function sendMessage($sender, $receiver, $title, $content){
+   		$query = $this->db->query("INSERT INTO user_messages (sender, receiver, title, content, date_sent, is_read) VALUES('$sender', '$receiver', '$title', '$content', now(), 0)");
+   		
+   		if($this->db->affected_rows() == 6){
+   			return true;
+   		}else{
+   			return false;
+   		}
+   }
 	
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
 }

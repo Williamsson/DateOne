@@ -32,7 +32,6 @@ $(document).ready( function() {
 			        
 				});
 	    });
-//	         loadPopupBox();
 		
         $('#popupBoxClose').click( function() {            
             unloadPopupBox();
@@ -54,5 +53,5 @@ $(document).ready( function() {
             $("#container").css({ // this is just for style
                 "opacity": "0.3"  
             });         
-        }        
+        }
     });

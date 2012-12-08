@@ -68,7 +68,10 @@
 			<h3><?php echo $user['firstName'] . " " . $user['surName'];?></h3>
 			<p>Land: <?php echo label(strtolower($user['country']),$this);?></p>
 			<p>Ålder: <?php echo $age;?></p>
-			<a href="#"><img src="<?php echo base_url()?>img/flirt.png"/></a><a href="#"><img src="<?php echo base_url()?>img/message.png"/></a><a href="#"><img src="<?php echo base_url()?>img/friend.png"/></a><a href="#"><img src="<?php echo base_url()?>img/block.png"/></a>
+			<?php 
+			if($this->uri->segment(4)):?>
+				<a href=""><img src="<?php echo base_url()?>img/flirt.png"/></a><a href=""><img src="<?php echo base_url()?>img/message.png" id="sendMessage"/></a><a href=""><img src="<?php echo base_url()?>img/friend.png"/></a><a href=""><img src="<?php echo base_url()?>img/block.png"/></a>
+			<?php endif;?>
 		</div>
 		
 		<div id="profileDescription">
@@ -95,7 +98,18 @@
 			 ?>
 		</table>
 	</div>
-	
+</div>
+
+<div id="popup_box">
+<a id="popupBoxClose"><?php echo label('close',$this)?></a>
+    	<label for="title"><?php echo label('title',$this)?></label>
+    	<input name="title" id="title">
+    	
+    	<label for="message"><?php echo label('message',$this)?></label>
+    	<textarea name="content" id="content"></textarea>
+    	
+    	<input type="hidden" id="receiver" name="reciever" value="<?php echo $this->user_model->getUserId($this->uri->segment(4));?>"/>
+    	<input type="button" id="sendMessage" value="<?php echo label('send',$this)?>"/>
 	
 </div>
 <?php 
