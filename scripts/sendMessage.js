@@ -6,20 +6,20 @@ $(document).ready( function() {
 	 });
 
 	 $("#popup_box #sendMessage").click(function(event){
-		 event.preventDefault();
+		event.preventDefault();
+		
+		var receiver = $("#popup_box #receiver").val();
+		var title = $("#popup_box #title").val();
+		var content = $("#popup_box #content").val();
 		 
-		 var receiver = $("#popup_box #receiver").val();
-		 var title = $("#popup_box #title").val();
-		 var content = $("#popup_box #content").val();
-		 
-		 if(!!title){
-				 $.ajax({
-					 type: "POST",
-					 url: "http://dev.wilsim.se:8080/DateOne/en/api/message",
-					 data: {receiver: receiver, title: title, content: content}
-				 }).done(function(msg) {
-					 unloadPopupBox();
-				 });
+		if(!!title){
+			$.ajax({
+			 type: "POST",
+			 url: "http://dev.wilsim.se:8080/DateOne/en/api/message",
+			 data: {receiver: receiver, title: title, content: content}
+			}).done(function(msg){
+				unloadPopupBox();
+			});
 		 }
 		 
 	 });

@@ -10,9 +10,9 @@
 				
 				<a href="<?php echo base_url() . $this->language_model->getLanguage() . '/user/profile/' . $row->username;?>"><div id="profileImage" style="margin-right: 10px;"><?php echo "Det här låtsas vara " . $row->username . "'s profilbild"?></div></a>
 				
-			<?php endif; }
-			
-		?>
+			<?php endif; }?>
 	</div>
+	
+	<p>Här är några slumpade evenemang</p>
 
 </div>

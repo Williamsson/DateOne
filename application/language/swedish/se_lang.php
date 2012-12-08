@@ -95,6 +95,10 @@ $lang['upgrade'] = "Uppgradera";
 $lang['about'] = "Om oss";
 $lang['contact'] = "Kontakt";
 
+$lang['create_event'] = "Skapa evenemang";
+$lang['search_events'] = "Sök evenemang";
+$lang['my_events'] = "Mina evenemang";
+
 //User control panel menu
 $lang['menu_title'] = "Navigering";
 $lang['profile'] = "Profil";

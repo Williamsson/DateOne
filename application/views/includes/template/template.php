@@ -7,13 +7,16 @@
 	
 	<link rel="stylesheet" href="<?php echo base_url();?>css/template.css" type="text/css" media="screen"/>
 	<link rel="stylesheet" href="<?php echo base_url();?>css/skeleton.css" type="text/css" media="screen"/>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" type="text/css" media="screen"/>
 	<link rel="stylesheet" href="<?php echo base_url();?>css/pages.css" type="text/css" media="screen"/>
 	
 	<script type="text/javascript" src="<?php echo base_url();?>jquery/jquery-1.8.1.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>jquery/floating-1.12.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>scripts/menu.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>scripts/readMessage.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>scripts/sendMessage.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>scripts/timepicker.js"></script>
 	
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 	<meta name="description" content="<?php echo $description;?>"/>
@@ -68,13 +71,13 @@
 				</div>
 				
 				
-				<div id="nav">
+				<div class="nav">
 					<ul>
-						<li class="first"><a href="<?php echo base_url() . $this->language_model->getLanguage();?>"><?php echo label('home',$this)?></a></li>
-						<li class=""><a href="<?php echo base_url() . $this->language_model->getLanguage() . "/page/getstarted";?>"><?php echo label('get_started',$this)?></a></li>
-						<li class=""><a href="<?php echo base_url() . $this->language_model->getLanguage() . "/page/upgrade";?>"><?php echo label('upgrade',$this)?></a></li>
-						<li class=""><a href="<?php echo base_url() . $this->language_model->getLanguage() . "/page/about";?>"><?php echo label('about',$this)?></a></li>
-						<li class="last"><a href="<?php echo base_url() . $this->language_model->getLanguage() . "/page/contact";?>"><?php echo label('contact',$this)?></a></li>
+						<li><a href="<?php echo base_url() . $this->language_model->getLanguage();?>"><?php echo label('home',$this)?></a></li>
+						<li><a href="<?php echo base_url() . $this->language_model->getLanguage() . "/page/getstarted";?>"><?php echo label('get_started',$this)?></a></li>
+						<li><a href="<?php echo base_url() . $this->language_model->getLanguage() . "/page/upgrade";?>"><?php echo label('upgrade',$this)?></a></li>
+						<li><a href="<?php echo base_url() . $this->language_model->getLanguage() . "/page/about";?>"><?php echo label('about',$this)?></a></li>
+						<li><a href="<?php echo base_url() . $this->language_model->getLanguage() . "/page/contact";?>"><?php echo label('contact',$this)?></a></li>
 					</ul>
 				</div>
 			</div>

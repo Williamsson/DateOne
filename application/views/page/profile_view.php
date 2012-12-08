@@ -58,7 +58,6 @@
 		
 	}
 	
-// 	var_dump($userInformation);
 ?>
 <div id="profileWrapper">
 	<div id="profileImage">Det här är en profilbild.. Bara så du vet..</div>
