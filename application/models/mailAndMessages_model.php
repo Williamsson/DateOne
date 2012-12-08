@@ -54,9 +54,24 @@ class MailAndMessages_model extends CI_Model{
    		}
    }
 	
+   public function countUnreadMessages($userId){
+   		$where = array('receiver' => $userId, 'is_read' => 0);
+		$this->db->where($where);
+		$this->db->from('user_messages');
+		$cnt = $this->db->count_all_results();
+		return $cnt;
+   }
    
-   
-   
+   function markMessageAsRead($message){
+   		$data = array('is_read' => 1);
+   		$this->db->where('id',$message);
+   		$query = $this->db->update('user_messages',$data);
+   		if($query->affected_rows() == 1){
+   			return true;
+   		}else{
+   			return false;
+   		}
+   }
    
    
    

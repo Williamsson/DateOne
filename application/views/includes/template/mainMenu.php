@@ -8,10 +8,18 @@
 				<li><?php echo anchor($this->language_model->getLanguage() . '/user/controlpanel', label('control_panel',$this));?></li>
 			</ul>
 		</li>
-		<li><?php echo anchor($this->language_model->getLanguage() . 'page/events', label('events',$this));?></li>
+		<li><?php echo anchor($this->language_model->getLanguage() . '/page/events', label('events',$this));?></li>
 		<li><?php echo anchor($this->language_model->getLanguage() . '/user/flirts', label('flirts',$this));?></li>
 		<li><?php echo anchor($this->language_model->getLanguage() . '/page/matches', label('user_matches',$this));?></li>
-		<li><?php echo anchor($this->language_model->getLanguage() . '/user/messages', label('messages',$this));?></li>
+		<?php 
+		$unreadMessages = $this->mailAndMessages_model->countUnreadMessages($this->session->userdata('userId')); 
+		if($unreadMessages > 0){?>
+			<li><?php echo anchor($this->language_model->getLanguage() . '/user/messages', label('messages',$this) . " (" . $unreadMessages . ")");?></li>
+		<?php }else{?>
+			<li><?php echo anchor($this->language_model->getLanguage() . '/user/messages', label('messages',$this));?></li>
+		<?php }
+		?>
 		<li><?php echo anchor($this->language_model->getLanguage() . '/page/chat', label('chat',$this));?></li>
 </ul>
 </div>
+

@@ -51,7 +51,9 @@ class Page extends CI_Controller {
 		$this->general_model->changeView('DateOne', 'page/staticMenu/contact_view');
 	}
 	
-	
+	public function events(){
+		$this->general_model->changeView('DateOne', 'page/events_view');
+	}
 	
 	
 	

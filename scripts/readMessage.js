@@ -8,7 +8,13 @@ $(document).ready( function() {
 		        var messageId = $(this).attr("href");
 		        var messageId = messageId.replace("#", "");
 		        
-			 $.getJSON("http://dev.wilsim.se:8080/DateOne/se/api/message/id/" + messageId +  "/format/json", function(data){
+		        $.ajax({
+					type: "POST",
+					url: "http://dev.wilsim.se:8080/DateOne/en/api/message",
+					data: {messageRead: messageId}
+		        });
+		     
+		        $.getJSON("http://dev.wilsim.se:8080/DateOne/se/api/message/id/" + messageId +  "/format/json", function(data){
 				 	
 				 	var title = data.title;
 				 	var sender = data.senderUsername;

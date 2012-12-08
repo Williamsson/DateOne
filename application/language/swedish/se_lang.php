@@ -49,6 +49,7 @@ $lang['turkish'] = "Turkiska";
 
 $lang['login'] = "Logga in";
 $lang['logout'] = "Logga ut";
+$lang['welcome_back'] = "Välkommen tillbaka";
 
 $lang['faulty_login'] = "Felaktigt användarnamn eller lösenord.";
 

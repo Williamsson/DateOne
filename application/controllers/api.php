@@ -22,20 +22,34 @@ class Api extends REST_Controller{
 	}
 	
 	function message_post(){
-		$receiver = $this->post('receiver');
-		$sender = $this->session->userdata('userId');
-		$title = $this->post('title');
-		$content = $this->post('content');
 		
-		$content = str_replace("------------------------------------------", "\n------------------------------------------",$content);
+		if($this->post('content')){
+			$sender = $this->session->userdata('userId');
+			$receiver = $this->post('receiver');
+			$title = $this->post('title');
+			$content = $this->post('content');
+			
+			$content = str_replace("------------------------------------------", "\n------------------------------------------",$content);
+			
+		 	$result = $this->mailAndMessages_model->sendMessage($sender,$receiver,$title,$content);
+		 	
+	        if($result === FALSE){  
+	            $this->response(array('status' => 'failed'));
+	        }else{  
+	            $this->response(array('status' => 'success'));  
+	        }
+		}elseif($this->post('messageRead')){
+			$read = $this->post('messageRead');
+				
+			$result = $this->mailAndMessages_model->markMessageAsRead($read);
+			
+			if($result === FALSE){
+				$this->response(array('status' => 'failed'));
+			}else{
+				$this->response(array('status' => 'success'));
+			}
+		}
 		
-	 	$result = $this->mailAndMessages_model->sendMessage($sender,$receiver,$title,$content);
-	 	
-        if($result === FALSE){  
-            $this->response(array('status' => 'failed'));
-        }else{  
-            $this->response(array('status' => 'success'));  
-        }
 		
 	}
 }
