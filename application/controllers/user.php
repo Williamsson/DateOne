@@ -121,7 +121,7 @@ class User extends CI_Controller {
 		$this->pagination->initialize($config);
 		$data = $this->general_model->getDataContent('DateOne', 'page/messages_view');
 		$page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
-		$data["results"] = $this->mailAndMessages_model->fetch_countries($config["per_page"], $page);
+		$data["results"] = $this->mailAndMessages_model->fetch_messages($config["per_page"], $page);
 		$data["links"] = $this->pagination->create_links();
 				
 		$this->load->view("includes/template/template", $data);

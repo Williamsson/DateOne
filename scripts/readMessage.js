@@ -18,7 +18,7 @@ $(document).ready( function() {
             $("#container").css({ // this is just for style        
                 "opacity": "1"  
             }); 
-        }    
+        }
         
         function loadPopupBox() {    // To Load the Popupbox
             $('#popup_box').fadeIn("slow");

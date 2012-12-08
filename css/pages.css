@@ -114,12 +114,12 @@
     z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
     
     /* additional features, can be omitted */
-    border:2px solid black;      
+    border:2px solid ccf;      
     padding:15px;  
     font-size:15px;  
-    -moz-box-shadow: 0 0 5px #000000;
-    -webkit-box-shadow: 0 0 5px #000000;
-    box-shadow: 0 0 5px #000000;
+    -moz-box-shadow: 0 0 10px #ccf;
+    -webkit-box-shadow: 0 0 10px #ccf;
+    box-shadow: 0 0 10px #ccf;
 }
 
 #popup_box a{
@@ -137,8 +137,18 @@
     font-weight:500;      
 }
 
+#popup_box .messageTop{
+	width:90%;
+	background-color: #ccf;
+	padding: 10px;
+	margin: 10px auto 0;
+}
 
-
+#popup_box .message{
+	width: 90%;
+	padding: 10px;
+	margin: 10px auto 0;
+}
 
 
 

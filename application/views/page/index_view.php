@@ -1,3 +1,10 @@
+<?php 
+	
+	$this->get('messages');
+
+?>
+
+
 <div class="container">
 	<div class="eleven columns aplha">
 		<div class="row">
