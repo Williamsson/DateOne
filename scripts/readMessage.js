@@ -46,15 +46,30 @@ $(document).ready( function() {
 				
 				var title = window.popup.title;
 				var content = window.popup.content;
-				var receiver = window.popup.receiver;
 				
 				content = " \n - - - - - - - - - - - - - - - - - - - - - \n" + content;
 				
 				$("#popup_box #replyMessageArea #replyTitle").val(title);
 				$("#popup_box #replyMessageArea #replyContent").val(content);
-				$("#popup_box #replyMessageArea #replyReceiver").val(receiver);
 				
-				
+				$("#popup_box #reply").click(function(event){
+					event.preventDefault();
+					
+					var receiver = window.popup.receiver;
+					var title = $("#popup_box #replyMessageArea #replyTitle").val();
+					var content = $("#popup_box #replyMessageArea #replyContent").val();
+					
+					if(!!title){
+						 $.ajax({
+							 type: "POST",
+							 url: "http://dev.wilsim.se:8080/DateOne/en/api/message",
+							 data: {receiver: receiver, title: title, content: content}
+						 }).done(function(msg) {
+							 unloadPopupBox();
+						 });
+					}
+					
+				});
 				 
 			 });
 	    });

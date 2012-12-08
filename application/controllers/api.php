@@ -27,6 +27,10 @@ class Api extends REST_Controller{
 		$title = $this->post('title');
 		$content = $this->post('content');
 		
+		if(is_string($receiver)){
+			$receiver = $this->user_model->getUserId($receiver);
+		}
+		
 	 	$result = $this->mailAndMessages_model->sendMessage($sender,$receiver,$title,$content);
 	 	
         if($result === FALSE){  
@@ -34,7 +38,6 @@ class Api extends REST_Controller{
         }else{  
             $this->response(array('status' => 'success'));  
         }
-		
 		
 	}
 }
