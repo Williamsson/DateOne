@@ -1,9 +1,11 @@
 $(document).ready( function() {
     	
-		 $("#messages table tr td a").click(function () {
+		 $("#messages table tr td a").click(function(){
+		        var messageId = $(this).attr("href");
 		        
-			
-			 $.getJSON('http://dev.wilsim.se:8080/DateOne/se/api/message/id/2/format/json', function(data) {
+		        var messageId = messageId.replace("#", "");
+		        
+			 $.getJSON("http://dev.wilsim.se:8080/DateOne/se/api/message/id/" + messageId +  "/format/json", function(data) {
 				 	
 				 	var title = data.title;
 				 	var sender = data.sender;
@@ -30,6 +32,7 @@ $(document).ready( function() {
 			        
 				});
 	    });
+//	         loadPopupBox();
 		
         $('#popupBoxClose').click( function() {            
             unloadPopupBox();

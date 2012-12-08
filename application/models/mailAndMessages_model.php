@@ -6,9 +6,10 @@ class MailAndMessages_model extends CI_Model{
         return $this->db->count_all("user_messages");
     }
 	 
-    public function fetch_messages($limit, $start) {
+    public function fetch_messages($limit, $start,$userId) {
         $this->db->limit($limit, $start);
         $this->db->select('id,sender,receiver,title,date_sent');
+        $this->db->where('receiver',$userId);
         $query = $this->db->get("user_messages");
  		
         if($query->num_rows() > 0) {
