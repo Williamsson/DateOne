@@ -9,7 +9,6 @@ class Match_model extends CI_Model{
 		$user2Traits = $this->user_model->getUserTraits($user2Id);
 		$user2SearchingFor = $this->user_model->getUserLookingForValues($user2Id);
 		
-		
 		$result = array('user1Traits' => $user1Traits, 'user1SearchingFor' => $user1SearchingFor, 'user2Traits' => $user2Traits, 'user2SearchingFor' => $user2SearchingFor);
 		
 		$sumTraits = $this->getFromDB_model->countSumTraits();
@@ -96,13 +95,11 @@ class Match_model extends CI_Model{
 			}
 			
 			
-			
-			
 		}//End for
 		
 		//Take the number of matches and divide by the number of total traits avalible
-		$user1MatchesUser2Value = ($user1MatchesUser2Value/$sumTraits);
-		$user2MatchesUser1Value = ($user2MatchesUser1Value/$sumTraits);
+		$user1MatchesUser2Value = ($user1MatchesUser2Value/count($user1SearchingFor));
+		$user2MatchesUser1Value = ($user2MatchesUser1Value/count($user2SearchingFor));
 		
 		//Round to nearest percentage
 		$user1MatchesUser2Value = floor($user1MatchesUser2Value*100); 

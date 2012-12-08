@@ -68,7 +68,7 @@
 			<h3><?php echo $user['firstName'] . " " . $user['surName'];?></h3>
 			<p>Land: <?php echo label(strtolower($user['country']),$this);?></p>
 			<p>Ålder: <?php echo $age;?></p>
-			<p>MENY: Skicka PM, blockera, etc</p>
+			<a href="#"><img src="<?php echo base_url()?>img/flirt.png"/></a><a href="#"><img src="<?php echo base_url()?>img/message.png"/></a><a href="#"><img src="<?php echo base_url()?>img/friend.png"/></a><a href="#"><img src="<?php echo base_url()?>img/block.png"/></a>
 		</div>
 		
 		<div id="profileDescription">
