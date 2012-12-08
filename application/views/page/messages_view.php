@@ -23,15 +23,27 @@
 
 <div id="popup_box">
     <a id="popupBoxClose"><?php echo label('close',$this)?></a>
-    <div class="messageTop">
-    	<h2></h2>
-    	<h3></h3>
-    	<p></p>
+   
+    <div id="readMessage">
+	    <div class="messageTop">
+	    	<h2></h2>
+	    	<h3></h3>
+	    	<p></p>
+	    	<input type="hidden" id="sender">
+	    </div>
+		<div class="message">
+		</div>
+		<input type="button" id="replyMessage" value="<?php echo label('reply',$this)?>"/>
     </div>
-	<div class="message">
-	
-	</div>
-	<a href="#"><?php echo label('reply',$this)?></a>
+    
+    <div id="replyMessageArea">
+    	<label for="title"><?php echo label('title',$this)?></label>
+    	<input name="title" id="replyTitle">
+    	<input type="hidden" id="replyReciever">
+    	<label for="message"><?php echo label('message',$this)?></label>
+    	<textarea name="content" id="replyContent"></textarea>
+    	<input type="button" id="reply" value="<?php echo label('reply',$this)?>"/>
+    </div>
 </div>
 
 

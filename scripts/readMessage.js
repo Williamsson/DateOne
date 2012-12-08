@@ -1,8 +1,12 @@
+window.popup = {
+		
+};
+
 $(document).ready( function() {
     	
 		 $("#messages table tr td a").click(function(){
 		        var messageId = $(this).attr("href");
-		        
+
 		        var messageId = messageId.replace("#", "");
 		        
 			 $.getJSON("http://dev.wilsim.se:8080/DateOne/se/api/message/id/" + messageId +  "/format/json", function(data) {
@@ -23,15 +27,38 @@ $(document).ready( function() {
 				 	$(contentArea).empty();
 				 	
 				 	popupTitle.append(title);
-				 	popupSender.append(sender);
+				 	popupSender.val(sender);
 				 	popupDateSent.append(dateSent);
 				 	contentArea.append(content);
 			        
 				 	loadPopupBox();
-			        
-			        
+				 	
+				 	window.popup.title = title;
+				 	window.popup.content = content;
+				 	window.popup.receiver = sender;
+				 	
 				});
+			 
+			 $("#popup_box #replyMessage ").click(function(event){
+				 
+				$("#readMessage").hide();
+				$("#replyMessageArea").show();
+				
+				var title = window.popup.title;
+				var content = window.popup.content;
+				var receiver = window.popup.receiver;
+				
+				content = " \n - - - - - - - - - - - - - - - - - - - - - \n" + content;
+				
+				$("#popup_box #replyMessageArea #replyTitle").val(title);
+				$("#popup_box #replyMessageArea #replyContent").val(content);
+				$("#popup_box #replyMessageArea #replyReceiver").val(receiver);
+				
+				
+				 
+			 });
 	    });
+		 
 		
         $('#popupBoxClose').click( function() {            
             unloadPopupBox();

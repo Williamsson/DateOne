@@ -106,7 +106,7 @@
     display:none; /* Hide the DIV */
     position:fixed;  
     _position:absolute; /* hack for internet explorer 6 */  
-    height:400px;  
+    min-height:400px;  
     width:600px;  
     background:#FFFFFF;  
     left: 30%;
@@ -120,6 +120,10 @@
     -moz-box-shadow: 0 0 10px #ccf;
     -webkit-box-shadow: 0 0 10px #ccf;
     box-shadow: 0 0 10px #ccf;
+}
+
+#replyMessageArea{
+	display: none;
 }
 
 #popup_box a{

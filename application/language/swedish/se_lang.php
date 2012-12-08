@@ -26,6 +26,8 @@ $lang['send'] = "Skicka";
 $lang['title'] = "Rubrik";
 $lang['message'] = "Meddelande";
 $lang['close'] = "Stäng";
+$lang['sender'] = "Avsändare";
+$lang['sent_date'] = "Datum";
 
 $lang['language'] = "Språk";
 $lang['choose_country'] = "Välj land..";
