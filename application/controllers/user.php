@@ -111,17 +111,19 @@ class User extends CI_Controller {
 		$this->load->library("pagination");
 		$config = array();
 		$config["total_rows"] = $this->mailAndMessages_model->messages_count(1);
-		$config["per_page"] = 4;
+		$config["per_page"] = 2;
 		$config['base_url'] = base_url(). $this->language_model->getLanguage() . "/user/messages/";
 		$config['uri_segment'] = 4;
+		$choice = $config["total_rows"] / $config["per_page"];
+		$config["num_links"] = round($choice);
+		
 		
 		$this->pagination->initialize($config);
-		$data = $this->general_model->getDataContent('DateOne', 'test_view');
+		$data = $this->general_model->getDataContent('DateOne', 'page/messages_view');
 		$page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
 		$data["results"] = $this->mailAndMessages_model->fetch_countries($config["per_page"], $page);
 		$data["links"] = $this->pagination->create_links();
-		
-		
+				
 		$this->load->view("includes/template/template", $data);
 		
 	}

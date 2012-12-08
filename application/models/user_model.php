@@ -155,7 +155,20 @@ class User_model extends CI_Model{
 		}
 		
 	}
-
+	
+	public function getUsername($userId){
+		$this->db->select('username');
+		$this->db->where('id', $userId);
+		$query = $this->db->get('users');
+		
+		if($query->num_rows() > 0){
+			$username = $query->row()->username;
+			return $username;
+		}else{
+			return false;
+		}
+	}
+	
 	public function isLoggedIn(){
 		$userId = $this->session->userdata('userId');
 		

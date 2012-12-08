@@ -96,6 +96,10 @@
 	clear: both;
 }
 
+#messages table th,td{
+	text-align: left;
+	width: 300px;
+}
 
 
 
