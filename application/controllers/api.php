@@ -10,7 +10,13 @@ class Api extends REST_Controller{
 	     $message = $this->mailAndMessages_model->getMessage($this->get('id'));
 	     
 	     if($message){
-	         $this->response($message, 200); // 200 being the HTTP response code  
+	     	
+	     	if($message['user_id'] == $this->session->userdata('userId')){
+		         $this->response($message, 200); // 200 being the HTTP response code  
+	     	}else{
+	     		$this->response(NULL, 403);
+	     	}
+	     	
 	     }else{
 	     	$this->response(NULL, 404);  
 	     }  
