@@ -30,7 +30,8 @@ class MailAndMessages_model extends CI_Model{
    		$result = array();
    		if($query->num_rows() > 0){
    			$result['title'] = $query->row()->title;
-   			$result['sender'] = $this->user_model->getUsername($query->row()->sender);
+   			$result['senderUsername'] = $this->user_model->getUsername($query->row()->sender);
+   			$result['senderId'] = $query->row()->sender;
    			$result['content'] = $query->row()->content;
    			$result['date_sent'] = $query->row()->date_sent;
    			$result['is_read'] = $query->row()->is_read;
@@ -43,6 +44,7 @@ class MailAndMessages_model extends CI_Model{
    }
    
    public function sendMessage($sender, $receiver, $title, $content){
+   		$receiver = intval($receiver);
    		$query = $this->db->query("INSERT INTO user_messages (sender, receiver, title, content, date_sent, is_read) VALUES('$sender', '$receiver', '$title', '$content', now(), 0)");
    		
    		if($this->db->affected_rows() == 6){

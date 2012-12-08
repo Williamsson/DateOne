@@ -31,8 +31,7 @@
 	    	<p></p>
 	    	<input type="hidden" id="sender">
 	    </div>
-		<div class="message">
-		</div>
+		<textarea rows="20"></textarea>
 		<input type="button" id="replyMessage" value="<?php echo label('reply',$this)?>"/>
     </div>
     

@@ -27,9 +27,7 @@ class Api extends REST_Controller{
 		$title = $this->post('title');
 		$content = $this->post('content');
 		
-		if(is_string($receiver)){
-			$receiver = $this->user_model->getUserId($receiver);
-		}
+		$content = str_replace("------------------------------------------", "\n------------------------------------------",$content);
 		
 	 	$result = $this->mailAndMessages_model->sendMessage($sender,$receiver,$title,$content);
 	 	
