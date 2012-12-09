@@ -13,10 +13,9 @@
 </script>
 
 <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBBvHkHD2fiDut44IhwhFZHhJhUDclYO4I&sensor=false"></script>
-
 <script type = "text/javascript" src="<?php echo base_url();?>scripts/createEventMap.js"></script>
-
 <script type = "text/javascript" src="<?php echo base_url();?>scripts/notifyRange.js"></script>
+<script type = "text/javascript" src="<?php echo base_url();?>scripts/createEvent.js"></script>
 
 
 <div id="createEvent">
