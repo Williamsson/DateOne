@@ -196,6 +196,25 @@ $lang['europe'] = "Europa";
 $lang['no_answer'] = "Vill inte svara";
 $lang['dosent_matter'] = "Spelar ingen roll";
 
+/*
+ * Event stuff
+ */
+
+$lang['event_name'] = "Evenemangets namn";
+$lang['start_date'] = "Startdatum";
+$lang['end_date'] = "Slutdatum";
+$lang['max_participants'] = "Max deltagare";
+$lang['event_description'] = "Beskrivning";
+$lang['event_notification_range'] = "Notifieringsradie, i mil";
+
+
+
+
+
+
+
+
+
 
 
 ?>

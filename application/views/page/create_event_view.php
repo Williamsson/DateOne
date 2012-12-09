@@ -1,39 +1,22 @@
 <script type="text/javascript">  
-	$(function() {  
+	$(function(){
 		$('#startTime').datetimepicker({dateFormat: "yy/mm/dd" });;
 	});  
-	$(function() {  
+	$(function(){
 		$('#endTime').datetimepicker({dateFormat: "yy/mm/dd" });;
 	});
 
+	$(function(){
+		$( "#slider" ).slider({ values: [0], max: 21});
+	});
 	
 </script>
 
 <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBBvHkHD2fiDut44IhwhFZHhJhUDclYO4I&sensor=false"></script>
 
-<script>
-	var myCenter=new google.maps.LatLng(60.508742,15.6649446);
-	
-	function initialize(){
-		var mapProp = {
-		  center:myCenter,
-		  zoom:5,
-		  mapTypeId:google.maps.MapTypeId.ROADMAP
-	  	};
-		
-		var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-		
-		var marker=new google.maps.Marker({
-		  position:myCenter,
-		  draggable:true,
-	 	});
-		
-		marker.setMap(map);
-	}
-	
-	google.maps.event.addDomListener(window, 'load', initialize);
+<script type = "text/javascript" src="<?php echo base_url();?>scripts/createEventMap.js"></script>
 
-</script>
+<script type = "text/javascript" src="<?php echo base_url();?>scripts/notifyRange.js"></script>
 
 
 <div id="createEvent">
@@ -58,6 +41,11 @@
 	<textarea name="description"></textarea>
 
 	<div id="googleMap"></div>
+	
+	<p><?php echo label('event_notification_range',$this);?>
+	
+	<div id="slider"></div>  <input type="text" style="width:20px; margin-top:10px;" id="notifyRange"/>
+	<br/>
 </div>
 
 

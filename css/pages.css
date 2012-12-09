@@ -130,7 +130,7 @@
 	text-decoration:none;  
 }
 
-#popup_box input,textarea{
+#popup_box input textarea{
 	width: 80%;
 	display: block;
 	margin: 10px auto;
@@ -163,11 +163,22 @@
 	font-size:12px; !important;
 }
 
+#createEvent textarea{
+	width: 280px;
+	height: 95px;
+}
+
+#slider{
+	width: 200px;
+}
+
+#createEvent .infoColumn{
+	min-height: auto;
+}
 
 #googleMap{
 	 width:800px;
 	 height:580px;
-	 margin: 0 auto;
 	 padding: 1em;
 	 margin-bottom: 20px;
 }
