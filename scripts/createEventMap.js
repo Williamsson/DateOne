@@ -1,6 +1,6 @@
 var globalNotifyRadius; //Radius is in meters
-var globalMarker;
-var globalCircle;
+var globalEventsCoordinates;
+var globalNotifyBounds;
 
 $(function(){
 	var myCenter=new google.maps.LatLng(60.508742,15.6649446);
@@ -30,8 +30,8 @@ $(function(){
 		
 		window.setInterval(function(){
 			circle.setRadius(globalNotifyRadius);
-			globalMarker = marker.getPosition();
-			globalCircle = circle.getBounds();
+			globalEventsCoordinates = marker.getPosition();
+			globalNotifyBounds = circle.getBounds();
 		}, 1000);
 		
 		google.maps.event.addDomListener(

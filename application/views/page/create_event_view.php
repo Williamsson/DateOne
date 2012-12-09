@@ -22,7 +22,7 @@
 	
 	<div class="infoColumn">
 		<label for="eventname"><?php echo label('event_name',$this)?></label>
-		<input type="text" name="eventname">
+		<input type="text" id="eventName" name="eventname">
 
 		<label for="maxParticipants"><?php echo label('max_participants',$this)?></label>
 		<input type="text" name="maxParticipants" id="maxParticipants">
@@ -37,17 +37,15 @@
 	</div>
 	
 	<label for="description"><?php echo label('event_description',$this)?></label>
-	<textarea name="description"></textarea>
+	<textarea name="description" id="description"></textarea>
 
 	<div id="googleMap"></div>
 	
-	
-	
 	<div class="smallContainer">
 		<p><?php echo label('event_notification_range',$this);?></p>
-		<input type="text" style="width:20px; margin-top:10px;" id="notifyRange"/>
+		<input type="text" style="width:20px; margin-top:10px;" id="notifyRange" value="1"/>
 	</div>
-	<div id="slider"></div> 
+	<div id="slider"></div> <input type="button" id="createEventButton" value="<?php echo label('create_event',$this)?>">
 </div>
 
 
