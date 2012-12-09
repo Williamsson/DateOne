@@ -168,8 +168,17 @@
 	height: 95px;
 }
 
+#createEvent .smallContainer input,p{
+	float: left;
+	margin-left: 10px;
+	margin-top: 15px;
+}
+
 #slider{
 	width: 200px;
+	float: left;
+	margin-top: 19px;
+	margin-left: 20px;
 }
 
 #createEvent .infoColumn{

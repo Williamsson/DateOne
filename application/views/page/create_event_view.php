@@ -42,10 +42,13 @@
 
 	<div id="googleMap"></div>
 	
-	<p><?php echo label('event_notification_range',$this);?>
 	
-	<div id="slider"></div>  <input type="text" style="width:20px; margin-top:10px;" id="notifyRange"/>
-	<br/>
+	
+	<div class="smallContainer">
+		<p><?php echo label('event_notification_range',$this);?></p>
+		<input type="text" style="width:20px; margin-top:10px;" id="notifyRange"/>
+	</div>
+	<div id="slider"></div> 
 </div>
 
 
