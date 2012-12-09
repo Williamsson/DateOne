@@ -13,6 +13,8 @@
 			<?php endif; }?>
 	</div>
 	
-	<p>Här är några slumpade evenemang</p>
+	<div id="randomEvents">
+		<p>Här är några slumpade evenemang</p>
+	</div>
 
 </div>

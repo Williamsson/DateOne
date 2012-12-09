@@ -73,7 +73,8 @@
 			<?php 
 			if($this->uri->segment(4)):?>
 				<a href=""><img src="<?php echo base_url()?>img/flirt.png"/></a><a href=""><img src="<?php echo base_url()?>img/message.png" id="sendMessage"/></a><a href=""><img src="<?php echo base_url()?>img/friend.png"/></a><a href=""><img src="<?php echo base_url()?>img/block.png"/></a>
-			<?php endif;?>
+				<p><?php echo label('user_match',$this); $a = $this->match_model->matchUsers($this->session->userdata('userId'), $this->user_model->getUserId($this->uri->segment(4))); echo": " . $a['match'] . "%" ?></p>
+				<?php endif;?>
 		</div>
 		
 		<div id="profileDescription">

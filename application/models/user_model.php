@@ -248,7 +248,7 @@ class User_model extends CI_Model{
 		$tempStorage = array();
 		
 		foreach($query->result() as $row){
-			if($row->value != 0){
+// 			if($row->value != 0){
 				if(key_exists($row->trait_id, $tempStorage)){
 					$temp = $this->getUserTraitValues($userId,$row->trait_id);
 					$result[$row->trait_id] = $temp;
@@ -256,7 +256,7 @@ class User_model extends CI_Model{
 					$result[$row->trait_id] = intval($row->value);
 				}
 				$tempStorage[$row->trait_id] = $row->value;
-			}
+// 			}
 		}
 		
 		return $result;
@@ -271,7 +271,7 @@ class User_model extends CI_Model{
 		
 		foreach($query->result() as $row){
 			
-			if($row->value != 0){
+// 			if($row->value != 0){
 				if(key_exists($row->trait_id, $tempStorage)){
 					$temp = $this->getUserLookingForTraitValues($userId,$row->trait_id);
 					
@@ -284,7 +284,7 @@ class User_model extends CI_Model{
 					$result[$row->trait_id] = intval($row->value);
 				}
 				$tempStorage[$row->trait_id] = $row->value;
-			}
+// 			}
 			
 		}
 		

@@ -29,6 +29,8 @@ $lang['close'] = "Stäng";
 $lang['sender'] = "Avsändare";
 $lang['sent_date'] = "Datum";
 
+$lang['user_match'] = "Matchning";
+
 $lang['language'] = "Språk";
 $lang['choose_country'] = "Välj land..";
 

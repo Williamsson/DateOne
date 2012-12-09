@@ -130,10 +130,15 @@
 	text-decoration:none;  
 }
 
-#popup_box input textarea{
+#popup_box textarea{
+	width: 80%;
+	margin: 10px auto;
+}
+
+#popup_box input{
 	width: 80%;
 	display: block;
-	margin: 10px auto;
+	margin: 0 auto;
 }
 
 #popupBoxClose {
@@ -163,7 +168,7 @@
 	font-size:12px; !important;
 }
 
-#createEvent textarea{
+#createEvent > textarea{
 	width: 280px;
 	height: 95px;
 }
@@ -202,3 +207,17 @@
 	 padding: 1em;
 	 margin-bottom: 20px;
 }
+
+#myEvents table tr td,th{
+	width: 170px;
+	text-align: left;
+}
+
+
+
+
+
+
+
+
+

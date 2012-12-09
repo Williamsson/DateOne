@@ -38,7 +38,6 @@ class Match_model extends CI_Model{
 							}
 						}
 					}
-					
 				}else{
 					if(key_exists($i,$user2Traits)){
 						if(is_array($user2Traits[$i])){
@@ -94,7 +93,6 @@ class Match_model extends CI_Model{
 				}
 			}
 			
-			
 		}//End for
 		
 		//Take the number of matches and divide by the number of total traits avalible
@@ -108,6 +106,7 @@ class Match_model extends CI_Model{
 		$result = array(
 			'user1-2Match' => $user1MatchesUser2Value,
 			'user2-1Match' => $user2MatchesUser1Value,
+			'match' => ($user1MatchesUser2Value + $user2MatchesUser1Value)/2,
 		);
 		return $result;
 	}

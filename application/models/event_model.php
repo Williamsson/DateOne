@@ -42,5 +42,26 @@ class Event_model extends CI_Model{
 		}
 	}
 	
+	public function fetchEvents($limit, $start,$userId){
+		$this->db->limit($limit, $start);
+		$this->db->select('id,title,start_date,end_date');
+		$this->db->order_by('end_date','DESC');
+		$this->db->where('owner',$userId);
+		$query = $this->db->get("events");
+			
+		if($query->num_rows() > 0) {
+			foreach ($query->result() as $row) {
+				$data[] = $row;
+			}
+			return $data;
+		}
+		return false;
+	}
+	
+	public function getUserSumEvents($userId){
+		$this->db->where('owner',$userId);
+		return $this->db->count_all("events");
+	}
+	
 }
 ?>
