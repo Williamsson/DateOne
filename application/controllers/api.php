@@ -52,5 +52,21 @@ class Api extends REST_Controller{
 		
 		
 	}
+
+	function event_post(){
+		if($this->post('createEvent')){
+			$eventName = $this->post('createEvent');
+			$startDate = $this->post('startDate');
+			$endDate = $this->post('endDate');
+			$maxParticipants = $this->post('maxParticipants');
+			$description = $this->post('description');
+			$eventCoords = $this->post('marker');
+			$notifyRadius = $this->post('circle');
+		}
+	}
+
+
+
+
 }
 ?>

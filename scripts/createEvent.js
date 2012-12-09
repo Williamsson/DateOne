@@ -12,7 +12,15 @@ $(function(){
 		 var circle = globalNotifyBounds;
 		 
 		 if(!!eventName && !!startDate && !!endDate && !!description){
-			 
+			 $.ajax({
+				 type: "POST",
+				 url: "http://dev.wilsim.se:8080/DateOne/en/api/event",
+				 data: {createEvent: eventName, maxParticipants: maxParticipants, startDate: startDate, endDate: endDate, description: description, marker: marker, circle: circle}
+				}).done(function(data){
+					var url = document.URL;
+					url = url.replace("create","myEvents");
+					window.location.href = url;
+				});
 		 }
 		 
 	});
