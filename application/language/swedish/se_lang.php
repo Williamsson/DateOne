@@ -203,9 +203,9 @@ $lang['dosent_matter'] = "Spelar ingen roll";
 $lang['event_name'] = "Evenemangets namn";
 $lang['start_date'] = "Startdatum";
 $lang['end_date'] = "Slutdatum";
-$lang['max_participants'] = "Max deltagare";
+$lang['max_participants'] = "Maxantal deltagare (valfritt)";
 $lang['event_description'] = "Beskrivning";
-$lang['event_notification_range'] = "Notifieringsradie, i mil";
+$lang['event_notification_range'] = "Notifieringsdiameter i mil";
 
 
 

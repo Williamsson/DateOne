@@ -47,7 +47,7 @@ class MailAndMessages_model extends CI_Model{
    		$receiver = intval($receiver);
    		$query = $this->db->query("INSERT INTO user_messages (sender, receiver, title, content, date_sent, is_read) VALUES('$sender', '$receiver', '$title', '$content', now(), 0)");
    		
-   		if($this->db->affected_rows() == 6){
+   		if($this->db->affected_rows() > 0){
    			return true;
    		}else{
    			return false;

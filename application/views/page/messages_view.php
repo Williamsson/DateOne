@@ -1,3 +1,6 @@
+<script type="text/javascript" src="<?php echo base_url();?>scripts/readMessage.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>scripts/sendMessage.js"></script>
+
 <div id="messages">
 	<table>
 		<tr>

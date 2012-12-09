@@ -1,4 +1,4 @@
-var globalNotifyRadius; //Radius is in meters
+var globalNotifyRadius = 10000; //Radius is in meters
 var globalEventsCoordinates;
 var globalNotifyBounds;
 
@@ -23,7 +23,7 @@ $(function(){
 		
 		var circle = new google.maps.Circle({
 			  map: map,
-			  radius: 10000,
+			  radius: globalNotifyRadius,
 			  fillColor: '#AA0000'
 			});
 		circle.bindTo('center', marker, 'position');

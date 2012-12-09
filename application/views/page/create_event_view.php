@@ -7,7 +7,7 @@
 	});
 
 	$(function(){
-		$( "#slider" ).slider({ values: [0], max: 21});
+		$( "#slider" ).slider({ values: [1], max: 21});
 	});
 	
 </script>
@@ -16,6 +16,7 @@
 <script type = "text/javascript" src="<?php echo base_url();?>scripts/createEventMap.js"></script>
 <script type = "text/javascript" src="<?php echo base_url();?>scripts/notifyRange.js"></script>
 <script type = "text/javascript" src="<?php echo base_url();?>scripts/createEvent.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>scripts/timepicker.js"></script>
 
 
 <div id="createEvent">
