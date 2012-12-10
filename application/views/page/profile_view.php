@@ -63,7 +63,10 @@
 	
 ?>
 <div id="profileWrapper">
-	<div id="profileImage">Det här är en profilbild.. Bara så du vet..</div>
+	<div id="profileImage">
+		<img src="<?php echo base_url()?>img/st_pierre.jpg" alt="st:pierre" width="400" height="160">
+		<!-- Det här är en profilbild.. Bara så du vet.. -->
+	</div>
 	
 	<div id="profileShortInfo">
 		<div class="column">

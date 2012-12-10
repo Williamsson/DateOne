@@ -57,8 +57,9 @@ em{color: red;}
 	margin:0;
 	padding:0;
 	font-size:11px;
-	border-left:1px solid #ddd;
-	border-right:1px solid #ddd;
+	border: 1px solid #ddd;
+/*	border-left:1px solid #ddd;
+	border-right:1px solid #ddd;*/
 }
  
 #floatMenu h3 {
@@ -66,11 +67,14 @@ em{color: red;}
 	font-weight:bold;
 	padding:3px;
 	margin:0;
-	background-color:#006;
+	background-color: #1FB4DD;
 	border-bottom:1px solid #ddd;
 	border-top:1px solid #ddd;
 	font-size:13px;
 	text-align:center;
+	--webkit-border-radius: 3px;
+	--moz-border-radius: 3px;
+	border-radius: 3px;
 }
  
 #floatMenu ul {
