@@ -1,50 +1,60 @@
 $(function(){
 	
+	/*
+	 * NOTE:
+	 * JOining and leaving events does NOT work.
+	 * This is because I currently can't retrieve the users ID in a safe way, telling the API to do it results in null and I can't use a hidden form. That'd be editable by anyone.
+	 * Soo.. For now, the don't participate/participate button is there mostly to show the concept of joining/leaving events.
+	 */
+	
+	
 	$("#event #eventSidebar #joinEvent").click(function(){
 		
-		var user = getUser();
+		alert("Funktionen ej tillagd ännu pga säkerhetsproblem");
 		
-		var baseURL = getBaseURL();
-		baseURL = baseURL + "DateOne/en/api/user";
+//		var user = getUser();
+//		var baseURL = getBaseURL();
+//		baseURL = baseURL + "DateOne/en/api/user";
 		
-		var urlPath=window.location.pathname;
-		var urlPathArray = urlPath.split('/'); 
-		var event = urlPathArray[5];
+//		var urlPath=window.location.pathname;
+//		var urlPathArray = urlPath.split('/'); 
+//		var event = urlPathArray[5];
 		
-		$.ajax({
-			 type: "POST",
-			 url: baseURL,
-			 data: {userJoiningEvent: user, event: event},
-			 dataType: "JSON",
-			}).success(function(data){
-				alert("Det här hade kunnat presenteras snyggare, men nu deltar du i evenemanget iaf.");
-			});
+//		$.ajax({
+//			 type: "POST",
+//			 url: baseURL,
+//			 data: {userJoiningEvent: user, event: event},
+//			 dataType: "JSON",
+//			}).success(function(data){
+//				alert("Det här hade kunnat presenteras snyggare, men nu deltar du i evenemanget iaf.");
+//			});
 		
 	});
 	
+	
+	
 	$("#event #eventSidebar #leaveEvent").click(function(){
-		var user = getUser();
-		var baseURL = getBaseURL();
-		baseURL = baseURL + "DateOne/en/api/user";
+	
+		alert("Funktionen ej tillagd ännu pga säkerhetsproblem");
 		
-		var urlPath=window.location.pathname;
-		var urlPathArray = urlPath.split('/'); 
-		var event = urlPathArray[5];
-		console.debug(urlPathArray[5]);
-		
-		
-		$.ajax({
-			 type: "POST",
-			 url: baseURL,
-			 data: {
-				 	createEvent: eventName, 
-			 		event: event
-			 		}
-			}).success(function(data){
-				var url = document.URL;
-				var newUrl = url.replace("create","");
-				window.location.href = newUrl;
-			});
+//		var baseURL = getBaseURL();
+//		baseURL = baseURL + "DateOne/en/api/user";
+//		
+//		var urlPath=window.location.pathname;
+//		var urlPathArray = urlPath.split('/'); 
+//		var event = urlPathArray[5];
+//		
+//		console.log(event);
+//		
+//		$.ajax({
+//			 type: "POST",
+//			 url: baseURL,
+//			 data: {
+//				 	userLeavingEvent: event,
+//			 		}
+//			}).success(function(data){
+//				alert("Det här hade kunnat presenteras på ett bättre sätt, menmen.. Du har lämnat eventet");
+//			});
 		
 		
 	});
@@ -52,23 +62,6 @@ $(function(){
 	function getBaseURL () {
 		return location.protocol + "//" + location.hostname + 
 		(location.port && ":" + location.port) + "/";
-	}
-	
-	function getUser(){
-				
-			var baseURL = getBaseURL();
-			baseURL = baseURL + "DateOne/en/api/user";
-			
-			
-			$.ajax({
-				 type: "GET",
-				 url: baseURL,
-				 data: {getUserId: 1},
-				 dataType: "JSON",
-				}).success(function(data){
-					var user = data;
-					return user;
-				});
 	}
 	
 });

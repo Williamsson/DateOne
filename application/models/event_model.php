@@ -33,21 +33,18 @@ class Event_model extends CI_Model{
 		}
 		
 	}
+	
+	function removeParticipant($event){
 		
-	function removeParticipant($userId, $event){
-		$data = array(
-				'id' => $eventId,
-				'user_id' => $creator,
-		);
-		$this->db->where($data);
-		$result = $this->db->delete('event_participants');
+		$userId = 3;
+
+		$result = $this->db->query("DELETE * FROM event_participants WHERE id = '$event' AND user_id = '$userId'");
 		
-		if($result->num_rows() > 0){
+		if($result->affected_rows() > 0){
 			return true;
 		}else{
 			return false;
 		}
-		
 	}
 	
 	function findNearbyUsers($eventId){

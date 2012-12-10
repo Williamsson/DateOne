@@ -99,18 +99,23 @@ class Api extends REST_Controller{
 
 	function user_get(){
 		if($this->get('getUserId')){
-			
-			$this->response($this->session->userdata('userId'),200);
+			$id = $this->session->userdata('userId');
+			if($id){
+				$this->response($id,200);
+			}else{
+				$this->response(NULL,500);
+			}
+		}else{
+			$this->response(NULL, 400);
 		}
 	}
 	
 	function user_post(){
 		
 		if($this->post('userLeavingEvent')){
-			$user = $this->post('userLeavingEvent');
 			$event = $this->post('event');
 			
-			$result = $this->event_model->addParticipant($user,$event);
+			$result = $this->event_model->removeParticipant($event);
 			
 			if($result === FALSE){
 				$this->response(NULL, 500);
@@ -122,7 +127,7 @@ class Api extends REST_Controller{
 			$user = $this->post('userJoiningEvent');
 			$event = $this->post('event');
 			
-			$result = $this->event_model->removeParticipant($user,$event);
+			$result = $this->event_model->addParticipant($user,$event);
 			
 			if($result === FALSE){
 				$this->response(NULL, 500);
