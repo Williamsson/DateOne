@@ -64,8 +64,35 @@ class Event_model extends CI_Model{
 	}
 	
 	public function getEvent($eventId){
-		$this->db->select('owner,title,start_date,end_date,description,max_participants,longitude,latitude');
-		$this->db->where('id',$eventId);
+		$query = $this->db->query("SELECT owner, start_date, end_date, title, description, max_participants, longitude, latitude FROM events WHERE id ='$eventId'");
+		
+		if($query->num_rows() > 0){
+			$result = array();
+			foreach($query->result() as $row){
+				$result = array(
+							'owner' => $row->owner,
+							'start_date' => $row->start_date,
+							'end_date' => $row->end_date,
+							'title' => $row->title,
+							'description' => $row->description,
+							'max_participants' => $row->max_participants,
+							'longitude' => $row->longitude,
+							'latitude' => $row->latitude,
+							'participants' => array(),
+				);
+			}
+			
+			$query = $this->db->query("SELECT user_id FROM event_participants WHERE id = '$eventId'");
+			if($query->num_rows() > 0){
+				$participants = array();
+				foreach($query->result() as $row){
+					$participants[] = $row->user_id;
+				}
+			$result['participants'] = $participants;
+			}
+			return $result;
+		}
+		
 	}
 }
 ?>
