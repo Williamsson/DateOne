@@ -24,9 +24,19 @@ $(function(){
 		 var markerLat = marker.ab;
 		 
 		 if(!!eventName && !!startDate && !!endDate && !!description){
+			 
+			 function getBaseURL () {
+				   return location.protocol + "//" + location.hostname + 
+			      (location.port && ":" + location.port) + "/";
+				}
+				
+				var baseURL = getBaseURL();
+				baseURL = baseURL + "DateOne/en/api/event";
+				
+			 
 			 $.ajax({
 				 type: "POST",
-				 url: "http://dev.wilsim.se:8080/DateOne/en/api/event",
+				 url: baseURL,
 				 data: {
 					 	createEvent: eventName, 
 				 		maxParticipants: maxParticipants, 
@@ -42,7 +52,7 @@ $(function(){
 				 		}
 				}).success(function(data){
 					var url = document.URL;
-					var newUrl = url.replace("create","myEvents");
+					var newUrl = url.replace("create","");
 					window.location.href = newUrl;
 				});
 		 }else{

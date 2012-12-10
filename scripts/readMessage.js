@@ -8,13 +8,21 @@ $(document).ready( function() {
 		        var messageId = $(this).attr("href");
 		        var messageId = messageId.replace("#", "");
 		        
+		        function getBaseURL () {
+		     	   return location.protocol + "//" + location.hostname + 
+		           (location.port && ":" + location.port) + "/";
+		     	}
+		     	
+		     	var baseURL = getBaseURL();
+		     	baseURL = baseURL + "DateOne/en/api/message";
+		        
 		        $.ajax({
 					type: "POST",
-					url: "http://dev.wilsim.se:8080/DateOne/en/api/message",
+					url: baseURL,
 					data: {messageRead: messageId}
 		        });
 		     
-		        $.getJSON("http://dev.wilsim.se:8080/DateOne/se/api/message/id/" + messageId +  "/format/json", function(data){
+		        $.getJSON(baseURL + "/id/" + messageId +  "/format/json", function(data){
 				 	
 				 	var title = data.title;
 				 	var sender = data.senderUsername;
@@ -53,7 +61,7 @@ $(document).ready( function() {
 				if(!!title){
 					$.ajax({
 						type: "POST",
-						url: "http://dev.wilsim.se:8080/DateOne/en/api/message",
+						url: baseURL,
 						data: {receiver: receiver, title: title, content: content}
 				 }).done(function(msg) {
 						 unloadPopupBox();

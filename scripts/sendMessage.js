@@ -13,9 +13,19 @@ $(document).ready( function() {
 		var content = $("#popup_box #content").val();
 		 
 		if(!!title){
+			
+			function getBaseURL () {
+				   return location.protocol + "//" + location.hostname + 
+			      (location.port && ":" + location.port) + "/";
+				}
+				
+				var baseURL = getBaseURL();
+				baseURL = baseURL + "DateOne/en/api/message";
+				
+			
 			$.ajax({
 			 type: "POST",
-			 url: "http://dev.wilsim.se:8080/DateOne/en/api/message",
+			 url: baseURL,
 			 data: {receiver: receiver, title: title, content: content}
 			}).done(function(msg){
 				unloadPopupBox();
