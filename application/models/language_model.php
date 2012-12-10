@@ -16,13 +16,6 @@ class Language_model extends CI_Model{
 		}
 		
 		
-		/*
-		 * @TODO:
-		 * Skiten kommer inte fungera om en användare skriver in postnummer men inte skriver in rätt land
-		 * Dessutom kan det vara så att användaren är i ett annat land än var den bor när den registrerar,
-		 * så att skriva in postnummer och hämta land på IP kommer inte fungera.
-		 * Måste lägga till en lista med länder i registreringsprocessen helt enkelt. Fult, men nödvändigt.
-		 */
 		
 		if($lang == "se"){
 			$dir = "swedish";
@@ -49,7 +42,6 @@ class Language_model extends CI_Model{
 		
 		if($this->uri->segment(1) == "se"){
 			$lang = "se";
-			
 			$this->session->set_userdata('user_country_initials', $lang);
 			
 			return $lang;
