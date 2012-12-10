@@ -105,10 +105,6 @@ class User_model extends CI_Model{
 			
 			if($password == $dbPassword){
 				
-				echo $password;
-				echo "<br/>";
-				echo $dbPassword;
-				
 				$this->setLoginData($username, $userId);
 				
 				$this->redirect_model->redirect("gotohomepage");

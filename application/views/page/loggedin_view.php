@@ -15,6 +15,11 @@
 	
 	<div id="randomEvents">
 		<p>Här är några slumpade evenemang</p>
+		<?php 
+			$query = $this->db->query("SELECT id, title FROM `events` WHERE id >= (SELECT FLOOR( MAX(id) * RAND()) FROM `events` ) ORDER BY id LIMIT 5;");
+			foreach($query->result() as $row){?>
+				<a href="<?php echo base_url() . $this->language_model->getLanguage() . '/events/event/' . $row->id;?>"><?php echo $row->title;?></a>
+			<?php }?>
 	</div>
 
 </div>
