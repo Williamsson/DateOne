@@ -99,7 +99,7 @@ class Event_model extends CI_Model{
 	function getEventLocation($event){
 		$this->db->select('longitude, latitude');
 		$this->db->where('id',$event);
-		$query = $this->db->select('events');
+		$query = $this->db->get('events');
 		
 		if($query->num_rows() > 0){
 			foreach($query->result() as $row){
