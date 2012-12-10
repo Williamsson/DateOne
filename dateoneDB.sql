@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: localhost
--- Skapad: 07 dec 2012 kl 08:20
+-- Skapad: 10 dec 2012 kl 00:29
 -- Serverversion: 5.5.20
 -- PHP-version: 5.3.10
 
@@ -201,15 +201,33 @@ INSERT INTO `education` (`key`, `value`) VALUES
 
 CREATE TABLE IF NOT EXISTS `events` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `owner` int(11) NOT NULL,
   `start_date` datetime NOT NULL,
   `end_date` datetime NOT NULL,
   `title` varchar(65) COLLATE utf8_bin NOT NULL,
   `description` text COLLATE utf8_bin NOT NULL,
   `max_participants` int(11) NOT NULL,
-  `longitude` int(11) NOT NULL,
-  `latitude` int(11) NOT NULL,
+  `longitude` float NOT NULL,
+  `latitude` float NOT NULL,
+  `notify_se1` float NOT NULL,
+  `notify_se2` float NOT NULL,
+  `notify_oe1` float NOT NULL,
+  `notify_oe2` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=9 ;
+
+--
+-- Dumpning av Data i tabell `events`
+--
+
+INSERT INTO `events` (`id`, `owner`, `start_date`, `end_date`, `title`, `description`, `max_participants`, `longitude`, `latitude`, `notify_se1`, `notify_se2`, `notify_oe1`, `notify_oe2`) VALUES
+(2, 3, '2012-12-09 17:31:00', '2012-12-09 23:31:00', 'Test', 'Test', 12, 60.5087, 15.6649, 60.1943, 60.8232, 16.3036, 15.0263),
+(3, 3, '2012-12-09 17:31:00', '2012-12-08 12:23:00', 'Test', 'Test', 12, 59.7502, 18.6795, 59.5705, 59.9299, 19.0361, 18.3229),
+(4, 3, '2012-12-09 17:39:00', '2012-12-09 22:39:00', 'Test', 'Test', 0, 60.5087, 15.6649, 60.1045, 60.913, 16.4861, 14.8438),
+(5, 3, '2012-12-09 17:49:00', '2012-12-11 22:39:00', 'TestDWAD', 'TestARV', 0, 59.7759, 17.6864, 58.8775, 60.6742, 19.4712, 15.9017),
+(6, 3, '2012-12-09 17:49:00', '2012-12-11 22:39:00', 'TestDWAD', 'TestARV', 0, 59.7759, 17.7304, 58.9674, 60.5843, 19.3366, 16.1241),
+(7, 3, '2012-12-09 17:49:00', '2012-12-11 22:39:00', 'TestDWAD', 'TestARV', 0, 59.7485, 18.6738, 59.7036, 59.7935, 18.763, 18.5847),
+(8, 3, '2012-12-09 18:15:00', '2012-12-23 00:00:00', 'Sexorgie', 'Orgies!', 0, 65.6085, 21.8832, 65.2043, 66.0127, 22.8621, 20.9043);
 
 -- --------------------------------------------------------
 
@@ -470,23 +488,6 @@ INSERT INTO `length` (`key`, `value`) VALUES
 (8, '180  - 190'),
 (9, '190  - 200'),
 (10, '200  - 220');
-
--- --------------------------------------------------------
-
---
--- Tabellstruktur `messages`
---
-
-CREATE TABLE IF NOT EXISTS `messages` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sender` tinyint(4) DEFAULT NULL,
-  `receiver` tinyint(4) DEFAULT NULL,
-  `title` varchar(140) COLLATE utf8_bin DEFAULT NULL,
-  `content` mediumtext COLLATE utf8_bin,
-  `date_sent` datetime DEFAULT NULL,
-  `date_read` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -777,7 +778,7 @@ CREATE TABLE IF NOT EXISTS `traits` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `value` varchar(65) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='"name" is responding to the table of the item, eg. "eye_colo' AUTO_INCREMENT=28 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='"name" is responding to the table of the item, eg. "eye_colo' AUTO_INCREMENT=27 ;
 
 --
 -- Dumpning av Data i tabell `traits`
@@ -827,21 +828,23 @@ CREATE TABLE IF NOT EXISTS `users` (
   `sur_name` varchar(65) COLLATE utf8_bin DEFAULT NULL,
   `country` varchar(65) COLLATE utf8_bin DEFAULT NULL,
   `description` mediumtext COLLATE utf8_bin,
-  `latitude` varchar(11) COLLATE utf8_bin DEFAULT NULL,
-  `longitude` varchar(11) COLLATE utf8_bin DEFAULT NULL,
+  `latitude` float DEFAULT NULL,
+  `longitude` float DEFAULT NULL,
   `year_of_birth` int(4) DEFAULT NULL,
   `month_of_birth` int(2) NOT NULL,
   `day_of_birth` int(2) NOT NULL,
   `postal_number` int(5) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
 
 --
 -- Dumpning av Data i tabell `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `hashed_password`, `salt`, `email`, `first_name`, `sur_name`, `country`, `description`, `latitude`, `longitude`, `year_of_birth`, `month_of_birth`, `day_of_birth`, `postal_number`) VALUES
-(1, 'Williamsson', 'ab22c8ee4ab2f5ea4b39bdf25122a3e1bd211885', '1j!*Z4M/qC//ByAcmf6(p(7?4P#(T/h', 'DenialOfFate@live.se', 'Simon', 'Williamsson', 'Sweden', 'Bitter och trevlig webbutvecklare (bli aldrig programmerare, barn) som älskar att vara ute i skogen och leka krig.', '18.6649446', '59.7503028', 1992, 9, 26, 76146);
+(1, 'Nordbon', '3ca7133bf03548c2676be4fe8b993d559b0a85fa', 'zYF7A2zWGgv&X/cwk(Jf^BTjPh=f&92', 'Nordbon@spray.se', 'Sven', 'Eriksson', 'Sweden', 'Ja e ut'' i skoga å hugg ve'' ja!', 17.0628, 59.665, 1973, 9, 17, 74539),
+(2, 'EricaLang', 'b12173c38ebc477298d8194843c2ff6669e657ea', '7MMwFtK%LDmK_xb#NyyjYjp8-6MLRT?', 'DenialOfFate@live.ses', 'Erica', 'Lang', 'Sweden', 'Bröstaste kvinnan.', 18.6649, 59.7503, 1992, 9, 18, 76146),
+(3, 'Williamsson', '64f020531c023edfb17bd366db341e558cfb2bd2', '_BvvjcQpbnG_D0)pAA/ZRHvCq%aA^2n', 'DenialOfFate@live.se', 'Simon', 'Williamsson', 'Sweden', 'Butter surkart till webbutvecklare.', 18.6649, 59.7503, 1992, 9, 26, 76146);
 
 -- --------------------------------------------------------
 
@@ -853,18 +856,6 @@ CREATE TABLE IF NOT EXISTS `user_blockings` (
   `id` tinyint(4) NOT NULL DEFAULT '0',
   `blocked_user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Tabellstruktur `user_events`
---
-
-CREATE TABLE IF NOT EXISTS `user_events` (
-  `user_id` tinyint(4) NOT NULL DEFAULT '0',
-  `event_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
@@ -909,19 +900,14 @@ CREATE TABLE IF NOT EXISTS `user_looking_for_traits` (
 --
 
 INSERT INTO `user_looking_for_traits` (`id`, `trait_id`, `value`) VALUES
-(1, 1, 0),
 (1, 1, 2),
-(1, 2, 0),
-(1, 2, 1),
+(1, 2, 2),
+(1, 2, 3),
 (1, 3, 0),
-(1, 3, 2),
-(1, 3, 3),
 (1, 4, 0),
 (1, 5, 0),
 (1, 6, 0),
 (1, 7, 0),
-(1, 7, 1),
-(1, 7, 2),
 (1, 8, 0),
 (1, 9, 0),
 (1, 10, 0),
@@ -930,28 +916,106 @@ INSERT INTO `user_looking_for_traits` (`id`, `trait_id`, `value`) VALUES
 (1, 13, 0),
 (1, 14, 0),
 (1, 15, 0),
-(1, 16, 0),
+(1, 16, 2),
+(1, 16, 3),
+(1, 16, 4),
+(1, 16, 5),
 (1, 17, 0),
 (1, 18, 0),
-(1, 18, 1),
-(1, 18, 2),
-(1, 18, 3),
 (1, 19, 0),
-(1, 20, 0),
+(1, 20, 6),
 (1, 21, 0),
-(1, 22, 0),
-(1, 22, 1),
+(1, 22, 3),
 (1, 23, 0),
-(1, 23, 1),
-(1, 23, 2),
 (1, 24, 0),
-(1, 24, 4),
-(1, 24, 5),
-(1, 25, 0),
-(1, 26, 4),
-(1, 26, 5),
-(1, 26, 6),
-(1, 26, 7);
+(1, 25, 1),
+(1, 26, 0),
+(2, 1, 0),
+(2, 2, 1),
+(2, 2, 2),
+(2, 3, 1),
+(2, 3, 2),
+(2, 4, 0),
+(2, 5, 0),
+(2, 6, 0),
+(2, 7, 2),
+(2, 7, 3),
+(2, 7, 4),
+(2, 7, 5),
+(2, 7, 6),
+(2, 8, 1),
+(2, 8, 2),
+(2, 8, 3),
+(2, 9, 0),
+(2, 10, 0),
+(2, 11, 1),
+(2, 11, 2),
+(2, 11, 5),
+(2, 12, 0),
+(2, 13, 0),
+(2, 14, 1),
+(2, 15, 6),
+(2, 15, 7),
+(2, 15, 8),
+(2, 16, 1),
+(2, 17, 0),
+(2, 18, 0),
+(2, 19, 0),
+(2, 20, 0),
+(2, 21, 0),
+(2, 22, 1),
+(2, 23, 1),
+(2, 23, 2),
+(2, 24, 0),
+(2, 25, 0),
+(2, 26, 5),
+(2, 26, 6),
+(2, 26, 7),
+(2, 26, 8),
+(2, 26, 9),
+(2, 26, 10),
+(3, 1, 2),
+(3, 2, 1),
+(3, 2, 2),
+(3, 2, 3),
+(3, 3, 0),
+(3, 4, 0),
+(3, 5, 0),
+(3, 6, 0),
+(3, 7, 0),
+(3, 8, 0),
+(3, 9, 0),
+(3, 10, 0),
+(3, 10, 1),
+(3, 10, 3),
+(3, 10, 10),
+(3, 11, 0),
+(3, 11, 2),
+(3, 11, 3),
+(3, 11, 5),
+(3, 11, 8),
+(3, 11, 10),
+(3, 11, 11),
+(3, 12, 0),
+(3, 13, 0),
+(3, 14, 0),
+(3, 15, 0),
+(3, 16, 1),
+(3, 17, 11),
+(3, 18, 0),
+(3, 19, 0),
+(3, 20, 1),
+(3, 20, 6),
+(3, 21, 0),
+(3, 22, 3),
+(3, 23, 1),
+(3, 23, 2),
+(3, 24, 5),
+(3, 25, 0),
+(3, 26, 5),
+(3, 26, 6),
+(3, 26, 7),
+(3, 26, 8);
 
 -- --------------------------------------------------------
 
@@ -964,6 +1028,32 @@ CREATE TABLE IF NOT EXISTS `user_matches` (
   `matching_user_id` int(11) DEFAULT NULL,
   `match_level` int(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `user_messages`
+--
+
+CREATE TABLE IF NOT EXISTS `user_messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sender` tinyint(4) DEFAULT NULL,
+  `receiver` tinyint(4) DEFAULT NULL,
+  `title` varchar(140) COLLATE utf8_bin DEFAULT NULL,
+  `content` mediumtext COLLATE utf8_bin,
+  `date_sent` datetime DEFAULT NULL,
+  `is_read` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
+
+--
+-- Dumpning av Data i tabell `user_messages`
+--
+
+INSERT INTO `user_messages` (`id`, `sender`, `receiver`, `title`, `content`, `date_sent`, `is_read`) VALUES
+(1, 3, 2, 'Test', 'Test', '2012-12-09 23:03:20', 1),
+(2, 2, 3, 'Test', 'Test2\n\n------------------------------------------\nTest', '2012-12-09 23:06:04', 1),
+(3, 3, 2, 'Test', 'Test3\n\n------------------------------------------\nTest2\n\n\n------------------------------------------\nTest', '2012-12-09 23:06:12', 1);
 
 -- --------------------------------------------------------
 
@@ -984,7 +1074,9 @@ CREATE TABLE IF NOT EXISTS `user_settings` (
 --
 
 INSERT INTO `user_settings` (`user_id`, `email_new_event`, `email_new_message`, `email_new_friend_request`) VALUES
-(1, 0, 0, 0);
+(1, 0, 0, 0),
+(2, 0, 0, 0),
+(3, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1023,7 +1115,9 @@ CREATE TABLE IF NOT EXISTS `user_state` (
 --
 
 INSERT INTO `user_state` (`user_id`, `last_login`, `logged_in`, `date_joined`, `active`, `is_premium`, `role`) VALUES
-(1, '2012-12-07', 1, '2012-12-05 23:57:24', 1, 0, 1);
+(1, '2012-12-09', 0, '2012-12-09 22:14:35', 1, 0, 1),
+(2, '2012-12-09', 1, '2012-12-09 22:18:49', 1, 0, 1),
+(3, '2012-12-09', 1, '2012-12-09 22:24:37', 1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -1043,34 +1137,113 @@ CREATE TABLE IF NOT EXISTS `user_traits` (
 
 INSERT INTO `user_traits` (`user_id`, `trait_id`, `value`) VALUES
 (1, 1, 2),
-(1, 2, 2),
-(1, 3, 4),
-(1, 4, 5),
-(1, 5, 4),
-(1, 6, 3),
-(1, 7, 3),
-(1, 8, 5),
-(1, 9, 3),
+(1, 2, 3),
+(1, 3, 1),
+(1, 4, 4),
+(1, 5, 7),
+(1, 6, 2),
+(1, 7, 1),
+(1, 8, 3),
+(1, 9, 1),
 (1, 10, 1),
-(1, 10, 3),
+(1, 11, 2),
 (1, 11, 5),
-(1, 12, 1),
-(1, 13, 1),
-(1, 13, 3),
+(1, 12, 6),
+(1, 13, 0),
 (1, 14, 1),
 (1, 15, 7),
-(1, 16, 0),
-(1, 17, 11),
-(1, 18, 11),
-(1, 19, 9),
-(1, 20, 1),
-(1, 21, 3),
+(1, 16, 3),
+(1, 17, 17),
+(1, 18, 16),
+(1, 19, 1),
+(1, 20, 6),
+(1, 21, 4),
 (1, 22, 1),
-(1, 23, 1),
 (1, 23, 2),
-(1, 24, 5),
-(1, 25, 0),
-(1, 26, 11);
+(1, 24, 2),
+(1, 25, 1),
+(1, 26, 10),
+(2, 1, 2),
+(2, 2, 1),
+(2, 3, 2),
+(2, 4, 5),
+(2, 5, 5),
+(2, 6, 2),
+(2, 7, 1),
+(2, 8, 2),
+(2, 9, 2),
+(2, 10, 1),
+(2, 10, 3),
+(2, 10, 8),
+(2, 10, 14),
+(2, 11, 1),
+(2, 11, 2),
+(2, 11, 3),
+(2, 11, 5),
+(2, 11, 6),
+(2, 11, 7),
+(2, 12, 1),
+(2, 13, 4),
+(2, 13, 5),
+(2, 13, 26),
+(2, 14, 1),
+(2, 15, 5),
+(2, 16, 1),
+(2, 17, 0),
+(2, 18, 8),
+(2, 19, 4),
+(2, 20, 1),
+(2, 21, 3),
+(2, 22, 3),
+(2, 23, 1),
+(2, 23, 2),
+(2, 24, 3),
+(2, 25, 3),
+(2, 26, 5),
+(3, 1, 2),
+(3, 2, 2),
+(3, 3, 4),
+(3, 4, 5),
+(3, 5, 4),
+(3, 6, 3),
+(3, 7, 3),
+(3, 8, 5),
+(3, 9, 3),
+(3, 10, 1),
+(3, 10, 3),
+(3, 10, 10),
+(3, 10, 14),
+(3, 11, 2),
+(3, 11, 3),
+(3, 11, 5),
+(3, 11, 6),
+(3, 11, 8),
+(3, 11, 9),
+(3, 11, 10),
+(3, 11, 11),
+(3, 12, 1),
+(3, 13, 3),
+(3, 13, 4),
+(3, 13, 10),
+(3, 13, 11),
+(3, 13, 15),
+(3, 13, 20),
+(3, 13, 21),
+(3, 13, 24),
+(3, 14, 1),
+(3, 15, 7),
+(3, 16, 1),
+(3, 17, 11),
+(3, 18, 11),
+(3, 19, 9),
+(3, 20, 1),
+(3, 21, 3),
+(3, 22, 1),
+(3, 23, 1),
+(3, 23, 2),
+(3, 24, 5),
+(3, 25, 0),
+(3, 26, 11);
 
 -- --------------------------------------------------------
 
