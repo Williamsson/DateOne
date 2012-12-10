@@ -6,27 +6,7 @@ class Events extends CI_Controller {
 		if(!$this->user_model->isLoggedIn()){
 			$this->redirect_model->redirect('gotohomepage');
 		}
-		$this->general_model->changeView('DateOne', 'page/events_view');
-	}
-	
-	function event(){
 		
-	}
-	
-	function create(){
-		if(!$this->user_model->isLoggedIn()){
-			$this->redirect_model->redirect('gotohomepage');
-		}
-		$this->general_model->changeView('DateOne', 'page/create_event_view');
-	}
-	
-	function search(){
-		if(!$this->user_model->isLoggedIn()){
-			$this->redirect_model->redirect('gotohomepage');
-		}
-	}
-	
-	function myEvents(){
 		if(!$this->user_model->isLoggedIn()){
 			$this->redirect_model->redirect('gotohomepage');
 		}
@@ -48,10 +28,35 @@ class Events extends CI_Controller {
 		$page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
 		$data["results"] = $this->event_model->fetchEvents($config["per_page"], $page,$userId);
 		$data["links"] = $this->pagination->create_links();
-				
+		
 		$this->load->view("includes/template/template", $data);
 	}
 	
+	function event(){
+		if(!$this->user_model->isLoggedIn()){
+			$this->redirect_model->redirect('gotohomepage');
+		}
+		
+		if(!$this->uri->segment(4)){
+			$this->redirect_model->redirect('gotohomepage');
+		}
+		
+		$this->general_model->changeView('DateOne', 'page/event_view');
+		
+	}
+	
+	function create(){
+		if(!$this->user_model->isLoggedIn()){
+			$this->redirect_model->redirect('gotohomepage');
+		}
+		$this->general_model->changeView('DateOne', 'page/create_event_view');
+	}
+	
+	function search(){
+		if(!$this->user_model->isLoggedIn()){
+			$this->redirect_model->redirect('gotohomepage');
+		}
+	}
 	
 	
 }

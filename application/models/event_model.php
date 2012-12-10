@@ -63,5 +63,9 @@ class Event_model extends CI_Model{
 		return $this->db->count_all("events");
 	}
 	
+	public function getEvent($eventId){
+		$this->db->select('owner,title,start_date,end_date,description,max_participants,longitude,latitude');
+		$this->db->where('id',$eventId);
+	}
 }
 ?>

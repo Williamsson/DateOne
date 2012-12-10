@@ -8,7 +8,13 @@
 			<li><?php echo anchor($this->language_model->getLanguage() . '/user/controlpanel', label('control_panel',$this));?></li>
 		</ul>
 	</li>
-	<li><?php echo anchor($this->language_model->getLanguage() . '/events', label('events',$this));?></li>
+	<li><?php echo anchor($this->language_model->getLanguage() . '/events', label('events',$this));?>
+		<ul>
+			<li><?php echo anchor($this->language_model->getLanguage() . '/events', label('my_events',$this));?></li>
+			<li><?php echo anchor($this->language_model->getLanguage() . '/events/create', label('create_event',$this));?></li>
+			<li><?php echo anchor($this->language_model->getLanguage() . '/events/search', label('search_events',$this));?></li>
+		</ul>
+	</li>
 	<li><?php echo anchor($this->language_model->getLanguage() . '/user/flirts', label('flirts',$this));?></li>
 	<li><?php echo anchor($this->language_model->getLanguage() . '/page/matches', label('user_matches',$this));?></li>
 	<?php 
