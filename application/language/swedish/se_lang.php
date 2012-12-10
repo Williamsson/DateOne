@@ -127,6 +127,7 @@ $lang['user_searching_for_traits'] = "Vad söker du hos din partner?";
 $lang['required_field'] = " måste fyllas i.";
 $lang['not_valid_email'] = "Du har inte fyllt i en giltig email.";
 $lang['no_such_user'] = "Den användaren verkar inte finnas. Försök igen.";
+$lang['something_went_wrong_try_later'] = "Något gick fel, försök igen senare.";
 
 /*
  * Messages
@@ -205,7 +206,8 @@ $lang['dosent_matter'] = "Spelar ingen roll";
 $lang['event_name'] = "Evenemangets namn";
 $lang['start_date'] = "Startdatum";
 $lang['end_date'] = "Slutdatum";
-$lang['max_participants'] = "Maxantal deltagare (valfritt)";
+$lang['max_participants'] = "Max antal deltagare";
+$lang['participants'] = "Deltagare";
 $lang['event_description'] = "Beskrivning";
 $lang['event_notification_range'] = "Notifieringsdiameter i mil";
 

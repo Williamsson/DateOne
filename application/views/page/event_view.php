@@ -1,6 +1,65 @@
 <?php
 	$eventId = $this->uri->segment(4);
 	
-	var_dump($this->event_model->getEvent($eventId));
+	$eventData = $this->event_model->getEvent($eventId);
+	
+	if(!$eventData){
+		echo "<h2>" . label('something_went_wrong_try_later',$this);
+		
+	}else{?>
+		<div id="event">
+			<script type = "text/javascript" src="<?php echo base_url();?>scripts/showEventMap.js"></script>
+			<div id="eventHeader">
+				<h2><?php echo $eventData['title']?></h2>
 
+				<div id="eventDescription">
+					<?php echo $eventData['description'];?>
+				</div>
+				
+			</div>
+			
+			<div id="eventSidebar">
+				<h3><?php if($eventData['max_participants'] != 0){ echo label('max_participants',$this) . ": " . $eventData['max_participants'];}?></h3>
+				<h3><?php echo label('start_date',$this) . ": <br/>" . $eventData['start_date']?></h3>
+				<h3><?php echo label('end_date',$this) . ": <br/>" . $eventData['end_date']?></h3>
+				<h4><?php echo label('participants',$this);?>: </h4>
+				<ul>
+					<?php 
+						foreach($eventData['participants'] as $participant){
+							$username = $this->user_model->getUsername($participant);
+							echo "<li><a href='". base_url() . $this->language_model->getLanguage() .  "/user/profile/$username'>" . $username . "</a></li>";
+						}
+					?>
+				</ul>
+			</div>
+			
+			<div id="googleMap" class="floatLeft">
+			
+			</div>
+		
+		</div>
+		
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+<?php }
 ?>

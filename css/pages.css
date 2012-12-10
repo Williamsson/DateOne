@@ -213,10 +213,38 @@
 	text-align: left;
 }
 
+#event #eventHeader{
+	width: 90%;
+	margin: 0 auto 20px;
+}
 
+#event #eventHeader h2{
+	text-align: center;
+}
 
+#event #eventHeader #eventDescription{
+	width: 80%;
+	margin: 0 auto;
+}
 
+#event #eventSidebar{
+	width: 120px;
+	float: left;
+}
 
+#event #eventSidebar ul{
+	list-style: none;
+	margin-bottom: 20px;
+	padding: 0;
+}
+
+#event #eventSidebar ul li{
+	margin: 0;
+}
+
+.floatLeft{
+	float: left;
+}
 
 
 

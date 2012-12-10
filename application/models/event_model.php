@@ -89,8 +89,12 @@ class Event_model extends CI_Model{
 					$participants[] = $row->user_id;
 				}
 			$result['participants'] = $participants;
-			}
 			return $result;
+			}else{
+				return false;
+			}
+		}else{
+			return false;
 		}
 		
 	}

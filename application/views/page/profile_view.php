@@ -71,7 +71,7 @@
 			<p>Land: <?php echo label(strtolower($user['country']),$this);?></p>
 			<p>Ålder: <?php echo $age;?></p>
 			<?php 
-			if($this->uri->segment(4)):?>
+			if($this->uri->segment(4) && $this->uri->segment(4) != $this->session->userdata('username')):?>
 				<a href=""><img src="<?php echo base_url()?>img/flirt.png"/></a><a href=""><img src="<?php echo base_url()?>img/message.png" id="sendMessage"/></a><a href=""><img src="<?php echo base_url()?>img/friend.png"/></a><a href=""><img src="<?php echo base_url()?>img/block.png"/></a>
 				<p><?php echo label('user_match',$this); $a = $this->match_model->matchUsers($this->session->userdata('userId'), $this->user_model->getUserId($this->uri->segment(4))); echo": " . $a['match'] . "%" ?></p>
 				<?php endif;?>
