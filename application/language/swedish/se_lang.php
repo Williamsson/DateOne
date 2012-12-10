@@ -210,6 +210,8 @@ $lang['max_participants'] = "Max antal deltagare";
 $lang['participants'] = "Deltagare";
 $lang['event_description'] = "Beskrivning";
 $lang['event_notification_range'] = "Notifieringsdiameter i mil";
+$lang['participate'] = "Deltar";
+$lang['leave_event'] = "Delta inte";
 
 
 

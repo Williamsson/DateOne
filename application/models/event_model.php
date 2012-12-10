@@ -8,12 +8,8 @@ class Event_model extends CI_Model{
 		
 		if($this->db->affected_rows() > 0){
 			$eventId = $this->db->insert_id();
-			$data = array(
-					'id' => $eventId,
-					'user_id' => $creator,
-			);
 			
-			$this->db->insert('event_participants', $data);
+			$this->addParticipant($creator, $eventId);
 			
 			$nearbyUsers = $this->findNearbyUsers($eventId);
 			
@@ -21,6 +17,37 @@ class Event_model extends CI_Model{
 		}else{
 			return false;
 		}
+	}
+	
+	function addParticipant($userId, $event){
+		$data = array(
+				'id' => $eventId,
+				'user_id' => $creator,
+		);
+		$result = $this->db->insert('event_participants',$data);
+		
+		if($result->num_rows() > 0){
+			return true;
+		}else{
+			return false;
+		}
+		
+	}
+		
+	function removeParticipant($userId, $event){
+		$data = array(
+				'id' => $eventId,
+				'user_id' => $creator,
+		);
+		$this->db->where($data);
+		$result = $this->db->delete('event_participants');
+		
+		if($result->num_rows() > 0){
+			return true;
+		}else{
+			return false;
+		}
+		
 	}
 	
 	function findNearbyUsers($eventId){

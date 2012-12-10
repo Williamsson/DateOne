@@ -27,7 +27,7 @@ $(function(){
 			function initialize(){
 				var mapProp = {
 						center:eventLoc,
-						zoom:5,
+						zoom:7,
 						mapTypeId:google.maps.MapTypeId.ROADMAP
 				};
 				
