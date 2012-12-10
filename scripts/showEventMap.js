@@ -1,6 +1,8 @@
 $(function(){
 	
 	var event = 2;
+	var eventLat;
+	var eventLong;
 	
 	$.ajax({
 		 type: "GET",
@@ -9,18 +11,15 @@ $(function(){
 		 dataType: "JSON",
 		}).success(function(data){
 			createMap(data);
-			console.log(data);
 		});
 	
 	
 	function createMap(data){
 		
-		console.log(data);
+		eventLong = data.long;
+		eventLat = data.lat;
 		
-		var eventLong = data.long;
-		var eventLat data.lat;
-		
-		var eventLoc = new google.maps.LatLng(eventLong, eventLat);
+		var eventLoc = new google.maps.LatLng(eventLat,eventLong);
 		
 		function initialize(){
 			var mapProp = {
