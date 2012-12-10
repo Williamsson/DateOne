@@ -96,8 +96,7 @@
 		?>
 		
 	<div id="footer">
-		<p>&copy; Simon Williamsson | Sasa Ristic | 2012 </p>
-		<p>Simon@wilsim.se</p><p>sasa@lychee.se</p>
+		<p>&copy; <a href="mailto:simon@wilsim.se">Simon Williamsson</a> | <a href="mailto:sasa@lychee.se">Sasa Ristic</a> | 2012 </p>
 	</div>
 
 	</div>

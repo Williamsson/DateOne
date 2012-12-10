@@ -38,7 +38,8 @@ em{color: red;}
 }
 
 #footer a{
-	color: #FFFF80;
+	color: #000;
+	text-decoration: none;
 }
 
 .innertube{
