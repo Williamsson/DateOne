@@ -46,7 +46,7 @@ class User extends CI_Controller {
 	 * Takes care of the login part, if we're not getting any post data, redirect to start page
 	 */
 	public function login(){
-		if($_POST){
+		if($this->input->post()){
 			$this->language_model->loadLanguage();
 			$config = array(
 				array(
@@ -68,9 +68,8 @@ class User extends CI_Controller {
 				$data = $this->general_model->getDataContent('DateOne', 'page/index_view');
 				$this->load->view('/includes/template/template', $data);
 			}else{
-				$this->user_model->login($_POST);
+				$this->user_model->login($this->input->post());
 			}
-			
 			
 		}else{
 			$this->redirect_model->redirect('gotohomepage');

@@ -32,7 +32,6 @@ $(function(){
 				
 				var baseURL = getBaseURL();
 				baseURL = baseURL + "DateOne/en/api/event";
-				
 			 
 			 $.ajax({
 				 type: "POST",

@@ -20,7 +20,7 @@
 	<meta name="keywords" content="<?php echo $keyword;?>"/>
 </head>
 <body>
-	<?php require_once("/../analyticstracking.php");?>
+	<?php require_once(__DIR__."/../analyticstracking.php");?>
 	
 	<div id="maincontainer">
 

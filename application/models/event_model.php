@@ -7,7 +7,16 @@ class Event_model extends CI_Model{
 					VALUES('$creator', '$startDate', '$endDate', '$eventName', '$description', '$maxParticipants', '$eventLong', '$eventLat', '$notifySE1', '$notifySE2', '$notifyOE1', '$notifyOE2')");
 		
 		if($this->db->affected_rows() > 0){
-// 			$this->findNearbyUsers($notifySE1, $notifyOE1, $notifySE2, $notifyOE2);
+			$eventId = $this->db->insert_id();
+			$data = array(
+					'id' => $eventId,
+					'user_id' => $creator,
+			);
+			
+			$this->db->insert('event_participants', $data);
+			
+			$nearbyUsers = $this->findNearbyUsers($eventId);
+			
 			return true;
 		}else{
 			return false;
