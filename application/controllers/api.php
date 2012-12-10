@@ -85,7 +85,7 @@ class Api extends REST_Controller{
 	function event_get(){
 		if($this->get('getEventLoc')){
 			$event = $this->get('getEventLoc');
-			var_dump($event);
+			
 			$eventLoc = $this->event_model->getEventLocation($event);
 			
 			if($eventLoc === FALSE){
