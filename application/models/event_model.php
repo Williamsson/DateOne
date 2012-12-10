@@ -64,21 +64,18 @@ class Event_model extends CI_Model{
 	}
 	
 	public function getEvent($eventId){
-		$query = $this->db->query("SELECT owner, start_date, end_date, title, description, max_participants, longitude, latitude FROM events WHERE id ='$eventId'");
+		$query = $this->db->query("SELECT owner, start_date, end_date, title, description, max_participants FROM events WHERE id ='$eventId'");
 		
 		if($query->num_rows() > 0){
 			$result = array();
 			foreach($query->result() as $row){
 				$result = array(
-							'owner' => $row->owner,
-							'start_date' => $row->start_date,
-							'end_date' => $row->end_date,
-							'title' => $row->title,
-							'description' => $row->description,
-							'max_participants' => $row->max_participants,
-							'longitude' => $row->longitude,
-							'latitude' => $row->latitude,
-							'participants' => array(),
+					'owner' => $row->owner,
+					'start_date' => $row->start_date,
+					'end_date' => $row->end_date,
+					'title' => $row->title,
+					'description' => $row->description,
+					'max_participants' => $row->max_participants,
 				);
 			}
 			
@@ -91,12 +88,29 @@ class Event_model extends CI_Model{
 			$result['participants'] = $participants;
 			return $result;
 			}else{
-				return false;
+				return $result;
 			}
 		}else{
 			return false;
 		}
 		
+	}
+	
+	function getEventLoc($event){
+		$this->db->select('longitude, latitude');
+		$this->db->where('id',$event);
+		$query = $this->db->select('events');
+		
+		if($query->num_rows() > 0){
+			foreach($query->result() as $row){
+				$long = $row->longitude;
+				$lat = $row->latitude;
+			}
+			$return = array('long' => $long, 'lat' => $lat);
+			return $return;
+		}else{
+			return false;
+		}
 	}
 }
 ?>

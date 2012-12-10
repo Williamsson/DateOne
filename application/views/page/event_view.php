@@ -5,7 +5,6 @@
 	
 	if(!$eventData){
 		echo "<h2>" . label('something_went_wrong_try_later',$this);
-		
 	}else{?>
 		<div id="event">
 			<script type = "text/javascript" src="<?php echo base_url();?>scripts/showEventMap.js"></script>
@@ -24,10 +23,12 @@
 				<h3><?php echo label('end_date',$this) . ": <br/>" . $eventData['end_date']?></h3>
 				<h4><?php echo label('participants',$this);?>: </h4>
 				<ul>
-					<?php 
-						foreach($eventData['participants'] as $participant){
-							$username = $this->user_model->getUsername($participant);
-							echo "<li><a href='". base_url() . $this->language_model->getLanguage() .  "/user/profile/$username'>" . $username . "</a></li>";
+					<?php
+						if(isset($eventData['participants'])){
+							foreach($eventData['participants'] as $participant){
+								$username = $this->user_model->getUsername($participant);
+								echo "<li><a href='". base_url() . $this->language_model->getLanguage() .  "/user/profile/$username'>" . $username . "</a></li>";
+							}
 						}
 					?>
 				</ul>

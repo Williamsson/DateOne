@@ -82,7 +82,19 @@ class Api extends REST_Controller{
 		}
 	}
 
-
+	function event_get(){
+		if($this->get('getEventLoc')){
+			$event = $this->get('getEventLoc');
+			$eventLoc = $this->event_model->getEventLocation($event);
+			
+			if($eventLoc === FALSE){
+				$this->response(NULL,404);
+			}else{
+				$this->response($eventLoc, 200);
+			}
+			
+		}
+	}
 
 
 }
