@@ -96,12 +96,15 @@ class Match_model extends CI_Model{
 		}//End for
 		
 		//Take the number of matches and divide by the number of total traits avalible
-		$user1MatchesUser2Value = ($user1MatchesUser2Value/count($user1SearchingFor));
-		$user2MatchesUser1Value = ($user2MatchesUser1Value/count($user2SearchingFor));
+		if($user1MatchesUser2Value != 0 && $user2MatchesUser1Value !=0){
+			$user1MatchesUser2Value = ($user1MatchesUser2Value/count($user1SearchingFor));
+			$user2MatchesUser1Value = ($user2MatchesUser1Value/count($user2SearchingFor));
+		}
 		
 		//Round to nearest percentage
-		$user1MatchesUser2Value = floor($user1MatchesUser2Value*100); 
-		$user2MatchesUser1Value = floor($user2MatchesUser1Value*100);
+		$user1MatchesUser2Value = floor($user1MatchesUser2Value*10); 
+		$user2MatchesUser1Value = floor($user2MatchesUser1Value*10);
+		
 		
 		$result = array(
 			'user1-2Match' => $user1MatchesUser2Value,
