@@ -1,11 +1,15 @@
 $(function(){
 	
+	var event = 2;
+	
 	$.ajax({
 		 type: "GET",
 		 url: "http://dev.wilsim.se:8080/DateOne/en/api/event",
-		 data: {getEventLoc: event}
+		 data: {getEventLoc: event},
+		 format: "JSON",
 		}).success(function(data){
-			createMap(data);
+//			createMap(data);
+			console.log(data);
 		});
 	
 	
@@ -13,8 +17,8 @@ $(function(){
 		
 		console.log(data);
 		
-		var eventLong = data.long;
-		var eventLat data.lat; 
+//		var eventLong = data.long;
+//		var eventLat data.lat;
 		
 		var eventLoc = new google.maps.LatLng(eventLong, eventLat);
 		
