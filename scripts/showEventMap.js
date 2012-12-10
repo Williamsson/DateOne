@@ -6,7 +6,7 @@ $(function(){
 		 type: "GET",
 		 url: "http://dev.wilsim.se:8080/DateOne/en/api/event",
 		 data: {getEventLoc: event},
-		 format: "JSON",
+		 dataType: "JSON",
 		}).success(function(data){
 //			createMap(data);
 			console.log(data);
