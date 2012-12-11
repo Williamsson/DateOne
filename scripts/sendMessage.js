@@ -15,9 +15,9 @@ $(document).ready( function() {
 		if(!!title){
 			
 			function getBaseURL () {
-				   return location.protocol + "//" + location.hostname + 
-			      (location.port && ":" + location.port) + "/";
-				}
+			   return location.protocol + "//" + location.hostname + 
+		      (location.port && ":" + location.port) + "/";
+			}
 				
 				var baseURL = getBaseURL();
 				baseURL = baseURL + "DateOne/en/api/message";

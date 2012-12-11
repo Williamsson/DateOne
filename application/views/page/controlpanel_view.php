@@ -44,7 +44,7 @@
 			if($traitName == "searching_for" || $traitName == "spoken_languages" || $traitName == "favorite_music_genre" || $traitName == "friday_night_activity" || $traitName == "hobby"){
 				$firstColumn .= form_multiselect($traitName . "[]",$options, $val);
 			}else{
-				$firstColumn .= form_dropdown($traitName,$options, $val);
+				$firstColumn .= form_dropdown($traitName,$options, $val, 'class="dropDown"');
 			}
 		}elseif($counter > 3 && $counter <= 14){
 		
@@ -53,7 +53,7 @@
 			if($traitName == "searching_for" || $traitName == "spoken_languages" || $traitName == "favorite_music_genre" || $traitName == "friday_night_activity" || $traitName == "hobby"){
 				$secondColumn .= form_multiselect($traitName . "[]",$options, $val);
 			}else{
-				$secondColumn .= form_dropdown($traitName,$options, $val);
+				$secondColumn .= form_dropdown($traitName,$options, $val,'class="dropDown"');
 			}
 		}else{
 			$thirdColumn .= form_label(label($traitName,$this), $traitName);
@@ -61,7 +61,7 @@
 			if($traitName == "searching_for" || $traitName == "spoken_languages" || $traitName == "favorite_music_genre" || $traitName == "friday_night_activity" || $traitName == "hobby"){
 				$thirdColumn .= form_multiselect($traitName . "[]",$options, $val);
 			}else{
-				$thirdColumn .= form_dropdown($traitName,$options, $val);
+				$thirdColumn .= form_dropdown($traitName,$options, $val,'class="dropDown"');
 			}
 		}
 		
