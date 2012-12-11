@@ -1,24 +1,3 @@
-<script src="<?php echo base_url();?>scripts/htmlbox/htmlbox.colors.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>scripts/htmlbox/htmlbox.styles.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>scripts/htmlbox/htmlbox.syntax.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>scripts/htmlbox/htmlbox.undoredomanager.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>scripts/htmlbox/htmlbox.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-var hb_icon_set_default = $("#htmlbox_icon_set_default").css("height","100").css("width","600").htmlbox({
-    toolbars:[
-	     ["cut","copy","paste","separator_dots","bold","italic","underline","strike","separator","sub","sup","separator_dots","undo","redo","separator_dots",
-		 "left","center","right","justify","separator_dots","ol","ul","indent","outdent","separator_dots","link","unlink","image"],
-		 ["code","removeformat","striptags","separator_dots","quote","paragraph","hr","separator_dots",
-			 {icon:"new.gif",tooltip:"New",command:function(){hb_icon_set_default.set_text("<p></p>");}},
-			 {icon:"open.gif",tooltip:"Open",command:function(){alert('Open')}},
-			 {icon:"save.gif",tooltip:"Save",command:function(){alert('Save')}}
-		  ]
-	],
-	icons:"default",
-	skin:"default"
-});
-</script>
-
 <script type="text/javascript" src="<?php echo base_url();?>scripts/readMessage.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>scripts/sendMessage.js"></script>
 
@@ -55,7 +34,7 @@ var hb_icon_set_default = $("#htmlbox_icon_set_default").css("height","100").css
 	    	<p></p>
 	    	<input type="hidden" id="sender">
 	    </div>
-		<textarea class="textbox" rows="20"></textarea>
+		<textarea rows="20"></textarea>
 		<input type="button" id="replyMessage" value="<?php echo label('reply',$this)?>"/>
     </div>
     
