@@ -1,6 +1,7 @@
 <div id="loggedInArea">
-	<h1><?php echo label('welcome_back',$this) . " " . $this->session->userdata('username')?>!</h1>
-	<p>Här är några slumpade användare som troligen inte har någon som helst koppling eller matchning till dig tills vidare. Det fixar jag när jag får tid</p>
+	<h1><?php echo label('welcome',$this) . " " . $this->session->userdata('username')?>!</h1>
+	<p>Här är några användare som potentiellt matchar dina preferenser. Just nu är de slumpade dock, men det ska vara potentiella matchningar.</p>
+	
 	<div id="randomUsers">
 		<?php 
 			$query = $this->db->query("SELECT username, first_name,sur_name FROM `users` WHERE id >= (SELECT FLOOR( MAX(id) * RAND()) FROM `users` ) ORDER BY id LIMIT 5;");
@@ -14,12 +15,11 @@
 							$hash = md5(strtolower(trim($email)));
 						?>
 						<img src="http://www.gravatar.com/avatar/<?php echo $hash;?>?s=160&d=mm"/></a>
-				
 			<?php endif; }?>
 	</div>
 	
 	<div id="randomEvents">
-		<p>Här är några slumpade evenemang</p>
+		<p>Här är några slumpade evenemang som i framtiden kommer vara evenemang i ditt område istället för slumpade.</p>
 		<?php 
 			$query = $this->db->query("SELECT id, title FROM `events` WHERE id >= (SELECT FLOOR( MAX(id) * RAND()) FROM `events` ) ORDER BY id LIMIT 5;");
 			foreach($query->result() as $row){?>
@@ -28,3 +28,4 @@
 	</div>
 
 </div>
+

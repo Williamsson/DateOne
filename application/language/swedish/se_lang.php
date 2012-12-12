@@ -34,24 +34,9 @@ $lang['user_match'] = "Matchning";
 $lang['language'] = "Språk";
 $lang['choose_country'] = "Välj land..";
 
-$lang['swedish'] = "Svenska";
-$lang['sweden'] = "Sverige";
-$lang['english'] = "Engelska";
-$lang['england'] = "England";
-$lang['spanish'] = "Spanska";
-$lang['spain'] = "Spanien";
-$lang['german'] = "Tyska";
-$lang['germany'] = "Tyskland";
-$lang['chinese'] = "Kinesiska";
-$lang['norweigan'] = "Norska";
-$lang['danish'] = "Danska";
-$lang['finish'] = "Finska";
-$lang['french'] = "Franska";
-$lang['turkish'] = "Turkiska";
-
 $lang['login'] = "Logga in";
 $lang['logout'] = "Logga ut";
-$lang['welcome_back'] = "Välkommen tillbaka";
+$lang['welcome'] = "Välkommen ";
 
 $lang['faulty_login'] = "Felaktigt användarnamn eller lösenord.";
 
@@ -195,7 +180,6 @@ $lang['searchingfor_tobacco_habits'] = "Tobaksvanor";
 $lang['searchingfor_weight'] = "Vikt";
 $lang['searchingfor_searching_for'] = "Söker..";
 
-$lang['europe'] = "Europa";
 $lang['no_answer'] = "Vill inte svara";
 $lang['dosent_matter'] = "Spelar ingen roll";
 
@@ -212,6 +196,202 @@ $lang['event_description'] = "Beskrivning";
 $lang['event_notification_range'] = "Notifieringsdiameter i mil";
 $lang['participate'] = "Deltar";
 $lang['leave_event'] = "Delta inte";
+
+
+
+/*
+ * Countries, places, etc
+ */
+
+$lang['europe'] = "Europa";
+$lang['scandinavia'] = "Skandinavien";
+$lang['asia'] = "Asien";
+$lang['middle_east'] = "Mellanöstern";
+$lang['africa'] = "Afrika";
+$lang['latin_america'] = "Latinamerika";
+$lang['northern_america'] = "Nordamerika";
+$lang['swedish'] = "Svenska";
+$lang['sweden'] = "Sverige";
+$lang['english'] = "Engelska";
+$lang['england'] = "England";
+$lang['spanish'] = "Spanska";
+$lang['spain'] = "Spanien";
+$lang['german'] = "Tyska";
+$lang['germany'] = "Tyskland";
+$lang['chinese'] = "Kinesiska";
+$lang['norweigan'] = "Norska";
+$lang['danish'] = "Danska";
+$lang['finish'] = "Finska";
+$lang['french'] = "Franska";
+$lang['turkish'] = "Turkiska";
+/*
+ * User traits
+ */
+$lang['very_good_looking'] = "Väldigt snygg";
+$lang['good_looking'] = "Snygg";
+$lang['average'] = "Ganska vanlig";
+$lang['bad_looking'] = "Mindre snygg";
+
+$lang['muscular'] = "Muskulös";
+$lang['well_built'] = "Välbyggd";
+$lang['regular_body'] = "Vanlig kropp";
+$lang['bit_fat'] = "Några kilon för många..";
+$lang['fat'] = "Tjock";
+
+$lang['married'] = "Gift";
+$lang['engaged'] = "Förlovad";
+$lang['relationship'] = "I ett förhållande";
+$lang['divorced'] = "Skild";
+$lang['single'] = "Singel";
+
+$lang['buissiness'] = "Affärsmässigt";
+$lang['classy'] = "Classy, hippt";
+$lang['ordinary'] = "Inget speciellt";
+$lang['my_own_style'] = "Min egen stil";
+$lang['trendy'] = "Trendigt";
+$lang['rock'] = "Rockigt";
+
+$lang['very_often'] = "Väldigt ofta";
+$lang['often'] = "Ofta";
+$lang['with_company'] = "Med sällskap";
+$lang['almost_never'] = "Nästan aldrig";
+$lang['never'] = "Aldrig";
+
+$lang['elementary_school'] = "Grundskolan";
+$lang['college'] = "Högskola";
+$lang['university'] = "Universitet";
+$lang['bacherlor'] = "Kandidatsexamen";
+$lang['masters'] = "Magistersexamen";
+$lang['doctoral'] = "Doktorsexamen";
+
+$lang['regular'] = "Ofta";
+$lang['seldom'] = "Sällan";
+
+$lang['green'] = "Gröna";
+$lang['blue'] = "Blåa";
+$lang['brown'] = "Bruna";
+$lang['grey'] = "Gråa";
+
+$lang['classical'] = "Klassiskt";
+$lang['electronic'] = "Elektronisk";
+$lang['pop'] = "Pop";
+$lang['blues'] = "Blues";
+$lang['dance'] = "Dansmusik";
+$lang['disco'] = "Disco";
+$lang['hip_hop'] = "Hip hop";
+$lang['country'] = "Country";
+$lang['hard_rock'] = "Hårdrock";
+$lang['folk'] = "Folkmusik";
+$lang['opera'] = "Opera";
+$lang['reagge'] = "Reagge";
+
+$lang['party'] = "Festa";
+$lang['after_work'] = "After work";
+$lang['cinema'] = "Bio";
+$lang['theatre'] = "Teater";
+$lang['meet_friends'] = "Träffa vänner";
+$lang['concert'] = "Konserter";
+$lang['read_book'] = "Läsa en bok";
+$lang['watch_movie'] = "Se på film";
+$lang['cuddle'] = "Mysa";
+$lang['play_game'] = "Spela spel";
+$lang['restaurant'] = "Gå på restaurang";
+
+$lang['blonde'] = "Blondin";
+$lang['brunette'] = "Brunett";
+$lang['bald'] = "Skallig";
+$lang['red'] = "Röd";
+$lang['white_grey'] = "Vit/grå";
+$lang['black'] = "Svart";
+
+$lang['books'] = "Böcker";
+$lang['art'] = "Konst";
+$lang['music'] = "Musik";
+$lang['dancing'] = "Dansa";
+$lang['animals'] = "Djur";
+$lang['photography'] = "Fotografi";
+$lang['history'] = "Historia";
+$lang['writing'] = "Skrivande";
+$lang['games'] = "Spel";
+$lang['drawing'] = "Rita";
+$lang['walking'] = "Promenera";
+$lang['movies'] = "Filmer";
+$lang['hiking'] = "Camping/Hajk";
+$lang['cooking'] = "Matlagning";
+$lang['travel'] = "Resa";
+$lang['exercising'] = "Träning";
+$lang['cars_motorcykles'] = "Bilar/motorcyklar";
+$lang['computers'] = "Datorer";
+$lang['fishing_hunting'] = "Fiske/Jakt";
+$lang['painting'] = "Måla";
+$lang['politics'] = "Politik";
+$lang['roleplaying'] = "Rollspela";
+
+$lang['alone'] = "Ensam";
+$lang['with_parents'] = "Med föräldrar";
+$lang['with_roommate'] = "Med rumskompis-ar";
+$lang['with_children'] = "Med barn";
+$lang['with_partner'] = "Med sambo";
+$lang['with_family'] = "Med familj";
+
+$lang['administration'] = "Administrativt";
+$lang['artist'] = "Artist";
+$lang['chef'] = "Kock";
+$lang['construction'] = "Byggbranchen";
+$lang['architect'] = "Arkitekt";
+$lang['economy'] = "Ekonomi";
+$lang['retail'] = "Detaljhandeln";
+$lang['health_care'] = "Vården";
+$lang['hotel_restaurant'] = "Hotell/Restaurang";
+$lang['engineer'] = "Ingenjör";
+$lang['it'] = "IT";
+$lang['jurisprudence'] = "Juridik";
+$lang['entertainment'] = "Underhållning";
+$lang['student'] = "Student";
+$lang['teaching'] = "Utbildning";
+$lang['retired'] = "Pensionerad";
+
+$lang['ambitious'] = "Ambitiös";
+$lang['generous'] = "Generös";
+$lang['happy'] = "Munter";
+$lang['sensible'] = "Förnuftig/Resonabel";
+$lang['calm'] = "Lugn";
+$lang['caring'] = "Omtänksam";
+$lang['social'] = "Social";
+$lang['spontaneous'] = "Spontan";
+$lang['proud'] = "Stolt";
+$lang['adventurous'] = "Äventyrlig";
+$lang['carefree'] = "Bekymmerslös";
+$lang['shy'] = "Blyg";
+$lang['dominating'] = "Dominerande";
+$lang['sad'] = "Ledsen/Deppig";
+$lang['carefull'] = "Försiktig";
+$lang['self_contained'] = "Reserverad";
+$lang['stubborn'] = "Envis";
+$lang['emotional'] = "Känslig";
+
+$lang['dog'] = "Hund";
+$lang['cat'] = "Katt";
+$lang['bird'] = "Fågel";
+$lang['fish'] = "Fisk";
+$lang['horse'] = "Häst";
+$lang['reptiles'] = "Reptil";
+$lang['rabbit_hamster'] = "Kanin/Hamster/Gnagare";
+$lang['no_animal'] = "Inget djur";
+
+$lang['christian'] = "Kristen";
+$lang['jewish'] = "Jude";
+$lang['islam'] = "Islamist";
+$lang['buddhism'] = "Buddhist";
+$lang['hinduism'] = "Hinduist";
+$lang['atheist'] = "Ateist";
+
+$lang['very_romantic'] = "Väldigt romantisk";
+$lang['romantic'] = "Romantisk";
+$lang['little_romantic'] = "Lite romantisk";
+$lang['not_romantic'] = "Inte romantisk alls";
+
+
 
 
 
