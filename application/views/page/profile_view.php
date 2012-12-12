@@ -68,7 +68,7 @@
 			$email = $this->user_model->getUserEmail($userId);
 			$hash = md5(strtolower(trim($email)));
 		?>
-		<img src="http://www.gravatar.com/avatar/<?php echo $hash;?>?s=160" />
+		<img src="http://www.gravatar.com/avatar/<?php echo $hash;?>?s=160&d=mm" />
 	</div>
 	
 	<div id="profileShortInfo">
