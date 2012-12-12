@@ -8,7 +8,12 @@
 				if($row->username != $this->session->userdata('username')):
 				?>
 				
-				<a href="<?php echo base_url() . $this->language_model->getLanguage() . '/user/profile/' . $row->username;?>"><div id="profileImage" style="margin-right: 10px;"><?php echo "Det här låtsas vara " . $row->username . "'s profilbild"?></div></a>
+				<a href="<?php echo base_url() . $this->language_model->getLanguage() . '/user/profile/' . $row->username;?>"><?php 
+							$userId = $row->username;
+							$email = $this->user_model->getUserEmail($userId);
+							$hash = md5(strtolower(trim($email)));
+						?>
+						<img src="http://www.gravatar.com/avatar/<?php echo $hash;?>?s=160" /></a>
 				
 			<?php endif; }?>
 	</div>

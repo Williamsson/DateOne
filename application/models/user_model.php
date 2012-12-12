@@ -166,6 +166,11 @@ class User_model extends CI_Model{
 	}
 	
 	function getUserEmail($userId){
+		
+		if(!is_int($userId)){
+			$userId = $this->getUserId($userId);
+		}
+		
 		$this->db->select('email');
 		$this->db->where('id',$userId);
 		$query = $this->db->get('users');
