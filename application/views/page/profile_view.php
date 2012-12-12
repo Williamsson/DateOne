@@ -20,7 +20,7 @@
 	$year = date('Y');
 	$age = $year - $user['year_of_birth'];
 	
-	$userId = $this->user_model->getUserId($profile);
+	$userId = intval($this->user_model->getUserId($profile));
 	
 	$traits = $this->getFromDB_model->getTraits();
 	
