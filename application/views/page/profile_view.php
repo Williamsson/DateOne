@@ -64,8 +64,11 @@
 ?>
 <div id="profileWrapper">
 	<div id="profileImage">
-		<img src="<?php echo base_url()?>img/st_pierre.jpg" alt="st:pierre" width="400" height="160">
-		<!-- Det här är en profilbild.. Bara så du vet.. -->
+		<?php 
+			$email = $this->user_model->getUserEmail($userId);
+			$hash = md5(strtolower(trim($email)));
+		?>
+		<img src="http://www.gravatar.com/avatar/<?php echo $hash;?>?s=160" />
 	</div>
 	
 	<div id="profileShortInfo">

@@ -165,6 +165,19 @@ class User_model extends CI_Model{
 		}
 	}
 	
+	function getUserEmail($userId){
+		$this->db->select('email');
+		$this->db->where('id',$userId);
+		$query = $this->db->get('users');
+		
+		if($query->num_rows() > 0){
+			foreach($query->result() as $row){
+				$email = $row->email;
+			}
+			return $email;
+		}
+	}
+	
 	public function isLoggedIn(){
 		$userId = $this->session->userdata('userId');
 		
