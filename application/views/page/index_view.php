@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="eleven columns aplha">
 		<div class="row">
-			<img src="<?php echo base_url()?>img/couple.jpg" alt="couple" width="570" height="280">
+			<img src="<?php echo base_url()?>img/siteimages/iStock_000010563305Small.jpg" alt="couple" width="570" height="386">
  		</div>
  	</div>
  	
@@ -328,7 +328,7 @@
 		<p><?php echo label('who_uses_dateone',$this)?></p>
 	</div>
 	
-		<img src="<?php echo base_url()?>img/armani.jpg" alt="armani" width="280" height="240" id="indexBottomImage"/>
+		<img src="<?php echo base_url()?>img/siteimages/iStock_000011227322Small.jpg" alt="armani" width="280" height="240" id="indexBottomImage"/>
 	
 	
 </div>

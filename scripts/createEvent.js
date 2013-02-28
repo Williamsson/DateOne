@@ -13,25 +13,28 @@ $(function(){
 		 var description = $("#description").val();
 		 var marker = globalEventsCoordinates;
 		 var notifySE = globalNotifyBounds.Z;
-		 var notifyOE = globalNotifyBounds.ca;
+		 var notifyOE = globalNotifyBounds.fa;
+		 
 		 
 		 var notifySEb = notifySE.b;
 		 var notifySEd = notifySE.d;
 		 var notifyOEb = notifyOE.b;
 		 var notifyOEd = notifyOE.d;
 		 
-		 var markerLong = marker.$a;
-		 var markerLat = marker.ab;
+		 console.log(marker);
+		 
+		 var markerLong = marker.ib;
+		 var markerLat = marker.hb
 		 
 		 if(!!eventName && !!startDate && !!endDate && !!description){
 			 
 			 function getBaseURL () {
-				   return location.protocol + "//" + location.hostname + 
-			      (location.port && ":" + location.port) + "/";
-				}
-				
-				var baseURL = getBaseURL();
-				baseURL = baseURL + "DateOne/en/api/event";
+			   return location.protocol + "//" + location.hostname + 
+		      (location.port && ":" + location.port) + "/";
+			}
+			
+			var baseURL = getBaseURL();
+			baseURL = baseURL + "DateOne/en/api/event";
 			 
 			 $.ajax({
 				 type: "POST",
@@ -55,7 +58,7 @@ $(function(){
 					window.location.href = newUrl;
 				});
 		 }else{
-			 alert("FYll i alla fält.");
+			 alert("Fyll i alla fält.");
 		 }
 		 
 	});

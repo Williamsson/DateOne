@@ -5,13 +5,12 @@ class Event_model extends CI_Model{
 		
 		$query = $this->db->query("INSERT INTO events (owner, start_date, end_date, title, description, max_participants, longitude, latitude, notify_se1, notify_se2, notify_oe1, notify_oe2) 
 					VALUES('$creator', '$startDate', '$endDate', '$eventName', '$description', '$maxParticipants', '$eventLong', '$eventLat', '$notifySE1', '$notifySE2', '$notifyOE1', '$notifyOE2')");
-		
 		if($this->db->affected_rows() > 0){
 			$eventId = $this->db->insert_id();
 			
 			$this->addParticipant($creator, $eventId);
 			
-			$nearbyUsers = $this->findNearbyUsers($eventId);
+// 			$nearbyUsers = $this->findNearbyUsers($eventId);
 			
 			return true;
 		}else{
@@ -21,12 +20,12 @@ class Event_model extends CI_Model{
 	
 	function addParticipant($userId, $event){
 		$data = array(
-				'id' => $eventId,
-				'user_id' => $creator,
+				'id' => $event,
+				'user_id' => $userId,
 		);
-		$result = $this->db->insert('event_participants',$data);
+		$query =  $this->db->insert('event_participants',$data);
 		
-		if($result->num_rows() > 0){
+		if($this->db->affected_rows() > 0){
 			return true;
 		}else{
 			return false;
@@ -113,16 +112,14 @@ class Event_model extends CI_Model{
 			}
 			
 			$query = $this->db->query("SELECT user_id FROM event_participants WHERE id = '$eventId'");
+			$participants = array();
 			if($query->num_rows() > 0){
-				$participants = array();
 				foreach($query->result() as $row){
 					$participants[] = $row->user_id;
 				}
+			}
 			$result['participants'] = $participants;
 			return $result;
-			}else{
-				return $result;
-			}
 		}else{
 			return false;
 		}

@@ -6,7 +6,7 @@ $(function(){
 	}
 	
 	var baseURL = getBaseURL();
-	baseURL = baseURL + "DateOne/en/api/event";
+	baseURL = baseURL + "DateOne/api/event";
 
 	var urlPath=window.location.pathname;
 	var urlPathArray = urlPath.split('/'); 
@@ -22,11 +22,11 @@ $(function(){
 			var long = data.long;
 			var lat = data.lat;
 			
-			var eventLoc = new google.maps.LatLng(long,lat);
+			var eventLoc = new google.maps.LatLng(lat, long);
 			
 			function initialize(){
 				var mapProp = {
-						center:eventLoc,
+						center: eventLoc,
 						zoom:7,
 						mapTypeId:google.maps.MapTypeId.ROADMAP
 				};
@@ -41,9 +41,9 @@ $(function(){
 				marker.setMap(map);
 				
 			}
-			
-			
 			google.maps.event.addDomListener(window, 'load', initialize());
+			
+			
 		});
 	
 	

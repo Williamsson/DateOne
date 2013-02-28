@@ -297,7 +297,7 @@ $lang['cuddle'] = "Mysa";
 $lang['play_game'] = "Spela spel";
 $lang['restaurant'] = "Gå på restaurang";
 
-$lang['blonde'] = "Blondin";
+$lang['blonde'] = "Blond";
 $lang['brunette'] = "Brunett";
 $lang['bald'] = "Skallig";
 $lang['red'] = "Röd";
