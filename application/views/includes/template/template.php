@@ -11,11 +11,9 @@
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" type="text/css" media="screen"/>
 	<link rel="stylesheet" href="<?php echo base_url();?>css/pages.css" type="text/css" media="screen"/>
 
-	
 	<script type="text/javascript" src="<?php echo base_url();?>jquery/jquery-1.8.1.min.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-	<script type="text/javascript" src="<?php echo base_url();?>jquery/floating-1.12.js"></script>
-	<script type="text/javascript" src="<?php echo base_url();?>scripts/menu.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>scripts/globalStuff.js"></script>
 	
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 	<meta name="description" content="<?php echo $description;?>"/>

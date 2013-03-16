@@ -12,6 +12,16 @@ em{color: red;}
 	margin: 0 auto; /*Center container on page*/
 }
 
+#allEventsMap #googleMap{
+	width: 65%;
+	float: left;
+}
+#searchBar{
+	float: right;
+	width: 30%;
+	height: 612px;
+	background-color: #ccf;
+}
 #topsection{
 	height: 270px; /*Height of top section*/
 	border-bottom: 1px solid black;

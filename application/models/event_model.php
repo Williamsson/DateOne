@@ -126,6 +126,28 @@ class Event_model extends CI_Model{
 		
 	}
 	
+	public function getAllEvents(){
+		$query = $this->db->query("SELECT id, description, start_date, end_date, title, longitude, latitude FROM events");
+		
+		if($query->num_rows() > 0){
+			$result = array();
+			foreach($query->result() as $row){
+				$result[] = array(
+						'start_date' => $row->start_date,
+						'end_date' => $row->end_date,
+						'title' => $row->title,
+						'longitude' => $row->longitude,
+						'latitude' => $row->latitude,
+						'description' => $row->description,
+						'id' => $row->id,
+				);
+			}
+			return $result;
+		}else{
+			return false;
+		}
+	}
+	
 	function getEventLocation($event){
 		$this->db->select('longitude, latitude');
 		$this->db->where('id',$event);

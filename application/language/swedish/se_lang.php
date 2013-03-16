@@ -28,6 +28,7 @@ $lang['message'] = "Meddelande";
 $lang['close'] = "Stäng";
 $lang['sender'] = "Avsändare";
 $lang['sent_date'] = "Datum";
+$lang['event_map'] = "Evenemangskarta";
 
 $lang['user_match'] = "Matchning";
 

@@ -2,7 +2,6 @@ $(function(){
 	
 	$("#createEvent #createEventButton").click(function(event){
 		 event.preventDefault();
-		 
 		 var eventName = $("#eventName").val();
 		 var maxParticipants = $("#maxParticipants").val();
 		 if(!maxParticipants){
@@ -12,29 +11,25 @@ $(function(){
 		 var endDate = $("#endTime").val();
 		 var description = $("#description").val();
 		 var marker = globalEventsCoordinates;
-		 var notifySE = globalNotifyBounds.Z;
-		 var notifyOE = globalNotifyBounds.fa;
-		 
+
+//		 console.log(globalNotifyBounds);
+		 var notifySE = globalNotifyBounds.fa;
+		 var notifyOE = globalNotifyBounds.ka;
 		 
 		 var notifySEb = notifySE.b;
 		 var notifySEd = notifySE.d;
 		 var notifyOEb = notifyOE.b;
 		 var notifyOEd = notifyOE.d;
 		 
-		 console.log(marker);
+//		 console.log(marker); 
+		 var markerLat = marker.mb;
+		 var markerLong = marker.nb;
 		 
-		 var markerLong = marker.ib;
-		 var markerLat = marker.hb
-		 
+		
 		 if(!!eventName && !!startDate && !!endDate && !!description){
 			 
-			 function getBaseURL () {
-			   return location.protocol + "//" + location.hostname + 
-		      (location.port && ":" + location.port) + "/";
-			}
-			
 			var baseURL = getBaseURL();
-			baseURL = baseURL + "DateOne/en/api/event";
+			baseURL = baseURL + "en/api/event";
 			 
 			 $.ajax({
 				 type: "POST",

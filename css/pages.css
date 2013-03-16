@@ -260,3 +260,11 @@
 #readMessage table{
 	margin: 10px auto;
 }
+
+#eventMap{
+	float: left;
+}
+
+#searchBar{
+	float: right;
+}
