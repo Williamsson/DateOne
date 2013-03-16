@@ -1,6 +1,3 @@
-<script type="text/javascript" src="<?php echo base_url();?>scripts/readMessage.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>scripts/sendMessage.js"></script>
-
 <?php 
 	if($this->uri->segment(4)){
 		$profile = $this->uri->segment(4);
@@ -73,7 +70,7 @@
 	
 	<div id="profileShortInfo">
 		<div class="column">
-			<h3><?php echo $user['firstName'] . " " . $user['surName'];?></h3>
+			<h3><?php echo $user['username'];?></h3>
 			<p>Land: <?php echo label(strtolower($user['country']),$this);?></p>
 			<p>Ålder: <?php echo $age;?></p>
 			<?php 
@@ -120,6 +117,8 @@
     	<input type="button" id="sendMessage" value="<?php echo label('send',$this)?>"/>
 	
 </div>
+<script type="text/javascript" src="<?php echo base_url();?>scripts/readMessage.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>scripts/sendMessage.js"></script>
 <?php 
 }
 ?>

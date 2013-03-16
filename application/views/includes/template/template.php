@@ -30,8 +30,13 @@
 			<div class="innertube">
 				<img src="<?php echo base_url();?>img/logo2.png"/>
 				
-				
 				<div id="topBar">
+					
+					<?php 
+						if($this->user_model->isLoggedIn()){
+							$this->load->view('includes/template/mainMenu.php');
+						}
+					?>
 					
 					<div id="languageBar">
 						<form>
@@ -88,12 +93,6 @@
 				<?php $this->load->view($main_content);?>
 			</div>
 		</div>
-		
-		<?php 
-			if($this->user_model->isLoggedIn()){
-				$this->load->view('includes/template/mainMenu');
-			}
-		?>
 		
 	<div id="footer">
 		<p>&copy; <a href="mailto:simon@wilsim.se">Simon Williamsson</a> | <a href="mailto:sasa@lychee.se">Sasa Ristic</a> | 2012 </p>
